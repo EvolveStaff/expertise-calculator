@@ -11,8 +11,10 @@ import {
   tierUnlockThreshold,
   getPointsSpentBeforeTier,
   getMissingRequirements,
+  isBranchGateSatisfied,
   JEDI_ADVANCED_TREE_KEYS,
   MAX_EXPERTISE_POINTS,
+  TREE_BRANCH_GATES,
 } from "./lib/rules";
 
 type Totals = {
@@ -512,6 +514,14 @@ function getNodeDisabledReason(node: VisibleNode): string {
 
   const current = selectedRanks[node.nodeId] ?? 0;
   if (current >= node.maxRank) return "Max rank reached";
+
+  // Branch gate: e.g. Smuggler/BH/Assassin need a mastered melee or ranged tree
+  const mergedRanks = Object.values(selectionsByTree).reduce<Record<string, number>>(
+    (acc, sel) => ({ ...acc, ...sel }), {}
+  );
+  if (!isBranchGateSatisfied(currentTree.key, mergedRanks)) {
+    return TREE_BRANCH_GATES[currentTree.key]?.description ?? "Branch prerequisite not met";
+  }
 
   if (!isTierUnlocked(node.tier, currentTree.nodes, selectedRanks, currentTree.key)) {
     const needed = tierUnlockThreshold(node.tier ?? 1, currentTree.key);

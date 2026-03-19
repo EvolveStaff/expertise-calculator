@@ -38,6 +38,55 @@ export const JEDI_ADVANCED_TREE_KEYS = new Set([
 
 export const FORCE_SENSITIVE_TREE_KEY = "force_sensitive";
 
+// Master nodes for each base melee combat tree (reaching these = "mastered" that tree)
+export const MELEE_MASTER_NODES = new Set([
+  "expertise_brawler_master",
+  "expertise_fencer_master",
+  "expertise_pikeman_master",
+  "expertise_swordsman_master",
+  "expertise_unarmed_master",
+  "expertise_teras_kasi_master",
+]);
+
+// Master nodes for each base ranged combat tree
+export const RANGED_MASTER_NODES = new Set([
+  "expertise_marksman_master",
+  "expertise_carbineer_master",
+  "expertise_heavy_weapon_master",
+  "expertise_pistoleer_master",
+  "expertise_rifleman_master",
+]);
+
+type BranchGate = {
+  requiresOneOf: string[];
+  description: string;
+};
+
+// Trees that require mastery of a base combat skillset before any investment
+export const TREE_BRANCH_GATES: Record<string, BranchGate> = {
+  combat_assassin: {
+    requiresOneOf: [...MELEE_MASTER_NODES, ...RANGED_MASTER_NODES],
+    description: "Requires mastery of a Melee or Ranged combat tree",
+  },
+  combat_bountyhunter: {
+    requiresOneOf: [...MELEE_MASTER_NODES, ...RANGED_MASTER_NODES],
+    description: "Requires mastery of a Melee or Ranged combat tree",
+  },
+  combat_smuggler: {
+    requiresOneOf: [...MELEE_MASTER_NODES, ...RANGED_MASTER_NODES],
+    description: "Requires mastery of a Melee or Ranged combat tree",
+  },
+};
+
+export function isBranchGateSatisfied(
+  treeKey: string,
+  globalSelectedRanks: SelectedRanks
+): boolean {
+  const gate = TREE_BRANCH_GATES[treeKey];
+  if (!gate) return true;
+  return gate.requiresOneOf.some((nodeId) => (globalSelectedRanks[nodeId] ?? 0) >= 1);
+}
+
 // Skill names in the source data use a _NN rank suffix (e.g. expertise_brawler_mdef_01).
 // Strip the suffix to recover the nodeId and the minimum rank required.
 function parseSkillName(skillName: string): { nodeId: string; rank: number } {
@@ -264,6 +313,10 @@ export function canIncreaseRank(
   // Skill prereqs and preclusions are checked against ALL trees (cross-tree prereqs exist).
   const globalSelectedRanks = mergeAllSelections(selectionsByTree);
 
+  // Branch gate: Smuggler, BH, and Assassin require a mastered melee or ranged tree.
+  const currentTreeKey = treeKey ?? allTrees.find((t) => t.id === node.treeId)?.key;
+  if (currentTreeKey && !isBranchGateSatisfied(currentTreeKey, globalSelectedRanks)) return false;
+
   if (!areSkillRequirementsMet(node, globalSelectedRanks)) return false;
   if (hasPreclusionConflict(node, globalSelectedRanks)) return false;
   if (getTotalPointsSpent(selectionsByTree) >= MAX_EXPERTISE_POINTS) return false;
@@ -289,6 +342,24 @@ export function canDecreaseRank(
 
   if (wouldBreakDependenciesIfRemoved(node, selectedRanks, allTrees, selectionsByTree)) {
     return false;
+  }
+
+  // Block removing a master node if it would un-satisfy the branch gate for any invested tree.
+  if (MELEE_MASTER_NODES.has(node.nodeId) || RANGED_MASTER_NODES.has(node.nodeId)) {
+    const currentRankForSim = selectedRanks[node.nodeId] ?? 0;
+    const simulated = { ...mergeAllSelections(selectionsByTree) };
+    if (currentRankForSim <= 1) {
+      delete simulated[node.nodeId];
+    } else {
+      simulated[node.nodeId] = currentRankForSim - 1;
+    }
+    for (const tree of allTrees) {
+      const treeSelections = selectionsByTree[tree.id] ?? {};
+      const hasInvestment = Object.values(treeSelections).some((r) => r > 0);
+      if (hasInvestment && !isBranchGateSatisfied(tree.key, simulated)) {
+        return false;
+      }
+    }
   }
 
   return true;

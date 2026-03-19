@@ -310,7 +310,7 @@ export default function ExpertiseTree({
   onDecrease,
   onSelectNode,
   canIncrease,
-  canDecrease,
+  canDecrease: _canDecrease,
   getNodeDisabledReason,
   formatStat = (k) => k.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
   formatCmd  = (k) => k.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
@@ -402,7 +402,6 @@ export default function ExpertiseTree({
         {nodes.map((node) => {
           const selected = selectedRanks[node.nodeId] ?? 0;
           const increaseAllowed = canIncrease(node);
-          void canDecrease(node);
           const tier = node.tier ?? 0;
           const grid = node.grid ?? 0;
           const isMaxed = selected >= node.maxRank;
