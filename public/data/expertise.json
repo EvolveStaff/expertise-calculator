@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generatedAt": "2026-03-14T05:10:57.287Z",
+    "generatedAt": "2026-03-20T20:01:54.477Z",
     "sourceFiles": [
       "expertise_trees.tab",
       "expertise.tab",
       "skills.tab"
     ],
-    "warningCount": 165
+    "warningCount": 166
   },
   "trees": [
     {
@@ -495,7 +495,7 @@
           "treeId": 1,
           "tier": 2,
           "grid": 2,
-          "displayName": "Melee Defense",
+          "displayName": "Mdef",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_brawler_mdef_01",
@@ -510,7 +510,7 @@
             {
               "name": "expertise_brawler_mdef_01",
               "nodeId": "expertise_brawler_mdef",
-              "displayName": "Melee Defense",
+              "displayName": "Mdef",
               "treeId": 1,
               "tier": 2,
               "grid": 2,
@@ -536,7 +536,7 @@
             {
               "name": "expertise_brawler_mdef_02",
               "nodeId": "expertise_brawler_mdef",
-              "displayName": "Melee Defense",
+              "displayName": "Mdef",
               "treeId": 1,
               "tier": 2,
               "grid": 2,
@@ -564,7 +564,7 @@
             {
               "name": "expertise_brawler_mdef_03",
               "nodeId": "expertise_brawler_mdef",
-              "displayName": "Melee Defense",
+              "displayName": "Mdef",
               "treeId": 1,
               "tier": 2,
               "grid": 2,
@@ -592,7 +592,7 @@
             {
               "name": "expertise_brawler_mdef_04",
               "nodeId": "expertise_brawler_mdef",
-              "displayName": "Melee Defense",
+              "displayName": "Mdef",
               "treeId": 1,
               "tier": 2,
               "grid": 2,
@@ -661,7 +661,7 @@
           "treeId": 1,
           "tier": 2,
           "grid": 6,
-          "displayName": "Range Defense",
+          "displayName": "Rdef",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_brawler_rdef_01",
@@ -676,7 +676,7 @@
             {
               "name": "expertise_brawler_rdef_01",
               "nodeId": "expertise_brawler_rdef",
-              "displayName": "Range Defense",
+              "displayName": "Rdef",
               "treeId": 1,
               "tier": 2,
               "grid": 6,
@@ -702,7 +702,7 @@
             {
               "name": "expertise_brawler_rdef_02",
               "nodeId": "expertise_brawler_rdef",
-              "displayName": "Range Defense",
+              "displayName": "Rdef",
               "treeId": 1,
               "tier": 2,
               "grid": 6,
@@ -730,7 +730,7 @@
             {
               "name": "expertise_brawler_rdef_03",
               "nodeId": "expertise_brawler_rdef",
-              "displayName": "Range Defense",
+              "displayName": "Rdef",
               "treeId": 1,
               "tier": 2,
               "grid": 6,
@@ -758,7 +758,7 @@
             {
               "name": "expertise_brawler_rdef_04",
               "nodeId": "expertise_brawler_rdef",
-              "displayName": "Range Defense",
+              "displayName": "Rdef",
               "treeId": 1,
               "tier": 2,
               "grid": 6,
@@ -790,7 +790,7 @@
           "treeId": 1,
           "tier": 3,
           "grid": 1,
-          "displayName": "Unarmed Efficiency",
+          "displayName": "Unarmed Acc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_brawler_unarmed_acc_01",
@@ -805,7 +805,7 @@
             {
               "name": "expertise_brawler_unarmed_acc_01",
               "nodeId": "expertise_brawler_unarmed_acc",
-              "displayName": "Unarmed Efficiency",
+              "displayName": "Unarmed Acc",
               "treeId": 1,
               "tier": 3,
               "grid": 1,
@@ -831,7 +831,7 @@
             {
               "name": "expertise_brawler_unarmed_acc_02",
               "nodeId": "expertise_brawler_unarmed_acc",
-              "displayName": "Unarmed Efficiency",
+              "displayName": "Unarmed Acc",
               "treeId": 1,
               "tier": 3,
               "grid": 1,
@@ -859,7 +859,7 @@
             {
               "name": "expertise_brawler_unarmed_acc_03",
               "nodeId": "expertise_brawler_unarmed_acc",
-              "displayName": "Unarmed Efficiency",
+              "displayName": "Unarmed Acc",
               "treeId": 1,
               "tier": 3,
               "grid": 1,
@@ -887,7 +887,7 @@
             {
               "name": "expertise_brawler_unarmed_acc_04",
               "nodeId": "expertise_brawler_unarmed_acc",
-              "displayName": "Unarmed Efficiency",
+              "displayName": "Unarmed Acc",
               "treeId": 1,
               "tier": 3,
               "grid": 1,
@@ -919,7 +919,7 @@
           "treeId": 1,
           "tier": 3,
           "grid": 3,
-          "displayName": "One-Handed Efficiency",
+          "displayName": "1handmelee Acc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_brawler_1handmelee_acc_01",
@@ -934,7 +934,7 @@
             {
               "name": "expertise_brawler_1handmelee_acc_01",
               "nodeId": "expertise_brawler_1handmelee_acc",
-              "displayName": "One-Handed Efficiency",
+              "displayName": "1handmelee Acc",
               "treeId": 1,
               "tier": 3,
               "grid": 3,
@@ -960,7 +960,7 @@
             {
               "name": "expertise_brawler_1handmelee_acc_02",
               "nodeId": "expertise_brawler_1handmelee_acc",
-              "displayName": "One-Handed Efficiency",
+              "displayName": "1handmelee Acc",
               "treeId": 1,
               "tier": 3,
               "grid": 3,
@@ -988,7 +988,7 @@
             {
               "name": "expertise_brawler_1handmelee_acc_03",
               "nodeId": "expertise_brawler_1handmelee_acc",
-              "displayName": "One-Handed Efficiency",
+              "displayName": "1handmelee Acc",
               "treeId": 1,
               "tier": 3,
               "grid": 3,
@@ -1016,7 +1016,7 @@
             {
               "name": "expertise_brawler_1handmelee_acc_04",
               "nodeId": "expertise_brawler_1handmelee_acc",
-              "displayName": "One-Handed Efficiency",
+              "displayName": "1handmelee Acc",
               "treeId": 1,
               "tier": 3,
               "grid": 3,
@@ -1048,7 +1048,7 @@
           "treeId": 1,
           "tier": 3,
           "grid": 5,
-          "displayName": "Two-Handed Efficiency",
+          "displayName": "2handmelee Acc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_brawler_2handmelee_acc_01",
@@ -1063,7 +1063,7 @@
             {
               "name": "expertise_brawler_2handmelee_acc_01",
               "nodeId": "expertise_brawler_2handmelee_acc",
-              "displayName": "Two-Handed Efficiency",
+              "displayName": "2handmelee Acc",
               "treeId": 1,
               "tier": 3,
               "grid": 5,
@@ -1089,7 +1089,7 @@
             {
               "name": "expertise_brawler_2handmelee_acc_02",
               "nodeId": "expertise_brawler_2handmelee_acc",
-              "displayName": "Two-Handed Efficiency",
+              "displayName": "2handmelee Acc",
               "treeId": 1,
               "tier": 3,
               "grid": 5,
@@ -1117,7 +1117,7 @@
             {
               "name": "expertise_brawler_2handmelee_acc_03",
               "nodeId": "expertise_brawler_2handmelee_acc",
-              "displayName": "Two-Handed Efficiency",
+              "displayName": "2handmelee Acc",
               "treeId": 1,
               "tier": 3,
               "grid": 5,
@@ -1145,7 +1145,7 @@
             {
               "name": "expertise_brawler_2handmelee_acc_04",
               "nodeId": "expertise_brawler_2handmelee_acc",
-              "displayName": "Two-Handed Efficiency",
+              "displayName": "2handmelee Acc",
               "treeId": 1,
               "tier": 3,
               "grid": 5,
@@ -1177,7 +1177,7 @@
           "treeId": 1,
           "tier": 3,
           "grid": 7,
-          "displayName": "Polearm Efficiency",
+          "displayName": "Polearm Acc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_brawler_polearm_acc_01",
@@ -1192,7 +1192,7 @@
             {
               "name": "expertise_brawler_polearm_acc_01",
               "nodeId": "expertise_brawler_polearm_acc",
-              "displayName": "Polearm Efficiency",
+              "displayName": "Polearm Acc",
               "treeId": 1,
               "tier": 3,
               "grid": 7,
@@ -1218,7 +1218,7 @@
             {
               "name": "expertise_brawler_polearm_acc_02",
               "nodeId": "expertise_brawler_polearm_acc",
-              "displayName": "Polearm Efficiency",
+              "displayName": "Polearm Acc",
               "treeId": 1,
               "tier": 3,
               "grid": 7,
@@ -1246,7 +1246,7 @@
             {
               "name": "expertise_brawler_polearm_acc_03",
               "nodeId": "expertise_brawler_polearm_acc",
-              "displayName": "Polearm Efficiency",
+              "displayName": "Polearm Acc",
               "treeId": 1,
               "tier": 3,
               "grid": 7,
@@ -1274,7 +1274,7 @@
             {
               "name": "expertise_brawler_polearm_acc_04",
               "nodeId": "expertise_brawler_polearm_acc",
-              "displayName": "Polearm Efficiency",
+              "displayName": "Polearm Acc",
               "treeId": 1,
               "tier": 3,
               "grid": 7,
@@ -1306,7 +1306,7 @@
           "treeId": 1,
           "tier": 4,
           "grid": 1,
-          "displayName": "Unarmed Power",
+          "displayName": "Unarmed Sp",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_brawler_unarmed_sp_01",
@@ -1321,7 +1321,7 @@
             {
               "name": "expertise_brawler_unarmed_sp_01",
               "nodeId": "expertise_brawler_unarmed_sp",
-              "displayName": "Unarmed Power",
+              "displayName": "Unarmed Sp",
               "treeId": 1,
               "tier": 4,
               "grid": 1,
@@ -1347,7 +1347,7 @@
             {
               "name": "expertise_brawler_unarmed_sp_02",
               "nodeId": "expertise_brawler_unarmed_sp",
-              "displayName": "Unarmed Power",
+              "displayName": "Unarmed Sp",
               "treeId": 1,
               "tier": 4,
               "grid": 1,
@@ -1375,7 +1375,7 @@
             {
               "name": "expertise_brawler_unarmed_sp_03",
               "nodeId": "expertise_brawler_unarmed_sp",
-              "displayName": "Unarmed Power",
+              "displayName": "Unarmed Sp",
               "treeId": 1,
               "tier": 4,
               "grid": 1,
@@ -1403,7 +1403,7 @@
             {
               "name": "expertise_brawler_unarmed_sp_04",
               "nodeId": "expertise_brawler_unarmed_sp",
-              "displayName": "Unarmed Power",
+              "displayName": "Unarmed Sp",
               "treeId": 1,
               "tier": 4,
               "grid": 1,
@@ -1435,7 +1435,7 @@
           "treeId": 1,
           "tier": 4,
           "grid": 3,
-          "displayName": "One-Handed Power",
+          "displayName": "1handmelee Sp",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_brawler_1handmelee_sp_01",
@@ -1450,7 +1450,7 @@
             {
               "name": "expertise_brawler_1handmelee_sp_01",
               "nodeId": "expertise_brawler_1handmelee_sp",
-              "displayName": "One-Handed Power",
+              "displayName": "1handmelee Sp",
               "treeId": 1,
               "tier": 4,
               "grid": 3,
@@ -1476,7 +1476,7 @@
             {
               "name": "expertise_brawler_1handmelee_sp_02",
               "nodeId": "expertise_brawler_1handmelee_sp",
-              "displayName": "One-Handed Power",
+              "displayName": "1handmelee Sp",
               "treeId": 1,
               "tier": 4,
               "grid": 3,
@@ -1504,7 +1504,7 @@
             {
               "name": "expertise_brawler_1handmelee_sp_03",
               "nodeId": "expertise_brawler_1handmelee_sp",
-              "displayName": "One-Handed Power",
+              "displayName": "1handmelee Sp",
               "treeId": 1,
               "tier": 4,
               "grid": 3,
@@ -1532,7 +1532,7 @@
             {
               "name": "expertise_brawler_1handmelee_sp_04",
               "nodeId": "expertise_brawler_1handmelee_sp",
-              "displayName": "One-Handed Power",
+              "displayName": "1handmelee Sp",
               "treeId": 1,
               "tier": 4,
               "grid": 3,
@@ -1703,7 +1703,7 @@
           "treeId": 1,
           "tier": 4,
           "grid": 5,
-          "displayName": "Two-Handed Power",
+          "displayName": "2handmelee Sp",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_brawler_2handmelee_sp_01",
@@ -1718,7 +1718,7 @@
             {
               "name": "expertise_brawler_2handmelee_sp_01",
               "nodeId": "expertise_brawler_2handmelee_sp",
-              "displayName": "Two-Handed Power",
+              "displayName": "2handmelee Sp",
               "treeId": 1,
               "tier": 4,
               "grid": 5,
@@ -1744,7 +1744,7 @@
             {
               "name": "expertise_brawler_2handmelee_sp_02",
               "nodeId": "expertise_brawler_2handmelee_sp",
-              "displayName": "Two-Handed Power",
+              "displayName": "2handmelee Sp",
               "treeId": 1,
               "tier": 4,
               "grid": 5,
@@ -1772,7 +1772,7 @@
             {
               "name": "expertise_brawler_2handmelee_sp_03",
               "nodeId": "expertise_brawler_2handmelee_sp",
-              "displayName": "Two-Handed Power",
+              "displayName": "2handmelee Sp",
               "treeId": 1,
               "tier": 4,
               "grid": 5,
@@ -1800,7 +1800,7 @@
             {
               "name": "expertise_brawler_2handmelee_sp_04",
               "nodeId": "expertise_brawler_2handmelee_sp",
-              "displayName": "Two-Handed Power",
+              "displayName": "2handmelee Sp",
               "treeId": 1,
               "tier": 4,
               "grid": 5,
@@ -1832,7 +1832,7 @@
           "treeId": 1,
           "tier": 4,
           "grid": 7,
-          "displayName": "Polearm Power",
+          "displayName": "Polearm Sp",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_brawler_polearm_sp_01",
@@ -1847,7 +1847,7 @@
             {
               "name": "expertise_brawler_polearm_sp_01",
               "nodeId": "expertise_brawler_polearm_sp",
-              "displayName": "Polearm Power",
+              "displayName": "Polearm Sp",
               "treeId": 1,
               "tier": 4,
               "grid": 7,
@@ -1873,7 +1873,7 @@
             {
               "name": "expertise_brawler_polearm_sp_02",
               "nodeId": "expertise_brawler_polearm_sp",
-              "displayName": "Polearm Power",
+              "displayName": "Polearm Sp",
               "treeId": 1,
               "tier": 4,
               "grid": 7,
@@ -1901,7 +1901,7 @@
             {
               "name": "expertise_brawler_polearm_sp_03",
               "nodeId": "expertise_brawler_polearm_sp",
-              "displayName": "Polearm Power",
+              "displayName": "Polearm Sp",
               "treeId": 1,
               "tier": 4,
               "grid": 7,
@@ -1929,7 +1929,7 @@
             {
               "name": "expertise_brawler_polearm_sp_04",
               "nodeId": "expertise_brawler_polearm_sp",
-              "displayName": "Polearm Power",
+              "displayName": "Polearm Sp",
               "treeId": 1,
               "tier": 4,
               "grid": 7,
@@ -1961,7 +1961,7 @@
           "treeId": 1,
           "tier": 5,
           "grid": 1,
-          "displayName": "Novice Martial Artist",
+          "displayName": "Unarmed Novice",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_brawler_unarmed_acc_04",
@@ -1975,7 +1975,7 @@
             {
               "name": "expertise_unarmed_novice",
               "nodeId": "expertise_unarmed_novice",
-              "displayName": "Martial Artist Novice",
+              "displayName": "Unarmed Novice",
               "treeId": 1,
               "tier": 5,
               "grid": 1,
@@ -2013,7 +2013,7 @@
           "treeId": 1,
           "tier": 5,
           "grid": 3,
-          "displayName": "Novice Fencer",
+          "displayName": "Fencer Novice",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_brawler_1handmelee_acc_04",
@@ -2027,7 +2027,7 @@
             {
               "name": "fencer_novice",
               "nodeId": "fencer_novice",
-              "displayName": "Novice Fencer",
+              "displayName": "Fencer Novice",
               "treeId": 1,
               "tier": 5,
               "grid": 3,
@@ -2065,7 +2065,7 @@
           "treeId": 1,
           "tier": 5,
           "grid": 5,
-          "displayName": "Novice Swordsman",
+          "displayName": "Swordsman Novice",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_brawler_2handmelee_acc_04",
@@ -2079,7 +2079,7 @@
             {
               "name": "swordsman_novice",
               "nodeId": "swordsman_novice",
-              "displayName": "Novice Swordsman",
+              "displayName": "Swordsman Novice",
               "treeId": 1,
               "tier": 5,
               "grid": 5,
@@ -2117,7 +2117,7 @@
           "treeId": 1,
           "tier": 5,
           "grid": 7,
-          "displayName": "Novice Pikeman",
+          "displayName": "Pikeman Novice",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_brawler_polearm_acc_04",
@@ -2131,7 +2131,7 @@
             {
               "name": "pikeman_novice",
               "nodeId": "pikeman_novice",
-              "displayName": "Novice Pikeman",
+              "displayName": "Pikeman Novice",
               "treeId": 1,
               "tier": 5,
               "grid": 7,
@@ -2169,7 +2169,7 @@
           "treeId": 1,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Brawler",
+          "displayName": "Master",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -2180,7 +2180,7 @@
             {
               "name": "expertise_brawler_master",
               "nodeId": "expertise_brawler_master",
-              "displayName": "Master Brawler",
+              "displayName": "Master",
               "treeId": 1,
               "tier": 6,
               "grid": 4,
@@ -2222,7 +2222,7 @@
           "treeId": 2,
           "tier": 1,
           "grid": 4,
-          "displayName": "Fencer Action Cost Reduction",
+          "displayName": "Fencer Acr",
           "maxRank": 4,
           "skillsRequired": [
             "fencer_novice",
@@ -2354,7 +2354,7 @@
           "treeId": 2,
           "tier": 2,
           "grid": 2,
-          "displayName": "Decapitate",
+          "displayName": "Of Decapitate",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_fencer_acr_04"
@@ -2395,7 +2395,7 @@
           "treeId": 2,
           "tier": 2,
           "grid": 4,
-          "displayName": "Burning Blade",
+          "displayName": "Fencer Acc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_fencer_acr_04",
@@ -2527,7 +2527,7 @@
           "treeId": 2,
           "tier": 2,
           "grid": 6,
-          "displayName": "Crippling Vortex",
+          "displayName": "Of Vortex",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_fencer_acr_04"
@@ -2568,7 +2568,7 @@
           "treeId": 2,
           "tier": 3,
           "grid": 3,
-          "displayName": "Switcheroo",
+          "displayName": "Fn Switcheroo",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -2693,7 +2693,7 @@
           "treeId": 2,
           "tier": 3,
           "grid": 4,
-          "displayName": "Fencer Damage",
+          "displayName": "Fencer Dam",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_fencer_acc_04",
@@ -2825,7 +2825,7 @@
           "treeId": 2,
           "tier": 3,
           "grid": 5,
-          "displayName": "Head Crack",
+          "displayName": "Fn Head Crack",
           "maxRank": 2,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -3015,7 +3015,7 @@
           "treeId": 2,
           "tier": 4,
           "grid": 4,
-          "displayName": "Corrosive Tip",
+          "displayName": "Fencer Sp",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_fencer_dam_04",
@@ -3270,7 +3270,7 @@
           "treeId": 2,
           "tier": 5,
           "grid": 3,
-          "displayName": "Fencer Defense",
+          "displayName": "Fencer Def",
           "maxRank": 4,
           "skillsRequired": [
             "fencer_novice",
@@ -3422,7 +3422,7 @@
           "treeId": 2,
           "tier": 5,
           "grid": 4,
-          "displayName": "Fencer Critical Chance",
+          "displayName": "Fencer Cc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_fencer_sp_04",
@@ -3554,7 +3554,7 @@
           "treeId": 2,
           "tier": 5,
           "grid": 5,
-          "displayName": "One-Two Pummel",
+          "displayName": "Fn One Two Pummel",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -3673,7 +3673,7 @@
           "treeId": 2,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Fencer",
+          "displayName": "Fencer Master",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_fencer_cc_04"
@@ -3737,7 +3737,7 @@
           "treeId": 3,
           "tier": 1,
           "grid": 4,
-          "displayName": "Pikeman Action Cost Reduction",
+          "displayName": "Pikeman Acr",
           "maxRank": 4,
           "skillsRequired": [
             "pikeman_novice",
@@ -3910,7 +3910,7 @@
           "treeId": 3,
           "tier": 2,
           "grid": 4,
-          "displayName": "AoE Damage",
+          "displayName": "Pikeman Acc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_pikeman_acr_04",
@@ -4091,7 +4091,7 @@
           "treeId": 3,
           "tier": 3,
           "grid": 3,
-          "displayName": "Switcheroo",
+          "displayName": "Sm Switcheroo",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -4216,7 +4216,7 @@
           "treeId": 3,
           "tier": 3,
           "grid": 4,
-          "displayName": "Pikeman Damage",
+          "displayName": "Pikeman Dam",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_pikeman_acc_04",
@@ -4348,7 +4348,7 @@
           "treeId": 3,
           "tier": 3,
           "grid": 5,
-          "displayName": "Head Crack",
+          "displayName": "Sm Head Crack",
           "maxRank": 2,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -4538,7 +4538,7 @@
           "treeId": 3,
           "tier": 4,
           "grid": 4,
-          "displayName": "AoE Damage Boost",
+          "displayName": "Pikeman Sp",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_pikeman_dam_04",
@@ -4793,7 +4793,7 @@
           "treeId": 3,
           "tier": 5,
           "grid": 3,
-          "displayName": "Pikeman Defense",
+          "displayName": "Pikeman Def",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_pikeman_def_01",
@@ -4942,7 +4942,7 @@
           "treeId": 3,
           "tier": 5,
           "grid": 4,
-          "displayName": "Pikeman Critical Chance",
+          "displayName": "Pikeman Cc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_pikeman_sp_04",
@@ -5074,7 +5074,7 @@
           "treeId": 3,
           "tier": 5,
           "grid": 5,
-          "displayName": "One-Two Pummel",
+          "displayName": "Sm One Two Pummel",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -5193,7 +5193,7 @@
           "treeId": 3,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Pikeman",
+          "displayName": "Pikeman Master",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_pikeman_cc_04"
@@ -5257,7 +5257,7 @@
           "treeId": 4,
           "tier": 1,
           "grid": 4,
-          "displayName": "Swordsman Action Cost Reduction",
+          "displayName": "Swordsman Acr",
           "maxRank": 4,
           "skillsRequired": [
             "swordsman_novice",
@@ -5430,7 +5430,7 @@
           "treeId": 4,
           "tier": 2,
           "grid": 4,
-          "displayName": "Strikethrough Chance",
+          "displayName": "Swordsman Acc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_swordsman_acr_04",
@@ -5562,7 +5562,7 @@
           "treeId": 4,
           "tier": 2,
           "grid": 6,
-          "displayName": "Vital Strike",
+          "displayName": "Carbineer Attack",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_swordsman_acr_04"
@@ -5603,7 +5603,7 @@
           "treeId": 4,
           "tier": 3,
           "grid": 3,
-          "displayName": "Switcheroo",
+          "displayName": "Sw Switcheroo",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -5728,7 +5728,7 @@
           "treeId": 4,
           "tier": 3,
           "grid": 4,
-          "displayName": "Swordsman Damage",
+          "displayName": "Swordsman Dam",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_swordsman_acc_04",
@@ -5860,7 +5860,7 @@
           "treeId": 4,
           "tier": 3,
           "grid": 5,
-          "displayName": "Head Crack",
+          "displayName": "Sw Head Crack",
           "maxRank": 2,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -6050,7 +6050,7 @@
           "treeId": 4,
           "tier": 4,
           "grid": 4,
-          "displayName": "Armor Neglect",
+          "displayName": "Swordsman Sp",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_swordsman_dam_04",
@@ -6182,7 +6182,7 @@
           "treeId": 4,
           "tier": 4,
           "grid": 6,
-          "displayName": "Vital Damage",
+          "displayName": "Me Vital Damage",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_carbineer_attack_1"
@@ -6305,7 +6305,7 @@
           "treeId": 4,
           "tier": 5,
           "grid": 3,
-          "displayName": "Swordsman Defense",
+          "displayName": "Swordsman Def",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_swordsman_def_01",
@@ -6454,7 +6454,7 @@
           "treeId": 4,
           "tier": 5,
           "grid": 4,
-          "displayName": "Swordsman Critical Chance",
+          "displayName": "Swordsman Cc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_swordsman_sp_04",
@@ -6586,7 +6586,7 @@
           "treeId": 4,
           "tier": 5,
           "grid": 5,
-          "displayName": "One-Two Pummel",
+          "displayName": "Sw One Two Pummel",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -6705,7 +6705,7 @@
           "treeId": 4,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Swordsman",
+          "displayName": "Swordsman Master",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_swordsman_cc_04"
@@ -6770,7 +6770,7 @@
           "treeId": 5,
           "tier": 1,
           "grid": 4,
-          "displayName": "Unarmed Action Cost Reduction",
+          "displayName": "Unarmed Acr",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_unarmed_novice",
@@ -6902,7 +6902,7 @@
           "treeId": 5,
           "tier": 2,
           "grid": 2,
-          "displayName": "Strike",
+          "displayName": "En Strike",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_unarmed_acr_04"
@@ -6943,7 +6943,7 @@
           "treeId": 5,
           "tier": 2,
           "grid": 4,
-          "displayName": "Parry Reduction",
+          "displayName": "Unarmed Acc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_unarmed_acr_04",
@@ -7075,7 +7075,7 @@
           "treeId": 5,
           "tier": 2,
           "grid": 6,
-          "displayName": "Spiral Kick",
+          "displayName": "Tk Spiral Kick",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_unarmed_acr_04"
@@ -7116,7 +7116,7 @@
           "treeId": 5,
           "tier": 3,
           "grid": 3,
-          "displayName": "Switcheroo",
+          "displayName": "Unarmed Switcheroo",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -7243,7 +7243,7 @@
           "treeId": 5,
           "tier": 3,
           "grid": 4,
-          "displayName": "Unarmed Damage",
+          "displayName": "Unarmed Dam",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_unarmed_acc_04",
@@ -7375,7 +7375,7 @@
           "treeId": 5,
           "tier": 3,
           "grid": 5,
-          "displayName": "Head Crack",
+          "displayName": "Unarmed Head Crack",
           "maxRank": 2,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -7442,7 +7442,7 @@
           "treeId": 5,
           "tier": 4,
           "grid": 2,
-          "displayName": "Strike Damage",
+          "displayName": "En Strike Damage",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_en_strike_1"
@@ -7565,7 +7565,7 @@
           "treeId": 5,
           "tier": 4,
           "grid": 4,
-          "displayName": "Glancing Blow Reduction",
+          "displayName": "Unarmed Sp",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_unarmed_dam_04",
@@ -7697,7 +7697,7 @@
           "treeId": 5,
           "tier": 4,
           "grid": 6,
-          "displayName": "Uprising",
+          "displayName": "Tk Uprising",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_tk_spiral_kick_1"
@@ -7820,7 +7820,7 @@
           "treeId": 5,
           "tier": 5,
           "grid": 3,
-          "displayName": "Unarmed Defense",
+          "displayName": "Unarmed Def",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_unarmed_novice",
@@ -7972,7 +7972,7 @@
           "treeId": 5,
           "tier": 5,
           "grid": 4,
-          "displayName": "Unarmed Critical Chance",
+          "displayName": "Unarmed Cc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_unarmed_sp_04",
@@ -8104,7 +8104,7 @@
           "treeId": 5,
           "tier": 5,
           "grid": 5,
-          "displayName": "One-Two Pummel",
+          "displayName": "Unarmed One Two Pummel",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -8223,7 +8223,7 @@
           "treeId": 5,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Martial Artist",
+          "displayName": "Unarmed Master",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_unarmed_cc_04"
@@ -8287,7 +8287,7 @@
           "treeId": 6,
           "tier": 1,
           "grid": 1,
-          "displayName": "Enhanced Stamina",
+          "displayName": "Bh Stamina",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -8406,7 +8406,7 @@
           "treeId": 6,
           "tier": 1,
           "grid": 3,
-          "displayName": "Enhanced Precision",
+          "displayName": "Bh Precision",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -8525,7 +8525,7 @@
           "treeId": 6,
           "tier": 1,
           "grid": 5,
-          "displayName": "Enhanced Agility",
+          "displayName": "Bh Agility",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -8644,7 +8644,7 @@
           "treeId": 6,
           "tier": 1,
           "grid": 7,
-          "displayName": "Enhanced Constitution",
+          "displayName": "Bh Constitution",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -8763,7 +8763,7 @@
           "treeId": 6,
           "tier": 2,
           "grid": 2,
-          "displayName": "Melee Defense",
+          "displayName": "Marksman Mdef",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_marksman_mdef_01",
@@ -8892,7 +8892,7 @@
           "treeId": 6,
           "tier": 2,
           "grid": 4,
-          "displayName": "Fan Shot",
+          "displayName": "Pistoleer Attack",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -8929,7 +8929,7 @@
           "treeId": 6,
           "tier": 2,
           "grid": 6,
-          "displayName": "Range Defense",
+          "displayName": "Marksman Rdef",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_marksman_rdef_01",
@@ -9058,7 +9058,7 @@
           "treeId": 6,
           "tier": 3,
           "grid": 1,
-          "displayName": "Rifle Action Cost Reduction",
+          "displayName": "Marksman Rifle Acc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_marksman_rifle_acc_01",
@@ -9187,7 +9187,7 @@
           "treeId": 6,
           "tier": 3,
           "grid": 3,
-          "displayName": "Pistol Action Cost Reduction",
+          "displayName": "Marksman Acc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_marksman_pistol_acc_01",
@@ -9316,7 +9316,7 @@
           "treeId": 6,
           "tier": 3,
           "grid": 5,
-          "displayName": "Carbine Action Cost Reduction",
+          "displayName": "Marksman Acc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_marksman_carbine_acc_01",
@@ -9445,7 +9445,7 @@
           "treeId": 6,
           "tier": 3,
           "grid": 7,
-          "displayName": "Heavy Weapon Action Cost Reduction",
+          "displayName": "Marksman Hw Acr",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_marksman_hw_acr_1",
@@ -9574,7 +9574,7 @@
           "treeId": 6,
           "tier": 4,
           "grid": 1,
-          "displayName": "Rifle Damage",
+          "displayName": "Marksman Rifle Sp",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_marksman_rifle_sp_01",
@@ -9703,7 +9703,7 @@
           "treeId": 6,
           "tier": 4,
           "grid": 3,
-          "displayName": "Pistol Damage",
+          "displayName": "Marksman Sp",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_marksman_pistol_sp_01",
@@ -9832,7 +9832,7 @@
           "treeId": 6,
           "tier": 4,
           "grid": 4,
-          "displayName": "Heal",
+          "displayName": "Marksman Heal",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -9971,7 +9971,7 @@
           "treeId": 6,
           "tier": 4,
           "grid": 5,
-          "displayName": "Carbine Damage",
+          "displayName": "Marksman Sp",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_marksman_carbine_sp_01",
@@ -10100,7 +10100,7 @@
           "treeId": 6,
           "tier": 4,
           "grid": 7,
-          "displayName": "Heavy Weapon Damage",
+          "displayName": "Marksman Hw Dam",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_marksman_hw_dam_1",
@@ -10229,7 +10229,7 @@
           "treeId": 6,
           "tier": 5,
           "grid": 1,
-          "displayName": "Novice Rifleman",
+          "displayName": "Novice",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_marksman_rifle_acc_04",
@@ -10281,7 +10281,7 @@
           "treeId": 6,
           "tier": 5,
           "grid": 3,
-          "displayName": "Novice Pistoleer",
+          "displayName": "Pistoleer Novice",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_marksman_pistol_acc_04",
@@ -10333,7 +10333,7 @@
           "treeId": 6,
           "tier": 5,
           "grid": 5,
-          "displayName": "Novice Carbineer",
+          "displayName": "Carbineer Novice",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_marksman_carbine_acc_04",
@@ -10385,7 +10385,7 @@
           "treeId": 6,
           "tier": 5,
           "grid": 7,
-          "displayName": "Novice Heavy Weapon Specialist",
+          "displayName": "Heavy Weapon Novice",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_marksman_hw_acr_4",
@@ -10437,7 +10437,7 @@
           "treeId": 6,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Marksman",
+          "displayName": "Marksman Master",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -10490,7 +10490,7 @@
           "treeId": 7,
           "tier": 1,
           "grid": 4,
-          "displayName": "Carbine Action Cost Reduction",
+          "displayName": "Carbineer Acr",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_carbineer_novice",
@@ -10622,7 +10622,7 @@
           "treeId": 7,
           "tier": 2,
           "grid": 2,
-          "displayName": "Concussion Shot",
+          "displayName": "Carbineer Attack",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_carbineer_carbine_acr_04"
@@ -10685,7 +10685,7 @@
           "treeId": 7,
           "tier": 2,
           "grid": 4,
-          "displayName": "Deuterium Rounds",
+          "displayName": "Carbineer Acc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_carbineer_carbine_acr_04",
@@ -10817,7 +10817,7 @@
           "treeId": 7,
           "tier": 2,
           "grid": 6,
-          "displayName": "Assault",
+          "displayName": "Marksman Ability",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_carbineer_carbine_acr_04"
@@ -10858,7 +10858,7 @@
           "treeId": 7,
           "tier": 3,
           "grid": 3,
-          "displayName": "Carbine Defense",
+          "displayName": "Carbineer Def",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_carbineer_carbine_def_01",
@@ -10987,7 +10987,7 @@
           "treeId": 7,
           "tier": 3,
           "grid": 4,
-          "displayName": "Carbine Damage",
+          "displayName": "Carbineer Dam",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_carbineer_carbine_acc_04",
@@ -11119,7 +11119,7 @@
           "treeId": 7,
           "tier": 3,
           "grid": 5,
-          "displayName": "Return Fire",
+          "displayName": "Bh Return Fire",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -11279,7 +11279,7 @@
           "treeId": 7,
           "tier": 4,
           "grid": 4,
-          "displayName": "Acid Dart",
+          "displayName": "Carbineer Sp",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_carbineer_carbine_dam_04",
@@ -11411,7 +11411,7 @@
           "treeId": 7,
           "tier": 4,
           "grid": 6,
-          "displayName": "Assassination Efficiency",
+          "displayName": "Bh Ass Act",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_marksman_ability_01"
@@ -11594,7 +11594,7 @@
           "treeId": 7,
           "tier": 5,
           "grid": 3,
-          "displayName": "Relentless Onslaught",
+          "displayName": "Bh Relentless",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -11631,7 +11631,7 @@
           "treeId": 7,
           "tier": 5,
           "grid": 4,
-          "displayName": "Carbine Critical Chance",
+          "displayName": "Carbineer Cc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_carbineer_carbine_sp_04",
@@ -11763,7 +11763,7 @@
           "treeId": 7,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Carbineer",
+          "displayName": "Carbineer Master",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_carbineer_carbine_cc_04"
@@ -11825,7 +11825,7 @@
           "treeId": 8,
           "tier": 1,
           "grid": 4,
-          "displayName": "Enhanced Fuel Cans",
+          "displayName": "Co Enhanced Fuel Cans",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_heavy_weapon_novice"
@@ -11988,7 +11988,7 @@
           "treeId": 8,
           "tier": 2,
           "grid": 2,
-          "displayName": "Focused Beam",
+          "displayName": "Co Focus Beam",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_co_enhanced_fuel_cans_4"
@@ -12029,7 +12029,7 @@
           "treeId": 8,
           "tier": 2,
           "grid": 4,
-          "displayName": "Tibanna Gas",
+          "displayName": "Co Tibanna Gas",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_co_enhanced_fuel_cans_4"
@@ -12152,7 +12152,7 @@
           "treeId": 8,
           "tier": 2,
           "grid": 6,
-          "displayName": "Lethal Beam",
+          "displayName": "Co Lethal Beam",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_co_enhanced_fuel_cans_4"
@@ -12193,7 +12193,7 @@
           "treeId": 8,
           "tier": 3,
           "grid": 3,
-          "displayName": "Suppressing Fire",
+          "displayName": "Co Suppressing Fire",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_heavy_weapon_novice"
@@ -12234,7 +12234,7 @@
           "treeId": 8,
           "tier": 3,
           "grid": 4,
-          "displayName": "Heavy Weapon DoT",
+          "displayName": "Hw Dot",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_co_tibanna_gas_4",
@@ -12366,7 +12366,7 @@
           "treeId": 8,
           "tier": 3,
           "grid": 5,
-          "displayName": "It Burns!",
+          "displayName": "Co Hw Dot",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -12403,7 +12403,7 @@
           "treeId": 8,
           "tier": 4,
           "grid": 2,
-          "displayName": "Focus Beam Damage",
+          "displayName": "Co Focus Beam Damage",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_co_focus_beam_1"
@@ -12526,7 +12526,7 @@
           "treeId": 8,
           "tier": 4,
           "grid": 4,
-          "displayName": "Heavy Weapon Critical Chance",
+          "displayName": "Hw Crit",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_hw_dot_04",
@@ -12658,7 +12658,7 @@
           "treeId": 8,
           "tier": 4,
           "grid": 6,
-          "displayName": "Lethal Beam Damage",
+          "displayName": "Co Lethal Beam Damage",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_co_lethal_beam_1"
@@ -12781,7 +12781,7 @@
           "treeId": 8,
           "tier": 5,
           "grid": 3,
-          "displayName": "Suppression Efficiency",
+          "displayName": "Co Suppression Efficiency",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_co_suppressing_fire_1"
@@ -12924,7 +12924,7 @@
           "treeId": 8,
           "tier": 5,
           "grid": 4,
-          "displayName": "Armor Shred",
+          "displayName": "Hw Acc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_hw_crit_04",
@@ -13056,7 +13056,7 @@
           "treeId": 8,
           "tier": 5,
           "grid": 5,
-          "displayName": "Burn Down!",
+          "displayName": "Co Ae Hw Dot",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -13093,7 +13093,7 @@
           "treeId": 8,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Heavy Weapons",
+          "displayName": "Heavy Weapon Master",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_hw_acc_04"
@@ -13150,7 +13150,7 @@
           "treeId": 9,
           "tier": 1,
           "grid": 4,
-          "displayName": "Pistol Action Cost Reduction",
+          "displayName": "Pistoleer Acr",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_pistoleer_novice",
@@ -13347,7 +13347,7 @@
           "treeId": 9,
           "tier": 2,
           "grid": 4,
-          "displayName": "Pistol Critical Chance",
+          "displayName": "Pistoleer Acc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_pistoleer_pistol_acr_04",
@@ -13479,7 +13479,7 @@
           "treeId": 9,
           "tier": 3,
           "grid": 3,
-          "displayName": "Hammer Fanning",
+          "displayName": "Sm Hammer Fanning",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -13598,7 +13598,7 @@
           "treeId": 9,
           "tier": 3,
           "grid": 4,
-          "displayName": "Pistol Damage",
+          "displayName": "Pistoleer Dam",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_pistoleer_pistol_acc_04",
@@ -13730,7 +13730,7 @@
           "treeId": 9,
           "tier": 3,
           "grid": 5,
-          "displayName": "Pistol Whip",
+          "displayName": "Sm Path Whip",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -13767,7 +13767,7 @@
           "treeId": 9,
           "tier": 4,
           "grid": 2,
-          "displayName": "Hair Trigger",
+          "displayName": "Sm Hair Trigger",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_pistoleer_attack_1"
@@ -13910,7 +13910,7 @@
           "treeId": 9,
           "tier": 4,
           "grid": 4,
-          "displayName": "Pistol Range Bonus",
+          "displayName": "Pistoleer Sp",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_pistoleer_pistol_dam_04",
@@ -14042,7 +14042,7 @@
           "treeId": 9,
           "tier": 4,
           "grid": 6,
-          "displayName": "Sure Shot Damage",
+          "displayName": "Of Sure Dam",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_pistoleer_attack_3"
@@ -14185,7 +14185,7 @@
           "treeId": 9,
           "tier": 5,
           "grid": 3,
-          "displayName": "Pistol Defense",
+          "displayName": "Pistoleer Def",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_pistoleer_pistol_def_01",
@@ -14314,7 +14314,7 @@
           "treeId": 9,
           "tier": 5,
           "grid": 4,
-          "displayName": "Strikethrough Chance",
+          "displayName": "Pistoleer Cc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_pistoleer_pistol_sp_04",
@@ -14446,7 +14446,7 @@
           "treeId": 9,
           "tier": 5,
           "grid": 5,
-          "displayName": "Beat Down",
+          "displayName": "Sm Path Beat Down",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_sm_path_pistol_whip_1"
@@ -14527,7 +14527,7 @@
           "treeId": 9,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Pistoleer",
+          "displayName": "Pistoleer Master",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_pistoleer_pistol_cc_04"
@@ -14592,7 +14592,7 @@
           "treeId": 10,
           "tier": 1,
           "grid": 4,
-          "displayName": "Rifle Action Cost Reduction",
+          "displayName": "Rifle Acr",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_rifleman_novice",
@@ -14724,7 +14724,7 @@
           "treeId": 10,
           "tier": 2,
           "grid": 2,
-          "displayName": "Focused Fire",
+          "displayName": "Marksman Ff",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_rifleman_rifle_acr_04"
@@ -14765,7 +14765,7 @@
           "treeId": 10,
           "tier": 2,
           "grid": 4,
-          "displayName": "Strikethrough Chance",
+          "displayName": "Rifle Acc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_rifleman_rifle_acr_04",
@@ -14897,7 +14897,7 @@
           "treeId": 10,
           "tier": 2,
           "grid": 6,
-          "displayName": "Ambush",
+          "displayName": "Marksman Ability",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_rifleman_rifle_acr_04"
@@ -14938,7 +14938,7 @@
           "treeId": 10,
           "tier": 3,
           "grid": 3,
-          "displayName": "Take Cover",
+          "displayName": "Bh Cover",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_rifleman_novice"
@@ -14979,7 +14979,7 @@
           "treeId": 10,
           "tier": 3,
           "grid": 4,
-          "displayName": "Rifle Damage",
+          "displayName": "Rifle Dam",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_rifleman_rifle_acc_04",
@@ -15111,7 +15111,7 @@
           "treeId": 10,
           "tier": 3,
           "grid": 5,
-          "displayName": "Sweeping Fire",
+          "displayName": "Co Ae Dm",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -15148,7 +15148,7 @@
           "treeId": 10,
           "tier": 4,
           "grid": 2,
-          "displayName": "Hose Down",
+          "displayName": "Co Hose Down",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_marksman_ff_1"
@@ -15291,7 +15291,7 @@
           "treeId": 10,
           "tier": 4,
           "grid": 4,
-          "displayName": "Armor Neglect",
+          "displayName": "Rifle Sp",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_rifleman_rifle_dam_04",
@@ -15423,7 +15423,7 @@
           "treeId": 10,
           "tier": 4,
           "grid": 6,
-          "displayName": "Ambush Efficiency",
+          "displayName": "Bh Amb Act",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_marksman_ability_03"
@@ -15606,7 +15606,7 @@
           "treeId": 10,
           "tier": 5,
           "grid": 3,
-          "displayName": "Rifle Defense",
+          "displayName": "Rifle Def",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_rifleman_rifle_def_01",
@@ -15735,7 +15735,7 @@
           "treeId": 10,
           "tier": 5,
           "grid": 4,
-          "displayName": "Rifle Critical Chance",
+          "displayName": "Rifle Cc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_rifleman_rifle_sp_04",
@@ -15867,7 +15867,7 @@
           "treeId": 10,
           "tier": 5,
           "grid": 5,
-          "displayName": "Sniper Shot",
+          "displayName": "Sniper",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -15904,7 +15904,7 @@
           "treeId": 10,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Rifleman",
+          "displayName": "Master",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_rifleman_rifle_cc_04"
@@ -15966,7 +15966,7 @@
           "treeId": 11,
           "tier": 1,
           "grid": 4,
-          "displayName": "Spy Novice",
+          "displayName": "Sp Novice",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_sp_novice",
@@ -16135,7 +16135,7 @@
           "treeId": 11,
           "tier": 2,
           "grid": 2,
-          "displayName": "Hidden Daggers",
+          "displayName": "Sp Hidden Daggers",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_sp_novice_4"
@@ -16176,7 +16176,7 @@
           "treeId": 11,
           "tier": 2,
           "grid": 3,
-          "displayName": "Puncturing Strikes",
+          "displayName": "Sp Puncturing Strikes",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_sp_hidden_daggers_1"
@@ -16299,7 +16299,7 @@
           "treeId": 11,
           "tier": 2,
           "grid": 4,
-          "displayName": "Cheap Strikes",
+          "displayName": "Sp Cheap Strikes",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_sp_novice_4"
@@ -16422,7 +16422,7 @@
           "treeId": 11,
           "tier": 2,
           "grid": 5,
-          "displayName": "Decoy",
+          "displayName": "Sp Decoy",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -16459,7 +16459,7 @@
           "treeId": 11,
           "tier": 2,
           "grid": 6,
-          "displayName": "Cloaked Attacks",
+          "displayName": "Sp Cloaked Attacks",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_sp_novice_4"
@@ -16500,7 +16500,7 @@
           "treeId": 11,
           "tier": 3,
           "grid": 2,
-          "displayName": "Opportunity",
+          "displayName": "Sp Opportunity",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_sp_hidden_daggers_1"
@@ -16623,7 +16623,7 @@
           "treeId": 11,
           "tier": 3,
           "grid": 3,
-          "displayName": "Assassinate",
+          "displayName": "Sp Dm",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -16660,7 +16660,7 @@
           "treeId": 11,
           "tier": 3,
           "grid": 4,
-          "displayName": "Close Quarters",
+          "displayName": "Sp Close Quarters",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_sp_cheap_strikes_4"
@@ -16783,7 +16783,7 @@
           "treeId": 11,
           "tier": 3,
           "grid": 5,
-          "displayName": "Diversion",
+          "displayName": "Sp Diversion",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_sp_decoy_1"
@@ -16828,7 +16828,7 @@
           "treeId": 11,
           "tier": 3,
           "grid": 6,
-          "displayName": "Cloak and Dagger",
+          "displayName": "Sp Cloak And Dagger",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_sp_cloaked_attacks_1"
@@ -17011,7 +17011,7 @@
           "treeId": 11,
           "tier": 4,
           "grid": 2,
-          "displayName": "Jagged Edge",
+          "displayName": "Sp Jagged Edge",
           "maxRank": 3,
           "skillsRequired": [
             "expertise_sp_opportunity_4"
@@ -17108,7 +17108,7 @@
           "treeId": 11,
           "tier": 4,
           "grid": 3,
-          "displayName": "Action Regeneration",
+          "displayName": "Sp Action Regen",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -17145,7 +17145,7 @@
           "treeId": 11,
           "tier": 4,
           "grid": 3,
-          "displayName": "Run Its Course",
+          "displayName": "Sp Run Its Course",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -17182,7 +17182,7 @@
           "treeId": 11,
           "tier": 4,
           "grid": 4,
-          "displayName": "Assassin's Blade",
+          "displayName": "Sp Assassins Blade",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_sp_close_quarters_4"
@@ -17305,7 +17305,7 @@
           "treeId": 11,
           "tier": 4,
           "grid": 5,
-          "displayName": "Flash Bang",
+          "displayName": "Sp Fld Debuff Ca",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -17342,7 +17342,7 @@
           "treeId": 11,
           "tier": 4,
           "grid": 6,
-          "displayName": "Initiative",
+          "displayName": "Sp Initiative",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_sp_cloak_and_dagger_4"
@@ -17525,7 +17525,7 @@
           "treeId": 11,
           "tier": 5,
           "grid": 2,
-          "displayName": "Savagery",
+          "displayName": "Sp Savagery",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_sp_jagged_edge_3"
@@ -17570,7 +17570,7 @@
           "treeId": 11,
           "tier": 5,
           "grid": 3,
-          "displayName": "Assassin's Mark",
+          "displayName": "Sp Assassins Mark",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -17607,7 +17607,7 @@
           "treeId": 11,
           "tier": 5,
           "grid": 4,
-          "displayName": "Vibrogenerator",
+          "displayName": "Sp Vibrogenerator",
           "maxRank": 3,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -17700,7 +17700,7 @@
           "treeId": 11,
           "tier": 5,
           "grid": 5,
-          "displayName": "Resonance",
+          "displayName": "Sp Resonance",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_sp_vibrogenerator_3"
@@ -17745,7 +17745,7 @@
           "treeId": 11,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Spy",
+          "displayName": "Sp Master",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -17796,7 +17796,7 @@
           "treeId": 11,
           "tier": 6,
           "grid": 5,
-          "displayName": "Avoid Damage",
+          "displayName": "Sp Avoid Damage",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_sp_master"
@@ -17837,7 +17837,7 @@
           "treeId": 11,
           "tier": 6,
           "grid": 6,
-          "displayName": "Shifty Setup",
+          "displayName": "Sp Shifty Setup",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -17881,7 +17881,7 @@
           "treeId": 12,
           "tier": 1,
           "grid": 4,
-          "displayName": "Bounty Hunter Novice",
+          "displayName": "Bountyhunter Novice",
           "maxRank": 4,
           "skillsRequired": [
             "combat_bountyhunter_novice",
@@ -18063,7 +18063,7 @@
           "treeId": 12,
           "tier": 2,
           "grid": 2,
-          "displayName": "Cripple",
+          "displayName": "Marksman Ability",
           "maxRank": 1,
           "skillsRequired": [
             "combat_bountyhunter_novice_4"
@@ -18104,7 +18104,7 @@
           "treeId": 12,
           "tier": 2,
           "grid": 3,
-          "displayName": "Burn",
+          "displayName": "Bh Burn",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -18141,7 +18141,7 @@
           "treeId": 12,
           "tier": 2,
           "grid": 5,
-          "displayName": "Torso Shot",
+          "displayName": "Bh Torse Shot",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -18178,7 +18178,7 @@
           "treeId": 12,
           "tier": 2,
           "grid": 6,
-          "displayName": "Tangle",
+          "displayName": "Bh Tangle",
           "maxRank": 1,
           "skillsRequired": [
             "combat_bountyhunter_novice_4"
@@ -18221,10 +18221,10 @@
           "treeId": 12,
           "tier": 3,
           "grid": 2,
-          "displayName": "Lethality",
+          "displayName": "Bh Trap Dam",
           "maxRank": 4,
           "skillsRequired": [
-            "expertise_marksman_ability_01"
+            "expertise_marksman_ability_02"
           ],
           "skillsRequiredCount": null,
           "preclusionSkills": [],
@@ -18243,7 +18243,7 @@
               "prereqLevel": null,
               "parent": "expertise",
               "skillsRequired": [
-                "expertise_marksman_ability_01"
+                "expertise_marksman_ability_02"
               ],
               "skillsRequiredCount": null,
               "preclusionSkills": [],
@@ -18384,7 +18384,7 @@
           "treeId": 12,
           "tier": 3,
           "grid": 3,
-          "displayName": "Duelist Stance",
+          "displayName": "Bh Armor Duelist",
           "maxRank": 1,
           "skillsRequired": [
             "combat_bountyhunter_novice_4"
@@ -18425,7 +18425,7 @@
           "treeId": 12,
           "tier": 3,
           "grid": 4,
-          "displayName": "Critical Chance",
+          "displayName": "Bh Crit",
           "maxRank": 4,
           "skillsRequired": [
             "combat_bountyhunter_novice_4",
@@ -18557,7 +18557,7 @@
           "treeId": 12,
           "tier": 3,
           "grid": 5,
-          "displayName": "Eye Shot",
+          "displayName": "Bh Eye Shot",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -18594,7 +18594,7 @@
           "treeId": 12,
           "tier": 3,
           "grid": 6,
-          "displayName": "Noxious Traps",
+          "displayName": "Sp Noxious Traps",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_bh_tangle",
@@ -18766,7 +18766,7 @@
           "treeId": 12,
           "tier": 4,
           "grid": 2,
-          "displayName": "Intimidating Strike",
+          "displayName": "Bh Intimidate",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -18803,7 +18803,7 @@
           "treeId": 12,
           "tier": 4,
           "grid": 3,
-          "displayName": "Fumble",
+          "displayName": "Bh Fumble",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -18840,7 +18840,7 @@
           "treeId": 12,
           "tier": 4,
           "grid": 4,
-          "displayName": "Manipulation Critical",
+          "displayName": "Bh Man Crit",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_bh_crit_4"
@@ -19003,7 +19003,7 @@
           "treeId": 12,
           "tier": 4,
           "grid": 5,
-          "displayName": "Confusion Shot",
+          "displayName": "Bh Confusion Shot",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -19040,7 +19040,7 @@
           "treeId": 12,
           "tier": 4,
           "grid": 6,
-          "displayName": "Antagonize",
+          "displayName": "Bh Taunt",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -19077,7 +19077,7 @@
           "treeId": 12,
           "tier": 5,
           "grid": 2,
-          "displayName": "Dread Strike",
+          "displayName": "Bh Dread Strike",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_bh_intimidate_1"
@@ -19118,7 +19118,7 @@
           "treeId": 12,
           "tier": 5,
           "grid": 3,
-          "displayName": "Prescience",
+          "displayName": "Bh Prescience",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_bh_fumble_1"
@@ -19159,7 +19159,7 @@
           "treeId": 12,
           "tier": 5,
           "grid": 4,
-          "displayName": "Absorption",
+          "displayName": "Bh Absorbtion",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_bh_man_crit_4"
@@ -19302,7 +19302,7 @@
           "treeId": 12,
           "tier": 5,
           "grid": 5,
-          "displayName": "Critical Shot",
+          "displayName": "Bh Critical Shot",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -19339,7 +19339,7 @@
           "treeId": 12,
           "tier": 5,
           "grid": 6,
-          "displayName": "Pinning Shot",
+          "displayName": "Bh Stun",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -19376,7 +19376,7 @@
           "treeId": 12,
           "tier": 6,
           "grid": 1,
-          "displayName": "Reveal",
+          "displayName": "Bh Reveal",
           "maxRank": 1,
           "skillsRequired": [
             "combat_bountyhunter_master"
@@ -19417,7 +19417,7 @@
           "treeId": 12,
           "tier": 6,
           "grid": 2,
-          "displayName": "Shields",
+          "displayName": "Bh Shields",
           "maxRank": 1,
           "skillsRequired": [
             "combat_bountyhunter_master"
@@ -19458,7 +19458,7 @@
           "treeId": 12,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Bounty Hunter",
+          "displayName": "Bountyhunter Master",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_bh_absorbtion_4"
@@ -19543,7 +19543,7 @@
           "treeId": 12,
           "tier": 6,
           "grid": 6,
-          "displayName": "Preparation",
+          "displayName": "Sp Preparation",
           "maxRank": 1,
           "skillsRequired": [
             "combat_bountyhunter_master"
@@ -19584,7 +19584,7 @@
           "treeId": 12,
           "tier": 6,
           "grid": 7,
-          "displayName": "Underhand Shot",
+          "displayName": "Bh Underhand Shot",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_sp_preparation_1"
@@ -19632,7 +19632,7 @@
           "treeId": 13,
           "tier": 1,
           "grid": 4,
-          "displayName": "Combat Medic Novice",
+          "displayName": "Science Combatmedic Novice",
           "maxRank": 4,
           "skillsRequired": [
             "science_combatmedic_novice",
@@ -19761,7 +19761,7 @@
           "treeId": 13,
           "tier": 2,
           "grid": 2,
-          "displayName": "Neurotoxin",
+          "displayName": "Me Me Dm Dot",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -19798,7 +19798,7 @@
           "treeId": 13,
           "tier": 2,
           "grid": 3,
-          "displayName": "Arachne's Web",
+          "displayName": "Sp Cc Dot",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -19835,7 +19835,7 @@
           "treeId": 13,
           "tier": 2,
           "grid": 4,
-          "displayName": "Medic Damage",
+          "displayName": "Cm Damage",
           "maxRank": 4,
           "skillsRequired": [
             "science_combatmedic_novice_4",
@@ -19967,7 +19967,7 @@
           "treeId": 13,
           "tier": 2,
           "grid": 5,
-          "displayName": "Electrolyte Drain",
+          "displayName": "Me Electrolyte Drain",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -20004,7 +20004,7 @@
           "treeId": 13,
           "tier": 2,
           "grid": 6,
-          "displayName": "Nerve Gas",
+          "displayName": "Me Me Fld Dm Dot",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -20041,7 +20041,7 @@
           "treeId": 13,
           "tier": 3,
           "grid": 2,
-          "displayName": "Serotonin Purge",
+          "displayName": "Me Serotonin Purge",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -20078,7 +20078,7 @@
           "treeId": 13,
           "tier": 3,
           "grid": 4,
-          "displayName": "DoT Damage Boost",
+          "displayName": "Cm Dot Dam",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_cm_damage_4",
@@ -20210,7 +20210,7 @@
           "treeId": 13,
           "tier": 3,
           "grid": 5,
-          "displayName": "Critical Chance",
+          "displayName": "Cm Crit",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_cm_dot_dam_4",
@@ -20342,7 +20342,7 @@
           "treeId": 13,
           "tier": 3,
           "grid": 6,
-          "displayName": "Traumatize",
+          "displayName": "Me Traumatize",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -20379,7 +20379,7 @@
           "treeId": 13,
           "tier": 4,
           "grid": 2,
-          "displayName": "Rheumatic Calamity",
+          "displayName": "Me Induce Insanity",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -20416,7 +20416,7 @@
           "treeId": 13,
           "tier": 4,
           "grid": 3,
-          "displayName": "Bacta Corruption",
+          "displayName": "Me Bacta Resistance",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -20453,7 +20453,7 @@
           "treeId": 13,
           "tier": 4,
           "grid": 4,
-          "displayName": "Efficiency",
+          "displayName": "Cm Acr",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_cm_dot_dam_4",
@@ -20585,7 +20585,7 @@
           "treeId": 13,
           "tier": 4,
           "grid": 5,
-          "displayName": "Viper's Fang",
+          "displayName": "Sp Improved Spys Fang",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -20622,7 +20622,7 @@
           "treeId": 13,
           "tier": 4,
           "grid": 6,
-          "displayName": "Thyroid Rupture",
+          "displayName": "Me Thyroid Rupture",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -20659,7 +20659,7 @@
           "treeId": 13,
           "tier": 5,
           "grid": 4,
-          "displayName": "DoT Duration",
+          "displayName": "Cm Dot Dur",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_cm_acr_4",
@@ -20791,7 +20791,7 @@
           "treeId": 13,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Combat Medic",
+          "displayName": "Science Combatmedic Master",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_cm_dot_dur_4"
@@ -20846,7 +20846,7 @@
           "treeId": 14,
           "tier": 1,
           "grid": 4,
-          "displayName": "Commando Novice",
+          "displayName": "Novice",
           "maxRank": 4,
           "skillsRequired": [
             "combat_commando_novice",
@@ -20977,7 +20977,7 @@
           "treeId": 14,
           "tier": 2,
           "grid": 2,
-          "displayName": "Powered Armor",
+          "displayName": "Co Powered Armor",
           "maxRank": 4,
           "skillsRequired": [
             "combat_commando_novice_4"
@@ -21100,7 +21100,7 @@
           "treeId": 14,
           "tier": 2,
           "grid": 4,
-          "displayName": "Stim Armor",
+          "displayName": "Co Stim Armor",
           "maxRank": 1,
           "skillsRequired": [
             "combat_commando_novice_4"
@@ -21141,7 +21141,7 @@
           "treeId": 14,
           "tier": 2,
           "grid": 6,
-          "displayName": "On Target",
+          "displayName": "Co On Target",
           "maxRank": 4,
           "skillsRequired": [
             "combat_commando_novice_4"
@@ -21304,7 +21304,7 @@
           "treeId": 14,
           "tier": 3,
           "grid": 2,
-          "displayName": "Pinpoint Shielding",
+          "displayName": "Co Pinpoint Shielding",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_co_powered_armor_4"
@@ -21431,7 +21431,7 @@
           "treeId": 14,
           "tier": 3,
           "grid": 4,
-          "displayName": "Diagnostic Armor",
+          "displayName": "Co Diagnostic Armor",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_co_stim_armor_1"
@@ -21476,7 +21476,7 @@
           "treeId": 14,
           "tier": 3,
           "grid": 5,
-          "displayName": "Cluster Bomb",
+          "displayName": "Co Cluster Bomb",
           "maxRank": 1,
           "skillsRequired": [
             "combat_commando_novice"
@@ -21517,7 +21517,7 @@
           "treeId": 14,
           "tier": 3,
           "grid": 6,
-          "displayName": "Armor Splash",
+          "displayName": "Co Armor Splash",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_co_on_target_4"
@@ -21660,7 +21660,7 @@
           "treeId": 14,
           "tier": 3,
           "grid": 7,
-          "displayName": "Double Time",
+          "displayName": "Co Double Time",
           "maxRank": 1,
           "skillsRequired": [
             "combat_commando_novice_4"
@@ -21701,7 +21701,7 @@
           "treeId": 14,
           "tier": 4,
           "grid": 1,
-          "displayName": "Deflective Armor",
+          "displayName": "Co Deflective Armor",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_co_powered_armor_4"
@@ -21844,7 +21844,7 @@
           "treeId": 14,
           "tier": 4,
           "grid": 2,
-          "displayName": "Stand Fast",
+          "displayName": "Co Stand Fast",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -21891,7 +21891,7 @@
           "treeId": 14,
           "tier": 4,
           "grid": 3,
-          "displayName": "Blast Resistance",
+          "displayName": "Co Blast Resistance",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_co_powered_armor_4"
@@ -22054,7 +22054,7 @@
           "treeId": 14,
           "tier": 4,
           "grid": 4,
-          "displayName": "Mirror Armor",
+          "displayName": "Co Mirror Armor",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_co_diagnostic_armor_1"
@@ -22095,7 +22095,7 @@
           "treeId": 14,
           "tier": 4,
           "grid": 5,
-          "displayName": "Blow 'Em Away",
+          "displayName": "Co Blow Em Away",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_co_cluster_bomb"
@@ -22166,7 +22166,7 @@
           "treeId": 14,
           "tier": 4,
           "grid": 6,
-          "displayName": "Base of Operations",
+          "displayName": "Co Base Of Operations",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -22207,7 +22207,7 @@
           "treeId": 14,
           "tier": 4,
           "grid": 7,
-          "displayName": "First Aid Training",
+          "displayName": "Co First Aid Training",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -22244,7 +22244,7 @@
           "treeId": 14,
           "tier": 5,
           "grid": 2,
-          "displayName": "Improved Stand Fast",
+          "displayName": "Co Imp Stand Fast",
           "maxRank": 3,
           "skillsRequired": [
             "expertise_co_stand_fast_1"
@@ -22371,7 +22371,7 @@
           "treeId": 14,
           "tier": 5,
           "grid": 3,
-          "displayName": "You'll Regret That",
+          "displayName": "Co Youll Regret That",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -22510,7 +22510,7 @@
           "treeId": 14,
           "tier": 5,
           "grid": 5,
-          "displayName": "Improved Riddle Armor",
+          "displayName": "Co Imp Riddle Armor",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_co_riddle_armor_1"
@@ -22581,7 +22581,7 @@
           "treeId": 14,
           "tier": 5,
           "grid": 6,
-          "displayName": "Riddle Armor",
+          "displayName": "Co Riddle Armor",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -22618,7 +22618,7 @@
           "treeId": 14,
           "tier": 5,
           "grid": 7,
-          "displayName": "Armor Shredder",
+          "displayName": "Co Armor Cracker",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_co_riddle_armor_1"
@@ -22659,7 +22659,7 @@
           "treeId": 14,
           "tier": 6,
           "grid": 1,
-          "displayName": "Area Enrage",
+          "displayName": "Co Ae Taunt",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_co_taunt"
@@ -22700,7 +22700,7 @@
           "treeId": 14,
           "tier": 6,
           "grid": 2,
-          "displayName": "Enrage",
+          "displayName": "Co Taunt",
           "maxRank": 1,
           "skillsRequired": [
             "combat_commando_master"
@@ -22741,7 +22741,7 @@
           "treeId": 14,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Commando",
+          "displayName": "Master",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -22790,7 +22790,7 @@
           "treeId": 14,
           "tier": 6,
           "grid": 6,
-          "displayName": "Killing Spree",
+          "displayName": "Co Killing Spree",
           "maxRank": 1,
           "skillsRequired": [
             "combat_commando_master"
@@ -22831,7 +22831,7 @@
           "treeId": 14,
           "tier": 6,
           "grid": 7,
-          "displayName": "Killing Grimace",
+          "displayName": "Co Killing Grimace",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_co_killing_spree"
@@ -22909,7 +22909,7 @@
           "treeId": 15,
           "tier": 1,
           "grid": 4,
-          "displayName": "Doctor Novice",
+          "displayName": "Science Doctor Novice",
           "maxRank": 4,
           "skillsRequired": [
             "science_doctor_novice",
@@ -23041,7 +23041,7 @@
           "treeId": 15,
           "tier": 2,
           "grid": 2,
-          "displayName": "Heal Over Time",
+          "displayName": "Me Hot",
           "maxRank": 1,
           "skillsRequired": [
             "science_doctor_novice_4"
@@ -23083,7 +23083,7 @@
           "treeId": 15,
           "tier": 2,
           "grid": 3,
-          "displayName": "Inner Peace",
+          "displayName": "Doc Inner Peace",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -23120,7 +23120,7 @@
           "treeId": 15,
           "tier": 2,
           "grid": 4,
-          "displayName": "Doctor Efficiency",
+          "displayName": "Doc Acr",
           "maxRank": 4,
           "skillsRequired": [
             "science_doctor_novice_4",
@@ -23252,7 +23252,7 @@
           "treeId": 15,
           "tier": 2,
           "grid": 5,
-          "displayName": "Bacta Ampule",
+          "displayName": "Me Me Bacta Ampule",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -23289,7 +23289,7 @@
           "treeId": 15,
           "tier": 2,
           "grid": 6,
-          "displayName": "Enhancement Specialist",
+          "displayName": "Me Enhancement Specialist",
           "maxRank": 1,
           "skillsRequired": [
             "science_doctor_novice_4"
@@ -23336,7 +23336,7 @@
           "treeId": 15,
           "tier": 3,
           "grid": 2,
-          "displayName": "HoT Potency",
+          "displayName": "Me Hot Duration",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_me_hot"
@@ -23459,7 +23459,7 @@
           "treeId": 15,
           "tier": 3,
           "grid": 3,
-          "displayName": "Detox",
+          "displayName": "Doc Cleanse",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -23496,7 +23496,7 @@
           "treeId": 15,
           "tier": 3,
           "grid": 4,
-          "displayName": "Healing Power",
+          "displayName": "Doc Hp",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_doc_acr_4",
@@ -23628,7 +23628,7 @@
           "treeId": 15,
           "tier": 3,
           "grid": 5,
-          "displayName": "Area Heal",
+          "displayName": "Me Me Ae Heal",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -23665,7 +23665,7 @@
           "treeId": 15,
           "tier": 3,
           "grid": 6,
-          "displayName": "Agro Healing",
+          "displayName": "Me Agro Healing",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_me_enhancement_specialist_1"
@@ -23808,7 +23808,7 @@
           "treeId": 15,
           "tier": 4,
           "grid": 2,
-          "displayName": "Serotonin Boost",
+          "displayName": "Me Serotonin Boost",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -23845,7 +23845,7 @@
           "treeId": 15,
           "tier": 4,
           "grid": 3,
-          "displayName": "Advanced Reactive Heal",
+          "displayName": "Doc Reactive Adv",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_doc_reactive_4",
@@ -23977,7 +23977,7 @@
           "treeId": 15,
           "tier": 4,
           "grid": 4,
-          "displayName": "Reactive Heal",
+          "displayName": "Doc Reactive",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_doc_hp_4",
@@ -24109,7 +24109,7 @@
           "treeId": 15,
           "tier": 4,
           "grid": 5,
-          "displayName": "Bacta Grenade",
+          "displayName": "Me Bacta Grenade",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -24147,7 +24147,7 @@
           "treeId": 15,
           "tier": 4,
           "grid": 6,
-          "displayName": "Self Reflection",
+          "displayName": "Doc Self Reflection",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -24266,7 +24266,7 @@
           "treeId": 15,
           "tier": 5,
           "grid": 2,
-          "displayName": "Cure Affliction",
+          "displayName": "Me Cure Affliction",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -24303,7 +24303,7 @@
           "treeId": 15,
           "tier": 5,
           "grid": 3,
-          "displayName": "Evasion",
+          "displayName": "Me Evasion",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -24340,7 +24340,7 @@
           "treeId": 15,
           "tier": 5,
           "grid": 4,
-          "displayName": "Revive",
+          "displayName": "Doc Rv",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_doc_reactive_4",
@@ -24492,7 +24492,7 @@
           "treeId": 15,
           "tier": 5,
           "grid": 5,
-          "displayName": "Bacta Bomb",
+          "displayName": "Me Bacta Bomb",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -24529,7 +24529,7 @@
           "treeId": 15,
           "tier": 5,
           "grid": 6,
-          "displayName": "Blood Cleansers",
+          "displayName": "Me Blood Cleaners",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -24566,7 +24566,7 @@
           "treeId": 15,
           "tier": 6,
           "grid": 2,
-          "displayName": "Reckless Stimulation",
+          "displayName": "Me Reckless Stimulation",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -24603,7 +24603,7 @@
           "treeId": 15,
           "tier": 6,
           "grid": 3,
-          "displayName": "Bacta Cloud",
+          "displayName": "Doc Bacta Cloud",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -24640,7 +24640,7 @@
           "treeId": 15,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Doctor",
+          "displayName": "Science Doctor Master",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_doc_rv_4"
@@ -24690,7 +24690,7 @@
           "treeId": 15,
           "tier": 6,
           "grid": 5,
-          "displayName": "Stasis Field",
+          "displayName": "Me Stasis",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -24727,7 +24727,7 @@
           "treeId": 15,
           "tier": 6,
           "grid": 6,
-          "displayName": "Kinetic Armor",
+          "displayName": "Me Kinetic Armor",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_me_stasis_1"
@@ -25016,7 +25016,7 @@
           "treeId": 16,
           "tier": 2,
           "grid": 2,
-          "displayName": "Remote Detonator",
+          "displayName": "Co Remote Detonator",
           "maxRank": 1,
           "skillsRequired": [
             "combat_grenadier_novice_4"
@@ -25057,7 +25057,7 @@
           "treeId": 16,
           "tier": 2,
           "grid": 3,
-          "displayName": "Shock Tracer",
+          "displayName": "Co Shock Tracer",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -25094,7 +25094,7 @@
           "treeId": 16,
           "tier": 2,
           "grid": 4,
-          "displayName": "Area Action Cost",
+          "displayName": "Of Aoe Act",
           "maxRank": 4,
           "skillsRequired": [
             "combat_grenadier_novice_4"
@@ -25217,7 +25217,7 @@
           "treeId": 16,
           "tier": 2,
           "grid": 5,
-          "displayName": "Shock Grenade",
+          "displayName": "Co Shock Grenade",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -25254,7 +25254,7 @@
           "treeId": 16,
           "tier": 2,
           "grid": 6,
-          "displayName": "Blast Radius",
+          "displayName": "Co Blast Radius",
           "maxRank": 4,
           "skillsRequired": [
             "combat_grenadier_novice_4"
@@ -25382,7 +25382,7 @@
           "treeId": 16,
           "tier": 3,
           "grid": 2,
-          "displayName": "Flashbang",
+          "displayName": "Co Flashbang",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_co_remote_detonator_1"
@@ -25453,7 +25453,7 @@
           "treeId": 16,
           "tier": 3,
           "grid": 3,
-          "displayName": "Concussion Grenade",
+          "displayName": "Co Del Ae Cc 1",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -25490,7 +25490,7 @@
           "treeId": 16,
           "tier": 3,
           "grid": 4,
-          "displayName": "Area Damage",
+          "displayName": "Of Aoe Dam",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_of_aoe_act_4"
@@ -25613,7 +25613,7 @@
           "treeId": 16,
           "tier": 3,
           "grid": 5,
-          "displayName": "Dioxis Grenade",
+          "displayName": "Of Dioxis",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -25650,7 +25650,7 @@
           "treeId": 16,
           "tier": 3,
           "grid": 6,
-          "displayName": "Advanced Efficiency",
+          "displayName": "Gr Adv Acr",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_co_blast_radius_4"
@@ -25813,7 +25813,7 @@
           "treeId": 16,
           "tier": 4,
           "grid": 2,
-          "displayName": "Timer Reset",
+          "displayName": "Co Timer Reset",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_co_flashbang_2"
@@ -25884,7 +25884,7 @@
           "treeId": 16,
           "tier": 4,
           "grid": 3,
-          "displayName": "Cryoban Grenade",
+          "displayName": "Co Del Ae Cc 2",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -25921,7 +25921,7 @@
           "treeId": 16,
           "tier": 4,
           "grid": 4,
-          "displayName": "Area Critical Chance",
+          "displayName": "Of Aoe Crit",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_of_aoe_dam_4"
@@ -26044,7 +26044,7 @@
           "treeId": 16,
           "tier": 4,
           "grid": 5,
-          "displayName": "Fragmentation Grenade",
+          "displayName": "Co Del Ae Dm",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -26118,7 +26118,7 @@
           "treeId": 16,
           "tier": 5,
           "grid": 2,
-          "displayName": "Angled Shrapnel",
+          "displayName": "Co Angled Shrapnel",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_co_timer_reset_2"
@@ -26261,7 +26261,7 @@
           "treeId": 16,
           "tier": 5,
           "grid": 3,
-          "displayName": "E-Mag Mine",
+          "displayName": "Co Fld Dm",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -26298,7 +26298,7 @@
           "treeId": 16,
           "tier": 5,
           "grid": 4,
-          "displayName": "Anti-Evade",
+          "displayName": "Gr Anti Evade",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_of_aoe_crit_4"
@@ -26441,7 +26441,7 @@
           "treeId": 16,
           "tier": 5,
           "grid": 5,
-          "displayName": "Seismic Grenade",
+          "displayName": "Of Shock",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -26478,7 +26478,7 @@
           "treeId": 16,
           "tier": 5,
           "grid": 6,
-          "displayName": "Core Bomb",
+          "displayName": "Of Del Ae Dm Dot",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -26515,7 +26515,7 @@
           "treeId": 16,
           "tier": 6,
           "grid": 1,
-          "displayName": "Blast Resistance",
+          "displayName": "Gr Blast Resistance",
           "maxRank": 4,
           "skillsRequired": [
             "combat_grenadier_master"
@@ -26638,7 +26638,7 @@
           "treeId": 16,
           "tier": 6,
           "grid": 2,
-          "displayName": "Artillery Strike",
+          "displayName": "Of Artillery",
           "maxRank": 1,
           "skillsRequired": [
             "combat_grenadier_master"
@@ -26679,7 +26679,7 @@
           "treeId": 16,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Grenadier",
+          "displayName": "Grenadier Master",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -26725,7 +26725,7 @@
           "treeId": 16,
           "tier": 6,
           "grid": 6,
-          "displayName": "Superior Firepower",
+          "displayName": "Of Firepower",
           "maxRank": 1,
           "skillsRequired": [
             "combat_grenadier_master"
@@ -26766,7 +26766,7 @@
           "treeId": 16,
           "tier": 6,
           "grid": 7,
-          "displayName": "Primacy",
+          "displayName": "Of Firepower Cool",
           "maxRank": 3,
           "skillsRequired": [
             "expertise_of_firepower_1"
@@ -26870,7 +26870,7 @@
           "treeId": 17,
           "tier": 1,
           "grid": 4,
-          "displayName": "Smuggler Novice",
+          "displayName": "Novice",
           "maxRank": 4,
           "skillsRequired": [
             "combat_smuggler_novice",
@@ -27083,7 +27083,7 @@
           "treeId": 17,
           "tier": 2,
           "grid": 2,
-          "displayName": "Spot a Sucker",
+          "displayName": "Sm Spot A Sucker",
           "maxRank": 1,
           "skillsRequired": [
             "combat_smuggler_novice_4"
@@ -27124,7 +27124,7 @@
           "treeId": 17,
           "tier": 2,
           "grid": 3,
-          "displayName": "Skullduggery",
+          "displayName": "Sm Path Skullduggery",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -27161,7 +27161,7 @@
           "treeId": 17,
           "tier": 2,
           "grid": 4,
-          "displayName": "Smooth Move",
+          "displayName": "Sm Path Smooth Move",
           "maxRank": 4,
           "skillsRequired": [
             "combat_smuggler_novice_4"
@@ -27284,7 +27284,7 @@
           "treeId": 17,
           "tier": 2,
           "grid": 5,
-          "displayName": "Delayed Strike",
+          "displayName": "Sm Del Dm Cc",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -27321,7 +27321,7 @@
           "treeId": 17,
           "tier": 2,
           "grid": 6,
-          "displayName": "Off the Cuff",
+          "displayName": "Sm Off The Cuff",
           "maxRank": 1,
           "skillsRequired": [
             "combat_smuggler_novice_4"
@@ -27362,7 +27362,7 @@
           "treeId": 17,
           "tier": 3,
           "grid": 2,
-          "displayName": "Meager Fortune",
+          "displayName": "Sm Meager Fortune",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_sm_general_spot_a_sucker_1"
@@ -27433,7 +27433,7 @@
           "treeId": 17,
           "tier": 3,
           "grid": 3,
-          "displayName": "Eat Dirt",
+          "displayName": "Sm Path Eat Dirt",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_sm_path_skullduggery_1"
@@ -27504,7 +27504,7 @@
           "treeId": 17,
           "tier": 3,
           "grid": 4,
-          "displayName": "Scandal",
+          "displayName": "Sm Path Scandal",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_sm_path_smooth_move_4"
@@ -27627,7 +27627,7 @@
           "treeId": 17,
           "tier": 3,
           "grid": 5,
-          "displayName": "Inside Information",
+          "displayName": "Sm Path Inside Information",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -27665,7 +27665,7 @@
           "treeId": 17,
           "tier": 3,
           "grid": 6,
-          "displayName": "Double Deal",
+          "displayName": "Sm Double Deal",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_sm_general_off_the_cuff_1"
@@ -27736,7 +27736,7 @@
           "treeId": 17,
           "tier": 4,
           "grid": 2,
-          "displayName": "Wretched Fate",
+          "displayName": "Sm Wretched Fate",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_sm_general_meager_fortune_2"
@@ -27807,7 +27807,7 @@
           "treeId": 17,
           "tier": 4,
           "grid": 3,
-          "displayName": "Blindside",
+          "displayName": "Sm Path Blindside",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_sm_path_eat_dirt_2"
@@ -27878,7 +27878,7 @@
           "treeId": 17,
           "tier": 4,
           "grid": 4,
-          "displayName": "Off the Books",
+          "displayName": "Sm Path Off The Books",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -27933,7 +27933,7 @@
           "treeId": 17,
           "tier": 4,
           "grid": 5,
-          "displayName": "Break the Deal",
+          "displayName": "Sm Break The Deal",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -27970,7 +27970,7 @@
           "treeId": 17,
           "tier": 4,
           "grid": 6,
-          "displayName": "End of the Line",
+          "displayName": "Sm End Of The Line",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_sm_general_double_deal_2"
@@ -28011,7 +28011,7 @@
           "treeId": 17,
           "tier": 5,
           "grid": 2,
-          "displayName": "Poor Prospect",
+          "displayName": "Sm Poor Prospect",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_sm_general_wretched_fate_2"
@@ -28082,7 +28082,7 @@
           "treeId": 17,
           "tier": 5,
           "grid": 3,
-          "displayName": "Camouflage Ally",
+          "displayName": "Sm Buff Invis Ally",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -28119,7 +28119,7 @@
           "treeId": 17,
           "tier": 5,
           "grid": 4,
-          "displayName": "Blaster at Your Side",
+          "displayName": "Sm Path Blaster At Your Side",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_sm_path_blaster_at_your_side_1",
@@ -28248,7 +28248,7 @@
           "treeId": 17,
           "tier": 5,
           "grid": 5,
-          "displayName": "False Hope",
+          "displayName": "Sm Path False Hope",
           "maxRank": 3,
           "skillsRequired": [
             "expertise_sm_path_false_hope_1"
@@ -28351,7 +28351,7 @@
           "treeId": 17,
           "tier": 5,
           "grid": 6,
-          "displayName": "Nerf Herder",
+          "displayName": "Sm Nerf Herder",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_sm_general_end_of_the_line_1"
@@ -28392,7 +28392,7 @@
           "treeId": 17,
           "tier": 6,
           "grid": 1,
-          "displayName": "Card Up Your Sleeve",
+          "displayName": "Sm Path Card Up Your Sleeve",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_sm_path_feeling_lucky_4"
@@ -28555,7 +28555,7 @@
           "treeId": 17,
           "tier": 6,
           "grid": 2,
-          "displayName": "Feeling Lucky",
+          "displayName": "Sm Path Feeling Lucky",
           "maxRank": 4,
           "skillsRequired": [
             "combat_smuggler_master"
@@ -28718,7 +28718,7 @@
           "treeId": 17,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Smuggler",
+          "displayName": "Master",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -28762,7 +28762,7 @@
           "treeId": 17,
           "tier": 6,
           "grid": 5,
-          "displayName": "Impossible Odds",
+          "displayName": "Sm Path Impossible Odds",
           "maxRank": 1,
           "skillsRequired": [
             "combat_smuggler_master"
@@ -28803,7 +28803,7 @@
           "treeId": 17,
           "tier": 6,
           "grid": 6,
-          "displayName": "Loaded Chance Dice",
+          "displayName": "Sm Path Loaded Chance Dice",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_sm_path_impossible_odds_1"
@@ -28884,7 +28884,7 @@
           "treeId": 17,
           "tier": 6,
           "grid": 7,
-          "displayName": "Sleight of Hand",
+          "displayName": "Sm Path Sleight Of Hand",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_sm_path_loaded_chance_dice_2"
@@ -28962,7 +28962,7 @@
           "treeId": 18,
           "tier": 1,
           "grid": 4,
-          "displayName": "Squad Leader Novice",
+          "displayName": "Outdoors Squadleader Novice",
           "maxRank": 4,
           "skillsRequired": [
             "outdoors_squadleader_novice",
@@ -29113,7 +29113,7 @@
           "treeId": 18,
           "tier": 2,
           "grid": 2,
-          "displayName": "Advanced Tactics",
+          "displayName": "Of Advanced Tactics",
           "maxRank": 1,
           "skillsRequired": [
             "outdoors_squadleader_novice_4"
@@ -29154,7 +29154,7 @@
           "treeId": 18,
           "tier": 2,
           "grid": 4,
-          "displayName": "Damage to Action Cost",
+          "displayName": "Sl Dta",
           "maxRank": 4,
           "skillsRequired": [
             "outdoors_squadleader_novice_4"
@@ -29277,7 +29277,7 @@
           "treeId": 18,
           "tier": 2,
           "grid": 6,
-          "displayName": "Paint Target",
+          "displayName": "Of Advanced Paint",
           "maxRank": 1,
           "skillsRequired": [
             "outdoors_squadleader_novice_4"
@@ -29318,7 +29318,7 @@
           "treeId": 18,
           "tier": 3,
           "grid": 1,
-          "displayName": "Drillmaster",
+          "displayName": "Of Drillmaster",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_of_advanced_tactics_1"
@@ -29359,7 +29359,7 @@
           "treeId": 18,
           "tier": 3,
           "grid": 2,
-          "displayName": "Inspiration",
+          "displayName": "Of Inspiration",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_of_advanced_tactics_1"
@@ -29400,7 +29400,7 @@
           "treeId": 18,
           "tier": 3,
           "grid": 3,
-          "displayName": "Focus Fire",
+          "displayName": "Of Focus Fire",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_of_advanced_tactics_1"
@@ -29441,7 +29441,7 @@
           "treeId": 18,
           "tier": 3,
           "grid": 5,
-          "displayName": "Paint Damage",
+          "displayName": "Of Paint Dam",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_of_advanced_paint_1"
@@ -29564,7 +29564,7 @@
           "treeId": 18,
           "tier": 3,
           "grid": 6,
-          "displayName": "Misdirected Anger",
+          "displayName": "Of Aggro Channel",
           "maxRank": 3,
           "skillsRequired": [
             "expertise_of_advanced_paint_1",
@@ -29669,7 +29669,7 @@
           "treeId": 18,
           "tier": 3,
           "grid": 7,
-          "displayName": "Paint Action Cost",
+          "displayName": "Of Paint Act",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_of_advanced_paint_1"
@@ -29792,7 +29792,7 @@
           "treeId": 18,
           "tier": 4,
           "grid": 1,
-          "displayName": "Scatter!",
+          "displayName": "Of Scatter",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_of_drillmaster_1"
@@ -29833,7 +29833,7 @@
           "treeId": 18,
           "tier": 4,
           "grid": 3,
-          "displayName": "Charge!",
+          "displayName": "Of Charge",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_of_focus_fire_1"
@@ -29874,7 +29874,7 @@
           "treeId": 18,
           "tier": 4,
           "grid": 4,
-          "displayName": "Efficiency",
+          "displayName": "Sl Acr",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -29993,7 +29993,7 @@
           "treeId": 18,
           "tier": 4,
           "grid": 7,
-          "displayName": "Reinforcements",
+          "displayName": "Of Reinforcements",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -30030,7 +30030,7 @@
           "treeId": 18,
           "tier": 5,
           "grid": 1,
-          "displayName": "Synaptic Stimulator",
+          "displayName": "Of Stimulator",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -30067,7 +30067,7 @@
           "treeId": 18,
           "tier": 5,
           "grid": 2,
-          "displayName": "High Yield",
+          "displayName": "Sl High Yield",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -30104,7 +30104,7 @@
           "treeId": 18,
           "tier": 5,
           "grid": 3,
-          "displayName": "Inoculation",
+          "displayName": "Sl Innoculation",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -30141,7 +30141,7 @@
           "treeId": 18,
           "tier": 5,
           "grid": 4,
-          "displayName": "Armor Kinetic Defense",
+          "displayName": "Of Armor Kin",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -30280,7 +30280,7 @@
           "treeId": 18,
           "tier": 5,
           "grid": 5,
-          "displayName": "Toughen",
+          "displayName": "Sl Toughen",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -30317,7 +30317,7 @@
           "treeId": 18,
           "tier": 5,
           "grid": 6,
-          "displayName": "Adrenaline",
+          "displayName": "Sl Adrenaline",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -30354,7 +30354,7 @@
           "treeId": 18,
           "tier": 5,
           "grid": 7,
-          "displayName": "Environmental Purge",
+          "displayName": "Of Purge",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -30391,7 +30391,7 @@
           "treeId": 18,
           "tier": 6,
           "grid": 1,
-          "displayName": "Emergency Shield",
+          "displayName": "Of Emergency Shield",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_sl_leadership"
@@ -30432,7 +30432,7 @@
           "treeId": 18,
           "tier": 6,
           "grid": 2,
-          "displayName": "Experienced Leadership",
+          "displayName": "Sl Leadership",
           "maxRank": 1,
           "skillsRequired": [
             "outdoors_squadleader_master"
@@ -30473,7 +30473,7 @@
           "treeId": 18,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Squad Leader",
+          "displayName": "Outdoors Squadleader Master",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -30522,7 +30522,7 @@
           "treeId": 18,
           "tier": 6,
           "grid": 6,
-          "displayName": "Bacta Surge",
+          "displayName": "Sl Bacta Surge",
           "maxRank": 1,
           "skillsRequired": [
             "outdoors_squadleader_master"
@@ -30563,7 +30563,7 @@
           "treeId": 18,
           "tier": 6,
           "grid": 7,
-          "displayName": "Defibrillator",
+          "displayName": "Sl Defibrillator",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_sl_bacta_surge_1"
@@ -30616,8 +30616,7 @@
           "skillsRequired": [
             "teras_kasi_novice",
             "teras_kasi_novice_2",
-            "teras_kasi_novice_3",
-            "expertise_unarmed_master_1"
+            "teras_kasi_novice_3"
           ],
           "skillsRequiredCount": null,
           "preclusionSkills": [],
@@ -30761,7 +30760,7 @@
           "treeId": 19,
           "tier": 2,
           "grid": 2,
-          "displayName": "Teras Kasi Damage",
+          "displayName": "Teras Kasi Dam",
           "maxRank": 4,
           "skillsRequired": [
             "teras_kasi_novice_4",
@@ -30893,7 +30892,7 @@
           "treeId": 19,
           "tier": 2,
           "grid": 6,
-          "displayName": "Innate Armor",
+          "displayName": "Teras Kasi Armor All",
           "maxRank": 4,
           "skillsRequired": [
             "teras_kasi_novice_4"
@@ -31016,7 +31015,7 @@
           "treeId": 19,
           "tier": 3,
           "grid": 1,
-          "displayName": "Unhealthy Fixation",
+          "displayName": "Tk Unhealthy Fixation",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_teras_kasi_dam_04"
@@ -31057,7 +31056,7 @@
           "treeId": 19,
           "tier": 3,
           "grid": 2,
-          "displayName": "Teras Kasi Efficiency",
+          "displayName": "Teras Kasi Acr",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_teras_kasi_dam_04",
@@ -31189,7 +31188,7 @@
           "treeId": 19,
           "tier": 3,
           "grid": 3,
-          "displayName": "Thrill",
+          "displayName": "Tk Thrill",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_teras_kasi_dam_04"
@@ -31230,7 +31229,7 @@
           "treeId": 19,
           "tier": 3,
           "grid": 4,
-          "displayName": "Project Will",
+          "displayName": "Tk Project Will",
           "maxRank": 1,
           "skillsRequired": [
             "teras_kasi_novice_4"
@@ -31271,7 +31270,7 @@
           "treeId": 19,
           "tier": 3,
           "grid": 6,
-          "displayName": "Advanced Innate Armor",
+          "displayName": "Teras Kasi Adv Armor All",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_teras_kasi_armor_all_4"
@@ -31398,7 +31397,7 @@
           "treeId": 19,
           "tier": 4,
           "grid": 1,
-          "displayName": "Allure",
+          "displayName": "Tk Allure",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_tk_unhealthy_fixation_1"
@@ -31521,7 +31520,7 @@
           "treeId": 19,
           "tier": 4,
           "grid": 2,
-          "displayName": "Teras Kasi Critical Chance",
+          "displayName": "Teras Kasi Cc",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_teras_kasi_acr_04",
@@ -31673,7 +31672,7 @@
           "treeId": 19,
           "tier": 4,
           "grid": 3,
-          "displayName": "Thrill Duration",
+          "displayName": "Tk Thrill Dur",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_tk_thrill_1"
@@ -31754,7 +31753,7 @@
           "treeId": 19,
           "tier": 4,
           "grid": 5,
-          "displayName": "Damage Reduction",
+          "displayName": "Teras Kasi Dr",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_teras_kasi_armor_all_4",
@@ -31920,7 +31919,7 @@
           "treeId": 19,
           "tier": 4,
           "grid": 6,
-          "displayName": "Void Walk",
+          "displayName": "Tk Void Dance",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -31961,7 +31960,7 @@
           "treeId": 19,
           "tier": 4,
           "grid": 7,
-          "displayName": "Melee Defense",
+          "displayName": "Teras Kasi Armor Mgb",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_teras_kasi_armor_all_4"
@@ -32104,7 +32103,7 @@
           "treeId": 19,
           "tier": 5,
           "grid": 2,
-          "displayName": "Sweeping Pirouette",
+          "displayName": "Tk Sweeping Pirouette",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -32141,7 +32140,7 @@
           "treeId": 19,
           "tier": 5,
           "grid": 5,
-          "displayName": "Emotional Prescience",
+          "displayName": "Tk Emotional Prescience",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -32280,7 +32279,7 @@
           "treeId": 19,
           "tier": 5,
           "grid": 6,
-          "displayName": "Annulling",
+          "displayName": "Tk Annulling",
           "maxRank": 3,
           "skillsRequired": [
             "expertise_tk_void_dance_1"
@@ -32377,7 +32376,7 @@
           "treeId": 19,
           "tier": 5,
           "grid": 7,
-          "displayName": "Critical Hit Reduction",
+          "displayName": "Tk Chr",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_tk_chr_1",
@@ -32546,7 +32545,7 @@
           "treeId": 19,
           "tier": 6,
           "grid": 2,
-          "displayName": "Controlled Spin",
+          "displayName": "Tk Controlled Spin",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_tk_sweeping_pirouette_1"
@@ -32669,7 +32668,7 @@
           "treeId": 19,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Teras Kasi",
+          "displayName": "Teras Kasi Master",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -32723,7 +32722,7 @@
           "treeId": 19,
           "tier": 6,
           "grid": 6,
-          "displayName": "Instigate",
+          "displayName": "Tkm Taunt",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_teras_kasi_master"
@@ -32764,7 +32763,7 @@
           "treeId": 19,
           "tier": 6,
           "grid": 7,
-          "displayName": "Area Instigate",
+          "displayName": "Tkm Ae Taunt",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_tkm_taunt"
@@ -32812,7 +32811,7 @@
           "treeId": 20,
           "tier": 1,
           "grid": 1,
-          "displayName": "Soothing Comfort",
+          "displayName": "Bm Soothing Comfort",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_bm_novice"
@@ -32853,7 +32852,7 @@
           "treeId": 20,
           "tier": 1,
           "grid": 2,
-          "displayName": "Specialized Supplements",
+          "displayName": "Bm Specialized Supplements",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_bm_novice"
@@ -32898,7 +32897,7 @@
           "treeId": 20,
           "tier": 1,
           "grid": 4,
-          "displayName": "Beast Master Novice",
+          "displayName": "Bm Novice",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -32948,7 +32947,7 @@
           "treeId": 20,
           "tier": 1,
           "grid": 7,
-          "displayName": "Creature Knowledge",
+          "displayName": "Bm Creature Knowledge Command",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_bm_novice"
@@ -32989,7 +32988,7 @@
           "treeId": 20,
           "tier": 2,
           "grid": 1,
-          "displayName": "Pet Recovery",
+          "displayName": "Bm Pet Recovery",
           "maxRank": 3,
           "skillsRequired": [
             "expertise_bm_soothing_comfort_1"
@@ -33101,7 +33100,7 @@
           "treeId": 20,
           "tier": 2,
           "grid": 2,
-          "displayName": "Improved Healing",
+          "displayName": "Bm Improved Healing",
           "maxRank": 3,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -33194,7 +33193,7 @@
           "treeId": 20,
           "tier": 2,
           "grid": 3,
-          "displayName": "Exceptional Nutrition",
+          "displayName": "Bm Exceptional Nutrition",
           "maxRank": 2,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -33261,7 +33260,7 @@
           "treeId": 20,
           "tier": 2,
           "grid": 6,
-          "displayName": "Loyalty",
+          "displayName": "Bm Loyalty Mod",
           "maxRank": 3,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -33354,7 +33353,7 @@
           "treeId": 20,
           "tier": 2,
           "grid": 7,
-          "displayName": "Ability Acquisition",
+          "displayName": "Bm Abilility Aquisition Mod",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_bm_creature_knowledge_command_1",
@@ -33438,7 +33437,7 @@
           "treeId": 20,
           "tier": 3,
           "grid": 1,
-          "displayName": "Evasion",
+          "displayName": "Bm Evasion",
           "maxRank": 3,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -33561,7 +33560,7 @@
           "treeId": 20,
           "tier": 3,
           "grid": 3,
-          "displayName": "Fortitude",
+          "displayName": "Bm Fortitude",
           "maxRank": 3,
           "skillsRequired": [
             "expertise_bm_exceptional_nutrition_2"
@@ -33658,7 +33657,7 @@
           "treeId": 20,
           "tier": 3,
           "grid": 4,
-          "displayName": "Dexterity Training",
+          "displayName": "Bm Dexterity Training",
           "maxRank": 2,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -33725,7 +33724,7 @@
           "treeId": 20,
           "tier": 4,
           "grid": 4,
-          "displayName": "Savagery",
+          "displayName": "Bm Savagery",
           "maxRank": 3,
           "skillsRequired": [
             "expertise_bm_dexterity_training_2"
@@ -33822,7 +33821,7 @@
           "treeId": 20,
           "tier": 5,
           "grid": 4,
-          "displayName": "Master Beastmaster",
+          "displayName": "Bm Master",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_bm_novice"
@@ -33894,7 +33893,7 @@
           "treeId": 21,
           "tier": 1,
           "grid": 2,
-          "displayName": "Improved Healing",
+          "displayName": "Ch Improved Healing",
           "maxRank": 4,
           "skillsRequired": [
             "outdoors_creaturehandler_novice",
@@ -34068,7 +34067,7 @@
           "treeId": 21,
           "tier": 1,
           "grid": 6,
-          "displayName": "Creature Follow",
+          "displayName": "Ch Follow",
           "maxRank": 1,
           "skillsRequired": [
             "outdoors_creaturehandler_novice"
@@ -34109,7 +34108,7 @@
           "treeId": 21,
           "tier": 1,
           "grid": 7,
-          "displayName": "Creature Stay",
+          "displayName": "Ch Stay",
           "maxRank": 1,
           "skillsRequired": [
             "outdoors_creaturehandler_novice"
@@ -34150,7 +34149,7 @@
           "treeId": 21,
           "tier": 2,
           "grid": 3,
-          "displayName": "Exceptional Nutrition",
+          "displayName": "Ch Exceptional Nutrition",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_ch_exceptional_nutrition_1",
@@ -34279,7 +34278,7 @@
           "treeId": 21,
           "tier": 2,
           "grid": 4,
-          "displayName": "Savagery",
+          "displayName": "Ch Savagery",
           "maxRank": 4,
           "skillsRequired": [
             "outdoors_creaturehandler_novice",
@@ -34411,7 +34410,7 @@
           "treeId": 21,
           "tier": 2,
           "grid": 5,
-          "displayName": "Dexterity Training",
+          "displayName": "Ch Dexterity Training",
           "maxRank": 4,
           "skillsRequired": [
             "outdoors_creaturehandler_novice",
@@ -34543,7 +34542,7 @@
           "treeId": 21,
           "tier": 2,
           "grid": 7,
-          "displayName": "Group Creatures",
+          "displayName": "Ch Group",
           "maxRank": 1,
           "skillsRequired": [
             "outdoors_creaturehandler_novice"
@@ -34584,7 +34583,7 @@
           "treeId": 21,
           "tier": 3,
           "grid": 2,
-          "displayName": "Specialized Supplements",
+          "displayName": "Ch Specialized Supplements",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_ch_improved_healing_4"
@@ -34629,7 +34628,7 @@
           "treeId": 21,
           "tier": 3,
           "grid": 4,
-          "displayName": "Creature Pet Trick",
+          "displayName": "Ch Pet Trick",
           "maxRank": 2,
           "skillsRequired": [
             "outdoors_creaturehandler_novice"
@@ -34694,7 +34693,7 @@
           "treeId": 21,
           "tier": 4,
           "grid": 3,
-          "displayName": "Fortitude",
+          "displayName": "Ch Fortitude",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_ch_exceptional_nutrition_4",
@@ -34826,7 +34825,7 @@
           "treeId": 21,
           "tier": 5,
           "grid": 4,
-          "displayName": "Master Creature Handler",
+          "displayName": "Outdoors Creaturehandler Master",
           "maxRank": 1,
           "skillsRequired": [
             "outdoors_creaturehandler_novice"
@@ -35293,7 +35292,7 @@
           "treeId": 22,
           "tier": 2,
           "grid": 7,
-          "displayName": "Instruments & Props",
+          "displayName": "Entertainer Healing",
           "maxRank": 1,
           "skillsRequired": [
             "social_entertainer_novice_4"
@@ -35350,7 +35349,7 @@
           "treeId": 22,
           "tier": 3,
           "grid": 4,
-          "displayName": "Master Entertainer",
+          "displayName": "Entertainer Master",
           "maxRank": 1,
           "skillsRequired": [
             "social_entertainer_hairstyle_01",
@@ -36109,7 +36108,7 @@
           "treeId": 23,
           "tier": 3,
           "grid": 2,
-          "displayName": "Master Musician",
+          "displayName": "Musician Master",
           "maxRank": 1,
           "skillsRequired": [
             "social_musician_ability_01",
@@ -36184,7 +36183,7 @@
           "treeId": 23,
           "tier": 3,
           "grid": 6,
-          "displayName": "Master Dancer",
+          "displayName": "Dancer Master",
           "maxRank": 1,
           "skillsRequired": [
             "social_dancer_ability_01",
@@ -36617,7 +36616,7 @@
           "treeId": 24,
           "tier": 3,
           "grid": 4,
-          "displayName": "Master Image Designer",
+          "displayName": "Imagedesigner Master",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -36675,7 +36674,7 @@
           "treeId": 25,
           "tier": 1,
           "grid": 2,
-          "displayName": "Inspired Fitness",
+          "displayName": "En Inspired Fitness",
           "maxRank": 4,
           "skillsRequired": [
             "social_muse_novice_4"
@@ -36798,7 +36797,7 @@
           "treeId": 25,
           "tier": 1,
           "grid": 3,
-          "displayName": "Inspired Resilience",
+          "displayName": "En Inspired Resilience",
           "maxRank": 4,
           "skillsRequired": [
             "social_muse_novice_4"
@@ -37073,7 +37072,7 @@
           "treeId": 25,
           "tier": 1,
           "grid": 6,
-          "displayName": "Inspired Industry",
+          "displayName": "En Inspired Industry",
           "maxRank": 4,
           "skillsRequired": [
             "social_muse_novice_4"
@@ -37196,7 +37195,7 @@
           "treeId": 25,
           "tier": 2,
           "grid": 4,
-          "displayName": "Creativity",
+          "displayName": "En Creativity",
           "maxRank": 4,
           "skillsRequired": [
             "social_muse_novice_4"
@@ -37319,7 +37318,7 @@
           "treeId": 25,
           "tier": 3,
           "grid": 1,
-          "displayName": "Intense Performer",
+          "displayName": "En Intense Performer",
           "maxRank": 4,
           "skillsRequired": [
             "social_muse_novice_4"
@@ -37442,7 +37441,7 @@
           "treeId": 25,
           "tier": 3,
           "grid": 2,
-          "displayName": "Affability",
+          "displayName": "En Affability",
           "maxRank": 4,
           "skillsRequired": [
             "social_muse_novice_4"
@@ -37565,7 +37564,7 @@
           "treeId": 25,
           "tier": 3,
           "grid": 7,
-          "displayName": "Inspired Reactions",
+          "displayName": "En Inspired Reactions",
           "maxRank": 4,
           "skillsRequired": [
             "social_muse_novice_4"
@@ -37688,7 +37687,7 @@
           "treeId": 25,
           "tier": 4,
           "grid": 1,
-          "displayName": "Lasting Impression",
+          "displayName": "En Lasting Impression",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_en_intense_performer_4"
@@ -37811,7 +37810,7 @@
           "treeId": 25,
           "tier": 4,
           "grid": 4,
-          "displayName": "Holography",
+          "displayName": "En Holography",
           "maxRank": 1,
           "skillsRequired": [
             "social_muse_novice_4"
@@ -37852,7 +37851,7 @@
           "treeId": 25,
           "tier": 4,
           "grid": 7,
-          "displayName": "Inspired Warfare",
+          "displayName": "En Inspired Warfare",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_en_inspired_reactions_4"
@@ -37975,7 +37974,7 @@
           "treeId": 25,
           "tier": 5,
           "grid": 2,
-          "displayName": "Improv",
+          "displayName": "En Improv",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_en_affability_4"
@@ -38020,7 +38019,7 @@
           "treeId": 25,
           "tier": 5,
           "grid": 4,
-          "displayName": "Holographic Mastery",
+          "displayName": "En Holographic Mastery",
           "maxRank": 2,
           "skillsRequired": [
             "expertise_en_holography_1"
@@ -38091,7 +38090,7 @@
           "treeId": 25,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Muse",
+          "displayName": "Muse Master",
           "maxRank": 1,
           "skillsRequired": [
             "social_muse_novice_4"
@@ -39480,7 +39479,7 @@
           "treeId": 26,
           "tier": 5,
           "grid": 4,
-          "displayName": "Master Artisan",
+          "displayName": "Artisan Master",
           "maxRank": 1,
           "skillsRequired": [
             "crafting_artisan_novice"
@@ -39568,7 +39567,7 @@
           "treeId": 26,
           "tier": 5,
           "grid": 5,
-          "displayName": "Master Merchant",
+          "displayName": "Merchant Master",
           "maxRank": 1,
           "skillsRequired": [
             "crafting_artisan_novice"
@@ -40383,7 +40382,7 @@
           "treeId": 27,
           "tier": 5,
           "grid": 4,
-          "displayName": "Master Architect",
+          "displayName": "Architect Master",
           "maxRank": 1,
           "skillsRequired": [
             "crafting_architect_novice"
@@ -41227,7 +41226,7 @@
           "treeId": 28,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Armorsmith",
+          "displayName": "Armorsmith Master",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -41285,7 +41284,7 @@
           "treeId": 29,
           "tier": 1,
           "grid": 4,
-          "displayName": "Bio-Engineer Novice",
+          "displayName": "Outdoors Bio Engineer Novice",
           "maxRank": 4,
           "skillsRequired": [
             "outdoors_bio_engineer_novice",
@@ -41414,7 +41413,7 @@
           "treeId": 29,
           "tier": 2,
           "grid": 1,
-          "displayName": "Creature Genetics",
+          "displayName": "Outdoors Bio Engineer Creature",
           "maxRank": 4,
           "skillsRequired": [
             "outdoors_bio_engineer_novice_4",
@@ -41546,7 +41545,7 @@
           "treeId": 29,
           "tier": 2,
           "grid": 3,
-          "displayName": "Tissue Engineering",
+          "displayName": "Outdoors Bio Engineer Tissue",
           "maxRank": 4,
           "skillsRequired": [
             "outdoors_bio_engineer_novice_4",
@@ -41698,7 +41697,7 @@
           "treeId": 29,
           "tier": 2,
           "grid": 4,
-          "displayName": "Incubation",
+          "displayName": "Bm Incubation Base",
           "maxRank": 1,
           "skillsRequired": [
             "outdoors_bio_engineer_novice_4"
@@ -41745,7 +41744,7 @@
           "treeId": 29,
           "tier": 2,
           "grid": 5,
-          "displayName": "DNA Harvesting",
+          "displayName": "Outdoors Bio Engineer Dna Harvesting",
           "maxRank": 4,
           "skillsRequired": [
             "outdoors_bio_engineer_novice_4",
@@ -41897,7 +41896,7 @@
           "treeId": 29,
           "tier": 2,
           "grid": 7,
-          "displayName": "Production",
+          "displayName": "Outdoors Bio Engineer Production",
           "maxRank": 4,
           "skillsRequired": [
             "outdoors_bio_engineer_novice_4",
@@ -42069,7 +42068,7 @@
           "treeId": 29,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Bio-Engineer",
+          "displayName": "Outdoors Bio Engineer Master",
           "maxRank": 1,
           "skillsRequired": [
             "outdoors_bio_engineer_creature_04",
@@ -42894,7 +42893,7 @@
           "treeId": 30,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Chef",
+          "displayName": "Chef Master",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -43710,7 +43709,7 @@
           "treeId": 31,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Cybernetics",
+          "displayName": "Cybernetics Master",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -44547,7 +44546,7 @@
           "treeId": 32,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Droid Engineer",
+          "displayName": "Droidengineer Master",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -45396,7 +45395,7 @@
           "treeId": 33,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Reverse Engineer",
+          "displayName": "Reverse Engineer Master",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -46634,9 +46633,7 @@
           "grid": 3,
           "displayName": "Shipwright Defense",
           "maxRank": 1,
-          "skillsRequired": [
-            "crafting_shipwright_novice_4"
-          ],
+          "skillsRequired": [],
           "skillsRequiredCount": null,
           "preclusionSkills": [],
           "reqProf": "all",
@@ -46652,43 +46649,15 @@
               "rank": 1,
               "reqProf": "all",
               "prereqLevel": null,
-              "parent": "crafting_shipwright",
-              "skillsRequired": [
-                "crafting_shipwright_novice_4"
-              ],
+              "parent": "",
+              "skillsRequired": [],
               "skillsRequiredCount": null,
               "preclusionSkills": [],
-              "xpType": "crafting",
-              "xpCost": 1000,
+              "xpType": "",
+              "xpCost": null,
               "skillAbility": [],
               "commands": [],
-              "skillMods": [
-                {
-                  "key": "weapon_systems",
-                  "value": 80,
-                  "raw": "weapon_systems=80"
-                },
-                {
-                  "key": "weapon_systems_experimentation",
-                  "value": 40,
-                  "raw": "weapon_systems_experimentation=40"
-                },
-                {
-                  "key": "defense_reverse",
-                  "value": 16,
-                  "raw": "defense_reverse=16"
-                },
-                {
-                  "key": "shields_assembly",
-                  "value": 80,
-                  "raw": "shields_assembly=80"
-                },
-                {
-                  "key": "shields_experimentation",
-                  "value": 40,
-                  "raw": "shields_experimentation=40"
-                }
-              ]
+              "skillMods": []
             }
           ]
         },
@@ -46843,7 +46812,7 @@
           "treeId": 34,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Shipwright",
+          "displayName": "Shipwright Master",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -47778,7 +47747,7 @@
           "treeId": 35,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Tailor",
+          "displayName": "Tailor Master",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -48553,7 +48522,7 @@
           "treeId": 36,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Weaponsmith",
+          "displayName": "Weaponsmith Master",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -49692,7 +49661,7 @@
           "treeId": 37,
           "tier": 4,
           "grid": 4,
-          "displayName": "Master Merchant",
+          "displayName": "Merchant Master",
           "maxRank": 1,
           "skillsRequired": [
             "crafting_artisan_novice"
@@ -51474,7 +51443,7 @@
           "treeId": 39,
           "tier": 2,
           "grid": 2,
-          "displayName": "Force Damage to Action",
+          "displayName": "Fs Dta",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_fs_battlemaster_novice_4",
@@ -51606,7 +51575,7 @@
           "treeId": 39,
           "tier": 2,
           "grid": 4,
-          "displayName": "Force Efficiency",
+          "displayName": "Fs Acr",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_fs_battlemaster_novice_4",
@@ -51910,7 +51879,7 @@
           "treeId": 39,
           "tier": 3,
           "grid": 3,
-          "displayName": "Fs Advanced Saber Strike",
+          "displayName": "Fs Saber Strike Adv",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_fs_saber_strike_incr_4",
@@ -52042,7 +52011,7 @@
           "treeId": 39,
           "tier": 3,
           "grid": 4,
-          "displayName": "Fs Force Hit",
+          "displayName": "Fs Hit",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_fs_acr_4",
@@ -52174,7 +52143,7 @@
           "treeId": 39,
           "tier": 3,
           "grid": 5,
-          "displayName": "Fs Advanced Saber Sweep",
+          "displayName": "Fs Saber Sweep Adv",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_fs_saber_sweep_incr_4",
@@ -58453,7 +58422,7 @@
           "treeId": 42,
           "tier": 3,
           "grid": 4,
-          "displayName": "Fs Heal Efficiency",
+          "displayName": "Fs Heal Acr",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_fs_heal_potency_4",
@@ -58993,7 +58962,7 @@
           "treeId": 42,
           "tier": 5,
           "grid": 2,
-          "displayName": "Fs Forsake Fear Cooldown",
+          "displayName": "Fs Path Forsake Fear Cd",
           "maxRank": 3,
           "skillsRequired": [
             "expertise_fs_path_forsake_fear_1",
@@ -59425,7 +59394,7 @@
           "treeId": 42,
           "tier": 6,
           "grid": 1,
-          "displayName": "Fs AoE Heal Increase",
+          "displayName": "Fs Aoe Heal Increase",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_force_heal_aoe",
@@ -59557,7 +59526,7 @@
           "treeId": 42,
           "tier": 6,
           "grid": 2,
-          "displayName": "Force Heal AoE",
+          "displayName": "Force Heal Aoe",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_fs_sage_master"
@@ -59653,7 +59622,7 @@
           "treeId": 42,
           "tier": 6,
           "grid": 6,
-          "displayName": "Fs AoE Revive",
+          "displayName": "Fs Aoe Revive",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_fs_sage_master"
@@ -59694,7 +59663,7 @@
           "treeId": 42,
           "tier": 6,
           "grid": 7,
-          "displayName": "Fs AoE Revive Duration",
+          "displayName": "Fs Aoe Revive Duration",
           "maxRank": 3,
           "skillsRequired": [
             "expertise_fs_aoe_revive",
@@ -64402,7 +64371,7 @@
           "treeId": 120,
           "tier": 2,
           "grid": 7,
-          "displayName": "Ability Acquisition",
+          "displayName": "Bm Abilility Aquisition Mod",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_bm_abilility_aquisition_mod_2"
@@ -73466,6 +73435,7 @@
     }
   ],
   "warnings": [
+    "Missing skills.tab row for crafting_shipwright_defense_01",
     "Grouped node has inconsistent position: expertise_carbineer_attack (expertise_carbineer_attack_3)",
     "Grouped node has inconsistent position: expertise_pistoleer_attack (expertise_pistoleer_attack_3)",
     "Grouped node has inconsistent position: expertise_ch_pet_trick (expertise_ch_pet_trick_2)",
