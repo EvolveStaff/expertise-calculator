@@ -27,4 +27,4 @@ dist-ssr
 .claude/
 
 # Raw source data — large game files and screenshots not needed for the app
-data/
+/data/

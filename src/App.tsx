@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import ExpertiseTree from "./components/ExpertiseTree";
 import HeroicJewelry from "./components/HeroicJewelry";
-import type { ExpertisePayload, VisibleNode } from "./lib/types";
+import WikiView from "./components/WikiView";
+import type { ExpertisePayload, StringTables, VisibleNode } from "./lib/types";
+import { STAT_MULTIPLIERS, CORE_STAT_LABELS, CORE_STAT_COLORS, fmtDerived } from "./lib/statHelpers";
 import { formatNodeName } from "./lib/formatNodeName";
 import {
   canDecreaseRank,
@@ -12,7 +14,6 @@ import {
   getPointsSpentBeforeTier,
   getMissingRequirements,
   isBranchGateSatisfied,
-  JEDI_ADVANCED_TREE_KEYS,
   MAX_EXPERTISE_POINTS,
   TREE_BRANCH_GATES,
 } from "./lib/rules";
@@ -24,11 +25,6 @@ type Totals = {
 
 type SelectionsByTree = Record<number, Record<string, number>>;
 
-type StringTables = {
-  statNames: Record<string, string>;
-  cmdNames: Record<string, string>;
-  sklNames: Record<string, string>;
-};
 
 const STORAGE_KEY = "swg-expertise-builds";
 const TEMPLATES_KEY = "swg-expertise-templates";
@@ -175,70 +171,6 @@ function formatCmdKey(key: string, tables: StringTables | null): string {
   return key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-// ── Stat multiplier table (source: SWG_Evolve Stats.xlsx) ───────────────────
-type DerivedEntry = { label: string; mult: number; pct: boolean; decimals: number };
-const STAT_MULTIPLIERS: Record<string, DerivedEntry[]> = {
-  agility_modified: [
-    { label: "Dodge Chance",          mult: 0.01,    pct: true,  decimals: 2 },
-    { label: "Parry Chance",          mult: 0.005,   pct: true,  decimals: 2 },
-    { label: "Evasion Chance",        mult: 0.01333, pct: true,  decimals: 2 },
-    { label: "Evasion Value",         mult: 0.1,     pct: true,  decimals: 1 },
-  ],
-  constitution_modified: [
-    { label: "Health",                mult: 8,       pct: false, decimals: 0 },
-    { label: "Action",                mult: 2,       pct: false, decimals: 0 },
-  ],
-  luck_modified: [
-    { label: "Guaranteed Hit",        mult: 0.01,    pct: true,  decimals: 2 },
-    { label: "Attack Freeshot",       mult: 0.01,    pct: true,  decimals: 2 },
-    { label: "Heal Freeshot",         mult: 0.02,    pct: true,  decimals: 2 },
-    { label: "Instant Cooldown",      mult: 0.01,    pct: true,  decimals: 2 },
-    { label: "Lucky Dodge",           mult: 0.01,    pct: true,  decimals: 2 },
-  ],
-  precision_modified: [
-    { label: "Parry Chance",          mult: 0.005,   pct: true,  decimals: 2 },
-    { label: "Block Chance",          mult: 0.005,   pct: true,  decimals: 2 },
-    { label: "Crit Chance",           mult: 0.015,   pct: true,  decimals: 2 },
-    { label: "Hit Chance",            mult: 0.01,    pct: true,  decimals: 2 },
-    { label: "Dodge Reduction",       mult: 0.01,    pct: true,  decimals: 2 },
-  ],
-  stamina_modified: [
-    { label: "Health",                mult: 2,       pct: false, decimals: 0 },
-    { label: "Action",                mult: 8,       pct: false, decimals: 0 },
-    { label: "Damage to Action",      mult: 0.01,    pct: true,  decimals: 2 },
-    { label: "Crit Hit Reduction",    mult: 0.005,   pct: true,  decimals: 2 },
-    { label: "Action Cost Reduction", mult: 0.02,    pct: true,  decimals: 2 },
-  ],
-  strength_modified: [
-    { label: "Block Chance",          mult: 0.01,    pct: true,  decimals: 2 },
-    { label: "Block Value",           mult: 0.25,    pct: false, decimals: 1 },
-    { label: "Melee Damage Bonus",    mult: 0.01,    pct: true,  decimals: 2 },
-    { label: "Strikethrough Chance",  mult: 0.01,    pct: true,  decimals: 2 },
-    { label: "Strikethrough Value",   mult: 0.1,     pct: true,  decimals: 1 },
-    { label: "Parry Reduction",       mult: 0.01,    pct: true,  decimals: 2 },
-  ],
-};
-const CORE_STAT_LABELS: Record<string, string> = {
-  agility_modified:      "Agility",
-  constitution_modified: "Constitution",
-  luck_modified:         "Luck",
-  precision_modified:    "Precision",
-  stamina_modified:      "Stamina",
-  strength_modified:     "Strength",
-};
-const CORE_STAT_COLORS: Record<string, string> = {
-  agility_modified:      "#40b8c8",
-  constitution_modified: "#c84040",
-  luck_modified:         "#c8a040",
-  precision_modified:    "#8040c8",
-  stamina_modified:      "#40aa60",
-  strength_modified:     "#c86030",
-};
-function fmtDerived(val: number, e: DerivedEntry): string {
-  return e.pct
-    ? `${val.toFixed(e.decimals)}%`
-    : e.decimals > 0 ? val.toFixed(e.decimals) : Math.round(val).toString();
-}
 
 // ── Build encode / decode ────────────────────────────────────────────────────
 type BuildPayload = { v: number; characterType: "normal" | "jedi"; selections: SelectionsByTree };
@@ -273,6 +205,7 @@ export default function App() {
       return saved ? (JSON.parse(saved) as SelectionsByTree) : {};
     } catch { return {}; }
   });
+  const [viewMode, setViewMode] = useState<"calculator" | "codex">("calculator");
   const [characterType, setCharacterType] = useState<"normal" | "jedi">("normal");
   const [panelOpen, setPanelOpen] = useState(true);
   const [templates, setTemplates] = useState<Record<string, Template>>(() => {
@@ -333,6 +266,14 @@ export default function App() {
       .then((r) => r.json())
       .then((json: Record<string, string>) => setNodeIcons(json))
       .catch(() => {/* icons optional */});
+  }, []);
+
+  const [cmdDescriptions, setCmdDescriptions] = useState<Record<string, string>>({});
+  useEffect(() => {
+    fetch("/data/cmd_descriptions.json")
+      .then((r) => r.json())
+      .then((json: Record<string, string>) => setCmdDescriptions(json))
+      .catch(() => {/* descriptions optional */});
   }, []);
 
   const allTrees = useMemo(() => {
@@ -727,19 +668,21 @@ function getNodeDisabledReason(node: VisibleNode): string {
       {/* ── Page body ─────────────────────────────────────────────────────── */}
       <div style={{ padding: "20px 20px" }}>
 
-      {/* Character type tabs */}
+      {/* Top-level tabs: Calculator modes + Codex */}
       <div style={{
         display: "flex",
+        alignItems: "flex-end",
         gap: 0,
         marginBottom: 20,
         borderBottom: "1px solid #1a3050",
       }}>
         {(["normal", "jedi"] as const).map((type) => {
-          const isActive = characterType === type;
+          const isActive = viewMode === "calculator" && characterType === type;
           return (
             <button
               key={type}
               onClick={() => {
+                setViewMode("calculator");
                 if (type === characterType) return;
                 setCharacterType(type);
                 setSelectedNode(null);
@@ -749,26 +692,71 @@ function getNodeDisabledReason(node: VisibleNode): string {
                 setTreeId(firstTree?.id ?? null);
               }}
               style={{
-                padding: "9px 26px",
+                padding: "10px 30px",
                 border: "none",
-                borderBottom: isActive ? "2px solid #4ab3e8" : "2px solid transparent",
+                borderBottom: isActive ? "3px solid #4ab3e8" : "3px solid transparent",
                 marginBottom: -1,
-                background: "transparent",
-                color: isActive ? "#4ab3e8" : "#4a6a88",
-                fontWeight: isActive ? 700 : 400,
-                fontSize: 13,
+                background: isActive ? "rgba(74,179,232,0.07)" : "transparent",
+                color: isActive ? "#7dd4f8" : "#5a7a98",
+                fontWeight: isActive ? 700 : 500,
+                fontSize: 14,
                 cursor: "pointer",
-                letterSpacing: "0.12em",
+                letterSpacing: "0.14em",
                 textTransform: "uppercase",
                 fontFamily: "'Rajdhani', sans-serif",
-                transition: "color 0.2s",
+                transition: "color 0.2s, background 0.2s",
+                borderRadius: "6px 6px 0 0",
               }}
             >
-              {type === "normal" ? "⚔ Normal" : "⚡ Force Sensitive"}
+              {type === "normal" ? "⚔  Normal" : "⚡  Force Sensitive"}
             </button>
           );
         })}
+
+        {/* Spacer */}
+        <div style={{ flex: 1 }} />
+
+        {/* Codex tab — larger, distinct style */}
+        <button
+          onClick={() => setViewMode(viewMode === "codex" ? "calculator" : "codex")}
+          style={{
+            padding: "11px 36px",
+            border: viewMode === "codex" ? "1px solid #c8a04088" : "1px solid #1a3050",
+            borderBottom: viewMode === "codex" ? "3px solid #c8a040" : "3px solid transparent",
+            marginBottom: -1,
+            background: viewMode === "codex"
+              ? "linear-gradient(180deg, rgba(200,160,64,0.12) 0%, rgba(200,160,64,0.05) 100%)"
+              : "rgba(255,255,255,0.02)",
+            color: viewMode === "codex" ? "#e8c060" : "#6a8aaa",
+            fontWeight: viewMode === "codex" ? 700 : 500,
+            fontSize: 15,
+            cursor: "pointer",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            fontFamily: "'Orbitron', sans-serif",
+            transition: "color 0.2s, background 0.2s, border-color 0.2s",
+            borderRadius: "6px 6px 0 0",
+            boxShadow: viewMode === "codex" ? "0 0 12px rgba(200,160,64,0.2)" : "none",
+          }}
+        >
+          ◈  Codex
+        </button>
       </div>
+
+      {/* Codex view */}
+      {viewMode === "codex" && data && (
+        <WikiView
+          data={data}
+          stringTables={stringTables}
+          nodeIcons={nodeIcons}
+          treeGroups={[...NORMAL_TREE_GROUPS, ...JEDI_TREE_GROUPS]}
+          treeNames={TREE_NAMES}
+          cmdDescriptions={cmdDescriptions}
+        />
+      )}
+
+      {/* ── Calculator view ─────────────────────────────────────────────── */}
+      {viewMode === "calculator" && (<>
 
       {/* Shared build detected in URL */}
       {pendingUrlBuild && (
@@ -1306,148 +1294,163 @@ function getNodeDisabledReason(node: VisibleNode): string {
                           </div>
                         </div>
 
-                        {/* Per-rank cards */}
-                        <div style={{
-                          padding: "12px 16px",
-                          display: "grid",
-                          gridTemplateColumns: `repeat(${selectedNode.maxRank}, minmax(0, 1fr))`,
-                          gap: 8,
-                        }}>
-                          {sortedRanks.map((rankEntry) => {
-                            const rankNum = rankEntry.rank ?? 0;
-                            const isInvested = invested >= rankNum;
-                            const isCurrent = invested === rankNum;
-                            const mods = rankEntry.skillMods.filter(m => m.key);
-                            const cmds = [
-                              ...new Set([
-                                ...rankEntry.commands,
-                                ...rankEntry.skillAbility,
-                              ].filter(Boolean)),
-                            ];
-                            const isEmpty = mods.length === 0 && cmds.length === 0;
+                        {/* Ability description + cumulative panel */}
+                        {(() => {
+                          const isSingleRank = selectedNode.maxRank === 1;
+                          const rank1Entry = sortedRanks[0];
+                          const perRankMods = (rank1Entry?.skillMods ?? []).filter(m => m.key);
+                          const allCmds = [...new Set(
+                            sortedRanks.flatMap(r => [...r.commands, ...r.skillAbility]).filter(Boolean)
+                          )];
 
+                          // Cumulative totals across all invested ranks
+                          const investedEntries = sortedRanks.filter(r => (r.rank ?? 0) <= invested);
+                          const cumulativeMods: Record<string, number> = {};
+                          for (const r of investedEntries) {
+                            for (const mod of r.skillMods ?? []) {
+                              if (mod.key) cumulativeMods[mod.key] = (cumulativeMods[mod.key] ?? 0) + mod.value;
+                            }
+                          }
+                          const investedCmds = [...new Set(
+                            investedEntries.flatMap(r => [...r.commands, ...r.skillAbility]).filter(Boolean)
+                          )];
+
+                          const modRow = (key: string, val: number, isCumulative: boolean) => {
+                            const derivedEntries = STAT_MULTIPLIERS[key];
+                            const accentColor = CORE_STAT_COLORS[key];
                             return (
-                              <div key={rankNum} style={{
-                                background: isInvested
-                                  ? "rgba(16, 50, 32, 0.35)"
-                                  : "rgba(6, 14, 24, 0.7)",
-                                border: `1px solid ${
-                                  isCurrent ? "#2a8050"
-                                  : isInvested ? "#174028"
-                                  : "#0e1e2e"
-                                }`,
-                                borderRadius: 6,
-                                padding: "8px 9px",
-                                transition: "border-color 0.2s",
-                              }}>
-                                {/* Rank label */}
+                              <div key={key} style={{ marginBottom: 4 }}>
                                 <div style={{
                                   display: "flex", justifyContent: "space-between",
-                                  alignItems: "center",
-                                  marginBottom: 6,
-                                  paddingBottom: 5,
-                                  borderBottom: `1px solid ${isInvested ? "#1a4030" : "#0a1a28"}`,
+                                  alignItems: "baseline", gap: 4, fontSize: 11,
+                                  marginBottom: derivedEntries ? 2 : 0,
                                 }}>
-                                  <span style={{
-                                    fontSize: 8, letterSpacing: "0.22em",
-                                    textTransform: "uppercase",
-                                    color: isInvested ? "#4ab3e8" : "#1a3a55",
-                                    fontFamily: "'Orbitron', sans-serif",
-                                  }}>
-                                    Rank {rankNum}
+                                  <span style={{ color: accentColor ?? "#6a9ab0", lineHeight: 1.3, fontWeight: derivedEntries ? 600 : 400 }}>
+                                    {formatStatKey(key, stringTables)}
                                   </span>
-                                  {isInvested && (
-                                    <span style={{ color: "#44cc77", fontSize: 12, lineHeight: 1 }}>✓</span>
-                                  )}
-                                </div>
-
-                                {/* Stat mods */}
-                                {mods.map(mod => {
-                                  const derivedEntries = STAT_MULTIPLIERS[mod.key];
-                                  const accentColor = CORE_STAT_COLORS[mod.key];
-                                  return (
-                                    <div key={mod.key} style={{ marginBottom: 4 }}>
-                                      {/* Primary mod row */}
-                                      <div style={{
-                                        display: "flex", justifyContent: "space-between",
-                                        alignItems: "baseline", gap: 4, fontSize: 11,
-                                        marginBottom: derivedEntries ? 2 : 0,
-                                      }}>
-                                        <span style={{
-                                          color: accentColor ?? "#6a9ab0",
-                                          lineHeight: 1.3, fontWeight: derivedEntries ? 600 : 400,
-                                        }}>
-                                          {formatStatKey(mod.key, stringTables)}
-                                        </span>
-                                        <span style={{
-                                          color: mod.value > 0 ? "#55bb33" : "#cc4444",
-                                          fontFamily: "'Orbitron', sans-serif", fontSize: 10,
-                                          flexShrink: 0,
-                                        }}>
-                                          {mod.value > 0 ? "+" : ""}{mod.value}
-                                        </span>
-                                      </div>
-                                      {/* Derived effects for core stats */}
-                                      {derivedEntries && (
-                                        <div style={{
-                                          paddingLeft: 8,
-                                          borderLeft: `2px solid ${accentColor ?? "#2a5070"}44`,
-                                          marginLeft: 2,
-                                        }}>
-                                          {derivedEntries.map(entry => {
-                                            const derived = mod.value * entry.mult;
-                                            return (
-                                              <div key={entry.label} style={{
-                                                display: "flex", justifyContent: "space-between",
-                                                fontSize: 10, color: "#4a7090",
-                                                lineHeight: 1.4,
-                                              }}>
-                                                <span>{entry.label}</span>
-                                                <span style={{ flexShrink: 0, marginLeft: 4, color: "#3a8a55" }}>
-                                                  {fmtDerived(derived, entry)}
-                                                </span>
-                                              </div>
-                                            );
-                                          })}
-                                        </div>
-                                      )}
-                                    </div>
-                                  );
-                                })}
-
-                                {/* Abilities / commands */}
-                                {cmds.map(cmd => (
-                                  <div key={cmd} style={{ marginBottom: 4 }}>
-                                    <div style={{
-                                      fontSize: 8, letterSpacing: "0.15em",
-                                      textTransform: "uppercase",
-                                      color: "#1a6080", marginBottom: 2,
-                                    }}>
-                                      Grants Ability
-                                    </div>
-                                    <div style={{
-                                      fontSize: 11, color: "#5ab0d4",
-                                      lineHeight: 1.3,
-                                    }}>
-                                      {formatCmdKey(cmd, stringTables)}
-                                    </div>
-                                  </div>
-                                ))}
-
-                                {/* Empty */}
-                                {isEmpty && (
-                                  <div style={{
-                                    color: "#152030", fontSize: 11,
-                                    fontStyle: "italic", textAlign: "center",
-                                    paddingTop: 4,
+                                  <span style={{
+                                    color: val > 0 ? (isCumulative ? "#44cc77" : "#55bb33") : "#cc4444",
+                                    fontFamily: "'Orbitron', sans-serif", fontSize: 10, flexShrink: 0,
+                                    fontWeight: isCumulative ? 700 : 400,
                                   }}>
-                                    —
+                                    {val > 0 ? "+" : ""}{val}
+                                  </span>
+                                </div>
+                                {derivedEntries && (
+                                  <div style={{ paddingLeft: 8, borderLeft: `2px solid ${accentColor ?? "#2a5070"}44`, marginLeft: 2 }}>
+                                    {derivedEntries.map(entry => {
+                                      const derived = val * entry.mult;
+                                      return (
+                                        <div key={entry.label} style={{ display: "flex", justifyContent: "space-between", fontSize: 10, color: "#4a7090", lineHeight: 1.4 }}>
+                                          <span>{entry.label}</span>
+                                          <span style={{ flexShrink: 0, marginLeft: 4, color: isCumulative ? "#44aa66" : "#3a8a55" }}>
+                                            {fmtDerived(derived, entry)}
+                                          </span>
+                                        </div>
+                                      );
+                                    })}
                                   </div>
                                 )}
                               </div>
                             );
-                          })}
-                        </div>
+                          };
+
+                          const cmdRow = (cmd: string, unlocked: boolean) => {
+                            const rawDesc = cmdDescriptions[cmd] ?? "";
+                            const displayName = formatCmdKey(cmd, stringTables);
+                            // Strip leading "AbilityName: " or "AbilityName\n" prefix
+                            let stripped = rawDesc.trim();
+                            const colonPrefix = displayName + ": ";
+                            if (stripped.toLowerCase().startsWith(colonPrefix.toLowerCase())) {
+                              stripped = stripped.slice(colonPrefix.length).trim();
+                            } else {
+                              const lines = stripped.split("\n").map(l => l.trim()).filter(Boolean);
+                              if (lines.length > 0 && lines[0].toLowerCase() === displayName.toLowerCase()) {
+                                stripped = lines.slice(1).join(" ").trim();
+                              } else {
+                                stripped = lines.join(" ").trim();
+                              }
+                            }
+                            const descText = stripped;
+                            return (
+                              <div key={cmd} style={{ marginBottom: 6 }}>
+                                <div style={{ fontSize: 8, letterSpacing: "0.15em", textTransform: "uppercase", color: unlocked ? "#1a8060" : "#1a6080", marginBottom: 2 }}>
+                                  {unlocked ? "✓ Unlocked" : "Grants Ability"}
+                                </div>
+                                <div style={{ fontSize: 11, color: unlocked ? "#44cc88" : "#5ab0d4", lineHeight: 1.3 }}>
+                                  {displayName}
+                                </div>
+                                {descText && (
+                                  <div style={{ fontSize: 10, color: "#4a7090", lineHeight: 1.45, marginTop: 3, paddingLeft: 6, borderLeft: "2px solid #1a4060" }}>
+                                    {descText}
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          };
+
+                          const isEmpty = perRankMods.length === 0 && allCmds.length === 0;
+
+                          // Single-rank: clean single-column layout
+                          if (isSingleRank) {
+                            return (
+                              <div style={{ padding: "12px 16px" }}>
+                                {isEmpty ? (
+                                  <div style={{ color: "#152030", fontSize: 11, fontStyle: "italic", textAlign: "center" }}>—</div>
+                                ) : (
+                                  <>
+                                    {perRankMods.map(mod => modRow(mod.key, invested > 0 ? (cumulativeMods[mod.key] ?? mod.value) : mod.value, invested > 0))}
+                                    {allCmds.map(cmd => cmdRow(cmd, invested > 0 && investedCmds.includes(cmd)))}
+                                  </>
+                                )}
+                              </div>
+                            );
+                          }
+
+                          // Multi-rank: two-column (Per Rank | Total at X/Y)
+                          return (
+                            <div style={{ padding: "12px 16px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                              {/* Left: Per Rank */}
+                              <div>
+                                <div style={{
+                                  fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase",
+                                  color: "#2a5070", marginBottom: 6, fontFamily: "'Orbitron', sans-serif",
+                                  paddingBottom: 4, borderBottom: "1px solid #0d1e2e",
+                                }}>
+                                  Per Rank
+                                </div>
+                                {isEmpty ? (
+                                  <div style={{ color: "#152030", fontSize: 11, fontStyle: "italic" }}>—</div>
+                                ) : (
+                                  <>
+                                    {perRankMods.map(mod => modRow(mod.key, mod.value, false))}
+                                    {allCmds.map(cmd => cmdRow(cmd, false))}
+                                  </>
+                                )}
+                              </div>
+
+                              {/* Right: Cumulative total */}
+                              <div>
+                                <div style={{
+                                  fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase",
+                                  color: invested > 0 ? "#2a7a50" : "#1a3050", marginBottom: 6,
+                                  fontFamily: "'Orbitron', sans-serif",
+                                  paddingBottom: 4, borderBottom: `1px solid ${invested > 0 ? "#0d2e1e" : "#0d1e2e"}`,
+                                }}>
+                                  Total · {invested}/{selectedNode.maxRank}
+                                </div>
+                                {invested === 0 ? (
+                                  <div style={{ color: "#1a3050", fontSize: 11, fontStyle: "italic" }}>No points invested</div>
+                                ) : (
+                                  <>
+                                    {Object.entries(cumulativeMods).map(([key, val]) => modRow(key, val, true))}
+                                    {investedCmds.map(cmd => cmdRow(cmd, true))}
+                                  </>
+                                )}
+                              </div>
+                            </div>
+                          );
+                        })()}
                       </>
                     );
                   })()}
@@ -1849,6 +1852,7 @@ function getNodeDisabledReason(node: VisibleNode): string {
           </div>
         )}
       </div>
+      </>)} {/* end calculator view */}
     </div> {/* end page body */}
     </div>
   );

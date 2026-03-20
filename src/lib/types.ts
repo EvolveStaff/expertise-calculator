@@ -57,3 +57,9 @@ export type ExpertisePayload = {
   meta: ExpertiseMeta;
   trees: TreeData[];
 };
+
+export type StringTables = {
+  statNames: Record<string, string>;
+  cmdNames: Record<string, string>;
+  sklNames: Record<string, string>;
+};

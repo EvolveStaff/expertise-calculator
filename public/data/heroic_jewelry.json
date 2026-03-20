@@ -1,0 +1,2011 @@
+[
+  {
+    "classKey": "bh",
+    "className": "Bounty Hunter",
+    "requirement": "Master Bounty Hunter",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "utility_b",
+        "setTypeLabel": "Dire Fate",
+        "itemStats": [
+          { "param": "dire_root_chance", "value": 1 },
+          { "param": "dire_snare_chance", "value": 1 },
+          { "param": "cripple_fast_attack_chance", "value": 2 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "cripple_fast_attack_chance", "value": 5 },
+              { "param": "cripple_cooldown_reset", "value": 0 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "cripple_fast_attack_chance", "value": 10 },
+              { "param": "cripple_cooldown_reset", "value": 0 },
+              { "param": "dire_snare_chance", "value": 20 },
+              { "param": "dire_root_chance", "value": 20 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "cripple_fast_attack_chance", "value": 25 },
+              { "param": "cripple_cooldown_reset", "value": 0 },
+              { "param": "dire_snare_chance", "value": 45 },
+              { "param": "dire_root_chance", "value": 45 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "spy",
+    "className": "Assassin",
+    "requirement": "Master Assassin",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "dps",
+        "setTypeLabel": "Assassin's",
+        "itemStats": [
+          { "param": "luck", "value": 35 },
+          { "param": "resist_root", "value": 2 },
+          { "param": "resist_snare", "value": 2 },
+          { "param": "assassinate_damage", "value": 2 },
+          { "param": "ambush_damage_increase", "value": 2 },
+          { "param": "snipe_damage_increase", "value": 2 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "luck_modified", "value": 50 },
+              { "param": "advanced_smoke_bomb_ability", "value": 0 },
+              { "param": "smoke_bomb_cooldown_reduction", "value": 0 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "luck_modified", "value": 100 },
+              { "param": "advanced_smoke_bomb_ability", "value": 0 },
+              { "param": "smoke_bomb_cooldown_reduction", "value": 0 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "luck_modified", "value": 150 },
+              { "param": "advanced_smoke_bomb_ability", "value": 0 },
+              { "param": "smoke_bomb_cooldown_reduction", "value": 0 }
+            ]
+          }
+        ]
+      },
+      {
+        "setType": "utility_b",
+        "setTypeLabel": "Razor Cat",
+        "itemStats": [
+          { "param": "luck", "value": 50 },
+          { "param": "action_cost_reduction", "value": 1 },
+          { "param": "strikethrough_chance_increase", "value": 2 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "strikethrough_chance", "value": 1 },
+              { "param": "action_cost_reduction", "value": 5 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "strikethrough_chance", "value": 2 },
+              { "param": "action_cost_reduction", "value": 10 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "strikethrough_chance", "value": 3 },
+              { "param": "action_cost_reduction", "value": 15 },
+              { "param": "indefensible_attack_chance", "value": 5 },
+              { "param": "masterful_grace_ability", "value": 0 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "medic",
+    "className": "Combat Medic",
+    "requirement": "Master Combat Medic",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "utility_b",
+        "setTypeLabel": "Blackbar's Doom",
+        "itemStats": [
+          { "param": "medic_debuff_fast_attack", "value": 1 },
+          { "param": "medic_dot_cooldown", "value": 2 },
+          { "param": "medic_debuff_freeshot", "value": 1 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "dot_cooldown_reduction", "value": 1 },
+              { "param": "debuff_duration_increase", "value": 1 },
+              { "param": "debuff_fast_attack_chance", "value": 5 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "dot_cooldown_reduction", "value": 2 },
+              { "param": "debuff_duration_increase", "value": 3 },
+              { "param": "debuff_fast_attack_chance", "value": 10 },
+              { "param": "debuff_freeshot_chance", "value": 10 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "dot_cooldown_reduction", "value": 3 },
+              { "param": "debuff_duration_increase", "value": 5 },
+              { "param": "debuff_fast_attack_chance", "value": 15 },
+              { "param": "debuff_freeshot_chance", "value": 15 },
+              { "param": "doom_chance", "value": 20 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "commando",
+    "className": "Commando",
+    "requirement": "Master Commando",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "utility_a",
+        "setTypeLabel": "Frontman",
+        "itemStats": [
+          { "param": "agility", "value": 25 },
+          { "param": "constitution", "value": 25 },
+          { "param": "block_value", "value": 50 },
+          { "param": "block_chance", "value": 2 },
+          { "param": "incoming_damage_to_action", "value": 1 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "constitution_modified", "value": 50 },
+              { "param": "agility_modified", "value": 50 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "constitution_modified", "value": 100 },
+              { "param": "agility_modified", "value": 100 },
+              { "param": "block_value", "value": 200 },
+              { "param": "block_chance", "value": 5 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "constitution_modified", "value": 150 },
+              { "param": "agility_modified", "value": 150 },
+              { "param": "block_value", "value": 500 },
+              { "param": "block_chance", "value": 10 }
+            ]
+          }
+        ]
+      },
+      {
+        "setType": "utility_b",
+        "setTypeLabel": "Juggernaut",
+        "requirement": "Heavy Weapons Expert",
+        "itemStats": [
+          { "param": "constitution", "value": 10 },
+          { "param": "strength", "value": 15 },
+          { "param": "devastation_chance", "value": 1 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "constitution_modified", "value": 25 },
+              { "param": "strength_modified", "value": 25 },
+              { "param": "devastation_chance", "value": 1 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "constitution_modified", "value": 50 },
+              { "param": "strength_modified", "value": 60 },
+              { "param": "devastation_chance", "value": 2 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "constitution_modified", "value": 100 },
+              { "param": "strength_modified", "value": 125 },
+              { "param": "devastation_chance", "value": 5 },
+              { "param": "riddle_armor_cooldown_reduction", "value": 4 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "smuggler",
+    "className": "Smuggler",
+    "requirement": "Master Smuggler",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "utility_b",
+        "setTypeLabel": "Gambler",
+        "itemStats": [
+          { "param": "luck", "value": 30 },
+          { "param": "false_hope_cooldown", "value": 2 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "luck_modified", "value": 50 },
+              { "param": "false_hope_cooldown_reduction", "value": 5 },
+              { "param": "lucky_break_chance", "value": 1 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "luck_modified", "value": 100 },
+              { "param": "false_hope_cooldown_reduction", "value": 10 },
+              { "param": "lucky_break_chance", "value": 2 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "luck_modified", "value": 250 },
+              { "param": "false_hope_cooldown_reduction", "value": 20 },
+              { "param": "lucky_break_chance", "value": 3 },
+              { "param": "how_are_you_ability", "value": 0 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "officer",
+    "className": "Officer",
+    "requirement": "Master Squad Leader",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "utility_b",
+        "setTypeLabel": "General's",
+        "itemStats": [
+          { "param": "group_buff_cooldown_percent", "value": 4 },
+          { "param": "swift_heal_chance", "value": 1 },
+          { "param": "rallypoint_duration_increase", "value": 1 },
+          { "param": "group_buff_action_cost", "value": 2 },
+          { "param": "debuff_dot_purge_cooldown", "value": 3 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "group_buff_action_cost", "value": 10 },
+              { "param": "group_buff_cooldown_reduction", "value": 10 },
+              { "param": "environmental_purge_cooldown_reduction", "value": 10 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "group_buff_action_cost", "value": 15 },
+              { "param": "group_buff_cooldown_reduction", "value": 20 },
+              { "param": "environmental_purge_cooldown_reduction", "value": 15 },
+              { "param": "swift_heal_chance", "value": 5 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "group_buff_action_cost", "value": 20 },
+              { "param": "group_buff_cooldown_reduction", "value": 30 },
+              { "param": "environmental_purge_cooldown_reduction", "value": 30 },
+              { "param": "swift_heal_chance", "value": 15 },
+              { "param": "inspired_action_chance", "value": 20 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "pikeman",
+    "className": "Pikeman",
+    "requirement": "Master Pikeman",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "dps",
+        "setTypeLabel": "Pikeman's",
+        "itemStats": [
+          { "param": "strength", "value": 30 },
+          { "param": "action_cost_reduction", "value": 2 },
+          { "param": "pin_down_cooldown", "value": 1 },
+          { "param": "pin_down_damage_increase", "value": 2 },
+          { "param": "crush_damage_increase", "value": 2 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "strength_modified", "value": 50 },
+              { "param": "pin_down_cooldown_reduction", "value": 2 },
+              { "param": "pin_down_damage", "value": 5 },
+              { "param": "crush_damage", "value": 5 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "strength_modified", "value": 100 },
+              { "param": "pin_down_cooldown_reduction", "value": 4 },
+              { "param": "pin_down_damage", "value": 10 },
+              { "param": "crush_damage", "value": 10 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "strength_modified", "value": 200 },
+              { "param": "pin_down_cooldown_reduction", "value": 6 },
+              { "param": "pin_down_damage", "value": 15 },
+              { "param": "crush_damage", "value": 15 },
+              { "param": "basic_attacks_to_aoe", "value": 0 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "fencer",
+    "className": "Fencer",
+    "requirement": "Master Fencer",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "dps",
+        "setTypeLabel": "Swashbuckler's",
+        "itemStats": [
+          { "param": "agility", "value": 30 },
+          { "param": "decapitate_damage_increase", "value": 2 },
+          { "param": "decapitate_freeshot_chance", "value": 2 },
+          { "param": "one_two_pummel_chance", "value": 2 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "agility_modified", "value": 50 },
+              { "param": "decapitate_cooldown_reduction", "value": 2 },
+              { "param": "decapitate_freeshot_chance", "value": 2 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "agility_modified", "value": 100 },
+              { "param": "decapitate_cooldown_reduction", "value": 5 },
+              { "param": "decapitate_freeshot_chance", "value": 5 },
+              { "param": "one_two_pummel_chance", "value": 5 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "agility_modified", "value": 150 },
+              { "param": "decapitate_cooldown_reduction", "value": 10 },
+              { "param": "decapitate_freeshot_chance", "value": 10 },
+              { "param": "one_two_pummel_chance", "value": 10 },
+              { "param": "affliction_ability", "value": 0 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "tkm",
+    "className": "Teras Kasi Artist",
+    "requirement": "Master Teras Kasi Artist",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "dps",
+        "setTypeLabel": "Steel Hands",
+        "itemStats": [
+          { "param": "strength", "value": 20 },
+          { "param": "outgoing_damage_to_action", "value": 1 },
+          { "param": "spiral_kick_critical_increase", "value": 1 },
+          { "param": "unarmed_critical_chance", "value": 1 },
+          { "param": "sweeping_pirouette_damage_increase", "value": 2 },
+          { "param": "unarmed_damage", "value": 2 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "strength_modified", "value": 50 },
+              { "param": "unarmed_critical_chance", "value": 2 },
+              { "param": "sweeping_pirouette_damage_increase", "value": 2 },
+              { "param": "spiral_kick_critical_increase", "value": 2 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "strength_modified", "value": 100 },
+              { "param": "unarmed_critical_chance", "value": 5 },
+              { "param": "sweeping_pirouette_damage_increase", "value": 5 },
+              { "param": "spiral_kick_critical_increase", "value": 5 },
+              { "param": "poison_knuckle_chance", "value": 10 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "strength_modified", "value": 150 },
+              { "param": "unarmed_critical_chance", "value": 10 },
+              { "param": "sweeping_pirouette_damage_increase", "value": 10 },
+              { "param": "spiral_kick_critical_increase", "value": 10 },
+              { "param": "poison_knuckle_chance", "value": 20 }
+            ]
+          }
+        ]
+      },
+      {
+        "setType": "tank",
+        "setTypeLabel": "Steel Body",
+        "itemStats": [
+          { "param": "constitution", "value": 25 },
+          { "param": "strength", "value": 25 },
+          { "param": "block_value", "value": 50 },
+          { "param": "block_chance", "value": 2 },
+          { "param": "incoming_damage_to_action", "value": 1 },
+          { "param": "parry", "value": 2 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "constitution_modified", "value": 50 },
+              { "param": "strength_modified", "value": 50 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "constitution_modified", "value": 100 },
+              { "param": "strength_modified", "value": 100 },
+              { "param": "block_value", "value": 200 },
+              { "param": "block_chance", "value": 5 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "constitution_modified", "value": 150 },
+              { "param": "strength_modified", "value": 150 },
+              { "param": "block_value", "value": 500 },
+              { "param": "block_chance", "value": 10 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "jedi",
+    "className": "Jedi",
+    "requirement": "Force Sensitive",
+    "charType": "jedi",
+    "sets": [
+      {
+        "setType": "utility_a",
+        "setTypeLabel": "Dark Fury",
+        "requirement": "Jedi Mystic Master",
+        "itemStats": [
+          { "param": "piercing_energy", "value": 20 },
+          { "param": "lightning_duration", "value": 2 },
+          { "param": "force_powers_cooldown", "value": 2 },
+          { "param": "force_electrical_damage", "value": 4 },
+          { "param": "shockwave_damage", "value": 4 },
+          { "param": "choke_damage", "value": 4 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "force_powers_cooldown", "value": 5 },
+              { "param": "action_cost_reduction", "value": 5 },
+              { "param": "electrical_damage", "value": 5 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "force_powers_cooldown", "value": 15 },
+              { "param": "action_cost_reduction", "value": 10 },
+              { "param": "electrical_damage", "value": 10 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "force_powers_cooldown", "value": 30 },
+              { "param": "action_cost_reduction", "value": 15 },
+              { "param": "force_lightning_snare_chance", "value": 100 }
+            ]
+          }
+        ]
+      },
+      {
+        "setType": "tank",
+        "setTypeLabel": "Guardian's",
+        "requirement": "Jedi Guardian Master",
+        "itemStats": [
+          { "param": "agility", "value": 25 },
+          { "param": "constitution", "value": 25 },
+          { "param": "block_value", "value": 50 },
+          { "param": "block_chance", "value": 2 },
+          { "param": "incoming_damage_to_action", "value": 1 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "constitution_modified", "value": 50 },
+              { "param": "critical_hit_reduction", "value": 2 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "constitution_modified", "value": 100 },
+              { "param": "critical_hit_reduction", "value": 5 },
+              { "param": "block_chance", "value": 5 },
+              { "param": "block_value", "value": 200 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "constitution_modified", "value": 250 },
+              { "param": "critical_hit_reduction", "value": 10 },
+              { "param": "block_chance", "value": 10 },
+              { "param": "block_value", "value": 500 },
+              { "param": "guardian_strike_ability", "value": 0 }
+            ]
+          }
+        ]
+      },
+      {
+        "setType": "utility_b",
+        "setTypeLabel": "Warden's Defense",
+        "requirement": "Jedi Guardian Master",
+        "itemStats": [
+          { "param": "agility", "value": 25 },
+          { "param": "constitution", "value": 50 },
+          { "param": "evasion_chance", "value": 5 },
+          { "param": "reactive_heal_chance", "value": 1 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "constitution_modified", "value": 100 },
+              { "param": "second_chance", "value": 1 },
+              { "param": "dot_resistance", "value": 5 },
+              { "param": "snare_root_resistance", "value": 10 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "constitution_modified", "value": 150 },
+              { "param": "second_chance", "value": 3 },
+              { "param": "dot_resistance", "value": 10 },
+              { "param": "snare_root_resistance", "value": 15 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "constitution_modified", "value": 250 },
+              { "param": "second_chance", "value": 5 },
+              { "param": "dot_resistance", "value": 15 },
+              { "param": "snare_root_resistance", "value": 20 }
+            ]
+          }
+        ]
+      },
+      {
+        "setType": "dps",
+        "setTypeLabel": "Lightsaber Duelist",
+        "requirement": "Jedi Battlemaster",
+        "itemStats": [
+          { "param": "strength", "value": 25 },
+          { "param": "saber_strike_damage", "value": 2 },
+          { "param": "sweep_damage", "value": 2 },
+          { "param": "second_attack", "value": 1 },
+          { "param": "riposte_chance", "value": 1 },
+          { "param": "hit_chance_increase", "value": 1 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "snare_resistance", "value": 1 },
+              { "param": "chance_to_hit_twice", "value": 1 },
+              { "param": "flurry_cooldown_reduction", "value": 2 },
+              { "param": "saber_strike_damage", "value": 5 },
+              { "param": "saber_sweep_damage", "value": 5 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "snare_resistance", "value": 2 },
+              { "param": "chance_to_hit_twice", "value": 2 },
+              { "param": "flurry_cooldown_reduction", "value": 4 },
+              { "param": "saber_strike_damage", "value": 10 },
+              { "param": "saber_sweep_damage", "value": 10 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "snare_resistance", "value": 5 },
+              { "param": "chance_to_hit_twice", "value": 5 },
+              { "param": "flurry_cooldown_reduction", "value": 6 },
+              { "param": "saber_strike_damage", "value": 15 },
+              { "param": "saber_sweep_damage", "value": 15 }
+            ]
+          }
+        ]
+      },
+      {
+        "setType": "shadow",
+        "setTypeLabel": "Shadow's Embrace",
+        "requirement": "Jedi Battlemaster",
+        "itemStats": [
+          { "param": "luck", "value": 35 },
+          { "param": "resist_root", "value": 2 },
+          { "param": "resist_snare", "value": 2 },
+          { "param": "saber_burst_increased_damage", "value": 2 },
+          { "param": "vigilant_strike_damage", "value": 2 },
+          { "param": "flurry_damage", "value": 2 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "luck_modified", "value": 50 },
+              { "param": "force_cloak_cooldown_reduction", "value": 30 },
+              { "param": "advanced_cloak_ability", "value": 0 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "luck_modified", "value": 100 },
+              { "param": "force_cloak_cooldown_reduction", "value": 90 },
+              { "param": "advanced_cloak_ability", "value": 0 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "luck_modified", "value": 150 },
+              { "param": "force_cloak_cooldown_reduction", "value": 105 },
+              { "param": "advanced_cloak_ability", "value": 0 },
+              { "param": "stealth_strike_ability", "value": 0 }
+            ]
+          }
+        ]
+      },
+      {
+        "setType": "heal",
+        "setTypeLabel": "Sage's Wisdom",
+        "requirement": "Jedi Sage Master",
+        "itemStats": [
+          { "param": "constitution", "value": 25 },
+          { "param": "swift_force_heal_chance", "value": 1 },
+          { "param": "force_heal_action_cost_reduction", "value": 1 },
+          { "param": "healing_potency", "value": 1 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "stamina_modified", "value": 50 },
+              { "param": "jedi_heal_increase", "value": 5 },
+              { "param": "jedi_heal_cooldown_reduction", "value": 1 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "stamina_modified", "value": 100 },
+              { "param": "jedi_heal_increase", "value": 10 },
+              { "param": "fast_attack_jedi_heal", "value": 5 },
+              { "param": "jedi_heal_cooldown_reduction", "value": 3 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "stamina_modified", "value": 150 },
+              { "param": "jedi_heal_increase", "value": 15 },
+              { "param": "fast_attack_jedi_heal", "value": 10 },
+              { "param": "jedi_heal_cooldown_reduction", "value": 5 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "hero",
+    "className": "Heroic (General)",
+    "requirement": "Any",
+    "charType": "both",
+    "sets": [
+      {
+        "setType": "general",
+        "setTypeLabel": "Heroism Set",
+        "itemStats": [
+          { "param": "luck", "value": 30 },
+          { "param": "precision", "value": 30 },
+          { "param": "strength", "value": 30 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "stamina_modified", "value": 60 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "stamina_modified", "value": 90 },
+              { "param": "agility_modified", "value": 90 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "stamina_modified", "value": 150 },
+              { "param": "agility_modified", "value": 150 },
+              { "param": "constitution_modified", "value": 150 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "trader",
+    "className": "Trader",
+    "requirement": "Any Master Trader",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "general",
+        "setTypeLabel": "Expert Trader's",
+        "pieces": [
+          {
+            "count": 1,
+            "effects": [
+              {
+                "param": "stamina_modified",
+                "value": 60
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "effects": [
+              {
+                "param": "stamina_modified",
+                "value": 90
+              },
+              {
+                "param": "agility_modified",
+                "value": 90
+              }
+            ]
+          },
+          {
+            "count": 3,
+            "effects": [
+              {
+                "param": "stamina_modified",
+                "value": 150
+              },
+              {
+                "param": "agility_modified",
+                "value": 150
+              },
+              {
+                "param": "constitution_modified",
+                "value": 150
+              },
+              {
+                "param": "trader_heal",
+                "value": 0
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "ent",
+    "className": "Entertainer",
+    "requirement": "Master Muse",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "utility_b",
+        "setTypeLabel": "Performer Set",
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              {
+                "param": "inspiration_pulse_increase",
+                "value": 3
+              },
+              {
+                "param": "inspiration_duration_increase",
+                "value": 15
+              }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              {
+                "param": "inspiration_pulse_increase",
+                "value": 4
+              },
+              {
+                "param": "inspiration_duration_increase",
+                "value": 20
+              }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              {
+                "param": "inspiration_pulse_increase",
+                "value": 6
+              },
+              {
+                "param": "inspiration_duration_increase",
+                "value": 30
+              },
+              {
+                "param": "lasting_performance_ability",
+                "value": 0
+              }
+            ]
+          }
+        ],
+        "itemStats": [
+          {
+            "param": "inspiration_duration_increase",
+            "value": 6
+          },
+          {
+            "param": "inspiration_pulse_increase",
+            "value": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "reverse",
+    "className": "Reverse Engineer",
+    "requirement": "Master Reverse Engineer",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "general",
+        "setTypeLabel": "Expert Reverse Engineer's Set",
+        "pieces": [
+          {
+            "count": 1,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 50
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 100
+              },
+              {
+                "param": "expertise_reverse_engineering_efficiency",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "count": 3,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 150
+              },
+              {
+                "param": "expertise_reverse_engineering_efficiency",
+                "value": 25
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "chef",
+    "className": "Chef",
+    "requirement": "Master Chef",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "general",
+        "setTypeLabel": "Expert Chef",
+        "pieces": [
+          {
+            "count": 1,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 50
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 100
+              },
+              {
+                "param": "food_assembly",
+                "value": 10
+              },
+              {
+                "param": "food_experimentation",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "count": 3,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 150
+              },
+              {
+                "param": "food_assembly",
+                "value": 25
+              },
+              {
+                "param": "food_experimentation",
+                "value": 25
+              },
+              {
+                "param": "expertise_amazing_success",
+                "value": 6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "tailor",
+    "className": "Tailor",
+    "requirement": "Master Tailor",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "general",
+        "setTypeLabel": "Expert Tailor",
+        "pieces": [
+          {
+            "count": 1,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 50
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 100
+              },
+              {
+                "param": "clothing_assembly",
+                "value": 10
+              },
+              {
+                "param": "clothing_experimentation",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "count": 3,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 150
+              },
+              {
+                "param": "clothing_assembly",
+                "value": 25
+              },
+              {
+                "param": "clothing_experimentation",
+                "value": 25
+              },
+              {
+                "param": "expertise_amazing_success",
+                "value": 6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "architect",
+    "className": "Architect",
+    "requirement": "Master Architect",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "general",
+        "setTypeLabel": "Expert Architect",
+        "pieces": [
+          {
+            "count": 1,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 50
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 100
+              },
+              {
+                "param": "structure_assembly",
+                "value": 10
+              },
+              {
+                "param": "structure_experimentation",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "count": 3,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 150
+              },
+              {
+                "param": "structure_assembly",
+                "value": 25
+              },
+              {
+                "param": "structure_experimentation",
+                "value": 25
+              },
+              {
+                "param": "expertise_amazing_success",
+                "value": 6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "armorsmith",
+    "className": "Armorsmith",
+    "requirement": "Master Armorsmith",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "general",
+        "setTypeLabel": "Expert Armorsmith",
+        "pieces": [
+          {
+            "count": 1,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 50
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 100
+              },
+              {
+                "param": "armor_assembly",
+                "value": 10
+              },
+              {
+                "param": "armor_experimentation",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "count": 3,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 150
+              },
+              {
+                "param": "armor_assembly",
+                "value": 25
+              },
+              {
+                "param": "armor_experimentation",
+                "value": 25
+              },
+              {
+                "param": "expertise_amazing_success",
+                "value": 6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "weaponsmith",
+    "className": "Weaponsmith",
+    "requirement": "Master Weaponsmith",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "general",
+        "setTypeLabel": "Expert Weaponsmith",
+        "pieces": [
+          {
+            "count": 1,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 50
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 100
+              },
+              {
+                "param": "weapon_assembly",
+                "value": 10
+              },
+              {
+                "param": "weapon_experimentation",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "count": 3,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 150
+              },
+              {
+                "param": "weapon_assembly",
+                "value": 25
+              },
+              {
+                "param": "weapon_experimentation",
+                "value": 25
+              },
+              {
+                "param": "expertise_amazing_success",
+                "value": 6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "droid",
+    "className": "Droid Engineer",
+    "requirement": "Master Droid Engineer",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "general",
+        "setTypeLabel": "Expert Droid Engineer",
+        "pieces": [
+          {
+            "count": 1,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 50
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 100
+              },
+              {
+                "param": "droid_assembly",
+                "value": 10
+              },
+              {
+                "param": "droid_experimentation",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "count": 3,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 150
+              },
+              {
+                "param": "droid_assembly",
+                "value": 25
+              },
+              {
+                "param": "droid_experimentation",
+                "value": 25
+              },
+              {
+                "param": "expertise_amazing_success",
+                "value": 6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "cybernetic",
+    "className": "Cybernetics",
+    "requirement": "Master Cybernetics",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "general",
+        "setTypeLabel": "Expert Cybernetics",
+        "pieces": [
+          {
+            "count": 1,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 50
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 100
+              },
+              {
+                "param": "cybernetic_assembly",
+                "value": 10
+              },
+              {
+                "param": "cybernetic_experimentation",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "count": 3,
+            "effects": [
+              {
+                "param": "luck_modified",
+                "value": 150
+              },
+              {
+                "param": "cybernetic_assembly",
+                "value": 25
+              },
+              {
+                "param": "cybernetic_experimentation",
+                "value": 25
+              },
+              {
+                "param": "expertise_amazing_success",
+                "value": 6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "shipwright",
+    "className": "Shipwright",
+    "requirement": "Master Shipwright",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "general",
+        "setTypeLabel": "Expert Shipwright",
+        "pieces": [
+          {
+            "count": 1,
+            "effects": [
+              {
+                "param": "expertise_resource_quality_increase",
+                "value": 1
+              },
+              {
+                "param": "expertise_complexity_decrease_shipwright",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "effects": [
+              {
+                "param": "expertise_resource_quality_increase",
+                "value": 3
+              },
+              {
+                "param": "expertise_complexity_decrease_shipwright",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "count": 3,
+            "effects": [
+              {
+                "param": "expertise_resource_quality_increase",
+                "value": 5
+              },
+              {
+                "param": "expertise_complexity_decrease_shipwright",
+                "value": 5
+              },
+              {
+                "param": "expertise_amazing_success",
+                "value": 6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "bio",
+    "className": "Bio-Engineer",
+    "requirement": "Master Bio-Engineer",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "general",
+        "setTypeLabel": "Expert Bio-Engineer",
+        "pieces": [
+          {
+            "count": 1,
+            "effects": [
+              {
+                "param": "bm_mutation_chance_increase",
+                "value": 5
+              },
+              {
+                "param": "expertise_bm_incubation_quality",
+                "value": 5
+              },
+              {
+                "param": "expertise_bm_incubation_time",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "effects": [
+              {
+                "param": "bm_mutation_chance_increase",
+                "value": 10
+              },
+              {
+                "param": "expertise_bm_incubation_quality",
+                "value": 10
+              },
+              {
+                "param": "expertise_bm_dna_harvesting_1",
+                "value": 10
+              },
+              {
+                "param": "expertise_bm_genetic_engineering",
+                "value": 10
+              },
+              {
+                "param": "expertise_bm_incubation_time",
+                "value": 4
+              }
+            ]
+          },
+          {
+            "count": 3,
+            "effects": [
+              {
+                "param": "bm_mutation_chance_increase",
+                "value": 15
+              },
+              {
+                "param": "expertise_bm_incubation_quality",
+                "value": 15
+              },
+              {
+                "param": "expertise_bm_dna_harvesting_1",
+                "value": 20
+              },
+              {
+                "param": "expertise_bm_genetic_engineering",
+                "value": 20
+              },
+              {
+                "param": "expertise_bm_incubation_time",
+                "value": 6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "miner",
+    "className": "Miner",
+    "requirement": "Any Surveyor Profession",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "survey",
+        "setTypeLabel": "Expert Miner's Set",
+        "pieces": [
+          {
+            "count": 1,
+            "effects": [
+              {
+                "param": "expertise_resource_sampling_time_decrease",
+                "value": 5
+              },
+              {
+                "param": "expertise_resource_sampling_increase",
+                "value": 15
+              },
+              {
+                "param": "expertise_action_all",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "effects": [
+              {
+                "param": "expertise_resource_sampling_time_decrease",
+                "value": 10
+              },
+              {
+                "param": "expertise_resource_sampling_increase",
+                "value": 25
+              },
+              {
+                "param": "expertise_action_all",
+                "value": 20
+              }
+            ]
+          },
+          {
+            "count": 3,
+            "effects": [
+              {
+                "param": "expertise_resource_sampling_time_decrease",
+                "value": 15
+              },
+              {
+                "param": "expertise_resource_sampling_increase",
+                "value": 50
+              },
+              {
+                "param": "expertise_action_all",
+                "value": 30
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "setType": "general",
+        "setTypeLabel": "Tinkerer's",
+        "pieces": []
+      }
+    ]
+  },
+  {
+    "classKey": "pistoleer",
+    "className": "Pistoleer",
+    "requirement": "Master Pistoleer",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "dps",
+        "setTypeLabel": "Dead Eye",
+        "itemStats": [
+          { "param": "precision", "value": 50 },
+          { "param": "sure_shot_action_cost", "value": 1 },
+          { "param": "sureshot_cooldown", "value": 1 },
+          { "param": "sure_shot_damage", "value": 2 },
+          { "param": "sure_shot_freeshot_chance", "value": 1 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "action_cost_reduction", "value": 5 },
+              { "param": "sure_shot_action_damage", "value": 250 },
+              { "param": "hammer_fanning_chance", "value": 4 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "action_cost_reduction", "value": 10 },
+              { "param": "sure_shot_action_damage", "value": 750 },
+              { "param": "hammer_fanning_chance", "value": 9 },
+              { "param": "sure_shot_damage", "value": 5 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "action_cost_reduction", "value": 15 },
+              { "param": "sure_shot_action_damage", "value": 1500 },
+              { "param": "hammer_fanning_chance", "value": 15 },
+              { "param": "sure_shot_damage", "value": 10 },
+              { "param": "tactical_advantage_ability", "value": 0 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "doctor",
+    "className": "Doctor",
+    "requirement": "Master Doctor",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "heal",
+        "setTypeLabel": "First Responder's",
+        "itemStats": [
+          { "param": "swift_heal_other", "value": 2 },
+          { "param": "swift_revive_chance", "value": 1 },
+          { "param": "evasion_cooldown", "value": 6 },
+          { "param": "medic_heal_freeshot", "value": 1 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "heal_freeshot_chance", "value": 5 },
+              { "param": "swift_revive_chance", "value": 5 },
+              { "param": "evasion_cooldown_reduction", "value": 10 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "swift_heal_other", "value": 5 },
+              { "param": "heal_freeshot_chance", "value": 10 },
+              { "param": "swift_revive_chance", "value": 10 },
+              { "param": "evasion_cooldown_reduction", "value": 20 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "swift_heal_other", "value": 10 },
+              { "param": "heal_freeshot_chance", "value": 15 },
+              { "param": "swift_revive_chance", "value": 15 },
+              { "param": "evasion_cooldown_reduction", "value": 30 },
+              { "param": "stasis_cooldown_reduction", "value": 120 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "rifleman",
+    "className": "Rifleman",
+    "requirement": "Master Rifleman",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "dps",
+        "setTypeLabel": "Flawless",
+        "itemStats": [
+          { "param": "luck", "value": 30 },
+          { "param": "precision", "value": 50 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "flawless_strike_ability", "value": 0 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "flawless_strike_ability", "value": 0 },
+              { "param": "flawless_strike_cooldown_reduction", "value": 15 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "flawless_strike_ability", "value": 0 },
+              { "param": "flawless_strike_cooldown_reduction", "value": 30 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "grenadier",
+    "className": "Grenadier",
+    "requirement": "Master Grenadier",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "dps",
+        "setTypeLabel": "Grenadier's",
+        "itemStats": [
+          { "param": "grenade_fast_attack_chance", "value": 3 },
+          { "param": "grenade_action_decrease", "value": 2 },
+          { "param": "grenade_freeshot_chance", "value": 2 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "grenade_fast_attack_chance", "value": 5 },
+              { "param": "grenade_action_cost_reduction", "value": 5 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "grenade_fast_attack_chance", "value": 5 },
+              { "param": "grenade_action_cost_reduction", "value": 5 },
+              { "param": "grenade_freeshot_chance", "value": 10 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "grenade_fast_attack_chance", "value": 10 },
+              { "param": "grenade_action_cost_reduction", "value": 10 },
+              { "param": "grenade_freeshot_chance", "value": 15 },
+              { "param": "preparation_h_ability", "value": 0 }
+            ]
+          }
+        ]
+      },
+      {
+        "setType": "aoe",
+        "setTypeLabel": "Hellstorm",
+        "itemStats": [
+          { "param": "area_effect_action_cost", "value": 2 },
+          { "param": "aoe_freeshot_chance", "value": 2 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "aoe_action_cost_reduction", "value": 5 },
+              { "param": "aoe_freeshot_chance", "value": 5 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "aoe_action_cost_reduction", "value": 10 },
+              { "param": "aoe_freeshot_chance", "value": 10 },
+              { "param": "aoe_fast_attack_chance", "value": 10 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "aoe_action_cost_reduction", "value": 15 },
+              { "param": "aoe_freeshot_chance", "value": 15 },
+              { "param": "aoe_fast_attack_chance", "value": 20 },
+              { "param": "superior_firepower_cooldown_reduction", "value": 60 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "carbineer",
+    "className": "Carbineer",
+    "requirement": "Master Carbineer",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "utility_b",
+        "setTypeLabel": "Rogue's",
+        "itemStats": [
+          { "param": "luck", "value": 30 },
+          { "param": "dire_snare_chance", "value": 7 },
+          { "param": "concussion_dizzy_cooldown", "value": 1 },
+          { "param": "concussion_dizzy_freeshot_chance", "value": 2 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "luck_modified", "value": 50 },
+              { "param": "dire_snare_chance", "value": 20 },
+              { "param": "concussion_freeshot_chance", "value": 5 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "luck_modified", "value": 100 },
+              { "param": "dire_snare_chance", "value": 40 },
+              { "param": "concussion_freeshot_chance", "value": 10 },
+              { "param": "concussion_cooldown_reduction", "value": 0.5 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "luck_modified", "value": 250 },
+              { "param": "dire_snare_chance", "value": 65 },
+              { "param": "concussion_freeshot_chance", "value": 15 },
+              { "param": "concussion_cooldown_reduction", "value": 1.0 }
+            ]
+          }
+        ]
+      },
+      {
+        "setType": "utility_a",
+        "setTypeLabel": "Enforcer's",
+        "itemStats": [
+          { "param": "assault_action_cost", "value": 1 },
+          { "param": "return_fire_duration", "value": 1 },
+          { "param": "assault_cooldown", "value": 1 },
+          { "param": "assault_damage", "value": 1 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "assault_action_cost_reduction", "value": 5 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "assault_action_cost_reduction", "value": 5 },
+              { "param": "return_fire_duration_increase", "value": 5 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "assault_action_cost_reduction", "value": 10 },
+              { "param": "assault_freeshot_chance", "value": 20 },
+              { "param": "return_fire_duration_increase", "value": 10 },
+              { "param": "assault_cooldown_reduction", "value": 1 },
+              { "param": "return_fire_cooldown_reduction", "value": 75 }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classKey": "swordsman",
+    "className": "Swordsman",
+    "requirement": "Master Swordsman",
+    "charType": "normal",
+    "sets": [
+      {
+        "setType": "dps",
+        "setTypeLabel": "Striker's",
+        "itemStats": [
+          { "param": "strength", "value": 30 },
+          { "param": "vital_strike_fast_attack", "value": 1 },
+          { "param": "vital_strike_action_cost", "value": 1 },
+          { "param": "flurry_action_cost", "value": 2 },
+          { "param": "strikethrough_chance_increase", "value": 2 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "strength_modified", "value": 50 },
+              { "param": "strikethrough_chance", "value": 3 },
+              { "param": "vital_strike_damage", "value": 5 },
+              { "param": "flurry_damage", "value": 5 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "strength_modified", "value": 100 },
+              { "param": "strikethrough_chance", "value": 4 },
+              { "param": "vital_strike_damage", "value": 10 },
+              { "param": "flurry_damage", "value": 10 },
+              { "param": "vital_strike_fast_attack_chance", "value": 5 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "strength_modified", "value": 150 },
+              { "param": "strikethrough_chance", "value": 5 },
+              { "param": "vital_strike_damage", "value": 15 },
+              { "param": "flurry_damage", "value": 20 },
+              { "param": "vital_strike_fast_attack_chance", "value": 15 }
+            ]
+          }
+        ]
+      },
+      {
+        "setType": "utility_b",
+        "setTypeLabel": "Cutthroat's",
+        "itemStats": [
+          { "param": "luck", "value": 30 },
+          { "param": "dire_snare_chance", "value": 7 },
+          { "param": "dizzy_damage_increase", "value": 2 },
+          { "param": "dizzy_freeshot_chance", "value": 2 }
+        ],
+        "pieces": [
+          {
+            "count": 3,
+            "effects": [
+              { "param": "luck_modified", "value": 50 },
+              { "param": "dire_snare_chance", "value": 20 },
+              { "param": "dizzy_freeshot_chance", "value": 5 },
+              { "param": "dizzy_damage_increase", "value": 5 }
+            ]
+          },
+          {
+            "count": 4,
+            "effects": [
+              { "param": "luck_modified", "value": 100 },
+              { "param": "dire_snare_chance", "value": 40 },
+              { "param": "dizzy_freeshot_chance", "value": 10 },
+              { "param": "dizzy_damage_increase", "value": 10 }
+            ]
+          },
+          {
+            "count": 5,
+            "effects": [
+              { "param": "luck_modified", "value": 250 },
+              { "param": "dire_snare_chance", "value": 65 },
+              { "param": "dizzy_freeshot_chance", "value": 15 },
+              { "param": "dizzy_damage_increase", "value": 15 }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
