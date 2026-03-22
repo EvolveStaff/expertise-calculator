@@ -81,6 +81,7 @@ function deriveDisplayName(nodeId) {
   const parts = cleaned.split("_");
 
   const blacklist = new Set([
+    // Full tree/category words
     "combat",
     "crafting",
     "social",
@@ -95,6 +96,29 @@ function deriveDisplayName(nodeId) {
     "medic",
     "jedi",
     "general",
+    "path",
+    // Short tree abbreviations used as node-ID prefixes
+    "bh",   // Bounty Hunter
+    "bm",   // Beastmaster
+    "ch",   // Creature Handler
+    "cm",   // Combat Medic
+    "co",   // Commando
+    "doc",  // Doctor
+    "en",   // Entertainer / Enhanced
+    "fn",   // Fencer
+    "frs",  // Force Resistant/Sensitive
+    "fs",   // Force Sensitive
+    "gr",   // Grenadier
+    "hw",   // Heavy Weapon
+    "me",   // Melee Expert
+    "mk",   // Marksman
+    "of",   // Officer
+    "sl",   // Squad Leader
+    "sm",   // Smuggler
+    "sp",   // Spy/Assassin
+    "sw",   // Swordsman
+    "tk",   // Teras Kasi
+    "tkm",  // Teras Kasi Master
   ]);
 
   const filtered = parts.filter((p) => !blacklist.has(p.toLowerCase()));
