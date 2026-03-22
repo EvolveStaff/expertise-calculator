@@ -89,7 +89,15 @@ export function isBranchGateSatisfied(
 
 // Skill names in the source data use a _NN rank suffix (e.g. expertise_brawler_mdef_01).
 // Strip the suffix to recover the nodeId and the minimum rank required.
-function parseSkillName(skillName: string): { nodeId: string; rank: number } {
+// knownNodeIds: when a skill reference matches a known nodeId directly (e.g. a
+// split-position node whose full name IS its nodeId), treat it as rank 1 of that node.
+function parseSkillName(
+  skillName: string,
+  knownNodeIds?: Set<string>
+): { nodeId: string; rank: number } {
+  if (knownNodeIds?.has(skillName)) {
+    return { nodeId: skillName, rank: 1 };
+  }
   const match = skillName.match(/^(.+)_(\d+)$/);
   if (match) {
     return { nodeId: match[1], rank: parseInt(match[2], 10) };
@@ -100,8 +108,11 @@ function parseSkillName(skillName: string): { nodeId: string; rank: number } {
 // Returns deduplicated cross-node requirements, filtering out self-referential
 // rank-chain entries (each rank requiring the previous rank of the same node).
 function getRequiredSkills(
-  node: VisibleNode
+  node: VisibleNode,
+  allNodes: VisibleNode[]
 ): Array<{ nodeId: string; requiredRank: number }> {
+  const knownNodeIds = new Set(allNodes.map((n) => n.nodeId));
+
   const rawReqs = [
     ...(Array.isArray(node.skillsRequired) ? node.skillsRequired : []),
     ...node.ranks.flatMap((r) =>
@@ -116,7 +127,7 @@ function getRequiredSkills(
     if (seen.has(req)) continue;
     seen.add(req);
 
-    const { nodeId, rank } = parseSkillName(req);
+    const { nodeId, rank } = parseSkillName(req, knownNodeIds);
     if (nodeId === node.nodeId) continue; // skip self-referential rank chains
 
     result.push({ nodeId, requiredRank: rank });
@@ -139,9 +150,10 @@ function getPreclusionNodeIds(node: VisibleNode): string[] {
 
 function areSkillRequirementsMet(
   node: VisibleNode,
-  selectedRanks: SelectedRanks
+  selectedRanks: SelectedRanks,
+  allNodes: VisibleNode[] = []
 ): boolean {
-  const reqs = getRequiredSkills(node);
+  const reqs = getRequiredSkills(node, allNodes);
   if (reqs.length === 0) return true;
 
   const requiredCount =
@@ -287,7 +299,7 @@ function wouldBreakDependenciesIfRemoved(
       if (otherNode.nodeId === node.nodeId) continue;
       // Use the tree-specific selection to decide whether this node is actually invested.
       if ((treeSelections[otherNode.nodeId] ?? 0) <= 0) continue;
-      if (!areSkillRequirementsMet(otherNode, simulated)) return true;
+      if (!areSkillRequirementsMet(otherNode, simulated, tree.nodes)) return true;
     }
   }
 
@@ -317,7 +329,7 @@ export function canIncreaseRank(
   const currentTreeKey = treeKey ?? allTrees.find((t) => t.id === node.treeId)?.key;
   if (currentTreeKey && !isBranchGateSatisfied(currentTreeKey, globalSelectedRanks)) return false;
 
-  if (!areSkillRequirementsMet(node, globalSelectedRanks)) return false;
+  if (!areSkillRequirementsMet(node, globalSelectedRanks, nodes)) return false;
   if (hasPreclusionConflict(node, globalSelectedRanks)) return false;
   if (getTotalPointsSpent(selectionsByTree) >= MAX_EXPERTISE_POINTS) return false;
 
@@ -367,9 +379,10 @@ export function canDecreaseRank(
 
 export function getMissingRequirements(
   node: VisibleNode,
-  selectedRanks: SelectedRanks
+  selectedRanks: SelectedRanks,
+  allNodes: VisibleNode[] = []
 ): string[] {
-  return getRequiredSkills(node)
+  return getRequiredSkills(node, allNodes)
     .filter(({ nodeId, requiredRank }) => (selectedRanks[nodeId] ?? 0) < requiredRank)
     .map(({ nodeId, requiredRank }) => `${nodeId} (rank ${requiredRank})`);
 }

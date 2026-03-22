@@ -212,7 +212,7 @@ const NODE_DISPLAY_OVERRIDES = {
   "expertise_sp_novice":            "Spy Novice",
   // ── Smuggler ──
   "expertise_sm_path_pistol_whip":          "Pistol Whip",
-  "expertise_sm_general_hammer_fanning":    "Fan Shot",
+  "expertise_sm_general_hammer_fanning":    "Hammer Fanning",
   "expertise_sm_general_break_the_deal":    "Break the Deal",
   "expertise_sm_general_end_of_the_line":   "End of the Line",
   "expertise_sm_general_off_the_cuff":      "Off the Cuff",
@@ -285,6 +285,15 @@ const NODE_DISPLAY_OVERRIDES = {
   "expertise_ch_group":      "Group Creatures",
   "expertise_ch_stay":       "Creature Stay",
   "expertise_ch_pet_trick":  "Creature Pet Trick",
+  // ── Split nodes: same-base nodeId, different tier/grid positions ──
+  // These get the full skill name as their nodeId to keep them distinct.
+  "expertise_pistoleer_attack_3":   "Sure Shot",
+  "expertise_form_2":               "Shii-Cho",
+  "expertise_form_3":               "Makashi",
+  "expertise_form_4":               "Soresu",
+  "expertise_form_5":               "Ataru",
+  "expertise_form_6":               "Shien",
+  "expertise_form_7":               "Juyo",
   // ── Misc ──
   "expertise_force_heal_aoe":              "Force Heal AoE",
   "expertise_fn_general_one_two_pummel":   "One-Two Pummel",
@@ -324,6 +333,12 @@ const NODE_DISPLAY_OVERRIDES = {
   "social_imagedesigner_master":       "Master Image Designer",
   "social_muse_master":                "Master Muse",
   "social_musician_master":            "Master Musician",
+};
+
+// Tree-specific overrides: same nodeId appears in multiple trees with different
+// intended display names. Format: "treeKey::nodeId" → display name.
+const TREE_NODE_DISPLAY_OVERRIDES = {
+  "combat_pistol::expertise_pistoleer_attack": "Fast Draw",
 };
 
 // Common abbreviation tokens → expanded form (fallback when no override exists)
@@ -447,10 +462,16 @@ for (const eRow of expertiseRows) {
     warnings.push(`Missing skills.tab row for ${eRow.NAME}`);
   }
 
+  const _nodeId = deriveNodeId(eRow.NAME);
+  const _treeKey = treesById.get(parseIntSafe(eRow.TREE))?.key || "";
+  const _treeOverrideKey = `${_treeKey}::${_nodeId}`;
+  const _displayName =
+    TREE_NODE_DISPLAY_OVERRIDES[_treeOverrideKey] || deriveDisplayName(_nodeId);
+
   rankedEntries.push({
     name: eRow.NAME,
-    nodeId: deriveNodeId(eRow.NAME),
-    displayName: deriveDisplayName(deriveNodeId(eRow.NAME)),
+    nodeId: _nodeId,
+    displayName: _displayName,
     treeId: parseIntSafe(eRow.TREE),
     tier: parseIntSafe(eRow.TIER),
     grid: parseIntSafe(eRow.GRID),
@@ -499,13 +520,35 @@ for (const entry of rankedEntries) {
 
       ranks: [entry],
     });
-  } else {
-    if (existing.tier !== entry.tier || existing.grid !== entry.grid) {
-      warnings.push(
-        `Grouped node has inconsistent position: ${entry.nodeId} (${entry.name})`
-      );
+  } else if (existing.tier !== entry.tier || existing.grid !== entry.grid) {
+    // Different position — this is a SEPARATE node that reuses the same base name.
+    // Key by full skill name to ensure a unique slot; nodeId = full skill name.
+    const splitKey = `${entry.treeId}::split::${entry.name}`;
+    const splitEntry = { ...entry, nodeId: entry.name };
+    // Split nodes have unique full-name nodeIds — use global override / derive
+    const splitDisplayName = deriveDisplayName(entry.name);
+    const splitExisting = grouped.get(splitKey);
+    if (!splitExisting) {
+      grouped.set(splitKey, {
+        nodeId: splitEntry.nodeId,
+        treeId: splitEntry.treeId,
+        tier: splitEntry.tier,
+        grid: splitEntry.grid,
+        displayName: splitDisplayName,
+        maxRank: 0,
+        skillsRequired: [...splitEntry.skillsRequired],
+        skillsRequiredCount: splitEntry.skillsRequiredCount,
+        preclusionSkills: [...splitEntry.preclusionSkills],
+        reqProf: splitEntry.reqProf || "",
+        prereqLevel: splitEntry.prereqLevel,
+        ranks: [splitEntry],
+      });
+    } else {
+      splitExisting.ranks.push(splitEntry);
+      splitExisting.skillsRequired = uniqueStrings([splitExisting.skillsRequired, splitEntry.skillsRequired]);
+      splitExisting.preclusionSkills = uniqueStrings([splitExisting.preclusionSkills, splitEntry.preclusionSkills]);
     }
-
+  } else {
     existing.ranks.push(entry);
 
     // NEW: merge prereqs across all ranks so the node has a usable top-level field
