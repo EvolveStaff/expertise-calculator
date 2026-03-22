@@ -419,6 +419,13 @@ function uniqueStrings(values) {
   );
 }
 
+// SKILLS_REQUIRED entries that exist in the source data but have been removed
+// in SWG Evolve. Format: skillName -> Set of requirement strings to strip.
+const SKILL_REQ_REMOVALS = new Map([
+  // Guardian: Premonition does not require Anticipate Aggression in Evolve.
+  ["expertise_fs_general_premonition_1", new Set(["expertise_fs_path_anticipate_aggression_4"])],
+]);
+
 const root = process.cwd();
 const dataDir = path.join(root, "data");
 const warnings = [];
@@ -480,7 +487,9 @@ for (const eRow of expertiseRows) {
     prereqLevel: parseIntSafe(eRow.PREREQ_LEVEL),
 
     parent: skillRow?.PARENT || "",
-    skillsRequired: parseListField(skillRow?.SKILLS_REQUIRED || ""),
+    skillsRequired: parseListField(skillRow?.SKILLS_REQUIRED || "").filter(
+      (r) => !SKILL_REQ_REMOVALS.get(eRow.NAME)?.has(r)
+    ),
     skillsRequiredCount: parseIntSafe(skillRow?.SKILLS_REQUIRED_COUNT),
     preclusionSkills: parseListField(skillRow?.PRECLUSION_SKILLS || ""),
     xpType: skillRow?.XP_TYPE || "",

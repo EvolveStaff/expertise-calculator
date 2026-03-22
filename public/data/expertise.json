@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-03-22T18:11:03.415Z",
+    "generatedAt": "2026-03-22T18:38:40.371Z",
     "sourceFiles": [
       "expertise_trees.tab",
       "expertise.tab",
@@ -55372,7 +55372,6 @@
           "displayName": "Premonition",
           "maxRank": 4,
           "skillsRequired": [
-            "expertise_fs_path_anticipate_aggression_4",
             "expertise_fs_general_premonition_1",
             "expertise_fs_general_premonition_2",
             "expertise_fs_general_premonition_3"
@@ -55393,9 +55392,7 @@
               "reqProf": "all",
               "prereqLevel": null,
               "parent": "expertise",
-              "skillsRequired": [
-                "expertise_fs_path_anticipate_aggression_4"
-              ],
+              "skillsRequired": [],
               "skillsRequiredCount": null,
               "preclusionSkills": [],
               "xpType": "jedi_general",
