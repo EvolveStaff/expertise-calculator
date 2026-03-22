@@ -76,55 +76,318 @@ function deriveNodeId(name) {
   return match ? match[1] : String(name);
 }
 
+// Hand-crafted display names for nodes whose IDs don't convey the real name,
+// or where the auto-derived name is confusing / abbreviated.
+const NODE_DISPLAY_OVERRIDES = {
+  // ── Marksman T1 stat nodes (reuse expertise_bh_ prefixed nodes) ──
+  "expertise_bh_stamina":      "Enhanced Stamina",
+  "expertise_bh_precision":    "Enhanced Precision",
+  "expertise_bh_agility":      "Enhanced Agility",
+  "expertise_bh_constitution": "Enhanced Constitution",
+  // ── Bounty Hunter named abilities ──
+  "expertise_bh_stun":         "Pinning Shot",
+  "expertise_bh_intimidate":   "Intimidating Strike",
+  "expertise_bh_taunt":        "Antagonize",
+  "expertise_bh_crit":         "Critical Chance",
+  "expertise_bh_cover":        "Take Cover",
+  "expertise_bh_relentless":   "Relentless Onslaught",
+  "expertise_bh_amb_act":      "Ambush Efficiency",
+  "expertise_bh_ass_act":      "Assassination Efficiency",
+  "expertise_bh_torse_shot":   "Torso Shot",
+  "expertise_bh_trap_dam":     "Lethality",
+  "expertise_bh_man_crit":     "Manipulation Critical",
+  "expertise_bh_armor_duelist":"Duelist Stance",
+  "expertise_bh_absorbtion":   "Absorption",
+  // ── Brawler ──
+  "expertise_brawler_1handmelee_acc": "One-Handed Efficiency",
+  "expertise_brawler_1handmelee_sp":  "One-Handed Power",
+  "expertise_brawler_2handmelee_acc": "Two-Handed Efficiency",
+  "expertise_brawler_2handmelee_sp":  "Two-Handed Power",
+  "expertise_brawler_unarmed_acc":    "Unarmed Efficiency",
+  "expertise_brawler_unarmed_sp":     "Unarmed Power",
+  "expertise_brawler_polearm_acc":    "Polearm Efficiency",
+  "expertise_brawler_polearm_sp":     "Polearm Power",
+  "expertise_brawler_master":         "Master Brawler",
+  // ── Marksman ──
+  "expertise_marksman_ability":      "Cripple",
+  "expertise_marksman_rifle_acc":    "Rifle Action Cost Reduction",
+  "expertise_marksman_rifle_sp":     "Rifle Damage",
+  "expertise_marksman_carbine_acc":  "Carbine Action Cost Reduction",
+  "expertise_marksman_carbine_sp":   "Carbine Damage",
+  "expertise_marksman_pistol_acc":   "Pistol Action Cost Reduction",
+  "expertise_marksman_pistol_sp":    "Pistol Damage",
+  "expertise_marksman_hw_acr":       "Heavy Weapon Efficiency",
+  "expertise_marksman_hw_dam":       "Heavy Weapon Damage",
+  "expertise_marksman_ff":           "Focused Fire",
+  "expertise_marksman_master":       "Master Marksman",
+  // ── Pistoleer ──
+  "expertise_pistoleer_attack":       "Fan Shot",
+  "expertise_pistoleer_pistol_acc":   "Pistol Critical Chance",
+  "expertise_pistoleer_pistol_acr":   "Pistol Action Cost Reduction",
+  "expertise_pistoleer_pistol_cc":    "Strikethrough Chance",
+  "expertise_pistoleer_pistol_dam":   "Pistol Damage",
+  "expertise_pistoleer_pistol_def":   "Pistol Defense",
+  "expertise_pistoleer_pistol_sp":    "Pistol Range Bonus",
+  "expertise_pistoleer_master":       "Master Pistoleer",
+  "expertise_pistoleer_novice":       "Novice Pistoleer",
+  // ── Carbineer ──
+  "expertise_carbineer_attack":        "Concussion Shot",
+  "expertise_carbineer_carbine_acc":   "Deuterium Rounds",
+  "expertise_carbineer_carbine_acr":   "Carbine Action Cost Reduction",
+  "expertise_carbineer_carbine_cc":    "Carbine Critical Chance",
+  "expertise_carbineer_carbine_dam":   "Carbine Damage",
+  "expertise_carbineer_carbine_def":   "Carbine Defense",
+  "expertise_carbineer_carbine_sp":    "Acid Dart",
+  "expertise_carbineer_master":        "Master Carbineer",
+  "expertise_carbineer_novice":        "Novice Carbineer",
+  // ── Rifleman ──
+  "expertise_rifleman_rifle_acc": "Strikethrough Chance",
+  "expertise_rifleman_rifle_acr": "Rifle Action Cost Reduction",
+  "expertise_rifleman_rifle_cc":  "Rifle Critical Chance",
+  "expertise_rifleman_rifle_dam": "Rifle Damage",
+  "expertise_rifleman_rifle_def": "Rifle Defense",
+  "expertise_rifleman_rifle_sp":  "Armor Neglect",
+  "expertise_rifleman_sniper":    "Sniper Shot",
+  "expertise_rifleman_master":    "Master Rifleman",
+  "expertise_rifleman_novice":    "Novice Rifleman",
+  // ── Fencer ──
+  "expertise_fencer_acc":    "Burning Blade",
+  "expertise_fencer_sp":     "Corrosive Tip",
+  "expertise_fencer_master": "Master Fencer",
+  // ── Pikeman ──
+  "expertise_pikeman_acc":    "AoE Damage",
+  "expertise_pikeman_sp":     "AoE Damage Boost",
+  "expertise_pikeman_master": "Master Pikeman",
+  // ── Swordsman ──
+  "expertise_swordsman_acc":    "Strikethrough Chance",
+  "expertise_swordsman_sp":     "Armor Neglect",
+  "expertise_swordsman_master": "Master Swordsman",
+  // ── Unarmed ──
+  "expertise_unarmed_acc":                    "Parry Reduction",
+  "expertise_unarmed_sp":                     "Glancing Blow Reduction",
+  "expertise_unarmed_master":                 "Master Martial Artist",
+  "expertise_unarmed_novice":                 "Novice Martial Artist",
+  "expertise_unarmed_general_head_crack":     "Head Crack",
+  "expertise_unarmed_general_one_two_pummel": "One-Two Pummel",
+  "expertise_unarmed_general_switcheroo":     "Switcheroo",
+  // ── Teras Kasi ──
+  "expertise_teras_kasi_master":     "Master Teras Kasi",
+  "expertise_teras_kasi_armor_all":  "Innate Armor",
+  "expertise_teras_kasi_adv_armor_all": "Advanced Innate Armor",
+  "expertise_teras_kasi_armor_mgb":  "Melee Defense",
+  "expertise_teras_kasi_dr":         "Damage Reduction",
+  "expertise_tk_void_dance":         "Void Walk",
+  "expertise_tk_chr":                "Critical Hit Reduction",
+  "expertise_tk_thrill_dur":         "Thrill Duration",
+  "expertise_tkm_taunt":             "Instigate",
+  "expertise_tkm_ae_taunt":          "Area Instigate",
+  // ── Heavy Weapon ──
+  "expertise_heavy_weapon_master": "Master Heavy Weapons",
+  "expertise_heavy_weapon_novice": "Novice Heavy Weapon Specialist",
+  "expertise_hw_acc":              "Armor Shred",
+  "expertise_hw_dot":              "Heavy Weapon DoT",
+  "expertise_hw_crit":             "Heavy Weapon Critical Chance",
+  // ── Commando named abilities ──
+  "expertise_co_hw_dot":            "It Burns!",
+  "expertise_co_ae_hw_dot":         "Burn Down!",
+  "expertise_co_taunt":             "Enrage",
+  "expertise_co_ae_taunt":          "Area Enrage",
+  "expertise_co_del_ae_cc_1":       "Concussion Grenade",
+  "expertise_co_del_ae_cc_2":       "Cryoban Grenade",
+  "expertise_co_del_ae_dm":         "Fragmentation Grenade",
+  "expertise_co_fld_dm":            "E-Mag Mine",
+  "expertise_co_armor_cracker":     "Armor Shredder",
+  "expertise_co_blow_em_away":      "Blow 'Em Away",
+  "expertise_co_youll_regret_that": "You'll Regret That",
+  "expertise_co_focus_beam":        "Focused Beam",
+  "expertise_co_ae_dm":             "Sweeping Fire",
+  // ── Assassin (Spy) ──
+  "expertise_sp_dm":                "Assassinate",
+  "expertise_sp_cc_dot":            "Arachne's Web",
+  "expertise_sp_fld_debuff_ca":     "Flash Bang",
+  "expertise_sp_improved_spys_fang":"Viper's Fang",
+  "expertise_sp_assassins_blade":   "Assassin's Blade",
+  "expertise_sp_assassins_mark":    "Assassin's Mark",
+  "expertise_sp_master":            "Master Spy",
+  "expertise_sp_novice":            "Spy Novice",
+  // ── Smuggler ──
+  "expertise_sm_path_pistol_whip":          "Pistol Whip",
+  "expertise_sm_general_hammer_fanning":    "Fan Shot",
+  "expertise_sm_general_break_the_deal":    "Break the Deal",
+  "expertise_sm_general_end_of_the_line":   "End of the Line",
+  "expertise_sm_general_off_the_cuff":      "Off the Cuff",
+  "expertise_sm_general_spot_a_sucker":     "Spot a Sucker",
+  "expertise_sm_general_one_two_pummel":    "One-Two Pummel",
+  "expertise_sm_path_best_deal_ever":       "Best Deal Ever",
+  "expertise_sm_path_blaster_at_your_side": "Blaster at Your Side",
+  "expertise_sm_path_off_the_books":        "Off the Books",
+  "expertise_sm_path_shoot_first":          "Shoot First",
+  "expertise_sm_path_sleight_of_hand":      "Sleight of Hand",
+  "expertise_sm_path_under_the_counter":    "Under the Counter",
+  "expertise_sm_del_dm_cc":                 "Delayed Strike",
+  "expertise_sm_buff_invis_ally":           "Camouflage Ally",
+  // ── Officer ──
+  "expertise_of_advanced_paint":  "Paint Target",
+  "expertise_of_aggro_channel":   "Misdirected Anger",
+  "expertise_of_del_ae_dm_dot":   "Core Bomb",
+  "expertise_of_dioxis":          "Dioxis Grenade",
+  "expertise_of_artillery":       "Artillery Strike",
+  "expertise_of_charge":          "Charge!",
+  "expertise_of_firepower":       "Superior Firepower",
+  "expertise_of_firepower_cool":  "Primacy",
+  "expertise_of_purge":           "Environmental Purge",
+  "expertise_of_shock":           "Seismic Grenade",
+  "expertise_of_stimulator":      "Synaptic Stimulator",
+  "expertise_of_vortex":          "Crippling Vortex",
+  "expertise_of_scatter":         "Scatter!",
+  // ── Grenadier ──
+  "expertise_gr_anti_evade":        "Anti-Evade",
+  "expertise_gr_adv_acr":           "Advanced Efficiency",
+  // ── Doctor ──
+  "expertise_doc_cleanse":          "Detox",
+  "expertise_doc_reactive":         "Reactive Heal",
+  "expertise_doc_reactive_adv":     "Advanced Reactive Heal",
+  // ── Combat Medic / Medic ──
+  "expertise_cm_damage":            "Medic Damage",
+  "expertise_cm_dot_dam":           "DoT Damage",
+  "expertise_cm_dot_dur":           "DoT Duration",
+  "expertise_me_me_ae_heal":        "Area Heal",
+  "expertise_me_me_dm_dot":         "Neurotoxin",
+  "expertise_me_me_fld_dm_dot":     "Nerve Gas",
+  "expertise_me_hot":               "Heal Over Time",
+  "expertise_me_hot_duration":      "HoT Potency",
+  "expertise_me_stasis":            "Stasis Field",
+  "expertise_me_bacta_resistance":  "Bacta Corruption",
+  "expertise_me_induce_insanity":   "Rheumatic Calamity",
+  "expertise_me_blood_cleaners":    "Blood Cleansers",
+  // ── Squad Leader ──
+  "expertise_sl_dta":          "Damage to Action Cost",
+  "expertise_sl_leadership":   "Experienced Leadership",
+  "expertise_sl_innoculation": "Inoculation",
+  // ── Force Sensitive ──
+  "expertise_fs_dta":                   "Force Damage to Action",
+  "expertise_fs_hit":                   "Force Hit",
+  "expertise_fs_barrier_of_blades":     "Barrier of Blades",
+  "expertise_fs_circle_of_shelter":     "Circle of Shelter",
+  "expertise_fs_path_forsake_fear_cd":  "Forsake Fear Cooldown",
+  "expertise_fs_saber_strike_adv":      "Advanced Saber Strike",
+  "expertise_fs_saber_sweep_adv":       "Advanced Saber Sweep",
+  "expertise_fs_heal_acr":              "Heal Efficiency",
+  // ── Beastmaster ──
+  "expertise_bm_master":                     "Master Beastmaster",
+  "expertise_bm_novice":                     "Beast Master Novice",
+  "expertise_bm_creature_knowledge_command": "Creature Knowledge",
+  "expertise_bm_incubation_base":            "Incubation",
+  "expertise_bm_loyalty_mod":                "Loyalty",
+  "expertise_bm_abilility_aquisition_mod":   "Ability Acquisition",
+  // ── Creature Handler ──
+  "expertise_ch_follow":     "Creature Follow",
+  "expertise_ch_group":      "Group Creatures",
+  "expertise_ch_stay":       "Creature Stay",
+  "expertise_ch_pet_trick":  "Creature Pet Trick",
+  // ── Misc ──
+  "expertise_force_heal_aoe":              "Force Heal AoE",
+  "expertise_fn_general_one_two_pummel":   "One-Two Pummel",
+  "expertise_sw_general_one_two_pummel":   "One-Two Pummel",
+  // ── Novice / Master nodes with proper tree names ──
+  "combat_bountyhunter_novice":        "Bounty Hunter Novice",
+  "combat_bountyhunter_master":        "Master Bounty Hunter",
+  "combat_commando_novice":            "Commando Novice",
+  "combat_commando_master":            "Master Commando",
+  "combat_grenadier_master":           "Master Grenadier",
+  "combat_smuggler_novice":            "Smuggler Novice",
+  "combat_smuggler_master":            "Master Smuggler",
+  "crafting_architect_master":         "Master Architect",
+  "crafting_armorsmith_master":        "Master Armorsmith",
+  "crafting_artisan_master":           "Master Artisan",
+  "crafting_chef_master":              "Master Chef",
+  "crafting_cybernetics_master":       "Master Cybernetics",
+  "crafting_droidengineer_master":     "Master Droid Engineer",
+  "crafting_merchant_master":          "Master Merchant",
+  "crafting_reverse_engineer_master":  "Master Reverse Engineer",
+  "crafting_shipwright_master":        "Master Shipwright",
+  "crafting_tailor_master":            "Master Tailor",
+  "crafting_weaponsmith_master":       "Master Weaponsmith",
+  "outdoors_bio_engineer_master":      "Master Bio-Engineer",
+  "outdoors_bio_engineer_novice":      "Bio-Engineer Novice",
+  "outdoors_bio_engineer_creature":    "Creature Genetics",
+  "outdoors_bio_engineer_tissue":      "Tissue Engineering",
+  "outdoors_creaturehandler_master":   "Master Creature Handler",
+  "outdoors_squadleader_master":       "Master Squad Leader",
+  "outdoors_squadleader_novice":       "Squad Leader Novice",
+  "science_combatmedic_master":        "Master Combat Medic",
+  "science_combatmedic_novice":        "Combat Medic Novice",
+  "science_doctor_master":             "Master Doctor",
+  "science_doctor_novice":             "Doctor Novice",
+  "social_dancer_master":              "Master Dancer",
+  "social_entertainer_master":         "Master Entertainer",
+  "social_imagedesigner_master":       "Master Image Designer",
+  "social_muse_master":                "Master Muse",
+  "social_musician_master":            "Master Musician",
+};
+
+// Common abbreviation tokens → expanded form (fallback when no override exists)
+const TOKEN_EXPANSIONS = {
+  "mdef": "Melee Defense",
+  "rdef": "Range Defense",
+  "acr":  "Efficiency",
+  "acc":  "Accuracy",
+  "dam":  "Damage",
+  "cc":   "Critical Chance",
+  "def":  "Defense",
+  "dta":  "Damage to Action",
+  "dot":  "DoT",
+  "hot":  "HoT",
+  "ff":   "Focused Fire",
+  "dr":   "Damage Reduction",
+  "chr":  "Crit Hit Reduction",
+  "adv":  "Advanced",
+  "imp":  "Improved",
+  "ae":   "Area",
+  "aoe":  "Area",
+  "hp":   "Health",
+  "rv":   "Revive",
+};
+
 function deriveDisplayName(nodeId) {
+  // Override takes full priority
+  if (NODE_DISPLAY_OVERRIDES[nodeId]) return NODE_DISPLAY_OVERRIDES[nodeId];
+
   const cleaned = String(nodeId).replace(/^expertise_/, "");
   const parts = cleaned.split("_");
 
+  // Words stripped from anywhere in the token list (tree/category names)
   const blacklist = new Set([
-    // Full tree/category words
-    "combat",
-    "crafting",
-    "social",
-    "brawler",
-    "commando",
-    "rifleman",
-    "carbine",
-    "pistol",
-    "officer",
-    "smuggler",
-    "spy",
-    "medic",
-    "jedi",
-    "general",
-    "path",
-    // Short tree abbreviations used as node-ID prefixes
-    "bh",   // Bounty Hunter
-    "bm",   // Beastmaster
-    "ch",   // Creature Handler
-    "cm",   // Combat Medic
-    "co",   // Commando
-    "doc",  // Doctor
-    "en",   // Entertainer / Enhanced
-    "fn",   // Fencer
-    "frs",  // Force Resistant/Sensitive
-    "fs",   // Force Sensitive
-    "gr",   // Grenadier
-    "hw",   // Heavy Weapon
-    "me",   // Melee Expert
-    "mk",   // Marksman
-    "of",   // Officer
-    "sl",   // Squad Leader
-    "sm",   // Smuggler
-    "sp",   // Spy/Assassin
-    "sw",   // Swordsman
-    "tk",   // Teras Kasi
-    "tkm",  // Teras Kasi Master
+    "combat", "crafting", "social", "science", "outdoors",
+    "brawler", "marksman", "commando", "rifleman", "carbineer",
+    "pistoleer", "pistol", "officer", "smuggler",
+    "carbine", "medic", "jedi", "general", "path",
+    // Short tree-abbreviation prefixes — stripped only when leading
+    // (handled separately below, not via global filter)
   ]);
 
-  const filtered = parts.filter((p) => !blacklist.has(p.toLowerCase()));
+  // Short tree abbreviations that are only valid as the LEADING token
+  const leadingAbbrevs = new Set([
+    "bh","bm","ch","cm","co","doc","en","fn","frs","fs",
+    "gr","hw","me","mk","of","sl","sm","sp","sw","tk","tkm",
+  ]);
+
+  // 1. Strip long blacklisted words from anywhere
+  let filtered = parts.filter((p) => !blacklist.has(p.toLowerCase()));
+
+  // 2. Strip leading abbreviation prefix (only if it's at position 0 after step 1)
+  if (filtered.length > 1 && leadingAbbrevs.has(filtered[0].toLowerCase())) {
+    filtered = filtered.slice(1);
+  }
+
   const finalParts = filtered.length > 0 ? filtered : parts;
 
+  // 3. Expand abbreviation tokens, then title-case
   return finalParts
+    .flatMap((p) => {
+      const exp = TOKEN_EXPANSIONS[p.toLowerCase()];
+      return exp ? exp.split(" ") : [p];
+    })
     .map((p) => p.charAt(0).toUpperCase() + p.slice(1))
     .join(" ");
 }
