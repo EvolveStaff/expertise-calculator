@@ -425,6 +425,20 @@ function uniqueStrings(values) {
 const SKILL_REQ_REMOVALS = new Map([
   // Guardian: Premonition does not require Anticipate Aggression in Evolve.
   ["expertise_fs_general_premonition_1", new Set(["expertise_fs_path_anticipate_aggression_4"])],
+  // BH Lethality: Evolve requires only rank 1 of Cripple (not rank 2).
+  ["expertise_bh_trap_dam_1", new Set(["expertise_marksman_ability_02"])],
+  // BH Duelist Stance: does not require BH Novice in Evolve.
+  ["expertise_bh_armor_duelist_1", new Set(["combat_bountyhunter_novice_4"])],
+  // Commando Cluster Bomb / Double Time: do not require Commando Novice in Evolve.
+  ["expertise_co_cluster_bomb", new Set(["combat_commando_novice"])],
+  ["expertise_co_double_time",  new Set(["combat_commando_novice_4"])],
+]);
+
+// SKILLS_REQUIRED entries added by Evolve that are not in the source data.
+// Format: skillName -> array of requirement strings to inject.
+const SKILL_REQ_ADDITIONS = new Map([
+  // BH Lethality: inject the rank-1 Cripple requirement Evolve uses instead.
+  ["expertise_bh_trap_dam_1", ["expertise_marksman_ability_01"]],
 ]);
 
 const root = process.cwd();
@@ -488,9 +502,12 @@ for (const eRow of expertiseRows) {
     prereqLevel: parseIntSafe(eRow.PREREQ_LEVEL),
 
     parent: skillRow?.PARENT || "",
-    skillsRequired: parseListField(skillRow?.SKILLS_REQUIRED || "").filter(
-      (r) => !SKILL_REQ_REMOVALS.get(eRow.NAME)?.has(r)
-    ),
+    skillsRequired: [
+      ...parseListField(skillRow?.SKILLS_REQUIRED || "").filter(
+        (r) => !SKILL_REQ_REMOVALS.get(eRow.NAME)?.has(r)
+      ),
+      ...(SKILL_REQ_ADDITIONS.get(eRow.NAME) ?? []),
+    ],
     skillsRequiredCount: parseIntSafe(skillRow?.SKILLS_REQUIRED_COUNT),
     preclusionSkills: parseListField(skillRow?.PRECLUSION_SKILLS || ""),
     xpType: skillRow?.XP_TYPE || "",

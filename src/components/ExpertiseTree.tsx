@@ -28,6 +28,7 @@ interface ArrowLine {
   y1: number;
   x2: number;
   y2: number;
+  elbowX?: number; // if set: H elbowX then V y2 (90° corner into top of destination)
   fulfilled: boolean;
 }
 
@@ -37,7 +38,11 @@ interface TooltipState {
   y: number;
 }
 
-function parseSkillName(s: string): { nodeId: string; rank: number } {
+function parseSkillName(s: string, knownNodeIds?: Set<string>): { nodeId: string; rank: number } {
+  // If the full string is itself a known nodeId (e.g. split-position nodes like
+  // expertise_pistoleer_attack_3), treat it as rank 1 of that node rather than
+  // stripping the suffix and creating a bogus connection to a different node.
+  if (knownNodeIds?.has(s)) return { nodeId: s, rank: 1 };
   const m = s.match(/^(.+)_(\d+)$/);
   return m ? { nodeId: m[1], rank: parseInt(m[2], 10) } : { nodeId: s, rank: 1 };
 }
@@ -56,7 +61,7 @@ function computeConnections(nodes: VisibleNode[]): Connection[] {
     ].filter(Boolean);
 
     for (const req of allReqs) {
-      const { nodeId: reqNodeId, rank: reqRank } = parseSkillName(req);
+      const { nodeId: reqNodeId, rank: reqRank } = parseSkillName(req, nodeIds);
       if (reqNodeId === node.nodeId) continue;
       if (!nodeIds.has(reqNodeId)) continue;
       const key = `${reqNodeId}->${node.nodeId}`;
@@ -334,25 +339,54 @@ export default function ExpertiseTree({
     const container = containerRef.current;
     if (!container) return;
     const cRect = container.getBoundingClientRect();
-    const centers: Record<string, { top: number; bottom: number; cx: number }> = {};
+
+    type NodeRect = { top: number; bottom: number; left: number; right: number; cx: number; cy: number };
+    const rects: Record<string, NodeRect> = {};
     for (const [id, el] of Object.entries(nodeRefs.current)) {
       if (!el) continue;
       const r = el.getBoundingClientRect();
-      centers[id] = {
-        top: r.top - cRect.top,
+      rects[id] = {
+        top:    r.top    - cRect.top,
         bottom: r.bottom - cRect.top,
-        cx: r.left - cRect.left + r.width / 2,
+        left:   r.left   - cRect.left,
+        right:  r.right  - cRect.left,
+        cx:     r.left   - cRect.left + r.width  / 2,
+        cy:     r.top    - cRect.top  + r.height / 2,
       };
     }
+
     const lines: ArrowLine[] = [];
     for (const { fromId, toId, requiredRank } of connections) {
-      const from = centers[fromId];
-      const to = centers[toId];
+      const from = rects[fromId];
+      const to   = rects[toId];
       if (!from || !to) continue;
+
       const fromRank = selectedRanks[fromId] ?? 0;
-      const toRank = selectedRanks[toId] ?? 0;
+      const toRank   = selectedRanks[toId]   ?? 0;
       const fulfilled = fromRank >= requiredRank && toRank > 0;
-      lines.push({ x1: from.cx, y1: from.bottom + 2, x2: to.cx, y2: to.top - 1, fulfilled });
+
+      // Choose exit point based on horizontal offset between nodes.
+      // Threshold: more than half a node width away → use the side, not the bottom.
+      const dx        = to.cx - from.cx;
+      const halfWidth = (from.right - from.left) * 0.55;
+
+      const nodeHeight = from.bottom - from.top;
+      const sameTier   = Math.abs(to.cy - from.cy) < nodeHeight * 0.6;
+
+      if (sameTier) {
+        // Same tier — pure horizontal side-to-side at mid-height
+        if (dx > 0) lines.push({ x1: from.right, y1: from.cy, x2: to.left,  y2: to.cy, fulfilled });
+        else        lines.push({ x1: from.left,  y1: from.cy, x2: to.right, y2: to.cy, fulfilled });
+      } else if (dx < -halfWidth) {
+        // Cross-tier, going left — 90° elbow: exit left side, horizontal to dest cx, drop to dest top
+        lines.push({ x1: from.left, y1: from.cy, x2: to.cx, y2: to.top - 1, elbowX: to.cx, fulfilled });
+      } else if (dx > halfWidth) {
+        // Cross-tier, going right — 90° elbow: exit right side, horizontal to dest cx, drop to dest top
+        lines.push({ x1: from.right, y1: from.cy, x2: to.cx, y2: to.top - 1, elbowX: to.cx, fulfilled });
+      } else {
+        // Same column, different tier — straight vertical: bottom-center → top-center
+        lines.push({ x1: from.cx, y1: from.bottom + 2, x2: to.cx, y2: to.top - 1, fulfilled });
+      }
     }
     setArrows(lines);
   }, [connections, selectedRanks]);
@@ -374,18 +408,48 @@ export default function ExpertiseTree({
         }}
       >
         <defs>
-          <filter id="linkGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2" result="blur" />
+          {/* Arrowhead tip lands exactly at the line endpoint (refX = tip of triangle) */}
+          <marker id="arr-on" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="5" markerHeight="5" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 Z" fill="#b8cc30" />
+          </marker>
+          <marker id="arr-off" viewBox="0 0 10 10" refX="10" refY="5"
+            markerWidth="5" markerHeight="5" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 Z" fill="#2e4422" />
+          </marker>
+          <filter id="linkGlow" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="1.5" result="blur" />
             <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
         </defs>
         {arrows.map((a, i) => {
-          const midY = (a.y1 + a.y2) / 2;
-          const d = `M ${a.x1},${a.y1} C ${a.x1},${midY} ${a.x2},${midY} ${a.x2},${a.y2}`;
+          const markerPx = 5;
+          let d: string;
+
+          if (a.elbowX !== undefined) {
+            // 90° elbow: horizontal to elbowX, then vertical down to dest top.
+            // Shorten the final vertical segment so the arrowhead tip lands at y2.
+            d = `M ${a.x1},${a.y1} H ${a.elbowX} V ${a.y2 - markerPx}`;
+          } else {
+            // Straight line — shorten by markerPx in the line direction.
+            const ddx = a.x2 - a.x1;
+            const ddy = a.y2 - a.y1;
+            const len = Math.sqrt(ddx * ddx + ddy * ddy);
+            const ex  = len > markerPx ? a.x2 - (ddx / len) * markerPx : a.x1;
+            const ey  = len > markerPx ? a.y2 - (ddy / len) * markerPx : a.y1;
+            d = `M ${a.x1},${a.y1} L ${ex},${ey}`;
+          }
+
           return a.fulfilled ? (
-            <path key={i} d={d} fill="none" stroke="#aaff44" strokeWidth={2} opacity={0.9} filter="url(#linkGlow)" />
+            <path key={i} d={d} fill="none"
+              stroke="#b8cc30" strokeWidth={1.5} opacity={0.85}
+              markerEnd="url(#arr-on)" filter="url(#linkGlow)"
+            />
           ) : (
-            <path key={i} d={d} fill="none" stroke="#4a6a4a" strokeWidth={1.5} opacity={0.45} />
+            <path key={i} d={d} fill="none"
+              stroke="#2e4422" strokeWidth={1} opacity={0.5}
+              markerEnd="url(#arr-off)"
+            />
           );
         })}
       </svg>

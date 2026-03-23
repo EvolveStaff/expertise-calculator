@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-03-22T18:51:25.190Z",
+    "generatedAt": "2026-03-23T14:01:13.028Z",
     "sourceFiles": [
       "expertise_trees.tab",
       "expertise.tab",
@@ -18256,7 +18256,7 @@
           "displayName": "Lethality",
           "maxRank": 4,
           "skillsRequired": [
-            "expertise_marksman_ability_02"
+            "expertise_marksman_ability_01"
           ],
           "skillsRequiredCount": null,
           "preclusionSkills": [],
@@ -18275,7 +18275,7 @@
               "prereqLevel": null,
               "parent": "expertise",
               "skillsRequired": [
-                "expertise_marksman_ability_02"
+                "expertise_marksman_ability_01"
               ],
               "skillsRequiredCount": null,
               "preclusionSkills": [],
@@ -18418,9 +18418,7 @@
           "grid": 3,
           "displayName": "Duelist Stance",
           "maxRank": 1,
-          "skillsRequired": [
-            "combat_bountyhunter_novice_4"
-          ],
+          "skillsRequired": [],
           "skillsRequiredCount": null,
           "preclusionSkills": [],
           "reqProf": "all",
@@ -18437,9 +18435,7 @@
               "reqProf": "all",
               "prereqLevel": null,
               "parent": "expertise",
-              "skillsRequired": [
-                "combat_bountyhunter_novice_4"
-              ],
+              "skillsRequired": [],
               "skillsRequiredCount": null,
               "preclusionSkills": [],
               "xpType": "combat_general",
@@ -21510,9 +21506,7 @@
           "grid": 5,
           "displayName": "Cluster Bomb",
           "maxRank": 1,
-          "skillsRequired": [
-            "combat_commando_novice"
-          ],
+          "skillsRequired": [],
           "skillsRequiredCount": null,
           "preclusionSkills": [],
           "reqProf": "all",
@@ -21529,9 +21523,7 @@
               "reqProf": "all",
               "prereqLevel": null,
               "parent": "expertise",
-              "skillsRequired": [
-                "combat_commando_novice"
-              ],
+              "skillsRequired": [],
               "skillsRequiredCount": null,
               "preclusionSkills": [],
               "xpType": "combat_general",
@@ -21694,9 +21686,7 @@
           "grid": 7,
           "displayName": "Double Time",
           "maxRank": 1,
-          "skillsRequired": [
-            "combat_commando_novice_4"
-          ],
+          "skillsRequired": [],
           "skillsRequiredCount": null,
           "preclusionSkills": [],
           "reqProf": "all",
@@ -21713,9 +21703,7 @@
               "reqProf": "all",
               "prereqLevel": null,
               "parent": "expertise",
-              "skillsRequired": [
-                "combat_commando_novice_4"
-              ],
+              "skillsRequired": [],
               "skillsRequiredCount": null,
               "preclusionSkills": [],
               "xpType": "combat_general",
