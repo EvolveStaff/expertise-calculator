@@ -33,8 +33,13 @@ export const JEDI_ADVANCED_TREE_KEYS = new Set([
   "combat_guardian",
   "combat_mystic",
   "combat_sage",
-  "jedi_forms",
 ]);
+
+// Per-tree tier threshold overrides (takes priority over standard/advanced formulas).
+// jedi_forms: only 2 tiers, T1 nodes are maxRank=1, T2 unlocks after just 1 point in T1.
+const TREE_TIER_THRESHOLDS: Record<string, Record<number, number>> = {
+  jedi_forms: { 1: 0, 2: 1 },
+};
 
 export const FORCE_SENSITIVE_TREE_KEY = "force_sensitive";
 
@@ -217,6 +222,9 @@ function mergeAllSelections(selectionsByTree: SelectionsByTree): SelectedRanks {
 }
 
 export function tierUnlockThreshold(tier: number, treeKey?: string): number {
+  if (treeKey && TREE_TIER_THRESHOLDS[treeKey]) {
+    return TREE_TIER_THRESHOLDS[treeKey][tier] ?? (tier - 1) * 4;
+  }
   if (
     treeKey &&
     (ADVANCED_TREE_KEYS.has(treeKey) || JEDI_ADVANCED_TREE_KEYS.has(treeKey))

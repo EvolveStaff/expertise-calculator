@@ -288,11 +288,12 @@ const NODE_DISPLAY_OVERRIDES = {
   // ── Split nodes: same-base nodeId, different tier/grid positions ──
   // These get the full skill name as their nodeId to keep them distinct.
   "expertise_pistoleer_attack_3":   "Sure Shot",
-  "expertise_form_2":               "Shii-Cho",
-  "expertise_form_3":               "Makashi",
-  "expertise_form_4":               "Soresu",
-  "expertise_form_5":               "Ataru",
-  "expertise_form_6":               "Shien",
+  "expertise_form":                 "Shii-Cho",
+  "expertise_form_2":               "Makashi",
+  "expertise_form_3":               "Soresu",
+  "expertise_form_4":               "Ataru",
+  "expertise_form_5":               "Shien",
+  "expertise_form_6":               "Niman",
   "expertise_form_7":               "Juyo",
   // ── Misc ──
   "expertise_force_heal_aoe":              "Force Heal AoE",

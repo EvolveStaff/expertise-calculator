@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-03-22T18:38:40.371Z",
+    "generatedAt": "2026-03-22T18:51:25.190Z",
     "sourceFiles": [
       "expertise_trees.tab",
       "expertise.tab",
@@ -60347,7 +60347,7 @@
           "treeId": 43,
           "tier": 1,
           "grid": 1,
-          "displayName": "Form",
+          "displayName": "Shii-Cho",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_forcesensitive_master"
@@ -60360,7 +60360,7 @@
             {
               "name": "expertise_form_1",
               "nodeId": "expertise_form",
-              "displayName": "Form",
+              "displayName": "Shii-Cho",
               "treeId": 43,
               "tier": 1,
               "grid": 1,
@@ -60404,7 +60404,7 @@
           "treeId": 43,
           "tier": 1,
           "grid": 2,
-          "displayName": "Shii-Cho",
+          "displayName": "Makashi",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_forcesensitive_master"
@@ -60417,7 +60417,7 @@
             {
               "name": "expertise_form_2",
               "nodeId": "expertise_form_2",
-              "displayName": "Form",
+              "displayName": "Shii-Cho",
               "treeId": 43,
               "tier": 1,
               "grid": 2,
@@ -60456,7 +60456,7 @@
           "treeId": 43,
           "tier": 1,
           "grid": 3,
-          "displayName": "Makashi",
+          "displayName": "Soresu",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_forcesensitive_master"
@@ -60469,7 +60469,7 @@
             {
               "name": "expertise_form_3",
               "nodeId": "expertise_form_3",
-              "displayName": "Form",
+              "displayName": "Shii-Cho",
               "treeId": 43,
               "tier": 1,
               "grid": 3,
@@ -60518,7 +60518,7 @@
           "treeId": 43,
           "tier": 1,
           "grid": 4,
-          "displayName": "Soresu",
+          "displayName": "Ataru",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_forcesensitive_master"
@@ -60531,7 +60531,7 @@
             {
               "name": "expertise_form_4",
               "nodeId": "expertise_form_4",
-              "displayName": "Form",
+              "displayName": "Shii-Cho",
               "treeId": 43,
               "tier": 1,
               "grid": 4,
@@ -60580,7 +60580,7 @@
           "treeId": 43,
           "tier": 1,
           "grid": 5,
-          "displayName": "Ataru",
+          "displayName": "Shien",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_forcesensitive_master"
@@ -60593,7 +60593,7 @@
             {
               "name": "expertise_form_5",
               "nodeId": "expertise_form_5",
-              "displayName": "Form",
+              "displayName": "Shii-Cho",
               "treeId": 43,
               "tier": 1,
               "grid": 5,
@@ -60647,7 +60647,7 @@
           "treeId": 43,
           "tier": 1,
           "grid": 6,
-          "displayName": "Shien",
+          "displayName": "Niman",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_forcesensitive_master"
@@ -60660,7 +60660,7 @@
             {
               "name": "expertise_form_6",
               "nodeId": "expertise_form_6",
-              "displayName": "Form",
+              "displayName": "Shii-Cho",
               "treeId": 43,
               "tier": 1,
               "grid": 6,
@@ -60712,7 +60712,7 @@
             {
               "name": "expertise_form_7",
               "nodeId": "expertise_form_7",
-              "displayName": "Form",
+              "displayName": "Shii-Cho",
               "treeId": 43,
               "tier": 1,
               "grid": 7,
