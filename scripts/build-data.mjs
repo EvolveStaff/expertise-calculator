@@ -94,8 +94,10 @@ const NODE_DISPLAY_OVERRIDES = {
   "expertise_bh_amb_act":      "Ambush Efficiency",
   "expertise_bh_ass_act":      "Assassination Efficiency",
   "expertise_bh_torse_shot":   "Torso Shot",
+  "expertise_bh_tangle":       "Trapping",
   "expertise_bh_trap_dam":     "Lethality",
-  "expertise_bh_man_crit":     "Manipulation Critical",
+  "expertise_sp_noxious_traps":"Trap Enhancements",
+  "expertise_bh_man_crit":     "Man Hunter",
   "expertise_bh_armor_duelist":"Duelist Stance",
   "expertise_bh_absorbtion":   "Absorption",
   // ── Brawler ──
@@ -162,6 +164,7 @@ const NODE_DISPLAY_OVERRIDES = {
   "expertise_swordsman_acc":    "Strikethrough Chance",
   "expertise_swordsman_sp":     "Armor Neglect",
   "expertise_swordsman_master": "Master Swordsman",
+  "expertise_me_vital_damage":  "Vital Strike Damage",
   // ── Unarmed ──
   "expertise_unarmed_acc":                    "Parry Reduction",
   "expertise_unarmed_sp":                     "Glancing Blow Reduction",
@@ -195,7 +198,8 @@ const NODE_DISPLAY_OVERRIDES = {
   "expertise_co_del_ae_cc_1":       "Concussion Grenade",
   "expertise_co_del_ae_cc_2":       "Cryoban Grenade",
   "expertise_co_del_ae_dm":         "Fragmentation Grenade",
-  "expertise_co_fld_dm":            "E-Mag Mine",
+  "expertise_co_fld_dm":            "Mines",
+  "expertise_co_double_time":       "Double Down",
   "expertise_co_armor_cracker":     "Armor Shredder",
   "expertise_co_blow_em_away":      "Blow 'Em Away",
   "expertise_co_youll_regret_that": "You'll Regret That",
@@ -206,10 +210,12 @@ const NODE_DISPLAY_OVERRIDES = {
   "expertise_sp_cc_dot":            "Arachne's Web",
   "expertise_sp_fld_debuff_ca":     "Flash Bang",
   "expertise_sp_improved_spys_fang":"Viper's Fang",
+  "expertise_sp_hidden_daggers":    "Advanced Strikes",
+  "expertise_sp_cloaked_attacks":   "Deceptive Attacks",
   "expertise_sp_assassins_blade":   "Assassin's Blade",
   "expertise_sp_assassins_mark":    "Assassin's Mark",
-  "expertise_sp_master":            "Master Spy",
-  "expertise_sp_novice":            "Spy Novice",
+  "expertise_sp_master":            "Master Assassin",
+  "expertise_sp_novice":            "Novice Assassin",
   // ── Smuggler ──
   "expertise_sm_path_pistol_whip":          "Pistol Whip",
   "expertise_sm_general_hammer_fanning":    "Hammer Fanning",
@@ -241,8 +247,11 @@ const NODE_DISPLAY_OVERRIDES = {
   "expertise_of_vortex":          "Crippling Vortex",
   "expertise_of_scatter":         "Scatter!",
   // ── Grenadier ──
-  "expertise_gr_anti_evade":        "Anti-Evade",
-  "expertise_gr_adv_acr":           "Advanced Efficiency",
+  "expertise_gr_anti_evade":        "Powerful Offense",
+  "expertise_gr_adv_acr":           "Grenade Efficiency",
+  "expertise_of_aoe_act":           "Explosives Expert",
+  "expertise_of_aoe_dam":           "High Explosives",
+  "expertise_of_aoe_crit":          "Surgical Demolitions",
   // ── Doctor ──
   "expertise_doc_cleanse":          "Detox",
   "expertise_doc_reactive":         "Reactive Heal",
@@ -300,10 +309,11 @@ const NODE_DISPLAY_OVERRIDES = {
   "expertise_fn_general_one_two_pummel":   "One-Two Pummel",
   "expertise_sw_general_one_two_pummel":   "One-Two Pummel",
   // ── Novice / Master nodes with proper tree names ──
-  "combat_bountyhunter_novice":        "Bounty Hunter Novice",
+  "combat_bountyhunter_novice":        "Novice Bounty Hunter",
   "combat_bountyhunter_master":        "Master Bounty Hunter",
-  "combat_commando_novice":            "Commando Novice",
+  "combat_commando_novice":            "Novice Commando",
   "combat_commando_master":            "Master Commando",
+  "combat_grenadier_novice":           "Novice Grenadier",
   "combat_grenadier_master":           "Master Grenadier",
   "combat_smuggler_novice":            "Smuggler Novice",
   "combat_smuggler_master":            "Master Smuggler",
@@ -340,6 +350,7 @@ const NODE_DISPLAY_OVERRIDES = {
 // intended display names. Format: "treeKey::nodeId" → display name.
 const TREE_NODE_DISPLAY_OVERRIDES = {
   "combat_pistol::expertise_pistoleer_attack": "Fast Draw",
+  "combat_2hsword::expertise_carbineer_attack": "Vital Strike",
 };
 
 // Common abbreviation tokens → expanded form (fallback when no override exists)

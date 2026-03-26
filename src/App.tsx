@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import ExpertiseTree from "./components/ExpertiseTree";
 import HeroicJewelry from "./components/HeroicJewelry";
 import WikiView from "./components/WikiView";
-import type { ExpertisePayload, StringTables, VisibleNode } from "./lib/types";
+import type { ExpertisePayload, StringTables, VisibleNode, TreeData } from "./lib/types";
 import { STAT_MULTIPLIERS, CORE_STAT_LABELS, CORE_STAT_COLORS, fmtDerived } from "./lib/statHelpers";
 import { formatNodeName } from "./lib/formatNodeName";
 import {
@@ -103,13 +103,11 @@ const SHARED_KEYS = new Set([
 ]);
 
 const NORMAL_TREE_GROUPS: { label: string; keys: string[] }[] = [
-  { label: "── Melee ──",   keys: ["combat_brawler","combat_1hsword","combat_2hsword","combat_polearm","combat_unarmed","combat_teras_kasi"] },
-  { label: "── Ranged ──",  keys: ["combat_marksman","combat_pistol","combat_carbine","combat_rifleman","combat_heavy_weapon"] },
-  { label: "── Special ──", keys: ["combat_assassin","combat_bountyhunter","combat_commando","combat_grenadier","combat_smuggler","outdoors_squadleader"] },
-  { label: "── Science ──", keys: ["science_combatmedic","science_doctor"] },
-  { label: "── Outdoors ──",keys: ["outdoors_bio_engineer","outdoors_creaturehandler","expertise_tree_beastmaster"] },
-  { label: "── Social ──",  keys: ["social_entertainer","social_musician","social_imagedesigner","social_muse"] },
-  { label: "── Crafting ──",keys: ["crafting_artisan","crafting_architect","crafting_armorsmith","crafting_chef","crafting_cybernetics","crafting_droidengineer","crafting_reverseengineer","crafting_shipwright","crafting_tailor","crafting_weaponsmith","crafting_merchant"] },
+  { label: "Melee Skillsets",       keys: ["combat_brawler","combat_1hsword","combat_2hsword","combat_polearm","combat_unarmed","combat_teras_kasi"] },
+  { label: "Ranged Skillsets",      keys: ["combat_marksman","combat_pistol","combat_carbine","combat_rifleman","combat_heavy_weapon"] },
+  { label: "Combat Skillsets",      keys: ["combat_assassin","combat_bountyhunter","science_combatmedic","combat_commando","combat_grenadier","combat_smuggler","outdoors_squadleader"] },
+  { label: "Entertainer Skillsets", keys: ["social_entertainer","social_musician","social_imagedesigner","social_muse"] },
+  { label: "Crafting Skillsets",    keys: ["crafting_artisan","crafting_architect","crafting_armorsmith","crafting_chef","crafting_cybernetics","crafting_droidengineer","crafting_reverseengineer","crafting_shipwright","crafting_tailor","crafting_weaponsmith","crafting_merchant","outdoors_bio_engineer","outdoors_creaturehandler","expertise_tree_beastmaster","science_doctor"] },
 ];
 
 const JEDI_TREE_GROUPS: { label: string; keys: string[] }[] = [
@@ -175,19 +173,52 @@ function formatCmdKey(key: string, tables: StringTables | null): string {
 // ── Build encode / decode ────────────────────────────────────────────────────
 type BuildPayload = { v: number; characterType: "normal" | "jedi"; selections: SelectionsByTree };
 
-function encodeBuild(selections: SelectionsByTree, charType: "normal" | "jedi"): string {
-  return btoa(JSON.stringify({ v: 1, characterType: charType, selections }));
+// v2: compact [[treeId, [[nodeIdx, rank], ...]], ...] — much shorter than full nodeId strings
+function encodeBuild(selections: SelectionsByTree, charType: "normal" | "jedi", allTrees: TreeData[]): string {
+  const s: Array<[number, Array<[number, number]>]> = [];
+  for (const [tid, ranks] of Object.entries(selections)) {
+    const treeId = Number(tid);
+    const tree = allTrees.find((t) => t.id === treeId);
+    if (!tree) continue;
+    const entries: Array<[number, number]> = [];
+    for (const [nodeId, rank] of Object.entries(ranks)) {
+      if (rank <= 0) continue;
+      const idx = tree.nodes.findIndex((n) => n.nodeId === nodeId);
+      if (idx >= 0) entries.push([idx, rank]);
+    }
+    if (entries.length > 0) s.push([treeId, entries]);
+  }
+  return btoa(JSON.stringify({ v: 2, t: charType === "jedi" ? "j" : "n", s }));
 }
 
-function decodeBuild(code: string): BuildPayload | null {
+function decodeBuild(code: string, allTrees?: TreeData[]): BuildPayload | null {
   try {
-    const obj = JSON.parse(atob(code.trim())) as BuildPayload;
+    const obj = JSON.parse(atob(code.trim()));
     if (!obj || typeof obj !== "object") return null;
-    return {
-      v: obj.v ?? 1,
-      characterType: obj.characterType === "jedi" ? "jedi" : "normal",
-      selections: (obj.selections as SelectionsByTree) ?? {},
-    };
+    if (obj.v === 2 && allTrees) {
+      const charType: "normal" | "jedi" = obj.t === "j" ? "jedi" : "normal";
+      const selections: SelectionsByTree = {};
+      for (const [treeId, entries] of (obj.s ?? []) as Array<[number, Array<[number, number]>]>) {
+        const tree = allTrees.find((t) => t.id === treeId);
+        if (!tree) continue;
+        const ranks: Record<string, number> = {};
+        for (const [idx, rank] of entries) {
+          const node = tree.nodes[idx];
+          if (node && rank > 0) ranks[node.nodeId] = rank;
+        }
+        if (Object.keys(ranks).length > 0) selections[treeId] = ranks;
+      }
+      return { v: 2, characterType: charType, selections };
+    }
+    // v1 backward compatibility
+    if (obj.selections) {
+      return {
+        v: 1,
+        characterType: obj.characterType === "jedi" ? "jedi" : "normal",
+        selections: (obj.selections as SelectionsByTree) ?? {},
+      };
+    }
+    return null;
   } catch {
     return null;
   }
@@ -219,7 +250,7 @@ export default function App() {
   const [shareCopied, setShareCopied] = useState(false);
   const [importInput, setImportInput] = useState("");
   const [importError, setImportError] = useState<string | null>(null);
-  const [pendingUrlBuild, setPendingUrlBuild] = useState<BuildPayload | null>(null);
+  const [pendingUrlBuild, setPendingUrlBuild] = useState<string | null>(null);
 
   // Persist active build
   useEffect(() => {
@@ -231,12 +262,10 @@ export default function App() {
     localStorage.setItem(TEMPLATES_KEY, JSON.stringify(templates));
   }, [templates]);
 
-  // On mount: check URL hash for a shared build
+  // On mount: store raw URL hash — decode lazily when data+allTrees are ready
   useEffect(() => {
     const hash = window.location.hash.slice(1);
-    if (!hash) return;
-    const decoded = decodeBuild(hash);
-    if (decoded) setPendingUrlBuild(decoded);
+    if (hash) setPendingUrlBuild(hash);
   }, []);
 
   useEffect(() => {
@@ -536,19 +565,26 @@ function getNodeDisabledReason(node: VisibleNode): string {
   }
 
   function exportBuild() {
-    const code = encodeBuild(selectionsByTree, characterType);
+    const code = encodeBuild(selectionsByTree, characterType, allTrees);
     setShareCode(code);
     setShareCopied(false);
-    // Update URL hash so the current URL is directly shareable
     window.history.replaceState(null, "", "#" + code);
-    navigator.clipboard.writeText(code).then(() => {
+  }
+
+  function copyShareCode() {
+    if (!shareCode) return;
+    navigator.clipboard.writeText(shareCode).then(() => {
       setShareCopied(true);
       setTimeout(() => setShareCopied(false), 2500);
-    }).catch(() => {/* clipboard not available; user can copy manually */});
+    }).catch(() => {
+      // Fallback: select the input text
+      const el = document.getElementById("share-code-input") as HTMLInputElement | null;
+      el?.select();
+    });
   }
 
   function importBuild() {
-    const decoded = decodeBuild(importInput);
+    const decoded = decodeBuild(importInput, allTrees);
     if (!decoded) {
       setImportError("Invalid build code — please check and try again.");
       return;
@@ -775,7 +811,11 @@ function getNodeDisabledReason(node: VisibleNode): string {
         }}>
           🔗 A shared build was found in the URL.
           <button
-            onClick={() => { applyBuild(pendingUrlBuild); setPendingUrlBuild(null); }}
+            onClick={() => {
+              const decoded = decodeBuild(pendingUrlBuild!, allTrees);
+              if (decoded) applyBuild(decoded);
+              setPendingUrlBuild(null);
+            }}
             style={{ background: "#1d3050", border: "1px solid #446688", borderRadius: 6, color: "#aad4ff", cursor: "pointer", fontSize: 13, padding: "3px 12px" }}
           >
             Load it
@@ -805,33 +845,6 @@ function getNodeDisabledReason(node: VisibleNode): string {
       )}
 
       <div style={{ marginBottom: 16, display: "flex", alignItems: "center", gap: 24, flexWrap: "wrap" }}>
-        <label>
-          Tree:{" "}
-          <select
-            value={treeId ?? ""}
-            onChange={(e) => {
-              const nextTreeId = Number(e.target.value);
-              setTreeId(nextTreeId);
-              setSelectedNode(null);
-            }}
-          >
-            {activeTreeGroups.map((group) => {
-              const groupTrees = group.keys
-                .map((key) => availableTrees.find((t) => t.key === key))
-                .filter(Boolean) as typeof availableTrees;
-              if (groupTrees.length === 0) return null;
-              return (
-                <optgroup key={group.label} label={group.label}>
-                  {groupTrees.map((tree) => (
-                    <option key={tree.id} value={tree.id}>
-                      {formatTreeName(tree.key)}
-                    </option>
-                  ))}
-                </optgroup>
-              );
-            })}
-          </select>
-        </label>
 
         <button
           onClick={clearCurrentTree}
@@ -1027,17 +1040,13 @@ function getNodeDisabledReason(node: VisibleNode): string {
             padding: "4px 12px",
           }}
         >
-          📤 {shareCopied ? "Copied!" : "Share"}
+          📤 Share
         </button>
 
-        {/* Show the share code when exported */}
+        {/* Show the share code with a one-click copy button */}
         {shareCode && (
-          <input
-            readOnly
-            value={shareCode}
-            onClick={(e) => (e.target as HTMLInputElement).select()}
-            title="Click to select all — then copy"
-            style={{
+          <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+            <code style={{
               background: "#111",
               border: "1px solid #446",
               borderRadius: 6,
@@ -1045,11 +1054,32 @@ function getNodeDisabledReason(node: VisibleNode): string {
               fontSize: 11,
               fontFamily: "monospace",
               padding: "4px 8px",
-              width: 200,
-              cursor: "text",
-              outline: "none",
-            }}
-          />
+              maxWidth: 160,
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+              display: "block",
+            }}>
+              {shareCode}
+            </code>
+            <button
+              onClick={copyShareCode}
+              title="Copy to clipboard"
+              style={{
+                background: shareCopied ? "#1a3a1a" : "#1a2030",
+                border: `1px solid ${shareCopied ? "#44aa44" : "#446"}`,
+                borderRadius: 6,
+                color: shareCopied ? "#88ee88" : "#aad4ff",
+                cursor: "pointer",
+                fontSize: 12,
+                padding: "4px 10px",
+                transition: "all 0.15s",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {shareCopied ? "✓ Copied!" : "Copy"}
+            </button>
+          </div>
         )}
 
         {/* Import */}
@@ -1090,7 +1120,90 @@ function getNodeDisabledReason(node: VisibleNode): string {
         )}
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: panelOpen ? "2fr 1fr" : "1fr", gap: 20 }}>
+      <div style={{ display: "grid", gridTemplateColumns: panelOpen ? "180px 2fr 1fr" : "180px 1fr", gap: 20 }}>
+
+        {/* ── Tree sidebar (all character types) ── */}
+        <div style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 2,
+          background: "#0e0e0e",
+          border: "1px solid #2a2a2a",
+          borderRadius: 8,
+          padding: "8px 0",
+          alignSelf: "start",
+          maxHeight: "80vh",
+          overflowY: "auto",
+        }}>
+          {activeTreeGroups.map((group) => {
+              const groupTrees = group.keys
+                .map((key) => availableTrees.find((t) => t.key === key))
+                .filter(Boolean) as typeof availableTrees;
+              if (groupTrees.length === 0) return null;
+              return (
+                <div key={group.label}>
+                  <div style={{
+                    padding: "6px 12px 3px",
+                    fontSize: 10,
+                    fontWeight: 700,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    color: "#7a5c22",
+                    borderTop: "1px solid #1e1e1e",
+                    marginTop: 2,
+                  }}>
+                    {group.label}
+                  </div>
+                  {groupTrees.map((tree) => {
+                    const pts = Object.values(selectionsByTree[tree.id] ?? {}).reduce((s, v) => s + v, 0);
+                    const isActive = tree.id === treeId;
+                    return (
+                      <button
+                        key={tree.id}
+                        onClick={() => { setTreeId(tree.id); setSelectedNode(null); }}
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          width: "100%",
+                          padding: "5px 12px",
+                          background: isActive ? "#1a2e10" : "transparent",
+                          border: "none",
+                          borderLeft: `3px solid ${isActive ? "#66bb33" : "transparent"}`,
+                          color: isActive ? "#aaee66" : pts > 0 ? "#ccaa55" : "#666",
+                          cursor: "pointer",
+                          fontSize: 12,
+                          textAlign: "left",
+                          transition: "background 0.1s, color 0.1s",
+                        }}
+                        onMouseEnter={(e) => {
+                          if (!isActive) (e.currentTarget as HTMLButtonElement).style.background = "#181818";
+                        }}
+                        onMouseLeave={(e) => {
+                          if (!isActive) (e.currentTarget as HTMLButtonElement).style.background = "transparent";
+                        }}
+                      >
+                        <span>{TREE_NAMES[tree.key] ?? formatTreeName(tree.key)}</span>
+                        {pts > 0 && (
+                          <span style={{
+                            fontSize: 10,
+                            background: isActive ? "#2a4a18" : "#2a2a18",
+                            color: isActive ? "#aaee66" : "#998833",
+                            borderRadius: 8,
+                            padding: "1px 5px",
+                            marginLeft: 4,
+                          }}>
+                            {pts}
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
+
         <div>
           {currentTree && (() => {
             // Build branch chips: gateway nodeId → [target tree key, ...]

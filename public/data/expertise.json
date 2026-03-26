@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-03-23T14:01:13.028Z",
+    "generatedAt": "2026-03-26T15:57:10.980Z",
     "sourceFiles": [
       "expertise_trees.tab",
       "expertise.tab",
@@ -5562,7 +5562,7 @@
           "treeId": 4,
           "tier": 2,
           "grid": 6,
-          "displayName": "Concussion Shot",
+          "displayName": "Vital Strike",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_swordsman_acr_04"
@@ -5575,7 +5575,7 @@
             {
               "name": "expertise_carbineer_attack_1",
               "nodeId": "expertise_carbineer_attack",
-              "displayName": "Concussion Shot",
+              "displayName": "Vital Strike",
               "treeId": 4,
               "tier": 2,
               "grid": 6,
@@ -6182,7 +6182,7 @@
           "treeId": 4,
           "tier": 4,
           "grid": 6,
-          "displayName": "Vital Damage",
+          "displayName": "Vital Strike Damage",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_carbineer_attack_1"
@@ -6195,7 +6195,7 @@
             {
               "name": "expertise_me_vital_damage_1",
               "nodeId": "expertise_me_vital_damage",
-              "displayName": "Vital Damage",
+              "displayName": "Vital Strike Damage",
               "treeId": 4,
               "tier": 4,
               "grid": 6,
@@ -6223,7 +6223,7 @@
             {
               "name": "expertise_me_vital_damage_2",
               "nodeId": "expertise_me_vital_damage",
-              "displayName": "Vital Damage",
+              "displayName": "Vital Strike Damage",
               "treeId": 4,
               "tier": 4,
               "grid": 6,
@@ -6249,7 +6249,7 @@
             {
               "name": "expertise_me_vital_damage_3",
               "nodeId": "expertise_me_vital_damage",
-              "displayName": "Vital Damage",
+              "displayName": "Vital Strike Damage",
               "treeId": 4,
               "tier": 4,
               "grid": 6,
@@ -6275,7 +6275,7 @@
             {
               "name": "expertise_me_vital_damage_4",
               "nodeId": "expertise_me_vital_damage",
-              "displayName": "Vital Damage",
+              "displayName": "Vital Strike Damage",
               "treeId": 4,
               "tier": 4,
               "grid": 6,
@@ -15998,7 +15998,7 @@
           "treeId": 11,
           "tier": 1,
           "grid": 4,
-          "displayName": "Spy Novice",
+          "displayName": "Novice Assassin",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_sp_novice",
@@ -16013,7 +16013,7 @@
             {
               "name": "expertise_sp_novice",
               "nodeId": "expertise_sp_novice",
-              "displayName": "Spy Novice",
+              "displayName": "Novice Assassin",
               "treeId": 11,
               "tier": 1,
               "grid": 4,
@@ -16049,7 +16049,7 @@
             {
               "name": "expertise_sp_novice_2",
               "nodeId": "expertise_sp_novice",
-              "displayName": "Spy Novice",
+              "displayName": "Novice Assassin",
               "treeId": 11,
               "tier": 1,
               "grid": 4,
@@ -16087,7 +16087,7 @@
             {
               "name": "expertise_sp_novice_3",
               "nodeId": "expertise_sp_novice",
-              "displayName": "Spy Novice",
+              "displayName": "Novice Assassin",
               "treeId": 11,
               "tier": 1,
               "grid": 4,
@@ -16125,7 +16125,7 @@
             {
               "name": "expertise_sp_novice_4",
               "nodeId": "expertise_sp_novice",
-              "displayName": "Spy Novice",
+              "displayName": "Novice Assassin",
               "treeId": 11,
               "tier": 1,
               "grid": 4,
@@ -16167,7 +16167,7 @@
           "treeId": 11,
           "tier": 2,
           "grid": 2,
-          "displayName": "Hidden Daggers",
+          "displayName": "Advanced Strikes",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_sp_novice_4"
@@ -16180,7 +16180,7 @@
             {
               "name": "expertise_sp_hidden_daggers_1",
               "nodeId": "expertise_sp_hidden_daggers",
-              "displayName": "Hidden Daggers",
+              "displayName": "Advanced Strikes",
               "treeId": 11,
               "tier": 2,
               "grid": 2,
@@ -16491,7 +16491,7 @@
           "treeId": 11,
           "tier": 2,
           "grid": 6,
-          "displayName": "Cloaked Attacks",
+          "displayName": "Deceptive Attacks",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_sp_novice_4"
@@ -16504,7 +16504,7 @@
             {
               "name": "expertise_sp_cloaked_attacks_1",
               "nodeId": "expertise_sp_cloaked_attacks",
-              "displayName": "Cloaked Attacks",
+              "displayName": "Deceptive Attacks",
               "treeId": 11,
               "tier": 2,
               "grid": 6,
@@ -17777,7 +17777,7 @@
           "treeId": 11,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Spy",
+          "displayName": "Master Assassin",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -17788,7 +17788,7 @@
             {
               "name": "expertise_sp_master",
               "nodeId": "expertise_sp_master",
-              "displayName": "Master Spy",
+              "displayName": "Master Assassin",
               "treeId": 11,
               "tier": 6,
               "grid": 4,
@@ -17913,7 +17913,7 @@
           "treeId": 12,
           "tier": 1,
           "grid": 4,
-          "displayName": "Bounty Hunter Novice",
+          "displayName": "Novice Bounty Hunter",
           "maxRank": 4,
           "skillsRequired": [
             "combat_bountyhunter_novice",
@@ -17928,7 +17928,7 @@
             {
               "name": "combat_bountyhunter_novice",
               "nodeId": "combat_bountyhunter_novice",
-              "displayName": "Bounty Hunter Novice",
+              "displayName": "Novice Bounty Hunter",
               "treeId": 12,
               "tier": 1,
               "grid": 4,
@@ -17969,7 +17969,7 @@
             {
               "name": "combat_bountyhunter_novice_2",
               "nodeId": "combat_bountyhunter_novice",
-              "displayName": "Bounty Hunter Novice",
+              "displayName": "Novice Bounty Hunter",
               "treeId": 12,
               "tier": 1,
               "grid": 4,
@@ -18007,7 +18007,7 @@
             {
               "name": "combat_bountyhunter_novice_3",
               "nodeId": "combat_bountyhunter_novice",
-              "displayName": "Bounty Hunter Novice",
+              "displayName": "Novice Bounty Hunter",
               "treeId": 12,
               "tier": 1,
               "grid": 4,
@@ -18050,7 +18050,7 @@
             {
               "name": "combat_bountyhunter_novice_4",
               "nodeId": "combat_bountyhunter_novice",
-              "displayName": "Bounty Hunter Novice",
+              "displayName": "Novice Bounty Hunter",
               "treeId": 12,
               "tier": 1,
               "grid": 4,
@@ -18210,7 +18210,7 @@
           "treeId": 12,
           "tier": 2,
           "grid": 6,
-          "displayName": "Tangle",
+          "displayName": "Trapping",
           "maxRank": 1,
           "skillsRequired": [
             "combat_bountyhunter_novice_4"
@@ -18223,7 +18223,7 @@
             {
               "name": "expertise_bh_tangle",
               "nodeId": "expertise_bh_tangle",
-              "displayName": "Tangle",
+              "displayName": "Trapping",
               "treeId": 12,
               "tier": 2,
               "grid": 6,
@@ -18622,7 +18622,7 @@
           "treeId": 12,
           "tier": 3,
           "grid": 6,
-          "displayName": "Noxious Traps",
+          "displayName": "Trap Enhancements",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_bh_tangle",
@@ -18638,7 +18638,7 @@
             {
               "name": "expertise_sp_noxious_traps_1",
               "nodeId": "expertise_sp_noxious_traps",
-              "displayName": "Noxious Traps",
+              "displayName": "Trap Enhancements",
               "treeId": 12,
               "tier": 3,
               "grid": 6,
@@ -18676,7 +18676,7 @@
             {
               "name": "expertise_sp_noxious_traps_2",
               "nodeId": "expertise_sp_noxious_traps",
-              "displayName": "Noxious Traps",
+              "displayName": "Trap Enhancements",
               "treeId": 12,
               "tier": 3,
               "grid": 6,
@@ -18714,7 +18714,7 @@
             {
               "name": "expertise_sp_noxious_traps_3",
               "nodeId": "expertise_sp_noxious_traps",
-              "displayName": "Noxious Traps",
+              "displayName": "Trap Enhancements",
               "treeId": 12,
               "tier": 3,
               "grid": 6,
@@ -18752,7 +18752,7 @@
             {
               "name": "expertise_sp_noxious_traps_4",
               "nodeId": "expertise_sp_noxious_traps",
-              "displayName": "Noxious Traps",
+              "displayName": "Trap Enhancements",
               "treeId": 12,
               "tier": 3,
               "grid": 6,
@@ -18868,7 +18868,7 @@
           "treeId": 12,
           "tier": 4,
           "grid": 4,
-          "displayName": "Manipulation Critical",
+          "displayName": "Man Hunter",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_bh_crit_4"
@@ -18881,7 +18881,7 @@
             {
               "name": "expertise_bh_man_crit_1",
               "nodeId": "expertise_bh_man_crit",
-              "displayName": "Manipulation Critical",
+              "displayName": "Man Hunter",
               "treeId": 12,
               "tier": 4,
               "grid": 4,
@@ -18919,7 +18919,7 @@
             {
               "name": "expertise_bh_man_crit_2",
               "nodeId": "expertise_bh_man_crit",
-              "displayName": "Manipulation Critical",
+              "displayName": "Man Hunter",
               "treeId": 12,
               "tier": 4,
               "grid": 4,
@@ -18955,7 +18955,7 @@
             {
               "name": "expertise_bh_man_crit_3",
               "nodeId": "expertise_bh_man_crit",
-              "displayName": "Manipulation Critical",
+              "displayName": "Man Hunter",
               "treeId": 12,
               "tier": 4,
               "grid": 4,
@@ -18991,7 +18991,7 @@
             {
               "name": "expertise_bh_man_crit_4",
               "nodeId": "expertise_bh_man_crit",
-              "displayName": "Manipulation Critical",
+              "displayName": "Man Hunter",
               "treeId": 12,
               "tier": 4,
               "grid": 4,
@@ -20874,7 +20874,7 @@
           "treeId": 14,
           "tier": 1,
           "grid": 4,
-          "displayName": "Commando Novice",
+          "displayName": "Novice Commando",
           "maxRank": 4,
           "skillsRequired": [
             "combat_commando_novice",
@@ -20889,7 +20889,7 @@
             {
               "name": "combat_commando_novice",
               "nodeId": "combat_commando_novice",
-              "displayName": "Commando Novice",
+              "displayName": "Novice Commando",
               "treeId": 14,
               "tier": 1,
               "grid": 4,
@@ -20915,7 +20915,7 @@
             {
               "name": "combat_commando_novice_2",
               "nodeId": "combat_commando_novice",
-              "displayName": "Commando Novice",
+              "displayName": "Novice Commando",
               "treeId": 14,
               "tier": 1,
               "grid": 4,
@@ -20943,7 +20943,7 @@
             {
               "name": "combat_commando_novice_3",
               "nodeId": "combat_commando_novice",
-              "displayName": "Commando Novice",
+              "displayName": "Novice Commando",
               "treeId": 14,
               "tier": 1,
               "grid": 4,
@@ -20971,7 +20971,7 @@
             {
               "name": "combat_commando_novice_4",
               "nodeId": "combat_commando_novice",
-              "displayName": "Commando Novice",
+              "displayName": "Novice Commando",
               "treeId": 14,
               "tier": 1,
               "grid": 4,
@@ -21684,7 +21684,7 @@
           "treeId": 14,
           "tier": 3,
           "grid": 7,
-          "displayName": "Double Time",
+          "displayName": "Double Down",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -21695,7 +21695,7 @@
             {
               "name": "expertise_co_double_time",
               "nodeId": "expertise_co_double_time",
-              "displayName": "Double Time",
+              "displayName": "Double Down",
               "treeId": 14,
               "tier": 3,
               "grid": 7,
@@ -24897,7 +24897,7 @@
           "treeId": 16,
           "tier": 1,
           "grid": 4,
-          "displayName": "Grenadier Novice",
+          "displayName": "Novice Grenadier",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -24908,7 +24908,7 @@
             {
               "name": "combat_grenadier_novice",
               "nodeId": "combat_grenadier_novice",
-              "displayName": "Grenadier Novice",
+              "displayName": "Novice Grenadier",
               "treeId": 16,
               "tier": 1,
               "grid": 4,
@@ -24939,7 +24939,7 @@
             {
               "name": "combat_grenadier_novice_2",
               "nodeId": "combat_grenadier_novice",
-              "displayName": "Grenadier Novice",
+              "displayName": "Novice Grenadier",
               "treeId": 16,
               "tier": 1,
               "grid": 4,
@@ -24970,7 +24970,7 @@
             {
               "name": "combat_grenadier_novice_3",
               "nodeId": "combat_grenadier_novice",
-              "displayName": "Grenadier Novice",
+              "displayName": "Novice Grenadier",
               "treeId": 16,
               "tier": 1,
               "grid": 4,
@@ -25001,7 +25001,7 @@
             {
               "name": "combat_grenadier_novice_4",
               "nodeId": "combat_grenadier_novice",
-              "displayName": "Grenadier Novice",
+              "displayName": "Novice Grenadier",
               "treeId": 16,
               "tier": 1,
               "grid": 4,
@@ -25114,7 +25114,7 @@
           "treeId": 16,
           "tier": 2,
           "grid": 4,
-          "displayName": "Area Act",
+          "displayName": "Explosives Expert",
           "maxRank": 4,
           "skillsRequired": [
             "combat_grenadier_novice_4"
@@ -25127,7 +25127,7 @@
             {
               "name": "expertise_of_aoe_act_1",
               "nodeId": "expertise_of_aoe_act",
-              "displayName": "Area Act",
+              "displayName": "Explosives Expert",
               "treeId": 16,
               "tier": 2,
               "grid": 4,
@@ -25155,7 +25155,7 @@
             {
               "name": "expertise_of_aoe_act_2",
               "nodeId": "expertise_of_aoe_act",
-              "displayName": "Area Act",
+              "displayName": "Explosives Expert",
               "treeId": 16,
               "tier": 2,
               "grid": 4,
@@ -25181,7 +25181,7 @@
             {
               "name": "expertise_of_aoe_act_3",
               "nodeId": "expertise_of_aoe_act",
-              "displayName": "Area Act",
+              "displayName": "Explosives Expert",
               "treeId": 16,
               "tier": 2,
               "grid": 4,
@@ -25207,7 +25207,7 @@
             {
               "name": "expertise_of_aoe_act_4",
               "nodeId": "expertise_of_aoe_act",
-              "displayName": "Area Act",
+              "displayName": "Explosives Expert",
               "treeId": 16,
               "tier": 2,
               "grid": 4,
@@ -25510,7 +25510,7 @@
           "treeId": 16,
           "tier": 3,
           "grid": 4,
-          "displayName": "Area Damage",
+          "displayName": "High Explosives",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_of_aoe_act_4"
@@ -25523,7 +25523,7 @@
             {
               "name": "expertise_of_aoe_dam_1",
               "nodeId": "expertise_of_aoe_dam",
-              "displayName": "Area Damage",
+              "displayName": "High Explosives",
               "treeId": 16,
               "tier": 3,
               "grid": 4,
@@ -25551,7 +25551,7 @@
             {
               "name": "expertise_of_aoe_dam_2",
               "nodeId": "expertise_of_aoe_dam",
-              "displayName": "Area Damage",
+              "displayName": "High Explosives",
               "treeId": 16,
               "tier": 3,
               "grid": 4,
@@ -25577,7 +25577,7 @@
             {
               "name": "expertise_of_aoe_dam_3",
               "nodeId": "expertise_of_aoe_dam",
-              "displayName": "Area Damage",
+              "displayName": "High Explosives",
               "treeId": 16,
               "tier": 3,
               "grid": 4,
@@ -25603,7 +25603,7 @@
             {
               "name": "expertise_of_aoe_dam_4",
               "nodeId": "expertise_of_aoe_dam",
-              "displayName": "Area Damage",
+              "displayName": "High Explosives",
               "treeId": 16,
               "tier": 3,
               "grid": 4,
@@ -25670,7 +25670,7 @@
           "treeId": 16,
           "tier": 3,
           "grid": 6,
-          "displayName": "Advanced Efficiency",
+          "displayName": "Grenade Efficiency",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_co_blast_radius_4"
@@ -25683,7 +25683,7 @@
             {
               "name": "expertise_gr_adv_acr_1",
               "nodeId": "expertise_gr_adv_acr",
-              "displayName": "Advanced Efficiency",
+              "displayName": "Grenade Efficiency",
               "treeId": 16,
               "tier": 3,
               "grid": 6,
@@ -25721,7 +25721,7 @@
             {
               "name": "expertise_gr_adv_acr_2",
               "nodeId": "expertise_gr_adv_acr",
-              "displayName": "Advanced Efficiency",
+              "displayName": "Grenade Efficiency",
               "treeId": 16,
               "tier": 3,
               "grid": 6,
@@ -25757,7 +25757,7 @@
             {
               "name": "expertise_gr_adv_acr_3",
               "nodeId": "expertise_gr_adv_acr",
-              "displayName": "Advanced Efficiency",
+              "displayName": "Grenade Efficiency",
               "treeId": 16,
               "tier": 3,
               "grid": 6,
@@ -25793,7 +25793,7 @@
             {
               "name": "expertise_gr_adv_acr_4",
               "nodeId": "expertise_gr_adv_acr",
-              "displayName": "Advanced Efficiency",
+              "displayName": "Grenade Efficiency",
               "treeId": 16,
               "tier": 3,
               "grid": 6,
@@ -25941,7 +25941,7 @@
           "treeId": 16,
           "tier": 4,
           "grid": 4,
-          "displayName": "Area Crit",
+          "displayName": "Surgical Demolitions",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_of_aoe_dam_4"
@@ -25954,7 +25954,7 @@
             {
               "name": "expertise_of_aoe_crit_1",
               "nodeId": "expertise_of_aoe_crit",
-              "displayName": "Area Crit",
+              "displayName": "Surgical Demolitions",
               "treeId": 16,
               "tier": 4,
               "grid": 4,
@@ -25982,7 +25982,7 @@
             {
               "name": "expertise_of_aoe_crit_2",
               "nodeId": "expertise_of_aoe_crit",
-              "displayName": "Area Crit",
+              "displayName": "Surgical Demolitions",
               "treeId": 16,
               "tier": 4,
               "grid": 4,
@@ -26008,7 +26008,7 @@
             {
               "name": "expertise_of_aoe_crit_3",
               "nodeId": "expertise_of_aoe_crit",
-              "displayName": "Area Crit",
+              "displayName": "Surgical Demolitions",
               "treeId": 16,
               "tier": 4,
               "grid": 4,
@@ -26034,7 +26034,7 @@
             {
               "name": "expertise_of_aoe_crit_4",
               "nodeId": "expertise_of_aoe_crit",
-              "displayName": "Area Crit",
+              "displayName": "Surgical Demolitions",
               "treeId": 16,
               "tier": 4,
               "grid": 4,
@@ -26281,7 +26281,7 @@
           "treeId": 16,
           "tier": 5,
           "grid": 3,
-          "displayName": "E-Mag Mine",
+          "displayName": "Mines",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -26292,7 +26292,7 @@
             {
               "name": "expertise_co_fld_dm_1",
               "nodeId": "expertise_co_fld_dm",
-              "displayName": "E-Mag Mine",
+              "displayName": "Mines",
               "treeId": 16,
               "tier": 5,
               "grid": 3,
@@ -26318,7 +26318,7 @@
           "treeId": 16,
           "tier": 5,
           "grid": 4,
-          "displayName": "Anti-Evade",
+          "displayName": "Powerful Offense",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_of_aoe_crit_4"
@@ -26331,7 +26331,7 @@
             {
               "name": "expertise_gr_anti_evade_1",
               "nodeId": "expertise_gr_anti_evade",
-              "displayName": "Anti-Evade",
+              "displayName": "Powerful Offense",
               "treeId": 16,
               "tier": 5,
               "grid": 4,
@@ -26364,7 +26364,7 @@
             {
               "name": "expertise_gr_anti_evade_2",
               "nodeId": "expertise_gr_anti_evade",
-              "displayName": "Anti-Evade",
+              "displayName": "Powerful Offense",
               "treeId": 16,
               "tier": 5,
               "grid": 4,
@@ -26395,7 +26395,7 @@
             {
               "name": "expertise_gr_anti_evade_3",
               "nodeId": "expertise_gr_anti_evade",
-              "displayName": "Anti-Evade",
+              "displayName": "Powerful Offense",
               "treeId": 16,
               "tier": 5,
               "grid": 4,
@@ -26426,7 +26426,7 @@
             {
               "name": "expertise_gr_anti_evade_4",
               "nodeId": "expertise_gr_anti_evade",
-              "displayName": "Anti-Evade",
+              "displayName": "Powerful Offense",
               "treeId": 16,
               "tier": 5,
               "grid": 4,
