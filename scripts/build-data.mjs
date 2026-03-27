@@ -92,7 +92,7 @@ const NODE_DISPLAY_OVERRIDES = {
   "expertise_bh_cover":        "Take Cover",
   "expertise_bh_relentless":   "Relentless Onslaught",
   "expertise_bh_amb_act":      "Ambush Efficiency",
-  "expertise_bh_ass_act":      "Assassination Efficiency",
+  "expertise_bh_ass_act":      "Assault Efficiency",
   "expertise_bh_torse_shot":   "Torso Shot",
   "expertise_bh_tangle":       "Trapping",
   "expertise_bh_trap_dam":     "Lethality",
@@ -132,8 +132,10 @@ const NODE_DISPLAY_OVERRIDES = {
   "expertise_pistoleer_pistol_sp":    "Pistol Range Bonus",
   "expertise_pistoleer_master":       "Master Pistoleer",
   "expertise_pistoleer_novice":       "Novice Pistoleer",
+  "expertise_of_sure_dam":            "Lethal Aim",
   // ── Carbineer ──
   "expertise_carbineer_attack":        "Concussion Shot",
+  "expertise_concussion_damage":       "Concussion Shot Energized",
   "expertise_carbineer_carbine_acc":   "Deuterium Rounds",
   "expertise_carbineer_carbine_acr":   "Carbine Action Cost Reduction",
   "expertise_carbineer_carbine_cc":    "Carbine Critical Chance",
@@ -174,6 +176,7 @@ const NODE_DISPLAY_OVERRIDES = {
   "expertise_unarmed_general_one_two_pummel": "One-Two Pummel",
   "expertise_unarmed_general_switcheroo":     "Switcheroo",
   // ── Teras Kasi ──
+  "teras_kasi_novice":               "Novice Teras Kasi Artist",
   "expertise_teras_kasi_master":     "Master Teras Kasi",
   "expertise_teras_kasi_armor_all":  "Innate Armor",
   "expertise_teras_kasi_adv_armor_all": "Advanced Innate Armor",
@@ -185,11 +188,14 @@ const NODE_DISPLAY_OVERRIDES = {
   "expertise_tkm_taunt":             "Instigate",
   "expertise_tkm_ae_taunt":          "Area Instigate",
   // ── Heavy Weapon ──
-  "expertise_heavy_weapon_master": "Master Heavy Weapons",
-  "expertise_heavy_weapon_novice": "Novice Heavy Weapon Specialist",
-  "expertise_hw_acc":              "Armor Shred",
-  "expertise_hw_dot":              "Heavy Weapon DoT",
-  "expertise_hw_crit":             "Heavy Weapon Critical Chance",
+  "expertise_heavy_weapon_master":    "Heavy Weapons Expert",
+  "expertise_heavy_weapon_novice":    "Novice Heavy Weapon Specialist",
+  "expertise_hw_acc":                 "Armor Shred",
+  "expertise_hw_dot":                 "Heavy Dot Damage",
+  "expertise_hw_crit":                "Heavy Weapon Critical Chance",
+  "expertise_co_enhanced_fuel_cans":  "Enhanced Fuel Canisters",
+  "expertise_co_focus_beam_damage":   "Focused Beam Overload",
+  "expertise_co_lethal_beam_damage":  "Lethal Beam Overload",
   // ── Commando named abilities ──
   "expertise_co_hw_dot":            "It Burns!",
   "expertise_co_ae_hw_dot":         "Burn Down!",
@@ -253,6 +259,7 @@ const NODE_DISPLAY_OVERRIDES = {
   "expertise_of_aoe_dam":           "High Explosives",
   "expertise_of_aoe_crit":          "Surgical Demolitions",
   // ── Doctor ──
+  "expertise_me_me_bacta_ampule":   "Bacta Ampule",
   "expertise_doc_cleanse":          "Detox",
   "expertise_doc_reactive":         "Reactive Heal",
   "expertise_doc_reactive_adv":     "Advanced Reactive Heal",
@@ -297,6 +304,7 @@ const NODE_DISPLAY_OVERRIDES = {
   // ── Split nodes: same-base nodeId, different tier/grid positions ──
   // These get the full skill name as their nodeId to keep them distinct.
   "expertise_pistoleer_attack_3":   "Sure Shot",
+  "expertise_carbineer_attack_3":   "Burst",
   "expertise_form":                 "Shii-Cho",
   "expertise_form_2":               "Makashi",
   "expertise_form_3":               "Soresu",
@@ -315,7 +323,7 @@ const NODE_DISPLAY_OVERRIDES = {
   "combat_commando_master":            "Master Commando",
   "combat_grenadier_novice":           "Novice Grenadier",
   "combat_grenadier_master":           "Master Grenadier",
-  "combat_smuggler_novice":            "Smuggler Novice",
+  "combat_smuggler_novice":            "Novice Smuggler",
   "combat_smuggler_master":            "Master Smuggler",
   "crafting_architect_master":         "Master Architect",
   "crafting_armorsmith_master":        "Master Armorsmith",
@@ -329,16 +337,16 @@ const NODE_DISPLAY_OVERRIDES = {
   "crafting_tailor_master":            "Master Tailor",
   "crafting_weaponsmith_master":       "Master Weaponsmith",
   "outdoors_bio_engineer_master":      "Master Bio-Engineer",
-  "outdoors_bio_engineer_novice":      "Bio-Engineer Novice",
+  "outdoors_bio_engineer_novice":      "Novice Bio-Engineer",
   "outdoors_bio_engineer_creature":    "Creature Genetics",
   "outdoors_bio_engineer_tissue":      "Tissue Engineering",
   "outdoors_creaturehandler_master":   "Master Creature Handler",
   "outdoors_squadleader_master":       "Master Squad Leader",
-  "outdoors_squadleader_novice":       "Squad Leader Novice",
+  "outdoors_squadleader_novice":       "Novice Squad Leader",
   "science_combatmedic_master":        "Master Combat Medic",
-  "science_combatmedic_novice":        "Combat Medic Novice",
+  "science_combatmedic_novice":        "Novice Combat Medic",
   "science_doctor_master":             "Master Doctor",
-  "science_doctor_novice":             "Doctor Novice",
+  "science_doctor_novice":             "Novice Doctor",
   "social_dancer_master":              "Master Dancer",
   "social_entertainer_master":         "Master Entertainer",
   "social_imagedesigner_master":       "Master Image Designer",
@@ -349,8 +357,11 @@ const NODE_DISPLAY_OVERRIDES = {
 // Tree-specific overrides: same nodeId appears in multiple trees with different
 // intended display names. Format: "treeKey::nodeId" → display name.
 const TREE_NODE_DISPLAY_OVERRIDES = {
-  "combat_pistol::expertise_pistoleer_attack": "Fast Draw",
-  "combat_2hsword::expertise_carbineer_attack": "Vital Strike",
+  "combat_pistol::expertise_pistoleer_attack":   "Fast Draw",
+  "combat_2hsword::expertise_carbineer_attack":  "Vital Strike",
+  "combat_rifleman::expertise_marksman_ability": "Ambush",
+  "combat_carbine::expertise_marksman_ability":  "Assault",
+  "combat_carbine::expertise_carbineer_attack":  "Assault",
 };
 
 // Common abbreviation tokens → expanded form (fallback when no override exists)
@@ -443,6 +454,8 @@ const SKILL_REQ_REMOVALS = new Map([
   // Commando Cluster Bomb / Double Time: do not require Commando Novice in Evolve.
   ["expertise_co_cluster_bomb", new Set(["combat_commando_novice"])],
   ["expertise_co_double_time",  new Set(["combat_commando_novice_4"])],
+  // Carbineer T4/G2: Evolve requires only rank 1 of Concussion Shot (not rank 2).
+  ["expertise_concussion_damage_1", new Set(["expertise_carbineer_attack_2"])],
 ]);
 
 // SKILLS_REQUIRED entries added by Evolve that are not in the source data.
@@ -450,6 +463,11 @@ const SKILL_REQ_REMOVALS = new Map([
 const SKILL_REQ_ADDITIONS = new Map([
   // BH Lethality: inject the rank-1 Cripple requirement Evolve uses instead.
   ["expertise_bh_trap_dam_1", ["expertise_marksman_ability_01"]],
+  // Carbineer T4/G2: inject rank-1 Concussion Shot requirement Evolve uses.
+  ["expertise_concussion_damage_1", ["expertise_carbineer_attack_1"]],
+  // Guardian T5/G4 (Premonition): requires 4 points in T4/G4 (Anticipate Aggression).
+  // The 24-point total is already enforced by the ADVANCED_TIER_THRESHOLDS tier gate.
+  ["expertise_fs_general_premonition_1", ["expertise_fs_path_anticipate_aggression_4"]],
 ]);
 
 const root = process.cwd();

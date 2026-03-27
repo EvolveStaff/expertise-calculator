@@ -15,6 +15,7 @@ type Props = {
   formatStat?: (key: string) => string;
   formatCmd?: (key: string) => string;
   nodeIcons?: Record<string, string>;
+  treeKey?: string;
 };
 
 interface Connection {
@@ -43,7 +44,7 @@ function parseSkillName(s: string, knownNodeIds?: Set<string>): { nodeId: string
   // expertise_pistoleer_attack_3), treat it as rank 1 of that node rather than
   // stripping the suffix and creating a bogus connection to a different node.
   if (knownNodeIds?.has(s)) return { nodeId: s, rank: 1 };
-  const m = s.match(/^(.+)_(\d+)$/);
+  const m = s.match(/^(.+?)_(\d+)$/);
   return m ? { nodeId: m[1], rank: parseInt(m[2], 10) } : { nodeId: s, rank: 1 };
 }
 
@@ -320,6 +321,7 @@ export default function ExpertiseTree({
   formatStat = (k) => k.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
   formatCmd  = (k) => k.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
   nodeIcons,
+  treeKey,
 }: Props) {
   const usedGrids = [...new Set(nodes.map((n) => n.grid ?? 0))].sort((a, b) => a - b);
   const usedTiers = [...new Set(nodes.map((n) => n.tier ?? 0))].sort((a, b) => a - b);
@@ -417,7 +419,9 @@ export default function ExpertiseTree({
             markerWidth="5" markerHeight="5" orient="auto">
             <path d="M 0 0 L 10 5 L 0 10 Z" fill="#2e4422" />
           </marker>
-          <filter id="linkGlow" x="-40%" y="-40%" width="180%" height="180%">
+          {/* filterUnits="userSpaceOnUse" avoids the objectBoundingBox zero-width
+              collapse that makes vertical/horizontal lines invisible when filtered. */}
+          <filter id="linkGlow" filterUnits="userSpaceOnUse" x="-6" y="-6" width="10000" height="10000">
             <feGaussianBlur stdDeviation="1.5" result="blur" />
             <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
@@ -458,9 +462,9 @@ export default function ExpertiseTree({
       <div
         style={{
           position: "relative", zIndex: 1, display: "grid",
-          gridTemplateColumns: `repeat(${usedGrids.length}, minmax(120px, 1fr))`,
+          gridTemplateColumns: `repeat(${usedGrids.length}, minmax(130px, 1fr))`,
           gridTemplateRows: `repeat(${usedTiers.length}, auto)`,
-          gap: 8,
+          gap: 16,
         }}
       >
         {nodes.map((node) => {
@@ -496,10 +500,10 @@ export default function ExpertiseTree({
               style={{
                 gridColumn: colIndex(grid),
                 gridRow: rowIndex(tier),
-                minHeight: 90,
+                minHeight: 100,
                 border: `1px solid ${borderColor}`,
                 borderRadius: 8,
-                padding: "7px 8px 6px",
+                padding: "8px 10px 7px",
                 background: bgColor,
                 boxShadow: glowStyle,
                 opacity: selected > 0 || increaseAllowed ? 1 : 0.38,
@@ -513,13 +517,13 @@ export default function ExpertiseTree({
             >
               {/* Top row: icon (or tier label) + rank fraction */}
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                {nodeIcons?.[node.nodeId] ? (
+                {(nodeIcons?.[`${treeKey}::${node.nodeId}`] ?? nodeIcons?.[node.nodeId]) ? (
                   <img
-                    src={nodeIcons[node.nodeId]}
+                    src={nodeIcons[`${treeKey}::${node.nodeId}`] ?? nodeIcons[node.nodeId]}
                     alt=""
                     draggable={false}
                     style={{
-                      width: 28, height: 28,
+                      width: 32, height: 32,
                       borderRadius: 4,
                       opacity: selected > 0 ? 1 : increaseAllowed ? 0.55 : 0.25,
                       filter: selected > 0
@@ -530,15 +534,16 @@ export default function ExpertiseTree({
                     }}
                   />
                 ) : (
-                  <div style={{ fontSize: 10, color: "#2a5070", letterSpacing: "0.06em", fontFamily: "'Rajdhani', sans-serif" }}>
+                  <div style={{ fontSize: 11, color: "#2a5070", letterSpacing: "0.06em", fontFamily: "'Rajdhani', sans-serif" }}>
                     T{tier}
                   </div>
                 )}
                 <div style={{
-                  fontSize: 11,
+                  fontSize: 13,
                   color: selected > 0 ? (isMaxed ? "#4ab3e8" : "#88cc55") : "#2a5070",
-                  fontWeight: 600,
+                  fontWeight: 700,
                   letterSpacing: "0.04em",
+                  fontFamily: "'Orbitron', sans-serif",
                 }}>
                   {selected}/{node.maxRank}
                 </div>
@@ -547,7 +552,7 @@ export default function ExpertiseTree({
               {/* Node name */}
               <div style={{
                 fontWeight: 600,
-                fontSize: 14,
+                fontSize: 15,
                 lineHeight: 1.25,
                 color: selected > 0 ? "#d8eaf8" : increaseAllowed ? "#8aa8c0" : "#4a6070",
                 margin: "4px 0",
@@ -558,10 +563,10 @@ export default function ExpertiseTree({
               </div>
 
               {/* Rank pip bar */}
-              <div style={{ display: "flex", gap: 2, marginTop: 2 }}>
+              <div style={{ display: "flex", gap: 3, marginTop: 4 }}>
                 {pips.map((filled, pi) => (
                   <div key={pi} style={{
-                    flex: 1, height: 3, borderRadius: 2,
+                    flex: 1, height: 4, borderRadius: 2,
                     background: filled ? (isMaxed ? "#4ab3e8" : "#66cc44") : "#1a2a35",
                     boxShadow: filled && isMaxed ? "0 0 4px rgba(74,179,232,0.6)" : "none",
                     transition: "background 0.2s",

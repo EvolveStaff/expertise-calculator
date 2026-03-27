@@ -15,6 +15,9 @@ import {
   getMissingRequirements,
   isBranchGateSatisfied,
   MAX_EXPERTISE_POINTS,
+  MAX_FRS_RANK,
+  FRS_TREE_KEY,
+  getFrsVirtualRanks,
   TREE_BRANCH_GATES,
 } from "./lib/rules";
 
@@ -26,7 +29,7 @@ type Totals = {
 type SelectionsByTree = Record<number, Record<string, number>>;
 
 
-const STORAGE_KEY = "swg-expertise-builds";
+const STORAGE_KEY   = "swg-expertise-builds";
 const TEMPLATES_KEY = "swg-expertise-templates";
 
 type Template = {
@@ -103,11 +106,11 @@ const SHARED_KEYS = new Set([
 ]);
 
 const NORMAL_TREE_GROUPS: { label: string; keys: string[] }[] = [
-  { label: "Melee Skillsets",       keys: ["combat_brawler","combat_1hsword","combat_2hsword","combat_polearm","combat_unarmed","combat_teras_kasi"] },
+  { label: "Melee Skillsets",       keys: ["combat_brawler","combat_1hsword","combat_2hsword","combat_polearm","combat_unarmed"] },
   { label: "Ranged Skillsets",      keys: ["combat_marksman","combat_pistol","combat_carbine","combat_rifleman","combat_heavy_weapon"] },
-  { label: "Combat Skillsets",      keys: ["combat_assassin","combat_bountyhunter","science_combatmedic","combat_commando","combat_grenadier","combat_smuggler","outdoors_squadleader"] },
+  { label: "Combat Skillsets",      keys: ["combat_assassin","combat_bountyhunter","science_combatmedic","science_doctor","combat_commando","combat_grenadier","combat_smuggler","outdoors_squadleader","combat_teras_kasi"] },
   { label: "Entertainer Skillsets", keys: ["social_entertainer","social_musician","social_imagedesigner","social_muse"] },
-  { label: "Crafting Skillsets",    keys: ["crafting_artisan","crafting_architect","crafting_armorsmith","crafting_chef","crafting_cybernetics","crafting_droidengineer","crafting_reverseengineer","crafting_shipwright","crafting_tailor","crafting_weaponsmith","crafting_merchant","outdoors_bio_engineer","outdoors_creaturehandler","expertise_tree_beastmaster","science_doctor"] },
+  { label: "Crafting Skillsets",    keys: ["crafting_artisan","crafting_architect","crafting_armorsmith","crafting_chef","crafting_cybernetics","crafting_droidengineer","crafting_reverseengineer","crafting_shipwright","crafting_tailor","crafting_weaponsmith","crafting_merchant","outdoors_bio_engineer","outdoors_creaturehandler","expertise_tree_beastmaster"] },
 ];
 
 const JEDI_TREE_GROUPS: { label: string; keys: string[] }[] = [
@@ -262,6 +265,8 @@ export default function App() {
     localStorage.setItem(TEMPLATES_KEY, JSON.stringify(templates));
   }, [templates]);
 
+  // Persist FRS rank
+
   // On mount: store raw URL hash — decode lazily when data+allTrees are ready
   useEffect(() => {
     const hash = window.location.hash.slice(1);
@@ -350,9 +355,22 @@ export default function App() {
     return selectionsByTree[treeId] ?? {};
   }, [selectionsByTree, treeId]);
 
+  const frsTreeId = useMemo(() => {
+    return allTrees?.find(t => t.key === FRS_TREE_KEY)?.id;
+  }, [allTrees]);
+
+  const frsPointsSpent = useMemo(() => {
+    if (frsTreeId === undefined) return 0;
+    return Object.values(selectionsByTree[frsTreeId] ?? {}).reduce((s, r) => s + r, 0);
+  }, [selectionsByTree, frsTreeId]);
+
+  // FRS rank is simply how many FRS points have been spent.
+  const frsRank = frsPointsSpent;
+
   const totalPointsSpent = useMemo(() => {
-    return getTotalPointsSpent(selectionsByTree);
-  }, [selectionsByTree]);
+    const excludeIds = frsTreeId !== undefined ? new Set([frsTreeId]) : undefined;
+    return getTotalPointsSpent(selectionsByTree, excludeIds);
+  }, [selectionsByTree, frsTreeId]);
 
   const totals = useMemo(() => {
     if (!allTrees) return { mods: {}, commands: [] };
@@ -426,7 +444,7 @@ export default function App() {
     selectedRanks,
     data.trees,
     selectionsByTree,
-    currentTree.key
+    currentTree.key,
   );
 
   if (!allowed) return;
@@ -455,7 +473,7 @@ function decreaseRank(nodeId: string) {
     selectedRanks,
     data.trees,
     selectionsByTree,
-    currentTree.key
+    currentTree.key,
   );
 
   if (!allowed) return;
@@ -500,12 +518,14 @@ function getNodeDisabledReason(node: VisibleNode): string {
     return `Requires ${needed} pts in ${treeName} (have ${spent})`;
   }
 
-  if (totalPointsSpent >= MAX_EXPERTISE_POINTS) {
+  if (currentTree.key !== FRS_TREE_KEY && totalPointsSpent >= MAX_EXPERTISE_POINTS) {
     return `No points remaining (${MAX_EXPERTISE_POINTS}/${MAX_EXPERTISE_POINTS})`;
   }
 
-  // Check specific skill prereqs using merged global selections
-  const globalRanks: Record<string, number> = {};
+  // Check specific skill prereqs using merged global selections + FRS virtual ranks
+  const globalRanks: Record<string, number> = {
+    ...getFrsVirtualRanks(frsRank),
+  };
   for (const [, treeSelections] of Object.entries(selectionsByTree)) {
     for (const [nodeId, rank] of Object.entries(treeSelections as Record<string, number>)) {
       globalRanks[nodeId] = rank;
@@ -517,7 +537,17 @@ function getNodeDisabledReason(node: VisibleNode): string {
       // req format: "some_node_id (rank N)"
       const match = req.match(/^(.+) \(rank (\d+)\)$/);
       if (!match) return req;
-      const displayId = match[1]
+      const rawId = match[1];
+      // force_rank virtual IDs → "FRS Rank N" messages
+      // force_rank_novice and force_rank_master use full name; force_rank_01..04
+      // are parsed by parseSkillName as nodeId="force_rank" with rank N.
+      if (rawId === "force_rank_novice") return "FRS Rank 1";
+      if (rawId === "force_rank_master") return "FRS Rank 6";
+      if (rawId === "force_rank") {
+        const rank = parseInt(match[2], 10);
+        return `FRS Rank ${rank + 1}`;
+      }
+      const displayId = rawId
         .replace(/^expertise_fs_/, "")
         .replace(/^expertise_/, "")
         .replace(/_/g, " ")
@@ -744,7 +774,7 @@ function getNodeDisabledReason(node: VisibleNode): string {
                 borderRadius: "6px 6px 0 0",
               }}
             >
-              {type === "normal" ? "⚔  Normal" : "⚡  Force Sensitive"}
+              {type === "normal" ? "⚔  Adventurer" : "⚡  Force Sensitive"}
             </button>
           );
         })}
@@ -840,7 +870,7 @@ function getNodeDisabledReason(node: VisibleNode): string {
           fontSize: 13,
         }}>
           ⚠️ You have <strong>{oppositeTypePoints} point{oppositeTypePoints !== 1 ? "s" : ""}</strong> allocated in{" "}
-          {characterType === "jedi" ? "normal" : "Force Sensitive"} trees. Force Sensitive and normal characters are mutually exclusive in-game.
+          {characterType === "jedi" ? "Adventurer" : "Force Sensitive"} trees. Force Sensitive and Adventurer characters are mutually exclusive in-game.
         </div>
       )}
 
@@ -1226,15 +1256,22 @@ function getNodeDisabledReason(node: VisibleNode): string {
                 });
               }
             }
+            // Deduplicate by target tree — only the first (most prominent) gateway per tree
+            const seenTargets = new Set<string>();
+            const uniqueChips = chips.filter((c) => {
+              if (seenTargets.has(c.targetKey)) return false;
+              seenTargets.add(c.targetKey);
+              return true;
+            });
             // Sort: active (invested) first, then alphabetically by target name
-            chips.sort((a, b) => {
+            uniqueChips.sort((a, b) => {
               if (a.isActive !== b.isActive) return a.isActive ? -1 : 1;
               return formatTreeName(a.targetKey).localeCompare(formatTreeName(b.targetKey));
             });
 
             return (
               <>
-                {chips.length > 0 && (
+                {uniqueChips.length > 0 && (
                   <div style={{
                     marginBottom: 10,
                     display: "flex",
@@ -1257,7 +1294,7 @@ function getNodeDisabledReason(node: VisibleNode): string {
                     }}>
                       Branch To:
                     </span>
-                    {chips.map(({ gatewayNodeId, gatewayName, targetKey, isActive }) => {
+                    {uniqueChips.map(({ gatewayNodeId, gatewayName, targetKey, isActive }) => {
                       const targetTree = availableTrees.find((t) => t.key === targetKey)
                         ?? allTrees.find((t) => t.key === targetKey);
                       return (
@@ -1320,7 +1357,7 @@ function getNodeDisabledReason(node: VisibleNode): string {
                       selectedRanks,
                       data.trees,
                       selectionsByTree,
-                      currentTree.key
+                      currentTree.key,
                     )
                   }
                   canDecrease={(node) =>
@@ -1331,13 +1368,14 @@ function getNodeDisabledReason(node: VisibleNode): string {
                       selectedRanks,
                       data.trees,
                       selectionsByTree,
-                      currentTree.key
+                      currentTree.key,
                     )
                   }
                   getNodeDisabledReason={getNodeDisabledReason}
                   formatStat={(key) => formatStatKey(key, stringTables)}
                   formatCmd={(key) => formatCmdKey(key, stringTables)}
                   nodeIcons={nodeIcons ?? undefined}
+                  treeKey={currentTree.key}
                 />
 
                 {/* ── Node Detail Panel ─────────────────────────────── */}
@@ -1669,6 +1707,50 @@ function getNodeDisabledReason(node: VisibleNode): string {
                 </div>
               )}
             </div>
+
+            {/* FRS display — Jedi only */}
+            {characterType === "jedi" && (
+              <div
+                style={{
+                  marginBottom: 16,
+                  padding: "10px 14px",
+                  borderRadius: 8,
+                  background: "linear-gradient(135deg, #0d0a1a, #170d2a)",
+                  border: `1px solid ${frsRank >= MAX_FRS_RANK ? "#7a40c8" : "#3a1a60"}`,
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 6 }}>
+                  <span style={{ fontSize: 11, color: "#9060d0", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                    FRS Rank
+                  </span>
+                  <span style={{
+                    color: frsRank >= MAX_FRS_RANK ? "#cc99ff" : "#aa80ff",
+                    fontWeight: 700, fontSize: 16,
+                    fontFamily: "'Orbitron', sans-serif",
+                  }}>
+                    {frsRank}<span style={{ fontSize: 11, opacity: 0.6 }}> / {MAX_FRS_RANK}</span>
+                  </span>
+                </div>
+                {/* FRS points bar */}
+                <div style={{ height: 4, borderRadius: 2, background: "#0d0820", overflow: "hidden" }}>
+                  <div style={{
+                    height: "100%",
+                    width: `${Math.min(100, (frsRank / MAX_FRS_RANK) * 100)}%`,
+                    background: frsRank >= MAX_FRS_RANK
+                      ? "linear-gradient(90deg, #7733cc, #cc66ff)"
+                      : "linear-gradient(90deg, #4a1a90, #9955dd)",
+                    borderRadius: 2,
+                    transition: "width 0.3s ease",
+                    boxShadow: "0 0 6px rgba(160,80,255,0.5)",
+                  }} />
+                </div>
+                {frsRank >= MAX_FRS_RANK && (
+                  <div style={{ marginTop: 4, fontSize: 10, color: "#cc99ff", letterSpacing: "0.1em" }}>
+                    ● FRS RANK MAX
+                  </div>
+                )}
+              </div>
+            )}
 
             <div style={{ marginBottom: 16 }}>
               <div style={{

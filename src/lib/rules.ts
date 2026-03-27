@@ -37,9 +37,38 @@ export const JEDI_ADVANCED_TREE_KEYS = new Set([
 
 // Per-tree tier threshold overrides (takes priority over standard/advanced formulas).
 // jedi_forms: only 2 tiers, T1 nodes are maxRank=1, T2 unlocks after just 1 point in T1.
+// jedi_frs: tier access is gated by FRS rank (via force_rank_* skillsRequired virtual nodes),
+//   not by a points-spent formula — all thresholds 0 to disable the standard gate.
 const TREE_TIER_THRESHOLDS: Record<string, Record<number, number>> = {
   jedi_forms: { 1: 0, 2: 1 },
+  jedi_frs:   { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 },
 };
+
+export const FRS_TREE_KEY = "jedi_frs";
+export const MAX_FRS_RANK  = 6;
+
+
+// frsPointsSpent = total points spent in FRS tree.
+//
+// parseSkillName strips _\d+ suffixes, so the FRS gate IDs are parsed as:
+//   force_rank_novice  → nodeId "force_rank_novice"  (no digit suffix)
+//   force_rank_01      → nodeId "force_rank", rank 1
+//   force_rank_02      → nodeId "force_rank", rank 2
+//   force_rank_03      → nodeId "force_rank", rank 3
+//   force_rank_04      → nodeId "force_rank", rank 4
+//   force_rank_master  → nodeId "force_rank_master"  (no digit suffix)
+//
+// So we inject:
+//   force_rank_novice = 1 always              → tier 1 always accessible
+//   force_rank        = frsPointsSpent        → tier N accessible when spent >= N-1
+//   force_rank_master = 1 when spent >= 5     → tier 6 accessible after 5 points
+export function getFrsVirtualRanks(frsPointsSpent: number): SelectedRanks {
+  return {
+    force_rank_novice: 1,
+    force_rank: frsPointsSpent,
+    ...(frsPointsSpent >= 5 ? { force_rank_master: 1 } : {}),
+  };
+}
 
 export const FORCE_SENSITIVE_TREE_KEY = "force_sensitive";
 
@@ -141,7 +170,7 @@ function getRequiredSkills(
   return result;
 }
 
-function getPreclusionNodeIds(node: VisibleNode): string[] {
+function getPreclusionNodeIds(node: VisibleNode, allNodes: VisibleNode[] = []): string[] {
   const rawPrecs = [
     ...(Array.isArray(node.preclusionSkills) ? node.preclusionSkills : []),
     ...node.ranks.flatMap((r) =>
@@ -149,8 +178,10 @@ function getPreclusionNodeIds(node: VisibleNode): string[] {
     ),
   ].filter(Boolean);
 
-  // Only need the nodeId for preclusion — strip rank suffix and deduplicate.
-  return Array.from(new Set(rawPrecs.map((p) => parseSkillName(p).nodeId)));
+  // Pass knownNodeIds so preclusion names that ARE real nodeIds (e.g. FRS tier 2+
+  // nodes whose IDs end in _2, _3 ...) are not mis-stripped by the rank-suffix regex.
+  const knownNodeIds = new Set(allNodes.map((n) => n.nodeId));
+  return Array.from(new Set(rawPrecs.map((p) => parseSkillName(p, knownNodeIds).nodeId)));
 }
 
 function areSkillRequirementsMet(
@@ -178,9 +209,10 @@ function areSkillRequirementsMet(
 
 function hasPreclusionConflict(
   node: VisibleNode,
-  selectedRanks: SelectedRanks
+  selectedRanks: SelectedRanks,
+  allNodes: VisibleNode[] = []
 ): boolean {
-  const preclusions = getPreclusionNodeIds(node);
+  const preclusions = getPreclusionNodeIds(node, allNodes);
   if (preclusions.length === 0) return false;
 
   return preclusions.some((precludedId) => (selectedRanks[precludedId] ?? 0) > 0);
@@ -206,8 +238,12 @@ export function getPointsSpentBeforeTier(
     .reduce((sum, node) => sum + (selectedRanks[node.nodeId] ?? 0), 0);
 }
 
-export function getTotalPointsSpent(selectionsByTree: SelectionsByTree): number {
-  return Object.values(selectionsByTree).reduce((total, treeSelections) => {
+export function getTotalPointsSpent(
+  selectionsByTree: SelectionsByTree,
+  excludeTreeIds?: Set<number>
+): number {
+  return Object.entries(selectionsByTree).reduce((total, [idStr, treeSelections]) => {
+    if (excludeTreeIds?.has(Number(idStr))) return total;
     return total + Object.values(treeSelections).reduce((sum, rank) => sum + rank, 0);
   }, 0);
 }
@@ -302,6 +338,9 @@ function wouldBreakDependenciesIfRemoved(
   // causes false positives: investing in tree A's node would make tree B's same-named
   // node appear selected even though the player never put points into tree B's version.
   for (const tree of allTrees) {
+    // FRS nodes only depend on virtual force_rank_* entries (controlled by frsRank),
+    // never on real tree nodes — skip them to avoid false dependency blocks.
+    if (tree.key === FRS_TREE_KEY) continue;
     const treeSelections = selectionsByTree[tree.id] ?? {};
     for (const otherNode of tree.nodes) {
       if (otherNode.nodeId === node.nodeId) continue;
@@ -320,26 +359,39 @@ export function canIncreaseRank(
   selectedRanks: SelectedRanks,
   allTrees: TreeData[],
   selectionsByTree: SelectionsByTree,
-  treeKey?: string
+  treeKey?: string,
 ): boolean {
   const currentRank = selectedRanks[node.nodeId] ?? 0;
-
   if (currentRank >= node.maxRank) return false;
 
-  if (!isTierUnlocked(node.tier, nodes, selectedRanks, treeKey)) {
-    return false;
-  }
+  const frsTreeId = allTrees.find((t) => t.key === FRS_TREE_KEY)?.id;
+  const isFrsTree = (treeKey ?? allTrees.find((t) => t.id === node.treeId)?.key) === FRS_TREE_KEY;
 
-  // Skill prereqs and preclusions are checked against ALL trees (cross-tree prereqs exist).
-  const globalSelectedRanks = mergeAllSelections(selectionsByTree);
+  if (!isTierUnlocked(node.tier, nodes, selectedRanks, treeKey)) return false;
 
-  // Branch gate: Smuggler, BH, and Assassin require a mastered melee or ranged tree.
+  // Skill prereqs and preclusions are checked against ALL trees plus FRS virtual ranks.
+  // Virtual ranks are derived from how many FRS points are already spent.
+  const frsPointsSpent = frsTreeId !== undefined
+    ? Object.values(selectionsByTree[frsTreeId] ?? {}).reduce((s, r) => s + r, 0)
+    : 0;
+  const globalSelectedRanks = {
+    ...mergeAllSelections(selectionsByTree),
+    ...getFrsVirtualRanks(frsPointsSpent),
+  };
+
   const currentTreeKey = treeKey ?? allTrees.find((t) => t.id === node.treeId)?.key;
   if (currentTreeKey && !isBranchGateSatisfied(currentTreeKey, globalSelectedRanks)) return false;
 
   if (!areSkillRequirementsMet(node, globalSelectedRanks, nodes)) return false;
-  if (hasPreclusionConflict(node, globalSelectedRanks)) return false;
-  if (getTotalPointsSpent(selectionsByTree) >= MAX_EXPERTISE_POINTS) return false;
+  if (hasPreclusionConflict(node, globalSelectedRanks, nodes)) return false;
+
+  if (!isFrsTree) {
+    // Regular 135-point cap, excluding FRS tree points.
+    const excludeIds = frsTreeId !== undefined ? new Set([frsTreeId]) : undefined;
+    if (getTotalPointsSpent(selectionsByTree, excludeIds) >= MAX_EXPERTISE_POINTS) return false;
+  }
+  // FRS has no separate budget — tier gating via virtual ranks + maxRank=1 + preclusions
+  // enforce the one-point-per-tier sequential structure.
 
   return true;
 }
@@ -351,7 +403,7 @@ export function canDecreaseRank(
   selectedRanks: SelectedRanks,
   allTrees: TreeData[],
   selectionsByTree: SelectionsByTree,
-  treeKey?: string
+  treeKey?: string,
 ): boolean {
   const currentRank = selectedRanks[node.nodeId] ?? 0;
   if (currentRank <= 0) return false;

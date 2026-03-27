@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-03-26T15:57:10.980Z",
+    "generatedAt": "2026-03-27T03:56:57.869Z",
     "sourceFiles": [
       "expertise_trees.tab",
       "expertise.tab",
@@ -10622,7 +10622,7 @@
           "treeId": 7,
           "tier": 2,
           "grid": 2,
-          "displayName": "Concussion Shot",
+          "displayName": "Assault",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_carbineer_carbine_acr_04"
@@ -10635,7 +10635,7 @@
             {
               "name": "expertise_carbineer_attack_2",
               "nodeId": "expertise_carbineer_attack",
-              "displayName": "Concussion Shot",
+              "displayName": "Assault",
               "treeId": 7,
               "tier": 2,
               "grid": 2,
@@ -10795,7 +10795,7 @@
           "treeId": 7,
           "tier": 2,
           "grid": 6,
-          "displayName": "Cripple",
+          "displayName": "Assault",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_carbineer_carbine_acr_04"
@@ -10808,7 +10808,7 @@
             {
               "name": "expertise_marksman_ability_01",
               "nodeId": "expertise_marksman_ability",
-              "displayName": "Cripple",
+              "displayName": "Assault",
               "treeId": 7,
               "tier": 2,
               "grid": 6,
@@ -11134,10 +11134,10 @@
           "treeId": 7,
           "tier": 4,
           "grid": 2,
-          "displayName": "Concussion Damage",
+          "displayName": "Concussion Shot Energized",
           "maxRank": 4,
           "skillsRequired": [
-            "expertise_carbineer_attack_2"
+            "expertise_carbineer_attack_1"
           ],
           "skillsRequiredCount": null,
           "preclusionSkills": [],
@@ -11147,7 +11147,7 @@
             {
               "name": "expertise_concussion_damage_1",
               "nodeId": "expertise_concussion_damage",
-              "displayName": "Concussion Damage",
+              "displayName": "Concussion Shot Energized",
               "treeId": 7,
               "tier": 4,
               "grid": 2,
@@ -11156,7 +11156,7 @@
               "prereqLevel": null,
               "parent": "expertise",
               "skillsRequired": [
-                "expertise_carbineer_attack_2"
+                "expertise_carbineer_attack_1"
               ],
               "skillsRequiredCount": null,
               "preclusionSkills": [],
@@ -11175,7 +11175,7 @@
             {
               "name": "expertise_concussion_damage_2",
               "nodeId": "expertise_concussion_damage",
-              "displayName": "Concussion Damage",
+              "displayName": "Concussion Shot Energized",
               "treeId": 7,
               "tier": 4,
               "grid": 2,
@@ -11201,7 +11201,7 @@
             {
               "name": "expertise_concussion_damage_3",
               "nodeId": "expertise_concussion_damage",
-              "displayName": "Concussion Damage",
+              "displayName": "Concussion Shot Energized",
               "treeId": 7,
               "tier": 4,
               "grid": 2,
@@ -11227,7 +11227,7 @@
             {
               "name": "expertise_concussion_damage_4",
               "nodeId": "expertise_concussion_damage",
-              "displayName": "Concussion Damage",
+              "displayName": "Concussion Shot Energized",
               "treeId": 7,
               "tier": 4,
               "grid": 2,
@@ -11389,7 +11389,7 @@
           "treeId": 7,
           "tier": 4,
           "grid": 6,
-          "displayName": "Assassination Efficiency",
+          "displayName": "Assault Efficiency",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_marksman_ability_01"
@@ -11402,7 +11402,7 @@
             {
               "name": "expertise_bh_ass_act_1",
               "nodeId": "expertise_bh_ass_act",
-              "displayName": "Assassination Efficiency",
+              "displayName": "Assault Efficiency",
               "treeId": 7,
               "tier": 4,
               "grid": 6,
@@ -11445,7 +11445,7 @@
             {
               "name": "expertise_bh_ass_act_2",
               "nodeId": "expertise_bh_ass_act",
-              "displayName": "Assassination Efficiency",
+              "displayName": "Assault Efficiency",
               "treeId": 7,
               "tier": 4,
               "grid": 6,
@@ -11486,7 +11486,7 @@
             {
               "name": "expertise_bh_ass_act_3",
               "nodeId": "expertise_bh_ass_act",
-              "displayName": "Assassination Efficiency",
+              "displayName": "Assault Efficiency",
               "treeId": 7,
               "tier": 4,
               "grid": 6,
@@ -11527,7 +11527,7 @@
             {
               "name": "expertise_bh_ass_act_4",
               "nodeId": "expertise_bh_ass_act",
-              "displayName": "Assassination Efficiency",
+              "displayName": "Assault Efficiency",
               "treeId": 7,
               "tier": 4,
               "grid": 6,
@@ -11741,7 +11741,7 @@
           "treeId": 7,
           "tier": 5,
           "grid": 5,
-          "displayName": "Attack 3",
+          "displayName": "Burst",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -11752,7 +11752,7 @@
             {
               "name": "expertise_carbineer_attack_3",
               "nodeId": "expertise_carbineer_attack_3",
-              "displayName": "Concussion Shot",
+              "displayName": "Assault",
               "treeId": 7,
               "tier": 5,
               "grid": 5,
@@ -11840,7 +11840,7 @@
           "treeId": 8,
           "tier": 1,
           "grid": 4,
-          "displayName": "Enhanced Fuel Cans",
+          "displayName": "Enhanced Fuel Canisters",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_heavy_weapon_novice"
@@ -11853,7 +11853,7 @@
             {
               "name": "expertise_co_enhanced_fuel_cans_1",
               "nodeId": "expertise_co_enhanced_fuel_cans",
-              "displayName": "Enhanced Fuel Cans",
+              "displayName": "Enhanced Fuel Canisters",
               "treeId": 8,
               "tier": 1,
               "grid": 4,
@@ -11891,7 +11891,7 @@
             {
               "name": "expertise_co_enhanced_fuel_cans_2",
               "nodeId": "expertise_co_enhanced_fuel_cans",
-              "displayName": "Enhanced Fuel Cans",
+              "displayName": "Enhanced Fuel Canisters",
               "treeId": 8,
               "tier": 1,
               "grid": 4,
@@ -11927,7 +11927,7 @@
             {
               "name": "expertise_co_enhanced_fuel_cans_3",
               "nodeId": "expertise_co_enhanced_fuel_cans",
-              "displayName": "Enhanced Fuel Cans",
+              "displayName": "Enhanced Fuel Canisters",
               "treeId": 8,
               "tier": 1,
               "grid": 4,
@@ -11963,7 +11963,7 @@
             {
               "name": "expertise_co_enhanced_fuel_cans_4",
               "nodeId": "expertise_co_enhanced_fuel_cans",
-              "displayName": "Enhanced Fuel Cans",
+              "displayName": "Enhanced Fuel Canisters",
               "treeId": 8,
               "tier": 1,
               "grid": 4,
@@ -12249,7 +12249,7 @@
           "treeId": 8,
           "tier": 3,
           "grid": 4,
-          "displayName": "Heavy Weapon DoT",
+          "displayName": "Heavy Dot Damage",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_co_tibanna_gas_4",
@@ -12265,7 +12265,7 @@
             {
               "name": "expertise_hw_dot_01",
               "nodeId": "expertise_hw_dot",
-              "displayName": "Heavy Weapon DoT",
+              "displayName": "Heavy Dot Damage",
               "treeId": 8,
               "tier": 3,
               "grid": 4,
@@ -12293,7 +12293,7 @@
             {
               "name": "expertise_hw_dot_02",
               "nodeId": "expertise_hw_dot",
-              "displayName": "Heavy Weapon DoT",
+              "displayName": "Heavy Dot Damage",
               "treeId": 8,
               "tier": 3,
               "grid": 4,
@@ -12321,7 +12321,7 @@
             {
               "name": "expertise_hw_dot_03",
               "nodeId": "expertise_hw_dot",
-              "displayName": "Heavy Weapon DoT",
+              "displayName": "Heavy Dot Damage",
               "treeId": 8,
               "tier": 3,
               "grid": 4,
@@ -12349,7 +12349,7 @@
             {
               "name": "expertise_hw_dot_04",
               "nodeId": "expertise_hw_dot",
-              "displayName": "Heavy Weapon DoT",
+              "displayName": "Heavy Dot Damage",
               "treeId": 8,
               "tier": 3,
               "grid": 4,
@@ -12418,7 +12418,7 @@
           "treeId": 8,
           "tier": 4,
           "grid": 2,
-          "displayName": "Focus Beam Damage",
+          "displayName": "Focused Beam Overload",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_co_focus_beam_1"
@@ -12431,7 +12431,7 @@
             {
               "name": "expertise_co_focus_beam_damage_1",
               "nodeId": "expertise_co_focus_beam_damage",
-              "displayName": "Focus Beam Damage",
+              "displayName": "Focused Beam Overload",
               "treeId": 8,
               "tier": 4,
               "grid": 2,
@@ -12459,7 +12459,7 @@
             {
               "name": "expertise_co_focus_beam_damage_2",
               "nodeId": "expertise_co_focus_beam_damage",
-              "displayName": "Focus Beam Damage",
+              "displayName": "Focused Beam Overload",
               "treeId": 8,
               "tier": 4,
               "grid": 2,
@@ -12485,7 +12485,7 @@
             {
               "name": "expertise_co_focus_beam_damage_3",
               "nodeId": "expertise_co_focus_beam_damage",
-              "displayName": "Focus Beam Damage",
+              "displayName": "Focused Beam Overload",
               "treeId": 8,
               "tier": 4,
               "grid": 2,
@@ -12511,7 +12511,7 @@
             {
               "name": "expertise_co_focus_beam_damage_4",
               "nodeId": "expertise_co_focus_beam_damage",
-              "displayName": "Focus Beam Damage",
+              "displayName": "Focused Beam Overload",
               "treeId": 8,
               "tier": 4,
               "grid": 2,
@@ -12673,7 +12673,7 @@
           "treeId": 8,
           "tier": 4,
           "grid": 6,
-          "displayName": "Lethal Beam Damage",
+          "displayName": "Lethal Beam Overload",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_co_lethal_beam_1"
@@ -12686,7 +12686,7 @@
             {
               "name": "expertise_co_lethal_beam_damage_1",
               "nodeId": "expertise_co_lethal_beam_damage",
-              "displayName": "Lethal Beam Damage",
+              "displayName": "Lethal Beam Overload",
               "treeId": 8,
               "tier": 4,
               "grid": 6,
@@ -12714,7 +12714,7 @@
             {
               "name": "expertise_co_lethal_beam_damage_2",
               "nodeId": "expertise_co_lethal_beam_damage",
-              "displayName": "Lethal Beam Damage",
+              "displayName": "Lethal Beam Overload",
               "treeId": 8,
               "tier": 4,
               "grid": 6,
@@ -12740,7 +12740,7 @@
             {
               "name": "expertise_co_lethal_beam_damage_3",
               "nodeId": "expertise_co_lethal_beam_damage",
-              "displayName": "Lethal Beam Damage",
+              "displayName": "Lethal Beam Overload",
               "treeId": 8,
               "tier": 4,
               "grid": 6,
@@ -12766,7 +12766,7 @@
             {
               "name": "expertise_co_lethal_beam_damage_4",
               "nodeId": "expertise_co_lethal_beam_damage",
-              "displayName": "Lethal Beam Damage",
+              "displayName": "Lethal Beam Overload",
               "treeId": 8,
               "tier": 4,
               "grid": 6,
@@ -13108,7 +13108,7 @@
           "treeId": 8,
           "tier": 6,
           "grid": 4,
-          "displayName": "Master Heavy Weapons",
+          "displayName": "Heavy Weapons Expert",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_hw_acc_04"
@@ -13121,7 +13121,7 @@
             {
               "name": "expertise_heavy_weapon_master",
               "nodeId": "expertise_heavy_weapon_master",
-              "displayName": "Master Heavy Weapons",
+              "displayName": "Heavy Weapons Expert",
               "treeId": 8,
               "tier": 6,
               "grid": 4,
@@ -14074,7 +14074,7 @@
           "treeId": 9,
           "tier": 4,
           "grid": 6,
-          "displayName": "Sure Damage",
+          "displayName": "Lethal Aim",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_pistoleer_attack_3"
@@ -14087,7 +14087,7 @@
             {
               "name": "expertise_of_sure_dam_1",
               "nodeId": "expertise_of_sure_dam",
-              "displayName": "Sure Damage",
+              "displayName": "Lethal Aim",
               "treeId": 9,
               "tier": 4,
               "grid": 6,
@@ -14120,7 +14120,7 @@
             {
               "name": "expertise_of_sure_dam_2",
               "nodeId": "expertise_of_sure_dam",
-              "displayName": "Sure Damage",
+              "displayName": "Lethal Aim",
               "treeId": 9,
               "tier": 4,
               "grid": 6,
@@ -14151,7 +14151,7 @@
             {
               "name": "expertise_of_sure_dam_3",
               "nodeId": "expertise_of_sure_dam",
-              "displayName": "Sure Damage",
+              "displayName": "Lethal Aim",
               "treeId": 9,
               "tier": 4,
               "grid": 6,
@@ -14182,7 +14182,7 @@
             {
               "name": "expertise_of_sure_dam_4",
               "nodeId": "expertise_of_sure_dam",
-              "displayName": "Sure Damage",
+              "displayName": "Lethal Aim",
               "treeId": 9,
               "tier": 4,
               "grid": 6,
@@ -14929,7 +14929,7 @@
           "treeId": 10,
           "tier": 2,
           "grid": 6,
-          "displayName": "Cripple",
+          "displayName": "Ambush",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_rifleman_rifle_acr_04"
@@ -14942,7 +14942,7 @@
             {
               "name": "expertise_marksman_ability_03",
               "nodeId": "expertise_marksman_ability",
-              "displayName": "Cripple",
+              "displayName": "Ambush",
               "treeId": 10,
               "tier": 2,
               "grid": 6,
@@ -19660,7 +19660,7 @@
           "treeId": 13,
           "tier": 1,
           "grid": 4,
-          "displayName": "Combat Medic Novice",
+          "displayName": "Novice Combat Medic",
           "maxRank": 4,
           "skillsRequired": [
             "science_combatmedic_novice",
@@ -19675,7 +19675,7 @@
             {
               "name": "science_combatmedic_novice",
               "nodeId": "science_combatmedic_novice",
-              "displayName": "Combat Medic Novice",
+              "displayName": "Novice Combat Medic",
               "treeId": 13,
               "tier": 1,
               "grid": 4,
@@ -19701,7 +19701,7 @@
             {
               "name": "science_combatmedic_novice_2",
               "nodeId": "science_combatmedic_novice",
-              "displayName": "Combat Medic Novice",
+              "displayName": "Novice Combat Medic",
               "treeId": 13,
               "tier": 1,
               "grid": 4,
@@ -19729,7 +19729,7 @@
             {
               "name": "science_combatmedic_novice_3",
               "nodeId": "science_combatmedic_novice",
-              "displayName": "Combat Medic Novice",
+              "displayName": "Novice Combat Medic",
               "treeId": 13,
               "tier": 1,
               "grid": 4,
@@ -19757,7 +19757,7 @@
             {
               "name": "science_combatmedic_novice_4",
               "nodeId": "science_combatmedic_novice",
-              "displayName": "Combat Medic Novice",
+              "displayName": "Novice Combat Medic",
               "treeId": 13,
               "tier": 1,
               "grid": 4,
@@ -22929,7 +22929,7 @@
           "treeId": 15,
           "tier": 1,
           "grid": 4,
-          "displayName": "Doctor Novice",
+          "displayName": "Novice Doctor",
           "maxRank": 4,
           "skillsRequired": [
             "science_doctor_novice",
@@ -22944,7 +22944,7 @@
             {
               "name": "science_doctor_novice",
               "nodeId": "science_doctor_novice",
-              "displayName": "Doctor Novice",
+              "displayName": "Novice Doctor",
               "treeId": 15,
               "tier": 1,
               "grid": 4,
@@ -22970,7 +22970,7 @@
             {
               "name": "science_doctor_novice_2",
               "nodeId": "science_doctor_novice",
-              "displayName": "Doctor Novice",
+              "displayName": "Novice Doctor",
               "treeId": 15,
               "tier": 1,
               "grid": 4,
@@ -22998,7 +22998,7 @@
             {
               "name": "science_doctor_novice_3",
               "nodeId": "science_doctor_novice",
-              "displayName": "Doctor Novice",
+              "displayName": "Novice Doctor",
               "treeId": 15,
               "tier": 1,
               "grid": 4,
@@ -23026,7 +23026,7 @@
             {
               "name": "science_doctor_novice_4",
               "nodeId": "science_doctor_novice",
-              "displayName": "Doctor Novice",
+              "displayName": "Novice Doctor",
               "treeId": 15,
               "tier": 1,
               "grid": 4,
@@ -23272,7 +23272,7 @@
           "treeId": 15,
           "tier": 2,
           "grid": 5,
-          "displayName": "Me Bacta Ampule",
+          "displayName": "Bacta Ampule",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -23283,7 +23283,7 @@
             {
               "name": "expertise_me_me_bacta_ampule_1",
               "nodeId": "expertise_me_me_bacta_ampule",
-              "displayName": "Me Bacta Ampule",
+              "displayName": "Bacta Ampule",
               "treeId": 15,
               "tier": 2,
               "grid": 5,
@@ -26890,7 +26890,7 @@
           "treeId": 17,
           "tier": 1,
           "grid": 4,
-          "displayName": "Smuggler Novice",
+          "displayName": "Novice Smuggler",
           "maxRank": 4,
           "skillsRequired": [
             "combat_smuggler_novice",
@@ -26905,7 +26905,7 @@
             {
               "name": "combat_smuggler_novice",
               "nodeId": "combat_smuggler_novice",
-              "displayName": "Smuggler Novice",
+              "displayName": "Novice Smuggler",
               "treeId": 17,
               "tier": 1,
               "grid": 4,
@@ -26951,7 +26951,7 @@
             {
               "name": "combat_smuggler_novice_2",
               "nodeId": "combat_smuggler_novice",
-              "displayName": "Smuggler Novice",
+              "displayName": "Novice Smuggler",
               "treeId": 17,
               "tier": 1,
               "grid": 4,
@@ -26999,7 +26999,7 @@
             {
               "name": "combat_smuggler_novice_3",
               "nodeId": "combat_smuggler_novice",
-              "displayName": "Smuggler Novice",
+              "displayName": "Novice Smuggler",
               "treeId": 17,
               "tier": 1,
               "grid": 4,
@@ -27047,7 +27047,7 @@
             {
               "name": "combat_smuggler_novice_4",
               "nodeId": "combat_smuggler_novice",
-              "displayName": "Smuggler Novice",
+              "displayName": "Novice Smuggler",
               "treeId": 17,
               "tier": 1,
               "grid": 4,
@@ -28982,7 +28982,7 @@
           "treeId": 18,
           "tier": 1,
           "grid": 4,
-          "displayName": "Squad Leader Novice",
+          "displayName": "Novice Squad Leader",
           "maxRank": 4,
           "skillsRequired": [
             "outdoors_squadleader_novice",
@@ -28997,7 +28997,7 @@
             {
               "name": "outdoors_squadleader_novice",
               "nodeId": "outdoors_squadleader_novice",
-              "displayName": "Squad Leader Novice",
+              "displayName": "Novice Squad Leader",
               "treeId": 18,
               "tier": 1,
               "grid": 4,
@@ -29028,7 +29028,7 @@
             {
               "name": "outdoors_squadleader_novice_2",
               "nodeId": "outdoors_squadleader_novice",
-              "displayName": "Squad Leader Novice",
+              "displayName": "Novice Squad Leader",
               "treeId": 18,
               "tier": 1,
               "grid": 4,
@@ -29061,7 +29061,7 @@
             {
               "name": "outdoors_squadleader_novice_3",
               "nodeId": "outdoors_squadleader_novice",
-              "displayName": "Squad Leader Novice",
+              "displayName": "Novice Squad Leader",
               "treeId": 18,
               "tier": 1,
               "grid": 4,
@@ -29094,7 +29094,7 @@
             {
               "name": "outdoors_squadleader_novice_4",
               "nodeId": "outdoors_squadleader_novice",
-              "displayName": "Squad Leader Novice",
+              "displayName": "Novice Squad Leader",
               "treeId": 18,
               "tier": 1,
               "grid": 4,
@@ -30631,7 +30631,7 @@
           "treeId": 19,
           "tier": 1,
           "grid": 4,
-          "displayName": "Teras Kasi Novice",
+          "displayName": "Novice Teras Kasi Artist",
           "maxRank": 4,
           "skillsRequired": [
             "teras_kasi_novice",
@@ -30646,7 +30646,7 @@
             {
               "name": "teras_kasi_novice",
               "nodeId": "teras_kasi_novice",
-              "displayName": "Teras Kasi Novice",
+              "displayName": "Novice Teras Kasi Artist",
               "treeId": 19,
               "tier": 1,
               "grid": 4,
@@ -30677,7 +30677,7 @@
             {
               "name": "teras_kasi_novice_2",
               "nodeId": "teras_kasi_novice",
-              "displayName": "Teras Kasi Novice",
+              "displayName": "Novice Teras Kasi Artist",
               "treeId": 19,
               "tier": 1,
               "grid": 4,
@@ -30710,7 +30710,7 @@
             {
               "name": "teras_kasi_novice_3",
               "nodeId": "teras_kasi_novice",
-              "displayName": "Teras Kasi Novice",
+              "displayName": "Novice Teras Kasi Artist",
               "treeId": 19,
               "tier": 1,
               "grid": 4,
@@ -30743,7 +30743,7 @@
             {
               "name": "teras_kasi_novice_4",
               "nodeId": "teras_kasi_novice",
-              "displayName": "Teras Kasi Novice",
+              "displayName": "Novice Teras Kasi Artist",
               "treeId": 19,
               "tier": 1,
               "grid": 4,
@@ -41369,7 +41369,7 @@
           "treeId": 29,
           "tier": 1,
           "grid": 4,
-          "displayName": "Bio-Engineer Novice",
+          "displayName": "Novice Bio-Engineer",
           "maxRank": 4,
           "skillsRequired": [
             "outdoors_bio_engineer_novice",
@@ -41384,7 +41384,7 @@
             {
               "name": "outdoors_bio_engineer_novice",
               "nodeId": "outdoors_bio_engineer_novice",
-              "displayName": "Bio-Engineer Novice",
+              "displayName": "Novice Bio-Engineer",
               "treeId": 29,
               "tier": 1,
               "grid": 4,
@@ -41428,7 +41428,7 @@
             {
               "name": "outdoors_bio_engineer_novice_2",
               "nodeId": "outdoors_bio_engineer_novice",
-              "displayName": "Bio-Engineer Novice",
+              "displayName": "Novice Bio-Engineer",
               "treeId": 29,
               "tier": 1,
               "grid": 4,
@@ -41450,7 +41450,7 @@
             {
               "name": "outdoors_bio_engineer_novice_3",
               "nodeId": "outdoors_bio_engineer_novice",
-              "displayName": "Bio-Engineer Novice",
+              "displayName": "Novice Bio-Engineer",
               "treeId": 29,
               "tier": 1,
               "grid": 4,
@@ -41472,7 +41472,7 @@
             {
               "name": "outdoors_bio_engineer_novice_4",
               "nodeId": "outdoors_bio_engineer_novice",
-              "displayName": "Bio-Engineer Novice",
+              "displayName": "Novice Bio-Engineer",
               "treeId": 29,
               "tier": 1,
               "grid": 4,
@@ -55360,6 +55360,7 @@
           "displayName": "Premonition",
           "maxRank": 4,
           "skillsRequired": [
+            "expertise_fs_path_anticipate_aggression_4",
             "expertise_fs_general_premonition_1",
             "expertise_fs_general_premonition_2",
             "expertise_fs_general_premonition_3"
@@ -55380,7 +55381,9 @@
               "reqProf": "all",
               "prereqLevel": null,
               "parent": "expertise",
-              "skillsRequired": [],
+              "skillsRequired": [
+                "expertise_fs_path_anticipate_aggression_4"
+              ],
               "skillsRequiredCount": null,
               "preclusionSkills": [],
               "xpType": "jedi_general",
