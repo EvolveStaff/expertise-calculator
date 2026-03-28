@@ -1,5 +1,6 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import type { ExpertisePayload, StringTables, TreeData, VisibleNode } from "../lib/types";
+import type { JewelryAbilityDesc } from "./HeroicJewelry";
 import { formatNodeName } from "../lib/formatNodeName";
 import { STAT_MULTIPLIERS, CORE_STAT_COLORS, fmtDerived } from "../lib/statHelpers";
 
@@ -12,6 +13,8 @@ type Props = {
   treeGroups: TreeGroup[];
   treeNames: Record<string, string>;
   cmdDescriptions: Record<string, string>;
+  abilityDescriptions?: Record<string, JewelryAbilityDesc>;
+  focusAbilityKey?: string | null;
 };
 
 function formatStatKey(key: string, tables: StringTables | null): string {
@@ -147,10 +150,19 @@ function NodeDetail({
 
 // ── Main WikiView ─────────────────────────────────────────────────────────────
 
-export default function WikiView({ data, stringTables, nodeIcons, treeGroups, treeNames, cmdDescriptions }: Props) {
+export default function WikiView({ data, stringTables, nodeIcons, treeGroups, treeNames, cmdDescriptions, abilityDescriptions, focusAbilityKey }: Props) {
   const [search, setSearch] = useState("");
   const [selectedTreeId, setSelectedTreeId] = useState<number | null>(null);
   const [selectedNode, setSelectedNode] = useState<VisibleNode | null>(null);
+  const [selectedAbilityKey, setSelectedAbilityKey] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (focusAbilityKey) {
+      setSelectedAbilityKey(focusAbilityKey);
+      setSelectedTreeId(null);
+      setSelectedNode(null);
+    }
+  }, [focusAbilityKey]);
 
   const allTrees = useMemo(
     () => data.trees.filter(t => t.nodes.length > 0 && !t.key.includes("place_holder")),
@@ -225,6 +237,33 @@ export default function WikiView({ data, stringTables, nodeIcons, treeGroups, tr
           />
         </div>
 
+        {/* Abilities section */}
+        {abilityDescriptions && Object.keys(abilityDescriptions).length > 0 && (
+          <div>
+            <div style={labelStyle}>Granted Abilities</div>
+            {Object.entries(abilityDescriptions).map(([key, desc]) => {
+              const isActive = selectedAbilityKey === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => { setSelectedAbilityKey(isActive ? null : key); setSelectedTreeId(null); setSelectedNode(null); }}
+                  style={{
+                    display: "block", width: "100%", textAlign: "left",
+                    padding: "7px 14px", border: "none", cursor: "pointer",
+                    background: isActive ? "linear-gradient(90deg, #0d2040, #0e2040)" : "transparent",
+                    borderLeft: isActive ? "2px solid #c8a040" : "2px solid transparent",
+                    color: isActive ? "#e8c878" : "#4a7090",
+                    fontSize: 13, fontFamily: "'Rajdhani', sans-serif",
+                    transition: "color 0.15s, background 0.15s",
+                  }}
+                >
+                  {desc.name}
+                </button>
+              );
+            })}
+          </div>
+        )}
+
         {/* Tree groups */}
         {treeGroups.map(group => {
           const trees = group.keys
@@ -267,7 +306,63 @@ export default function WikiView({ data, stringTables, nodeIcons, treeGroups, tr
         background: "linear-gradient(160deg, #07111e 0%, #080f1a 100%)",
         display: "flex", flexDirection: "column", overflow: "hidden",
       }}>
-        {!selectedTree ? (
+        {selectedAbilityKey && abilityDescriptions?.[selectedAbilityKey] ? (
+          (() => {
+            const aDesc = abilityDescriptions[selectedAbilityKey]!;
+            return (
+              <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+                {/* Ability header */}
+                <div style={{
+                  padding: "14px 20px", borderBottom: "1px solid #1a3050",
+                  background: "rgba(8,18,32,0.9)",
+                  display: "flex", alignItems: "center", justifyContent: "space-between",
+                }}>
+                  <div>
+                    <div style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 700, fontSize: 20, color: "#e8c878", letterSpacing: "0.05em" }}>
+                      {aDesc.name}
+                    </div>
+                    <div style={{ fontSize: 11, color: "#c8a040", marginTop: 3, fontFamily: "'Orbitron', sans-serif", letterSpacing: "0.08em" }}>
+                      GRANTED ABILITY
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setSelectedAbilityKey(null)}
+                    style={{ background: "transparent", border: "1px solid #1a3050", borderRadius: 4, color: "#3a6080", cursor: "pointer", fontSize: 11, padding: "2px 8px" }}
+                  >
+                    ✕
+                  </button>
+                </div>
+                {/* Ability body */}
+                <div style={{ padding: "20px 24px", flex: 1 }}>
+                  {aDesc.description ? (
+                    <div style={{ marginBottom: 20 }}>
+                      <div style={{ fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", color: "#2a5070", fontFamily: "'Orbitron', sans-serif", marginBottom: 8 }}>
+                        Description
+                      </div>
+                      <div style={{ fontSize: 14, color: "#a0c8e0", lineHeight: 1.6, paddingLeft: 8, borderLeft: "3px solid #2a6080" }}>
+                        {aDesc.description}
+                      </div>
+                    </div>
+                  ) : (
+                    <div style={{ marginBottom: 20, fontSize: 13, color: "#2a5070", fontStyle: "italic" }}>
+                      No description available yet.
+                    </div>
+                  )}
+                  {aDesc.grantedBy && (
+                    <div>
+                      <div style={{ fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", color: "#2a5070", fontFamily: "'Orbitron', sans-serif", marginBottom: 8 }}>
+                        Granted By
+                      </div>
+                      <div style={{ fontSize: 13, color: "#c8a040", paddingLeft: 8, borderLeft: "3px solid #6a5020" }}>
+                        {aDesc.grantedBy}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })()
+        ) : !selectedTree ? (
           <div style={{
             flex: 1, display: "flex", alignItems: "center", justifyContent: "center",
             color: "#1a3a55", fontSize: 14, fontStyle: "italic",
@@ -275,7 +370,7 @@ export default function WikiView({ data, stringTables, nodeIcons, treeGroups, tr
           }}>
             {searchLower && matchingTreeIds?.size === 0
               ? "No results found"
-              : "Select a tree to browse"}
+              : "Select a tree or ability to browse"}
           </div>
         ) : (
           <>

@@ -12,9 +12,13 @@ type ClassEntry = {
   sets: JewelrySet[];
 };
 
+export type JewelryAbilityDesc = { name: string; description: string; grantedBy?: string };
+
 interface Props {
   characterType: "normal" | "jedi";
   formatStat: (key: string) => string;
+  abilityDescriptions: Record<string, JewelryAbilityDesc>;
+  onAbilityClick?: (key: string) => void;
 }
 
 // ── Sidebar groups ────────────────────────────────────────────────────────────
@@ -74,7 +78,7 @@ const CLASS_ICONS: Record<string, string> = {
   miner:      "⛏️",
 };
 
-export default function HeroicJewelry({ characterType, formatStat }: Props) {
+export default function HeroicJewelry({ characterType, formatStat, abilityDescriptions, onAbilityClick }: Props) {
   const [data, setData] = useState<ClassEntry[] | null>(null);
   const [selectedClass, setSelectedClass] = useState<string | null>(null);
   const [expandedSets, setExpandedSets] = useState<Set<string>>(new Set());
@@ -471,39 +475,74 @@ export default function HeroicJewelry({ characterType, formatStat }: Props) {
                               </div>
                               {/* Effects */}
                               <div style={{ flex: 1, paddingTop: 2 }}>
-                                {piece.effects.map((eff) => (
-                                  <div
-                                    key={eff.param}
-                                    style={{
-                                      display: "flex",
-                                      justifyContent: "space-between",
-                                      alignItems: "baseline",
-                                      borderBottom: "1px solid #0a1820",
-                                      padding: "2px 0",
-                                      fontSize: 13,
-                                    }}
-                                  >
-                                    <span style={{ color: "#6a9ab0", lineHeight: 1.5 }}>
-                                      {formatStat(eff.param)}
-                                    </span>
-                                    <span
+                                {piece.effects.map((eff) => {
+                                  if (eff.value === 0) {
+                                    const aDesc = abilityDescriptions[eff.param];
+                                    const abilityName = aDesc?.name ?? eff.param.replace(/_ability$/, "").replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+                                    return (
+                                      <div key={eff.param} style={{ borderBottom: "1px solid #0a1820", padding: "4px 0" }}>
+                                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                                          <span style={{ color: "#5ab0d4", fontSize: 13, lineHeight: 1.4 }}>
+                                            {abilityName}
+                                          </span>
+                                          <button
+                                            onClick={() => onAbilityClick?.(eff.param)}
+                                            style={{
+                                              background: "none",
+                                              border: "1px solid #1a4060",
+                                              borderRadius: 3,
+                                              cursor: onAbilityClick ? "pointer" : "default",
+                                              color: "#4ab3e8",
+                                              fontSize: 10,
+                                              fontFamily: "'Orbitron', sans-serif",
+                                              padding: "1px 6px",
+                                              flexShrink: 0,
+                                              marginLeft: 8,
+                                              letterSpacing: "0.05em",
+                                            }}
+                                          >
+                                            Unlocks {onAbilityClick ? "↗" : ""}
+                                          </button>
+                                        </div>
+                                        {aDesc?.description && (
+                                          <div style={{ fontSize: 11, color: "#4a7090", lineHeight: 1.4, marginTop: 3, paddingLeft: 6, borderLeft: "2px solid #1a4060" }}>
+                                            {aDesc.description}
+                                          </div>
+                                        )}
+                                      </div>
+                                    );
+                                  }
+                                  return (
+                                    <div
+                                      key={eff.param}
                                       style={{
-                                        color:
-                                          eff.value > 0 ? "#55bb33" : eff.value === 0 ? "#4ab3e8" : "#cc4444",
-                                        fontFamily: "'Orbitron', sans-serif",
-                                        fontSize: 12,
-                                        flexShrink: 0,
-                                        marginLeft: 8,
+                                        display: "flex",
+                                        justifyContent: "space-between",
+                                        alignItems: "baseline",
+                                        borderBottom: "1px solid #0a1820",
+                                        padding: "2px 0",
+                                        fontSize: 13,
                                       }}
                                     >
-                                      {eff.value === 0
-                                        ? "Unlocks"
-                                        : eff.value > 0
-                                        ? `+${eff.value % 1 === 0 ? eff.value : eff.value.toFixed(1)}`
-                                        : `${eff.value}`}
-                                    </span>
-                                  </div>
-                                ))}
+                                      <span style={{ color: "#6a9ab0", lineHeight: 1.5 }}>
+                                        {formatStat(eff.param)}
+                                      </span>
+                                      <span
+                                        style={{
+                                          color: eff.value > 0 ? "#55bb33" : "#cc4444",
+                                          fontFamily: "'Orbitron', sans-serif",
+                                          fontSize: 12,
+                                          flexShrink: 0,
+                                          marginLeft: 8,
+                                        }}
+                                      >
+                                        {eff.value > 0
+                                          ? `+${eff.value % 1 === 0 ? eff.value : eff.value.toFixed(1)}`
+                                          : `${eff.value}`}
+                                      </span>
+                                    </div>
+                                  );
+                                })}
                               </div>
                             </div>
                           ))}

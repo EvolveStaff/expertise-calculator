@@ -1,0 +1,77 @@
+{
+  "advanced_cloak_ability": {
+    "name": "Advanced Cloak",
+    "description": "",
+    "grantedBy": "Jedi — Shadow Set (3–5 pieces)"
+  },
+  "advanced_smoke_bomb_ability": {
+    "name": "Advanced Smoke Bomb",
+    "description": "",
+    "grantedBy": "Spy — DPS Set (3–5 pieces)"
+  },
+  "affliction_ability": {
+    "name": "Affliction",
+    "description": "",
+    "grantedBy": "Fencer — DPS Set (5 pieces)"
+  },
+  "basic_attacks_to_aoe": {
+    "name": "Basic Attacks to AoE",
+    "description": "",
+    "grantedBy": "Pikeman — DPS Set (5 pieces)"
+  },
+  "cripple_cooldown_reset": {
+    "name": "Cripple Cooldown Reset",
+    "description": "",
+    "grantedBy": "Bounty Hunter — Utility B Set (3–5 pieces)"
+  },
+  "flawless_strike_ability": {
+    "name": "Flawless Strike",
+    "description": "",
+    "grantedBy": "Rifleman — DPS Set (3–5 pieces)"
+  },
+  "guardian_strike_ability": {
+    "name": "Guardian Strike",
+    "description": "",
+    "grantedBy": "Jedi — Tank Set (5 pieces)"
+  },
+  "how_are_you_ability": {
+    "name": "How Are You?",
+    "description": "",
+    "grantedBy": "Smuggler — Utility B Set (5 pieces)"
+  },
+  "lasting_performance_ability": {
+    "name": "Lasting Performance",
+    "description": "",
+    "grantedBy": "Entertainer — Utility B Set (5 pieces)"
+  },
+  "masterful_grace_ability": {
+    "name": "Masterful Grace",
+    "description": "",
+    "grantedBy": "Spy — Utility B Set (5 pieces)"
+  },
+  "preparation_h_ability": {
+    "name": "Preparation H",
+    "description": "",
+    "grantedBy": "Grenadier — DPS Set (5 pieces)"
+  },
+  "smoke_bomb_cooldown_reduction": {
+    "name": "Smoke Bomb Cooldown Reduction",
+    "description": "",
+    "grantedBy": "Spy — DPS Set (3–5 pieces)"
+  },
+  "stealth_strike_ability": {
+    "name": "Stealth Strike",
+    "description": "",
+    "grantedBy": "Jedi — Shadow Set (5 pieces)"
+  },
+  "tactical_advantage_ability": {
+    "name": "Tactical Advantage",
+    "description": "",
+    "grantedBy": "Pistoleer — DPS Set (5 pieces)"
+  },
+  "trader_heal": {
+    "name": "Emergency Heal",
+    "description": "A trader's last ditch effort to keep oneself alive.",
+    "grantedBy": "Trader — General Set (3 pieces)"
+  }
+}

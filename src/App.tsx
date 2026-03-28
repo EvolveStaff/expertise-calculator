@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import ExpertiseTree from "./components/ExpertiseTree";
 import HeroicJewelry from "./components/HeroicJewelry";
+import type { JewelryAbilityDesc } from "./components/HeroicJewelry";
 import WikiView from "./components/WikiView";
 import type { ExpertisePayload, StringTables, VisibleNode, TreeData } from "./lib/types";
 import { STAT_MULTIPLIERS, CORE_STAT_LABELS, CORE_STAT_COLORS, fmtDerived } from "./lib/statHelpers";
@@ -108,9 +109,9 @@ const SHARED_KEYS = new Set([
 const NORMAL_TREE_GROUPS: { label: string; keys: string[] }[] = [
   { label: "Melee Skillsets",       keys: ["combat_brawler","combat_1hsword","combat_2hsword","combat_polearm","combat_unarmed"] },
   { label: "Ranged Skillsets",      keys: ["combat_marksman","combat_pistol","combat_carbine","combat_rifleman","combat_heavy_weapon"] },
-  { label: "Combat Skillsets",      keys: ["combat_assassin","combat_bountyhunter","science_combatmedic","science_doctor","combat_commando","combat_grenadier","combat_smuggler","outdoors_squadleader","combat_teras_kasi"] },
+  { label: "Combat Skillsets",      keys: ["combat_assassin","combat_bountyhunter","science_combatmedic","science_doctor","combat_commando","combat_grenadier","combat_smuggler","outdoors_squadleader","combat_teras_kasi","outdoors_creaturehandler","expertise_tree_beastmaster"] },
   { label: "Entertainer Skillsets", keys: ["social_entertainer","social_musician","social_imagedesigner","social_muse"] },
-  { label: "Crafting Skillsets",    keys: ["crafting_artisan","crafting_architect","crafting_armorsmith","crafting_chef","crafting_cybernetics","crafting_droidengineer","crafting_reverseengineer","crafting_shipwright","crafting_tailor","crafting_weaponsmith","crafting_merchant","outdoors_bio_engineer","outdoors_creaturehandler","expertise_tree_beastmaster"] },
+  { label: "Crafting Skillsets",    keys: ["crafting_artisan","crafting_architect","crafting_armorsmith","crafting_chef","crafting_cybernetics","crafting_droidengineer","crafting_reverseengineer","crafting_shipwright","crafting_tailor","crafting_weaponsmith","crafting_merchant","outdoors_bio_engineer"] },
 ];
 
 const JEDI_TREE_GROUPS: { label: string; keys: string[] }[] = [
@@ -309,6 +310,16 @@ export default function App() {
       .then((json: Record<string, string>) => setCmdDescriptions(json))
       .catch(() => {/* descriptions optional */});
   }, []);
+
+  const [jewelryAbilityDescs, setJewelryAbilityDescs] = useState<Record<string, JewelryAbilityDesc>>({});
+  useEffect(() => {
+    fetch("/data/jewelry_ability_descriptions.json")
+      .then((r) => r.json())
+      .then((json: Record<string, JewelryAbilityDesc>) => setJewelryAbilityDescs(json))
+      .catch(() => {});
+  }, []);
+
+  const [focusAbilityKey, setFocusAbilityKey] = useState<string | null>(null);
 
   const allTrees = useMemo(() => {
     if (!data) return [];
@@ -784,7 +795,10 @@ function getNodeDisabledReason(node: VisibleNode): string {
 
         {/* Codex tab — larger, distinct style */}
         <button
-          onClick={() => setViewMode(viewMode === "codex" ? "calculator" : "codex")}
+          onClick={() => {
+            if (viewMode === "codex") { setViewMode("calculator"); }
+            else { setViewMode("codex"); setFocusAbilityKey(null); }
+          }}
           style={{
             padding: "11px 36px",
             border: viewMode === "codex" ? "1px solid #c8a04088" : "1px solid #1a3050",
@@ -818,6 +832,8 @@ function getNodeDisabledReason(node: VisibleNode): string {
           treeGroups={[...NORMAL_TREE_GROUPS, ...JEDI_TREE_GROUPS]}
           treeNames={TREE_NAMES}
           cmdDescriptions={cmdDescriptions}
+          abilityDescriptions={jewelryAbilityDescs}
+          focusAbilityKey={focusAbilityKey}
         />
       )}
 
@@ -1616,6 +1632,8 @@ function getNodeDisabledReason(node: VisibleNode): string {
           <HeroicJewelry
             characterType={characterType}
             formatStat={(key) => formatStatKey(key, stringTables)}
+            abilityDescriptions={jewelryAbilityDescs}
+            onAbilityClick={(key) => { setViewMode("codex"); setFocusAbilityKey(key); }}
           />
         </div>
 
