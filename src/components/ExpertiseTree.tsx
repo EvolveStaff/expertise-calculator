@@ -9,6 +9,7 @@ type Props = {
   onIncrease: (nodeId: string) => void;
   onDecrease: (nodeId: string) => void;
   onSelectNode: (node: VisibleNode) => void;
+  onAutoFill?: (node: VisibleNode) => void;
   canIncrease: (node: VisibleNode) => boolean;
   canDecrease: (node: VisibleNode) => boolean;
   getNodeDisabledReason: (node: VisibleNode) => string;
@@ -298,10 +299,14 @@ function NodeTooltip({
         fontSize: 10,
         letterSpacing: "0.08em",
         display: "flex",
-        justifyContent: "space-between",
+        flexDirection: "column",
+        gap: 2,
       }}>
-        <span>Left-click to invest</span>
-        <span>Right-click to remove</span>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <span>Left-click to invest</span>
+          <span>Right-click to remove</span>
+        </div>
+        <div style={{ color: "#1a3848" }}>Shift+click to auto-fill prerequisites</div>
       </div>
     </div>
   );
@@ -315,6 +320,7 @@ export default function ExpertiseTree({
   onIncrease,
   onDecrease,
   onSelectNode,
+  onAutoFill,
   canIncrease,
   canDecrease: _canDecrease,
   getNodeDisabledReason,
@@ -492,7 +498,7 @@ export default function ExpertiseTree({
             <div
               key={node.nodeId}
               ref={(el) => { nodeRefs.current[node.nodeId] = el; }}
-              onClick={() => { onIncrease(node.nodeId); onSelectNode(node); }}
+              onClick={(e) => { if (e.shiftKey && onAutoFill) { onAutoFill(node); } else { onIncrease(node.nodeId); onSelectNode(node); } }}
               onContextMenu={(e) => { e.preventDefault(); onDecrease(node.nodeId); onSelectNode(node); }}
               onMouseEnter={(e) => setTooltip({ node, x: e.clientX, y: e.clientY })}
               onMouseMove={(e) => setTooltip((t) => t ? { ...t, x: e.clientX, y: e.clientY } : null)}

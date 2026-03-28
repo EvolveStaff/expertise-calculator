@@ -1,5 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import ExpertiseTree from "./components/ExpertiseTree";
+import AutoFillModal from "./components/AutoFillModal";
+import { computeAutoFill } from "./lib/autoFill";
+import type { AutoFillResult } from "./lib/autoFill";
 import HeroicJewelry from "./components/HeroicJewelry";
 import type { JewelryAbilityDesc } from "./components/HeroicJewelry";
 import WikiView from "./components/WikiView";
@@ -233,6 +236,11 @@ export default function App() {
   const [stringTables, setStringTables] = useState<StringTables | null>(null);
   const [treeId, setTreeId] = useState<number | null>(null);
   const [selectedNode, setSelectedNode] = useState<VisibleNode | null>(null);
+  const [autoFillModal, setAutoFillModal] = useState<{
+    node: VisibleNode;
+    result: AutoFillResult;
+    treeId: number;
+  } | null>(null);
   // Lazy-init from localStorage so the save effect never stomps the stored data
   const [selectionsByTree, setSelectionsByTree] = useState<SelectionsByTree>(() => {
     try {
@@ -469,6 +477,19 @@ export default function App() {
       [nodeId]: current + 1,
     };
   });
+}
+
+function handleAutoFill(node: VisibleNode) {
+  if (!currentTree || !treeId || !data) return;
+  const result = computeAutoFill(node, currentTree, data.trees, selectionsByTree, currentTree.key);
+  setAutoFillModal({ node, result, treeId });
+}
+
+function applyAutoFill() {
+  if (!autoFillModal || !autoFillModal.result.ok) return;
+  const { treeId: tid, result } = autoFillModal;
+  setSelectionsByTree((prev) => ({ ...prev, [tid]: result.newTreeSelections }));
+  setAutoFillModal(null);
 }
 
 function decreaseRank(nodeId: string) {
@@ -1392,6 +1413,7 @@ function getNodeDisabledReason(node: VisibleNode): string {
                   formatCmd={(key) => formatCmdKey(key, stringTables)}
                   nodeIcons={nodeIcons ?? undefined}
                   treeKey={currentTree.key}
+                  onAutoFill={handleAutoFill}
                 />
 
                 {/* ── Node Detail Panel ─────────────────────────────── */}
@@ -2068,5 +2090,16 @@ function getNodeDisabledReason(node: VisibleNode): string {
       </>)} {/* end calculator view */}
     </div> {/* end page body */}
     </div>
+
+    {/* Auto-fill modal */}
+    {autoFillModal && (
+      <AutoFillModal
+        targetName={autoFillModal.node.displayName}
+        result={autoFillModal.result}
+        currentTotal={totalPointsSpent}
+        onApply={applyAutoFill}
+        onCancel={() => setAutoFillModal(null)}
+      />
+    )}
   );
 }
