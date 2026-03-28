@@ -186,16 +186,17 @@ export function computeAutoFill(
       return { ok: false, reason: `Requires "${nodeId.replace(/_/g, " ")}" from another tree.` };
     }
 
-    // Ensure the node's tier is unlocked
-    const tierResult = fillTierGap(node.tier);
-    if (!tierResult.ok) return tierResult;
-
-    // Satisfy specific skillsRequired recursively
+    // Fill specific skillsRequired FIRST so their points count toward the tier threshold,
+    // reducing how many extra nodes the tier gap fill needs to touch.
     const reqs = getCrossNodeRequirements(node, tree.nodes);
     for (const { nodeId: rid, requiredRank: rr } of reqs) {
       const r = fillNodeTo(rid, rr, depth + 1);
       if (!r.ok) return r;
     }
+
+    // THEN fill any remaining tier gap (required nodes above already contribute to the count).
+    const tierResult = fillTierGap(node.tier);
+    if (!tierResult.ok) return tierResult;
 
     // Now invest in this node
     workingSelections[nodeId] = requiredRank;
