@@ -86,7 +86,6 @@ const TREE_NAMES: Record<string, string> = {
   crafting_shipwright:   "Shipwright",
   crafting_tailor:       "Tailor",
   crafting_weaponsmith:  "Weaponsmith",
-  crafting_merchant:     "Merchant",
   // Force / Jedi
   force_sensitive:           "Force Sensitive",
   expertise_tree_beastmaster:"Beast Master",
@@ -114,7 +113,7 @@ const NORMAL_TREE_GROUPS: { label: string; keys: string[] }[] = [
   { label: "Ranged Skillsets",      keys: ["combat_marksman","combat_pistol","combat_carbine","combat_rifleman","combat_heavy_weapon"] },
   { label: "Combat Skillsets",      keys: ["combat_assassin","combat_bountyhunter","science_combatmedic","science_doctor","combat_commando","combat_grenadier","combat_smuggler","outdoors_squadleader","combat_teras_kasi","outdoors_creaturehandler","expertise_tree_beastmaster"] },
   { label: "Entertainer Skillsets", keys: ["social_entertainer","social_musician","social_imagedesigner","social_muse"] },
-  { label: "Crafting Skillsets",    keys: ["crafting_artisan","crafting_architect","crafting_armorsmith","crafting_chef","crafting_cybernetics","crafting_droidengineer","crafting_reverseengineer","crafting_shipwright","crafting_tailor","crafting_weaponsmith","crafting_merchant","outdoors_bio_engineer"] },
+  { label: "Crafting Skillsets",    keys: ["crafting_artisan","crafting_architect","crafting_armorsmith","crafting_chef","crafting_cybernetics","crafting_droidengineer","crafting_reverseengineer","crafting_shipwright","crafting_tailor","crafting_weaponsmith","outdoors_bio_engineer"] },
 ];
 
 const JEDI_TREE_GROUPS: { label: string; keys: string[] }[] = [
