@@ -2089,9 +2089,8 @@ function getNodeDisabledReason(node: VisibleNode): string {
       </div>
       </>)} {/* end calculator view */}
     </div> {/* end page body */}
-    </div>
 
-    {/* Auto-fill modal */}
+    {/* Auto-fill modal — rendered via portal into document.body */}
     {autoFillModal && (
       <AutoFillModal
         targetName={autoFillModal.node.displayName}
@@ -2101,5 +2100,6 @@ function getNodeDisabledReason(node: VisibleNode): string {
         onCancel={() => setAutoFillModal(null)}
       />
     )}
+    </div>
   );
 }
