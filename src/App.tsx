@@ -181,7 +181,8 @@ type BuildPayload = { v: number; characterType: "normal" | "jedi"; selections: S
 
 // v2: compact [[treeId, [[nodeIdx, rank], ...]], ...] — much shorter than full nodeId strings
 function encodeBuild(selections: SelectionsByTree, charType: "normal" | "jedi", allTrees: TreeData[]): string {
-  const s: Array<[number, Array<[number, number]>]> = [];
+  // v3: compact binary — [version, charType, treeCount, (treeId, entryCount, idx, rank…)…]
+  const trees: Array<{ treeId: number; entries: Array<[number, number]> }> = [];
   for (const [tid, ranks] of Object.entries(selections)) {
     const treeId = Number(tid);
     const tree = allTrees.find((t) => t.id === treeId);
@@ -192,14 +193,49 @@ function encodeBuild(selections: SelectionsByTree, charType: "normal" | "jedi", 
       const idx = tree.nodes.findIndex((n) => n.nodeId === nodeId);
       if (idx >= 0) entries.push([idx, rank]);
     }
-    if (entries.length > 0) s.push([treeId, entries]);
+    if (entries.length > 0) trees.push({ treeId, entries });
   }
-  return btoa(JSON.stringify({ v: 2, t: charType === "jedi" ? "j" : "n", s }));
+  const buf: number[] = [3, charType === "jedi" ? 1 : 0, trees.length];
+  for (const { treeId, entries } of trees) {
+    buf.push(treeId & 0xff, entries.length);
+    for (const [idx, rank] of entries) buf.push(idx, rank);
+  }
+  return btoa(String.fromCharCode(...buf)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
 }
 
 function decodeBuild(code: string, allTrees?: TreeData[]): BuildPayload | null {
   try {
-    const obj = JSON.parse(atob(code.trim()));
+    const b64 = code.trim().replace(/-/g, "+").replace(/_/g, "/");
+    const raw = atob(b64);
+    const firstByte = raw.charCodeAt(0);
+
+    // v3: compact binary
+    if (firstByte === 3 && allTrees) {
+      const bytes = Uint8Array.from(raw, (c) => c.charCodeAt(0));
+      const charType: "normal" | "jedi" = bytes[1] === 1 ? "jedi" : "normal";
+      const treeCount = bytes[2];
+      const selections: SelectionsByTree = {};
+      let pos = 3;
+      for (let t = 0; t < treeCount; t++) {
+        const treeId = bytes[pos++];
+        const entryCount = bytes[pos++];
+        const tree = allTrees.find((tr) => tr.id === treeId);
+        const ranks: Record<string, number> = {};
+        for (let e = 0; e < entryCount; e++) {
+          const idx = bytes[pos++];
+          const rank = bytes[pos++];
+          if (tree) {
+            const node = tree.nodes[idx];
+            if (node && rank > 0) ranks[node.nodeId] = rank;
+          }
+        }
+        if (tree && Object.keys(ranks).length > 0) selections[treeId] = ranks;
+      }
+      return { v: 2, characterType: charType, selections };
+    }
+
+    // v1/v2: JSON in base64
+    const obj = JSON.parse(raw);
     if (!obj || typeof obj !== "object") return null;
     if (obj.v === 2 && allTrees) {
       const charType: "normal" | "jedi" = obj.t === "j" ? "jedi" : "normal";
@@ -216,7 +252,6 @@ function decodeBuild(code: string, allTrees?: TreeData[]): BuildPayload | null {
       }
       return { v: 2, characterType: charType, selections };
     }
-    // v1 backward compatibility
     if (obj.selections) {
       return {
         v: 1,
@@ -634,11 +669,10 @@ function getNodeDisabledReason(node: VisibleNode): string {
 
   function copyShareCode() {
     if (!shareCode) return;
-    navigator.clipboard.writeText(shareCode).then(() => {
+    navigator.clipboard.writeText(window.location.href).then(() => {
       setShareCopied(true);
       setTimeout(() => setShareCopied(false), 2500);
     }).catch(() => {
-      // Fallback: select the input text
       const el = document.getElementById("share-code-input") as HTMLInputElement | null;
       el?.select();
     });
@@ -1109,7 +1143,7 @@ function getNodeDisabledReason(node: VisibleNode): string {
           📤 Share
         </button>
 
-        {/* Show the share code with a one-click copy button */}
+        {/* Show the share URL with a one-click copy button */}
         {shareCode && (
           <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
             <code style={{
@@ -1125,12 +1159,14 @@ function getNodeDisabledReason(node: VisibleNode): string {
               textOverflow: "ellipsis",
               whiteSpace: "nowrap",
               display: "block",
-            }}>
-              {shareCode}
+            }}
+              title={window.location.href}
+            >
+              {window.location.href}
             </code>
             <button
               onClick={copyShareCode}
-              title="Copy to clipboard"
+              title="Copy link to clipboard"
               style={{
                 background: shareCopied ? "#1a3a1a" : "#1a2030",
                 border: `1px solid ${shareCopied ? "#44aa44" : "#446"}`,
@@ -1143,7 +1179,7 @@ function getNodeDisabledReason(node: VisibleNode): string {
                 whiteSpace: "nowrap",
               }}
             >
-              {shareCopied ? "✓ Copied!" : "Copy"}
+              {shareCopied ? "✓ Copied!" : "Copy Link"}
             </button>
           </div>
         )}
@@ -1186,7 +1222,7 @@ function getNodeDisabledReason(node: VisibleNode): string {
         )}
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: panelOpen ? "180px 2fr 1fr" : "180px 1fr", gap: 20 }}>
+      <div style={{ display: "grid", gridTemplateColumns: panelOpen ? "180px 2fr 1fr" : "180px 1fr 40px", gap: 20 }}>
 
         {/* ── Tree sidebar (all character types) ── */}
         <div style={{
