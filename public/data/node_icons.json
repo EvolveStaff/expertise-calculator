@@ -817,7 +817,7 @@
   "expertise_hw_crit": "/icons/co_general_on_target.png",
   "expertise_hw_def": "/icons/bh_armor_duelist.png",
   "expertise_hw_dot": "/icons/co_path_blow_em_away.png",
-  "expertise_marksman_ability": "/icons/bh_dm.png",
+  "expertise_marksman_ability": "/icons/bh_dm_cc.png",
   "combat_rifleman::expertise_marksman_ability": "/icons/bh_dm_crit.png",
   "expertise_marksman_carbine": "/icons/placedShot.png",
   "expertise_marksman_carbine_acc": "/icons/bh_carbine.png",
