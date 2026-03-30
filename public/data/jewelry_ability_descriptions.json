@@ -1,73 +1,73 @@
 {
   "advanced_cloak_ability": {
     "name": "Advanced Cloak",
-    "description": "",
-    "grantedBy": "Jedi — Shadow Set (3–5 pieces)"
+    "description": "Reduces the cooldown of Force Cloak by 30s at 3 pieces, 90s at 4 pieces, and 105s at 5 pieces — enabling significantly more frequent stealth entries for shadow-focused Jedi.",
+    "grantedBy": "Jedi — Shadow's Embrace (3–5 pieces)"
   },
   "advanced_smoke_bomb_ability": {
     "name": "Advanced Smoke Bomb",
-    "description": "",
-    "grantedBy": "Spy — DPS Set (3–5 pieces)"
+    "description": "Enhances Smoke Bomb so that detonation automatically conceals the Assassin in stealth (30s invisibility), enabling immediate re-engagement or escape after the bomb drops.",
+    "grantedBy": "Assassin — Assassin's Set (3–5 pieces)"
   },
   "affliction_ability": {
     "name": "Affliction",
-    "description": "",
-    "grantedBy": "Fencer — DPS Set (5 pieces)"
+    "description": "Enables a stacking damage-over-time effect on the target. Each application adds another layer of the affliction, increasing total DoT damage over the duration of combat.",
+    "grantedBy": "Fencer — Swashbuckler's Set (5 pieces)"
   },
   "basic_attacks_to_aoe": {
     "name": "Basic Attacks to AoE",
-    "description": "",
-    "grantedBy": "Pikeman — DPS Set (5 pieces)"
+    "description": "Converts the Pikeman's basic attacks into area-of-effect strikes that hit all nearby enemies, dramatically increasing sustained cleave damage in melee-range groups.",
+    "grantedBy": "Pikeman — Pikeman's Set (5 pieces)"
   },
   "cripple_cooldown_reset": {
     "name": "Cripple Cooldown Reset",
-    "description": "",
-    "grantedBy": "Bounty Hunter — Utility B Set (3–5 pieces)"
+    "description": "Passively resets the cooldown of Cripple when triggered, allowing the Bounty Hunter to rapidly reapply the snare and root effects without waiting for the normal cooldown.",
+    "grantedBy": "Bounty Hunter — Dire Fate Set (3–5 pieces)"
   },
   "flawless_strike_ability": {
     "name": "Flawless Strike",
-    "description": "",
-    "grantedBy": "Rifleman — DPS Set (3–5 pieces)"
+    "description": "A precision shot that activates a 6-second proc window. When the proc fires it grants +50% Strikethrough Chance for 15 seconds, allowing the Rifleman's attacks to bypass defenses.",
+    "grantedBy": "Rifleman — Flawless Set (3–5 pieces)"
   },
   "guardian_strike_ability": {
     "name": "Guardian Strike",
-    "description": "",
-    "grantedBy": "Jedi — Tank Set (5 pieces)"
+    "description": "A powerful retaliatory strike available to guardian-spec Jedi. Strikes back against attackers with Force-enhanced power, dealing heavy damage while reinforcing the Jedi's defensive stance.",
+    "grantedBy": "Jedi — Guardian's Set (5 pieces)"
   },
   "how_are_you_ability": {
     "name": "How Are You?",
-    "description": "",
-    "grantedBy": "Smuggler — Utility B Set (5 pieces)"
+    "description": "A Smuggler misdirection technique that catches the target off guard, briefly disrupting their combat actions and creating an opening for follow-up attacks or a clean getaway.",
+    "grantedBy": "Smuggler — Gambler Set (5 pieces)"
   },
   "lasting_performance_ability": {
     "name": "Lasting Performance",
-    "description": "",
-    "grantedBy": "Entertainer — Utility B Set (5 pieces)"
+    "description": "A sustained 2-hour performance buff applied via music. Grants +15% movement speed, +150 Constitution, and -5% action costs — keeping allies in peak condition throughout extended sessions.",
+    "grantedBy": "Entertainer — Performer Set (5 pieces)"
   },
   "masterful_grace_ability": {
     "name": "Masterful Grace",
-    "description": "",
-    "grantedBy": "Spy — Utility B Set (5 pieces)"
+    "description": "An evasive combat technique granting the Assassin heightened defensive reflexes. Combined with the set's increased Strikethrough, action efficiency, and near-immunity to snares and roots for fluid shadow combat.",
+    "grantedBy": "Assassin — Razor Cat Set (5 pieces)"
   },
   "preparation_h_ability": {
     "name": "Preparation H",
-    "description": "",
-    "grantedBy": "Grenadier — DPS Set (5 pieces)"
+    "description": "Applies an 8-second debuff to the target that reduces their Dodge by 40, Evasion by 40, and Block by 40 — stripping defensive layers and making them significantly more vulnerable to follow-up attacks.",
+    "grantedBy": "Grenadier — Grenadier's Set (5 pieces)"
   },
   "smoke_bomb_cooldown_reduction": {
     "name": "Smoke Bomb Cooldown Reduction",
-    "description": "",
-    "grantedBy": "Spy — DPS Set (3–5 pieces)"
+    "description": "Reduces Smoke Bomb cooldown by 30s at 3 pieces, 90s at 4 pieces, and 105s at 5 pieces — allowing near-constant access to the Assassin's primary escape and engagement tool.",
+    "grantedBy": "Assassin — Assassin's Set (3–5 pieces)"
   },
   "stealth_strike_ability": {
     "name": "Stealth Strike",
-    "description": "",
-    "grantedBy": "Jedi — Shadow Set (5 pieces)"
+    "description": "A 6-second shadow technique that applies 4 stacks of Impossible Odds, reduces the target's incoming healing by 60%, and enables a Pistol Whip follow-up — combining burst pressure with anti-heal disruption.",
+    "grantedBy": "Jedi — Shadow's Embrace (5 pieces)"
   },
   "tactical_advantage_ability": {
     "name": "Tactical Advantage",
-    "description": "",
-    "grantedBy": "Pistoleer — DPS Set (5 pieces)"
+    "description": "A Pistoleer combat technique that establishes a tactical edge, increasing the effectiveness of precision fire and setting up advantageous attack angles against the target.",
+    "grantedBy": "Pistoleer — Dead Eye Set (5 pieces)"
   },
   "trader_heal": {
     "name": "Emergency Heal",
