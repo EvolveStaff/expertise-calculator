@@ -361,6 +361,14 @@ export default function App() {
       .catch(() => {});
   }, []);
 
+  const [effectMapping, setEffectMapping] = useState<Record<string, { type: string; subtype: string }>>({});
+  useEffect(() => {
+    fetch("/data/effect_mapping.json")
+      .then((r) => r.json())
+      .then((json: Record<string, { type: string; subtype: string }>) => setEffectMapping(json))
+      .catch(() => {});
+  }, []);
+
   const [focusAbilityKey, setFocusAbilityKey] = useState<string | null>(null);
 
   const allTrees = useMemo(() => {
@@ -1690,6 +1698,7 @@ function getNodeDisabledReason(node: VisibleNode): string {
             characterType={characterType}
             formatStat={(key) => formatStatKey(key, stringTables)}
             abilityDescriptions={jewelryAbilityDescs}
+            effectMapping={effectMapping}
             onAbilityClick={(key) => { setViewMode("codex"); setFocusAbilityKey(key); }}
           />
         </div>

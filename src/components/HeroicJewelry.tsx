@@ -14,10 +14,32 @@ type ClassEntry = {
 
 export type JewelryAbilityDesc = { name: string; description: string; grantedBy?: string };
 
+type EffectMappingEntry = { type: string; subtype: string };
+
+// Human-readable label + color for known effect types
+const EFFECT_TYPE_LABELS: Record<string, { label: string; color: string }> = {
+  skill:          { label: "Skill",       color: "#4a90c8" },
+  skillPercent:   { label: "Skill %",     color: "#4a90c8" },
+  attrib:         { label: "Attribute",   color: "#c8a040" },
+  attribPercent:  { label: "Attrib %",    color: "#c8a040" },
+  commandGrant:   { label: "Grants Cmd",  color: "#40c8a0" },
+  dot:            { label: "DoT",         color: "#c86040" },
+  dotReduction:   { label: "DoT Resist",  color: "#60c860" },
+  immunity:       { label: "Immunity",    color: "#9060c8" },
+  cooldownModify: { label: "Cooldown",    color: "#c8c040" },
+  craftBonus:     { label: "Crafting",    color: "#808080" },
+  healEffect:     { label: "Heal",        color: "#60c860" },
+  actionRegen:    { label: "Act Regen",   color: "#40a0c8" },
+  actionBurn:     { label: "Act Burn",    color: "#c86040" },
+  movement:       { label: "Movement",    color: "#a0a0a0" },
+  scriptVar:      { label: "Special",     color: "#a060c8" },
+};
+
 interface Props {
   characterType: "normal" | "jedi";
   formatStat: (key: string) => string;
   abilityDescriptions: Record<string, JewelryAbilityDesc>;
+  effectMapping?: Record<string, EffectMappingEntry>;
   onAbilityClick?: (key: string) => void;
 }
 
@@ -78,7 +100,7 @@ const CLASS_ICONS: Record<string, string> = {
   miner:      "⛏️",
 };
 
-export default function HeroicJewelry({ characterType, formatStat, abilityDescriptions, onAbilityClick }: Props) {
+export default function HeroicJewelry({ characterType, formatStat, abilityDescriptions, effectMapping, onAbilityClick }: Props) {
   const [data, setData] = useState<ClassEntry[] | null>(null);
   const [selectedClass, setSelectedClass] = useState<string | null>(null);
   const [expandedSets, setExpandedSets] = useState<Set<string>>(new Set());
@@ -89,6 +111,29 @@ export default function HeroicJewelry({ characterType, formatStat, abilityDescri
       .then((json: ClassEntry[]) => setData(json))
       .catch(() => {/* optional */});
   }, []);
+
+  function EffectTypeBadge({ param }: { param: string }) {
+    const entry = effectMapping?.[param];
+    if (!entry) return null;
+    const meta = EFFECT_TYPE_LABELS[entry.type];
+    if (!meta) return null;
+    return (
+      <span style={{
+        fontSize: 9,
+        fontFamily: "'Orbitron', sans-serif",
+        color: meta.color,
+        border: `1px solid ${meta.color}55`,
+        borderRadius: 3,
+        padding: "1px 4px",
+        marginLeft: 6,
+        letterSpacing: "0.05em",
+        opacity: 0.8,
+        flexShrink: 0,
+      }}>
+        {meta.label}
+      </span>
+    );
+  }
 
   const visibleClasses = useMemo(() => {
     if (!data) return [];
@@ -427,7 +472,10 @@ export default function HeroicJewelry({ characterType, formatStat, abilityDescri
                                     fontSize: 13,
                                   }}
                                 >
-                                  <span style={{ color: "#4a7a8a", lineHeight: 1.5 }}>{formatStat(eff.param)}</span>
+                                  <span style={{ display: "flex", alignItems: "center", color: "#4a7a8a", lineHeight: 1.5 }}>
+                                    {formatStat(eff.param)}
+                                    <EffectTypeBadge param={eff.param} />
+                                  </span>
                                   <span style={{ color: "#3a8a60", fontFamily: "'Orbitron', sans-serif", fontSize: 12, marginLeft: 8 }}>
                                     +{eff.value}
                                     <span style={{ color: "#2a6a48", marginLeft: 5, fontSize: 11 }}>
@@ -524,8 +572,9 @@ export default function HeroicJewelry({ characterType, formatStat, abilityDescri
                                         fontSize: 13,
                                       }}
                                     >
-                                      <span style={{ color: "#6a9ab0", lineHeight: 1.5 }}>
+                                      <span style={{ display: "flex", alignItems: "center", color: "#6a9ab0", lineHeight: 1.5 }}>
                                         {formatStat(eff.param)}
+                                        <EffectTypeBadge param={eff.param} />
                                       </span>
                                       <span
                                         style={{

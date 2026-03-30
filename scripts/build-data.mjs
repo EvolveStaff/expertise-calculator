@@ -681,3 +681,24 @@ fs.writeFileSync(
 console.log("Generated public/data/expertise.json");
 console.log(`Trees: ${trees.length}`);
 console.log(`Warnings: ${warnings.length}`);
+
+// ── Effect mapping ────────────────────────────────────────────────────────────
+const effectMappingPath = path.join(dataDir, "effect_mapping.tab");
+if (fs.existsSync(effectMappingPath)) {
+  const effectRows = readTab(effectMappingPath);
+  const effectMapping = {};
+  for (const row of effectRows) {
+    const name = String(row.NAME || "").trim();
+    if (!name) continue;
+    effectMapping[name] = {
+      type: String(row.TYPE || "").trim(),
+      subtype: String(row.SUBTYPE || "").trim(),
+    };
+  }
+  fs.writeFileSync(
+    path.join(outDir, "effect_mapping.json"),
+    JSON.stringify(effectMapping),
+    "utf8"
+  );
+  console.log(`Generated public/data/effect_mapping.json (${Object.keys(effectMapping).length} entries)`);
+}
