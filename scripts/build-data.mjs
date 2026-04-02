@@ -456,6 +456,8 @@ const SKILL_REQ_REMOVALS = new Map([
   ["expertise_co_double_time",  new Set(["combat_commando_novice_4"])],
   // Carbineer T4/G2: Evolve requires only rank 1 of Concussion Shot (not rank 2).
   ["expertise_concussion_damage_1", new Set(["expertise_carbineer_attack_2"])],
+  // Rifleman T4/G6 (Ambush Efficiency): Evolve requires only rank 1 of Ambush (not rank 3).
+  ["expertise_bh_amb_act_1", new Set(["expertise_marksman_ability_03"])],
 ]);
 
 // SKILLS_REQUIRED entries added by Evolve that are not in the source data.
@@ -468,6 +470,8 @@ const SKILL_REQ_ADDITIONS = new Map([
   // Guardian T5/G4 (Premonition): requires 4 points in T4/G4 (Anticipate Aggression).
   // The 24-point total is already enforced by the ADVANCED_TIER_THRESHOLDS tier gate.
   ["expertise_fs_general_premonition_1", ["expertise_fs_path_anticipate_aggression_4"]],
+  // Rifleman T4/G6 (Ambush Efficiency): inject rank-1 Ambush requirement.
+  ["expertise_bh_amb_act_1", ["expertise_marksman_ability_01"]],
 ]);
 
 const root = process.cwd();

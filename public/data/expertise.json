@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-03-30T17:47:54.340Z",
+    "generatedAt": "2026-04-02T05:37:52.419Z",
     "sourceFiles": [
       "expertise_trees.tab",
       "expertise.tab",
@@ -14970,7 +14970,7 @@
           "treeId": 10,
           "tier": 3,
           "grid": 3,
-          "displayName": "Cover",
+          "displayName": "Take Cover",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_rifleman_novice"
@@ -15143,7 +15143,7 @@
           "treeId": 10,
           "tier": 3,
           "grid": 5,
-          "displayName": "Area Damage",
+          "displayName": "Sweeping Fire",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -15458,7 +15458,7 @@
           "displayName": "Ambush Efficiency",
           "maxRank": 4,
           "skillsRequired": [
-            "expertise_marksman_ability_03"
+            "expertise_marksman_ability_01"
           ],
           "skillsRequiredCount": null,
           "preclusionSkills": [],
@@ -15477,7 +15477,7 @@
               "prereqLevel": null,
               "parent": "expertise",
               "skillsRequired": [
-                "expertise_marksman_ability_03"
+                "expertise_marksman_ability_01"
               ],
               "skillsRequiredCount": null,
               "preclusionSkills": [],
