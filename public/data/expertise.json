@@ -16167,7 +16167,7 @@
           "treeId": 11,
           "tier": 2,
           "grid": 2,
-          "displayName": "Hidden Daggers",
+          "displayName": "Advanced Strikes",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_sp_novice_4"
@@ -16491,7 +16491,7 @@
           "treeId": 11,
           "tier": 2,
           "grid": 6,
-          "displayName": "Cloaked Attacks",
+          "displayName": "Deceptive Attacks",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_sp_novice_4"
@@ -16655,7 +16655,7 @@
           "treeId": 11,
           "tier": 3,
           "grid": 3,
-          "displayName": "Damage",
+          "displayName": "Assassinate",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -17337,7 +17337,7 @@
           "treeId": 11,
           "tier": 4,
           "grid": 5,
-          "displayName": "Field Debuff Chance",
+          "displayName": "Flashbang",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -18210,7 +18210,7 @@
           "treeId": 12,
           "tier": 2,
           "grid": 6,
-          "displayName": "Tangle",
+          "displayName": "Trapping",
           "maxRank": 1,
           "skillsRequired": [
             "combat_bountyhunter_novice_4"
@@ -18622,7 +18622,7 @@
           "treeId": 12,
           "tier": 3,
           "grid": 6,
-          "displayName": "Noxious Traps",
+          "displayName": "Trap Enhancements",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_bh_tangle",
@@ -18794,7 +18794,7 @@
           "treeId": 12,
           "tier": 4,
           "grid": 2,
-          "displayName": "Intimidate",
+          "displayName": "Intimidating Strike",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -19068,7 +19068,7 @@
           "treeId": 12,
           "tier": 4,
           "grid": 6,
-          "displayName": "Taunt",
+          "displayName": "Antagonize",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -19404,7 +19404,7 @@
           "treeId": 12,
           "tier": 6,
           "grid": 1,
-          "displayName": "Reveal",
+          "displayName": "Reveal Bounty",
           "maxRank": 1,
           "skillsRequired": [
             "combat_bountyhunter_master"
@@ -19826,7 +19826,7 @@
           "treeId": 13,
           "tier": 2,
           "grid": 3,
-          "displayName": "Crowd Control DoT",
+          "displayName": "Arachne's Web",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -20032,7 +20032,7 @@
           "treeId": 13,
           "tier": 2,
           "grid": 6,
-          "displayName": "Field DoT Damage",
+          "displayName": "Nerve Gas",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -22679,7 +22679,7 @@
           "treeId": 14,
           "tier": 6,
           "grid": 1,
-          "displayName": "Area Taunt",
+          "displayName": "Area Enrage",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_co_taunt"
@@ -22720,7 +22720,7 @@
           "treeId": 14,
           "tier": 6,
           "grid": 2,
-          "displayName": "Taunt",
+          "displayName": "Enrage",
           "maxRank": 1,
           "skillsRequired": [
             "combat_commando_master"
@@ -23140,7 +23140,7 @@
           "treeId": 15,
           "tier": 2,
           "grid": 4,
-          "displayName": "Doctor Efficiency",
+          "displayName": "Doctor: Action Cost",
           "maxRank": 4,
           "skillsRequired": [
             "science_doctor_novice_4",
@@ -23356,7 +23356,7 @@
           "treeId": 15,
           "tier": 3,
           "grid": 2,
-          "displayName": "HoT Duration",
+          "displayName": "Bacta Concentration",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_me_hot"
@@ -23479,7 +23479,7 @@
           "treeId": 15,
           "tier": 3,
           "grid": 3,
-          "displayName": "Cleanse",
+          "displayName": "Detox",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -23516,7 +23516,7 @@
           "treeId": 15,
           "tier": 3,
           "grid": 4,
-          "displayName": "Healing Power",
+          "displayName": "Doctor: Healing Potency",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_doc_acr_4",
@@ -25114,7 +25114,7 @@
           "treeId": 16,
           "tier": 2,
           "grid": 4,
-          "displayName": "Area Action Cost",
+          "displayName": "Explosives Expert",
           "maxRank": 4,
           "skillsRequired": [
             "combat_grenadier_novice_4"
@@ -25510,7 +25510,7 @@
           "treeId": 16,
           "tier": 3,
           "grid": 4,
-          "displayName": "Area Damage",
+          "displayName": "High Explosives",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_of_aoe_act_4"
@@ -25941,7 +25941,7 @@
           "treeId": 16,
           "tier": 4,
           "grid": 4,
-          "displayName": "Area Critical Chance",
+          "displayName": "Surgical Demolitions",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_of_aoe_dam_4"
@@ -26318,7 +26318,7 @@
           "treeId": 16,
           "tier": 5,
           "grid": 4,
-          "displayName": "Anti-Evade",
+          "displayName": "Powerful Offense",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_of_aoe_crit_4"
@@ -29297,7 +29297,7 @@
           "treeId": 18,
           "tier": 2,
           "grid": 6,
-          "displayName": "Paint Target",
+          "displayName": "Advanced Paint Target",
           "maxRank": 1,
           "skillsRequired": [
             "outdoors_squadleader_novice_4"
@@ -31076,7 +31076,7 @@
           "treeId": 19,
           "tier": 3,
           "grid": 2,
-          "displayName": "Teras Kasi Efficiency",
+          "displayName": "Unarmed Action Cost Reduction",
           "maxRank": 4,
           "skillsRequired": [
             "expertise_teras_kasi_dam_04",
@@ -32742,7 +32742,7 @@
           "treeId": 19,
           "tier": 6,
           "grid": 6,
-          "displayName": "Taunt",
+          "displayName": "Instigate",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_teras_kasi_master"
@@ -32783,7 +32783,7 @@
           "treeId": 19,
           "tier": 6,
           "grid": 7,
-          "displayName": "Area Taunt",
+          "displayName": "Area Instigate",
           "maxRank": 1,
           "skillsRequired": [
             "expertise_tkm_taunt"
@@ -34919,7 +34919,7 @@
           "treeId": 22,
           "tier": 1,
           "grid": 4,
-          "displayName": "Entertainer Novice",
+          "displayName": "Novice Entertainer",
           "maxRank": 4,
           "skillsRequired": [],
           "skillsRequiredCount": null,
@@ -35164,7 +35164,7 @@
           "treeId": 22,
           "tier": 2,
           "grid": 1,
-          "displayName": "Entertainer Hairstyle",
+          "displayName": "Image Design 1: Facial Hair & Trim",
           "maxRank": 1,
           "skillsRequired": [
             "social_entertainer_novice_4"
@@ -35219,7 +35219,7 @@
           "treeId": 22,
           "tier": 2,
           "grid": 3,
-          "displayName": "Entertainer Music",
+          "displayName": "Musicianship 1: Rock",
           "maxRank": 1,
           "skillsRequired": [
             "social_entertainer_novice_4"
@@ -35274,7 +35274,7 @@
           "treeId": 22,
           "tier": 2,
           "grid": 5,
-          "displayName": "Entertainer Dance",
+          "displayName": "Dancing 1: Basic",
           "maxRank": 1,
           "skillsRequired": [
             "social_entertainer_novice_4"
@@ -35329,7 +35329,7 @@
           "treeId": 22,
           "tier": 2,
           "grid": 7,
-          "displayName": "Entertainer Healing",
+          "displayName": "Entertainer Item Use 1",
           "maxRank": 1,
           "skillsRequired": [
             "social_entertainer_novice_4"
@@ -35486,7 +35486,7 @@
           "treeId": 23,
           "tier": 1,
           "grid": 2,
-          "displayName": "Musician Novice",
+          "displayName": "Novice Musician",
           "maxRank": 4,
           "skillsRequired": [
             "social_entertainer_novice_4",
@@ -35662,7 +35662,7 @@
           "treeId": 23,
           "tier": 1,
           "grid": 6,
-          "displayName": "Dancer Novice",
+          "displayName": "Novice Dancer",
           "maxRank": 4,
           "skillsRequired": [
             "social_entertainer_novice_4",
@@ -35841,7 +35841,7 @@
           "treeId": 23,
           "tier": 2,
           "grid": 1,
-          "displayName": "Musician Ability",
+          "displayName": "Musical Techniques",
           "maxRank": 1,
           "skillsRequired": [
             "social_musician_novice_4"
@@ -35889,7 +35889,7 @@
           "treeId": 23,
           "tier": 2,
           "grid": 2,
-          "displayName": "Musician Shock",
+          "displayName": "Instrument Use 1",
           "maxRank": 1,
           "skillsRequired": [
             "social_musician_novice_4"
@@ -35939,7 +35939,7 @@
           "treeId": 23,
           "tier": 2,
           "grid": 3,
-          "displayName": "Musician Knowledge",
+          "displayName": "Musical Knowledge 1",
           "maxRank": 1,
           "skillsRequired": [
             "social_musician_novice_4"
@@ -35991,7 +35991,7 @@
           "treeId": 23,
           "tier": 2,
           "grid": 5,
-          "displayName": "Dancer Ability",
+          "displayName": "Dancing Techniques",
           "maxRank": 1,
           "skillsRequired": [
             "social_dancer_novice_4"
@@ -36039,7 +36039,7 @@
           "treeId": 23,
           "tier": 2,
           "grid": 6,
-          "displayName": "Dancer Shock",
+          "displayName": "Dancing Prop Use 1",
           "maxRank": 1,
           "skillsRequired": [
             "social_dancer_novice_4"
@@ -36089,7 +36089,7 @@
           "treeId": 23,
           "tier": 2,
           "grid": 7,
-          "displayName": "Dancer Knowledge",
+          "displayName": "Dancing Knowledge 1",
           "maxRank": 1,
           "skillsRequired": [
             "social_dancer_novice_4"
@@ -36301,7 +36301,7 @@
           "treeId": 24,
           "tier": 1,
           "grid": 4,
-          "displayName": "Imagedesigner Novice",
+          "displayName": "Novice Image Designer",
           "maxRank": 4,
           "skillsRequired": [
             "social_entertainer_novice_4",
@@ -36473,7 +36473,7 @@
           "treeId": 24,
           "tier": 2,
           "grid": 1,
-          "displayName": "Imagedesigner Hairstyle",
+          "displayName": "Hairstyling 1: Barber",
           "maxRank": 1,
           "skillsRequired": [
             "social_imagedesigner_novice_4"
@@ -36518,7 +36518,7 @@
           "treeId": 24,
           "tier": 2,
           "grid": 3,
-          "displayName": "Imagedesigner Exotic",
+          "displayName": "Face 1: Facial Customization",
           "maxRank": 1,
           "skillsRequired": [
             "social_imagedesigner_novice_4"
@@ -36563,7 +36563,7 @@
           "treeId": 24,
           "tier": 2,
           "grid": 5,
-          "displayName": "Imagedesigner Bodyform",
+          "displayName": "Bodyform 1: Personal Training",
           "maxRank": 1,
           "skillsRequired": [
             "social_imagedesigner_novice_4"
@@ -36608,7 +36608,7 @@
           "treeId": 24,
           "tier": 2,
           "grid": 7,
-          "displayName": "Imagedesigner Markings",
+          "displayName": "Markings 1: Tattoos",
           "maxRank": 1,
           "skillsRequired": [
             "social_imagedesigner_novice_4"
@@ -36957,7 +36957,7 @@
           "treeId": 25,
           "tier": 1,
           "grid": 4,
-          "displayName": "Muse Novice",
+          "displayName": "Novice Muse",
           "maxRank": 4,
           "skillsRequired": [
             "social_entertainer_novice",
@@ -65988,7 +65988,7 @@
           "treeId": 122,
           "tier": 2,
           "grid": 1,
-          "displayName": "Entertainer Hairstyle",
+          "displayName": "Image Design 1: Facial Hair & Trim",
           "maxRank": 1,
           "skillsRequired": [
             "social_entertainer_hairstyle_01"
@@ -66038,7 +66038,7 @@
           "treeId": 122,
           "tier": 2,
           "grid": 3,
-          "displayName": "Entertainer Music",
+          "displayName": "Musicianship 1: Rock",
           "maxRank": 1,
           "skillsRequired": [
             "social_entertainer_music_01"
@@ -66090,7 +66090,7 @@
           "treeId": 122,
           "tier": 2,
           "grid": 5,
-          "displayName": "Entertainer Dance",
+          "displayName": "Dancing 1: Basic",
           "maxRank": 1,
           "skillsRequired": [
             "social_entertainer_dance_01"
@@ -66142,7 +66142,7 @@
           "treeId": 122,
           "tier": 2,
           "grid": 7,
-          "displayName": "Entertainer Healing",
+          "displayName": "Entertainer Item Use 1",
           "maxRank": 1,
           "skillsRequired": [
             "social_entertainer_healing_01"
@@ -66610,7 +66610,7 @@
           "treeId": 123,
           "tier": 2,
           "grid": 1,
-          "displayName": "Musician Ability",
+          "displayName": "Musical Techniques",
           "maxRank": 3,
           "skillsRequired": [
             "social_musician_ability_01",
@@ -66703,7 +66703,7 @@
           "treeId": 123,
           "tier": 2,
           "grid": 3,
-          "displayName": "Musician Knowledge",
+          "displayName": "Musical Knowledge 1",
           "maxRank": 3,
           "skillsRequired": [
             "social_musician_knowledge_01",
@@ -66813,7 +66813,7 @@
           "treeId": 123,
           "tier": 2,
           "grid": 5,
-          "displayName": "Dancer Ability",
+          "displayName": "Dancing Techniques",
           "maxRank": 3,
           "skillsRequired": [
             "social_dancer_ability_01",
@@ -66906,7 +66906,7 @@
           "treeId": 123,
           "tier": 2,
           "grid": 7,
-          "displayName": "Dancer Knowledge",
+          "displayName": "Dancing Knowledge 1",
           "maxRank": 3,
           "skillsRequired": [
             "social_dancer_knowledge_01",
@@ -67151,7 +67151,7 @@
           "treeId": 123,
           "tier": 3,
           "grid": 3,
-          "displayName": "Musician Shock",
+          "displayName": "Instrument Use 1",
           "maxRank": 3,
           "skillsRequired": [
             "social_musician_shock_01",
@@ -67392,7 +67392,7 @@
           "treeId": 123,
           "tier": 3,
           "grid": 7,
-          "displayName": "Dancer Shock",
+          "displayName": "Dancing Prop Use 1",
           "maxRank": 3,
           "skillsRequired": [
             "social_dancer_shock_01",
@@ -67508,7 +67508,7 @@
           "treeId": 124,
           "tier": 2,
           "grid": 1,
-          "displayName": "Imagedesigner Hairstyle",
+          "displayName": "Hairstyling 1: Barber",
           "maxRank": 1,
           "skillsRequired": [
             "social_imagedesigner_hairstyle_01"
@@ -67553,7 +67553,7 @@
           "treeId": 124,
           "tier": 2,
           "grid": 3,
-          "displayName": "Imagedesigner Exotic",
+          "displayName": "Face 1: Facial Customization",
           "maxRank": 1,
           "skillsRequired": [
             "social_imagedesigner_exotic_01"
@@ -67598,7 +67598,7 @@
           "treeId": 124,
           "tier": 2,
           "grid": 5,
-          "displayName": "Imagedesigner Bodyform",
+          "displayName": "Bodyform 1: Personal Training",
           "maxRank": 1,
           "skillsRequired": [
             "social_imagedesigner_bodyform_01"
@@ -67643,7 +67643,7 @@
           "treeId": 124,
           "tier": 2,
           "grid": 7,
-          "displayName": "Imagedesigner Markings",
+          "displayName": "Markings 1: Tattoos",
           "maxRank": 1,
           "skillsRequired": [
             "social_imagedesigner_markings_01"

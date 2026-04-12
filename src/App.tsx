@@ -72,7 +72,7 @@ const TREE_NAMES: Record<string, string> = {
   outdoors_bio_engineer:    "Bio-Engineer",
   // Social
   social_entertainer:    "Entertainer",
-  social_musician:       "Musician",
+  social_musician:       "Performer",
   social_imagedesigner:  "Image Designer",
   social_muse:           "Muse",
   // Crafting
