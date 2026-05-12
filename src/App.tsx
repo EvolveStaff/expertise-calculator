@@ -855,8 +855,8 @@ function getNodeDisabledReason(node: VisibleNode): string {
         {/* Spacer */}
         <div style={{ flex: 1 }} />
 
-        {/* Codex tab — larger, distinct style */}
-        <button
+        {/* Codex tab — hidden until complete */}
+        {false && <button
           onClick={() => {
             if (viewMode === "codex") { setViewMode("calculator"); }
             else { setViewMode("codex"); setFocusAbilityKey(null); }
@@ -882,11 +882,11 @@ function getNodeDisabledReason(node: VisibleNode): string {
           }}
         >
           ◈  Codex
-        </button>
+        </button>}
       </div>
 
-      {/* Codex view */}
-      {viewMode === "codex" && data && (
+      {/* Codex view — hidden until complete */}
+      {false && viewMode === "codex" && data && (
         <WikiView
           data={data}
           stringTables={stringTables}
@@ -1699,7 +1699,7 @@ function getNodeDisabledReason(node: VisibleNode): string {
             formatStat={(key) => formatStatKey(key, stringTables)}
             abilityDescriptions={jewelryAbilityDescs}
             effectMapping={effectMapping}
-            onAbilityClick={(key) => { setViewMode("codex"); setFocusAbilityKey(key); }}
+            onAbilityClick={(_key) => { /* codex hidden */ }}
           />
         </div>
 
