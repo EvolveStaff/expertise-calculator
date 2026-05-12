@@ -282,9 +282,8 @@ export default function App() {
       return saved ? (JSON.parse(saved) as SelectionsByTree) : {};
     } catch { return {}; }
   });
-  const [viewMode, setViewMode] = useState<"calculator" | "codex">("calculator");
+  const [viewMode, setViewMode] = useState<"calculator" | "codex" | "heroic">("calculator");
   const [characterType, setCharacterType] = useState<"normal" | "jedi">("normal");
-  const [panelOpen, setPanelOpen] = useState(true);
   const [templates, setTemplates] = useState<Record<string, Template>>(() => {
     try {
       const saved = localStorage.getItem(TEMPLATES_KEY);
@@ -855,6 +854,29 @@ function getNodeDisabledReason(node: VisibleNode): string {
         {/* Spacer */}
         <div style={{ flex: 1 }} />
 
+        {/* Heroic Sets tab */}
+        <button
+          onClick={() => setViewMode(viewMode === "heroic" ? "calculator" : "heroic")}
+          style={{
+            padding: "10px 30px",
+            border: "none",
+            borderBottom: viewMode === "heroic" ? "3px solid #c8a040" : "3px solid transparent",
+            marginBottom: -1,
+            background: viewMode === "heroic" ? "rgba(200,160,64,0.07)" : "transparent",
+            color: viewMode === "heroic" ? "#e8c060" : "#5a7a98",
+            fontWeight: viewMode === "heroic" ? 700 : 500,
+            fontSize: 14,
+            cursor: "pointer",
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            fontFamily: "'Rajdhani', sans-serif",
+            transition: "color 0.2s, background 0.2s",
+            borderRadius: "6px 6px 0 0",
+          }}
+        >
+          ◆ Heroic Sets
+        </button>
+
         {/* Codex tab — hidden until complete */}
         {false && <button
           onClick={() => {
@@ -884,6 +906,17 @@ function getNodeDisabledReason(node: VisibleNode): string {
           ◈  Codex
         </button>}
       </div>
+
+      {/* Heroic Sets view */}
+      {viewMode === "heroic" && (
+        <HeroicJewelry
+          characterType={characterType}
+          formatStat={(key) => formatStatKey(key, stringTables)}
+          abilityDescriptions={jewelryAbilityDescs}
+          effectMapping={effectMapping}
+          onAbilityClick={(_key) => { /* codex hidden */ }}
+        />
+      )}
 
       {/* Codex view — hidden until complete */}
       {false && viewMode === "codex" && data && (
@@ -1230,7 +1263,7 @@ function getNodeDisabledReason(node: VisibleNode): string {
         )}
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: panelOpen ? "180px 2fr 1fr" : "180px 1fr 40px", gap: 20 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "180px 1fr", gap: 20 }}>
 
         {/* ── Tree sidebar (all character types) ── */}
         <div style={{
@@ -1424,6 +1457,41 @@ function getNodeDisabledReason(node: VisibleNode): string {
                     })}
                   </div>
                 )}
+                {/* ── Points remaining strip ─── */}
+                <div style={{
+                  display: "flex", justifyContent: "flex-end", alignItems: "center",
+                  gap: 10, marginBottom: 6,
+                }}>
+                  <span style={{ fontSize: 10, color: "#4a7090", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                    Points
+                  </span>
+                  <div style={{ width: 80, height: 3, borderRadius: 2, background: "#0d1820", overflow: "hidden" }}>
+                    <div style={{
+                      height: "100%",
+                      width: `${Math.min(100, (totalPointsSpent / MAX_EXPERTISE_POINTS) * 100)}%`,
+                      background: totalPointsSpent >= MAX_EXPERTISE_POINTS
+                        ? "linear-gradient(90deg, #cc3333, #ff5555)"
+                        : "linear-gradient(90deg, #336633, #66cc44)",
+                      borderRadius: 2, transition: "width 0.3s ease",
+                    }} />
+                  </div>
+                  <span style={{
+                    fontFamily: "'Orbitron', sans-serif", fontSize: 11, fontWeight: 700,
+                    color: totalPointsSpent >= MAX_EXPERTISE_POINTS ? "#ff6060" : "#66cc44",
+                  }}>
+                    {totalPointsSpent}
+                    <span style={{ opacity: 0.5, fontWeight: 400 }}> / {MAX_EXPERTISE_POINTS}</span>
+                  </span>
+                  {totalPointsSpent < MAX_EXPERTISE_POINTS && (
+                    <span style={{ fontSize: 10, color: "#3a7050", letterSpacing: "0.05em" }}>
+                      ({MAX_EXPERTISE_POINTS - totalPointsSpent} remaining)
+                    </span>
+                  )}
+                  {totalPointsSpent >= MAX_EXPERTISE_POINTS && (
+                    <span style={{ fontSize: 10, color: "#cc6644", letterSpacing: "0.05em" }}>● FULL</span>
+                  )}
+                </div>
+
                 <ExpertiseTree
                   nodes={currentTree.nodes}
                   selectedRanks={selectedRanks}
@@ -1693,375 +1761,345 @@ function getNodeDisabledReason(node: VisibleNode): string {
             );
           })()}
 
-          {/* ── Heroic Jewelry Sets ────────────────────────────── */}
-          <HeroicJewelry
-            characterType={characterType}
-            formatStat={(key) => formatStatKey(key, stringTables)}
-            abilityDescriptions={jewelryAbilityDescs}
-            effectMapping={effectMapping}
-            onAbilityClick={(_key) => { /* codex hidden */ }}
-          />
         </div>
 
-        {panelOpen ? (
-          <div
-            style={{
-              border: "1px solid #1a3050",
-              borderRadius: 12,
-              padding: 16,
-              background: "linear-gradient(160deg, #0c1520 0%, #0d1825 100%)",
-              position: "relative",
-              boxShadow: "0 2px 20px rgba(0,80,160,0.15)",
-            }}
-          >
-            {/* Panel header */}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
-              <div style={{
-                fontSize: 11,
-                letterSpacing: "0.3em",
-                textTransform: "uppercase",
-                color: "#4ab3e8",
-                fontFamily: "'Orbitron', sans-serif",
-                fontWeight: 600,
+      </div> {/* end 2-col grid */}
+
+      {/* ── Build Summary ─────────────────────────────────────────────────── */}
+      {(() => {
+        // Groups mirror the in-game Skills tab. test(displayName, rawKey) → bool.
+        const CATS: Array<{
+          id: string; label: string; color: string;
+          prefix?: RegExp; suffix?: RegExp;
+          test: (s: string, k: string) => boolean;
+        }> = [
+          {
+            id: "combat_defense", label: "Combat Defense", color: "#4a88c8",
+            prefix: /^Combat Defense:\s*/i,
+            test: (s, k) =>
+              /^combat defense/i.test(s) ||
+              /\b(innate armor|kinetic protection|energy protection|damage decrease|saber block|dot absorption)\b/i.test(s) ||
+              /^(expertise_dodge|expertise_parry|expertise_evasion_chance|expertise_block_chance|expertise_glancing_blow_all|expertise_critical_hit_reduction|expertise_innate_protection|expertise_saber_block|expertise_dot_absorption|combat_block_value|combat_evasion_value|damage_decrease_percentage|expertise_damage_decrease|area_damage_resist)/.test(k),
+          },
+          {
+            id: "combat_offense", label: "Combat Offense", color: "#c84040",
+            prefix: /^Combat Offense:\s*/i,
+            test: (s, k) =>
+              /^combat offense/i.test(s) ||
+              /\b(all attacks damage|weapon damage increase|armor neglect|strikethrough value)\b/i.test(s) ||
+              /^(expertise_strikethrough_chance|expertise_parry_reduction|expertise_block_reduction|expertise_evasion_reduction|expertise_glancing_blow_reduction|expertise_critical_melee|expertise_critical_ranged|expertise_critical_niche_all|expertise_critical_damage_increase|expertise_damage_all|expertise_damage_weapon|expertise_armor_neglect|expertise_damage_area_effect|expertise_double_hit_chance|expertise_freeshot_dm|expertise_attacker_action_gain|expertise_focus_strength)/.test(k),
+          },
+          {
+            id: "combat_pvp", label: "Combat PvP", color: "#c89040",
+            test: (s, k) => /pvp/i.test(s) || /pvp/.test(k),
+          },
+          {
+            id: "action", label: "Action Cost", color: "#c8a040",
+            suffix: / Action Cost Reduction$/i,
+            test: (s, k) => /action cost/i.test(s) || /^expertise_action/.test(k),
+          },
+          {
+            id: "cooldown", label: "Cooldown", color: "#8040c8",
+            suffix: / Cooldown(?: Reduction)?$/i,
+            test: (s, k) => /cooldown/i.test(s) || /^expertise_cooldown/.test(k),
+          },
+          {
+            id: "dot", label: "DoT Effects", color: "#c06030",
+            suffix: / (Damage Increase|Duration Increase)$/i,
+            test: (s, k) => /\bdot\b/i.test(s) || /dot/.test(k),
+          },
+          {
+            id: "damage", label: "Ability Damage", color: "#d06848",
+            suffix: / Damage Increase$/i,
+            test: (s, k) => /damage increase/i.test(s) || /^(expertise_damage_line|expertise_critical_line|expertise_area_size)/.test(k),
+          },
+          {
+            id: "healing", label: "Healing", color: "#40aa60",
+            suffix: / (Potency|Hate Reduction|Reduction)$/i,
+            test: (s, k) => /heal/i.test(s) || /heal/.test(k),
+          },
+          {
+            id: "buffs", label: "Buffs & Duration", color: "#6080c0",
+            test: (s, k) => /duration|proc chance/i.test(s) || /^(expertise_buff|expertise_proc|expertise_oncrit|expertise_onstrikethrough|expertise_co_burst|expertise_co_flash|expertise_co_cluster)/.test(k),
+          },
+          {
+            id: "movement", label: "Movement", color: "#40b8c8",
+            test: (s, k) => /speed|terrain|snare|root/i.test(s) || /movement|speed|snare|root/.test(k),
+          },
+          {
+            id: "attributes", label: "Attributes", color: "#a0c870",
+            test: (_s, k) => /^(strength|constitution|stamina|agility|luck|precision)_modified$/.test(k),
+          },
+          {
+            id: "other", label: "Other", color: "#607080",
+            test: () => true,
+          },
+        ];
+
+        // Bucket each stat into the first matching category
+        const grouped: Record<string, Array<[string, number]>> = {};
+        for (const cat of CATS) grouped[cat.id] = [];
+        for (const [key, value] of Object.entries(totals.mods)) {
+          const display = formatStatKey(key, stringTables);
+          const match = CATS.find((c) => c.test(display, key));
+          grouped[(match ?? CATS[CATS.length - 1]).id].push([key, value]);
+        }
+        for (const cat of CATS) {
+          grouped[cat.id].sort(([a], [b]) =>
+            formatStatKey(a, stringTables).localeCompare(formatStatKey(b, stringTables))
+          );
+        }
+        const activeGroups = CATS.filter((c) => grouped[c.id].length > 0);
+
+        // Combat stats derived from core attributes
+        const coreKeys = Object.keys(STAT_MULTIPLIERS);
+        const activeCoreKeys = coreKeys.filter(k => (totals.mods[k] ?? 0) !== 0);
+
+        const hasContent = activeGroups.length > 0 || activeCoreKeys.length > 0 || totals.commands.length > 0;
+
+        return (
+          <div style={{
+            marginTop: 16,
+            border: "1px solid #1a3050",
+            borderRadius: 10,
+            background: "linear-gradient(160deg, #0c1520 0%, #0d1825 100%)",
+            boxShadow: "0 2px 16px rgba(0,80,160,0.12)",
+            overflow: "hidden",
+          }}>
+            {/* Header strip */}
+            <div style={{
+              display: "flex", alignItems: "center", justifyContent: "space-between",
+              padding: "8px 14px",
+              borderBottom: "1px solid #1a3050",
+              background: "rgba(8,18,32,0.6)",
+            }}>
+              <span style={{
+                fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase",
+                color: "#4ab3e8", fontFamily: "'Orbitron', sans-serif", fontWeight: 600,
               }}>
                 Build Summary
-              </div>
-              <button
-                onClick={() => setPanelOpen(false)}
-                title="Collapse panel"
-                style={{
-                  background: "transparent",
-                  border: "1px solid #1e3048",
-                  borderRadius: 6,
-                  color: "#4a7090",
-                  cursor: "pointer",
-                  fontSize: 13,
-                  lineHeight: 1,
-                  padding: "3px 8px",
-                  transition: "border-color 0.2s, color 0.2s",
-                }}
-              >
-                ▶
-              </button>
-            </div>
-
-            {/* Points bar */}
-            <div
-              style={{
-                marginBottom: 16,
-                padding: "10px 14px",
-                borderRadius: 8,
-                background: totalPointsSpent >= MAX_EXPERTISE_POINTS
-                  ? "linear-gradient(135deg, #200a0a, #2a1010)"
-                  : "linear-gradient(135deg, #0a1a0a, #0d2010)",
-                border: `1px solid ${totalPointsSpent >= MAX_EXPERTISE_POINTS ? "#6a2020" : "#1a4020"}`,
-              }}
-            >
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 6 }}>
-                <span style={{ fontSize: 11, color: "#4a7090", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                  Expertise Points
-                </span>
-                <span style={{
-                  color: totalPointsSpent >= MAX_EXPERTISE_POINTS ? "#ff6060" : "#66cc44",
-                  fontWeight: 700,
-                  fontSize: 16,
-                  fontFamily: "'Orbitron', sans-serif",
-                }}>
-                  {totalPointsSpent}<span style={{ fontSize: 11, opacity: 0.6 }}> / {MAX_EXPERTISE_POINTS}</span>
-                </span>
-              </div>
-              {/* Progress bar */}
-              <div style={{ height: 4, borderRadius: 2, background: "#0d1e10", overflow: "hidden" }}>
-                <div style={{
-                  height: "100%",
-                  width: `${Math.min(100, (totalPointsSpent / MAX_EXPERTISE_POINTS) * 100)}%`,
-                  background: totalPointsSpent >= MAX_EXPERTISE_POINTS
-                    ? "linear-gradient(90deg, #cc3333, #ff5555)"
-                    : "linear-gradient(90deg, #336633, #66cc44)",
-                  borderRadius: 2,
-                  transition: "width 0.3s ease",
-                  boxShadow: totalPointsSpent >= MAX_EXPERTISE_POINTS
-                    ? "0 0 6px rgba(200,60,60,0.6)"
-                    : "0 0 6px rgba(100,200,60,0.5)",
-                }} />
-              </div>
-              {totalPointsSpent >= MAX_EXPERTISE_POINTS && (
-                <div style={{ marginTop: 4, fontSize: 10, color: "#ff9966", letterSpacing: "0.1em" }}>
-                  ● POOL FULL
-                </div>
-              )}
-            </div>
-
-            {/* FRS display — Jedi only */}
-            {characterType === "jedi" && (
-              <div
-                style={{
-                  marginBottom: 16,
-                  padding: "10px 14px",
-                  borderRadius: 8,
-                  background: "linear-gradient(135deg, #0d0a1a, #170d2a)",
-                  border: `1px solid ${frsRank >= MAX_FRS_RANK ? "#7a40c8" : "#3a1a60"}`,
-                }}
-              >
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 6 }}>
-                  <span style={{ fontSize: 11, color: "#9060d0", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                    FRS Rank
-                  </span>
-                  <span style={{
-                    color: frsRank >= MAX_FRS_RANK ? "#cc99ff" : "#aa80ff",
-                    fontWeight: 700, fontSize: 16,
-                    fontFamily: "'Orbitron', sans-serif",
-                  }}>
-                    {frsRank}<span style={{ fontSize: 11, opacity: 0.6 }}> / {MAX_FRS_RANK}</span>
-                  </span>
-                </div>
-                {/* FRS points bar */}
-                <div style={{ height: 4, borderRadius: 2, background: "#0d0820", overflow: "hidden" }}>
+              </span>
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                {characterType === "jedi" && (
+                  <>
+                    <span style={{ fontSize: 9, color: "#7040a0", letterSpacing: "0.1em", textTransform: "uppercase" }}>FRS</span>
+                    <div style={{ width: 60, height: 3, borderRadius: 2, background: "#0d0820", overflow: "hidden" }}>
+                      <div style={{
+                        height: "100%",
+                        width: `${Math.min(100, (frsRank / MAX_FRS_RANK) * 100)}%`,
+                        background: frsRank >= MAX_FRS_RANK ? "linear-gradient(90deg, #7733cc, #cc66ff)" : "linear-gradient(90deg, #4a1a90, #9955dd)",
+                        borderRadius: 2, transition: "width 0.3s ease",
+                      }} />
+                    </div>
+                    <span style={{ fontFamily: "'Orbitron', sans-serif", fontSize: 10, color: "#aa80ff" }}>
+                      {frsRank}<span style={{ opacity: 0.5 }}>/{MAX_FRS_RANK}</span>
+                    </span>
+                    <span style={{ color: "#1a3050", fontSize: 12 }}>·</span>
+                  </>
+                )}
+                <span style={{ fontSize: 9, color: "#4a7090", letterSpacing: "0.1em", textTransform: "uppercase" }}>Expertise</span>
+                <div style={{ width: 80, height: 3, borderRadius: 2, background: "#0d1820", overflow: "hidden" }}>
                   <div style={{
                     height: "100%",
-                    width: `${Math.min(100, (frsRank / MAX_FRS_RANK) * 100)}%`,
-                    background: frsRank >= MAX_FRS_RANK
-                      ? "linear-gradient(90deg, #7733cc, #cc66ff)"
-                      : "linear-gradient(90deg, #4a1a90, #9955dd)",
-                    borderRadius: 2,
-                    transition: "width 0.3s ease",
-                    boxShadow: "0 0 6px rgba(160,80,255,0.5)",
+                    width: `${Math.min(100, (totalPointsSpent / MAX_EXPERTISE_POINTS) * 100)}%`,
+                    background: totalPointsSpent >= MAX_EXPERTISE_POINTS ? "linear-gradient(90deg, #cc3333, #ff5555)" : "linear-gradient(90deg, #336633, #66cc44)",
+                    borderRadius: 2, transition: "width 0.3s ease",
                   }} />
                 </div>
-                {frsRank >= MAX_FRS_RANK && (
-                  <div style={{ marginTop: 4, fontSize: 10, color: "#cc99ff", letterSpacing: "0.1em" }}>
-                    ● FRS RANK MAX
+                <span style={{
+                  fontFamily: "'Orbitron', sans-serif", fontSize: 10, fontWeight: 700,
+                  color: totalPointsSpent >= MAX_EXPERTISE_POINTS ? "#ff6060" : "#66cc44",
+                }}>
+                  {totalPointsSpent}<span style={{ opacity: 0.5, fontWeight: 400 }}>/{MAX_EXPERTISE_POINTS}</span>
+                </span>
+              </div>
+            </div>
+
+            {/* Body */}
+            {!hasContent ? (
+              <div style={{ padding: "16px 14px", color: "#2a5070", fontSize: 12, fontStyle: "italic" }}>
+                No expertise points spent yet.
+              </div>
+            ) : (
+              <div style={{ padding: "10px 14px" }}>
+                {/* Stat category blocks — flex-wrap multi-column */}
+                {(activeGroups.length > 0 || activeCoreKeys.length > 0) && (
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: totals.commands.length > 0 ? 10 : 0 }}>
+
+                    {/* Stat categories */}
+                    {activeGroups.map((cat) => (
+                      <div key={cat.id} style={{
+                        flex: "1 1 160px", minWidth: 140, maxWidth: 260,
+                        background: "rgba(0,0,0,0.25)",
+                        border: `1px solid ${cat.color}33`,
+                        borderRadius: 6,
+                        overflow: "hidden",
+                      }}>
+                        <div style={{
+                          display: "flex", alignItems: "center", gap: 5,
+                          padding: "4px 8px",
+                          background: `${cat.color}14`,
+                          borderBottom: `1px solid ${cat.color}33`,
+                        }}>
+                          <div style={{
+                            width: 3, height: 8, borderRadius: 1,
+                            background: cat.color, flexShrink: 0,
+                          }} />
+                          <span style={{
+                            fontSize: 8, letterSpacing: "0.2em", textTransform: "uppercase",
+                            color: cat.color, fontFamily: "'Rajdhani', sans-serif", fontWeight: 700,
+                          }}>
+                            {cat.label}
+                          </span>
+                        </div>
+                        <div style={{ padding: "2px 0" }}>
+                          {grouped[cat.id].map(([key, value]) => {
+                            const displayName = formatStatKey(key, stringTables);
+                            const shortName = cat.prefix
+                              ? displayName.replace(cat.prefix, "")
+                              : cat.suffix ? displayName.replace(cat.suffix, "") : displayName;
+                            return (
+                              <div key={key} style={{
+                                display: "flex", justifyContent: "space-between", alignItems: "baseline",
+                                padding: "1px 8px",
+                                borderBottom: "1px solid #0a1820",
+                                fontSize: 11,
+                              }}>
+                                <span style={{ color: "#6a8aaa", lineHeight: 1.4, marginRight: 6, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{shortName}</span>
+                                <span style={{
+                                  color: value > 0 ? "#66cc44" : "#ff6666",
+                                  fontWeight: 700, flexShrink: 0,
+                                  fontFamily: "'Orbitron', sans-serif", fontSize: 10,
+                                }}>
+                                  {value > 0 ? "+" : ""}{value}
+                                </span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ))}
+
+                    {/* Combat stats derived from core attributes */}
+                    {activeCoreKeys.map((statKey) => {
+                      const statVal = totals.mods[statKey] ?? 0;
+                      const accentColor = CORE_STAT_COLORS[statKey] ?? "#4ab3e8";
+                      return (
+                        <div key={statKey} style={{
+                          flex: "1 1 160px", minWidth: 140, maxWidth: 260,
+                          background: "rgba(0,0,0,0.25)",
+                          border: `1px solid ${accentColor}33`,
+                          borderRadius: 6, overflow: "hidden",
+                        }}>
+                          <div style={{
+                            display: "flex", alignItems: "center", gap: 5,
+                            padding: "4px 8px",
+                            background: `${accentColor}14`,
+                            borderBottom: `1px solid ${accentColor}33`,
+                          }}>
+                            <div style={{ width: 3, height: 8, borderRadius: 1, background: accentColor, flexShrink: 0 }} />
+                            <span style={{
+                              fontSize: 8, letterSpacing: "0.2em", textTransform: "uppercase",
+                              color: accentColor, fontFamily: "'Rajdhani', sans-serif", fontWeight: 700,
+                            }}>
+                              {CORE_STAT_LABELS[statKey]}&nbsp;
+                              <span style={{ opacity: 0.6, fontWeight: 400 }}>({statVal > 0 ? "+" : ""}{statVal})</span>
+                            </span>
+                          </div>
+                          <div style={{ padding: "2px 0" }}>
+                            {STAT_MULTIPLIERS[statKey].map(entry => {
+                              const derived = statVal * entry.mult;
+                              return (
+                                <div key={entry.label} style={{
+                                  display: "flex", justifyContent: "space-between", alignItems: "baseline",
+                                  padding: "1px 8px", borderBottom: "1px solid #0a1820", fontSize: 11,
+                                }}>
+                                  <span style={{ color: "#6a8aaa", lineHeight: 1.4, marginRight: 6 }}>{entry.label}</span>
+                                  <span style={{
+                                    color: "#66cc44", fontWeight: 700, flexShrink: 0,
+                                    fontFamily: "'Orbitron', sans-serif", fontSize: 10,
+                                  }}>
+                                    {fmtDerived(derived, entry)}
+                                  </span>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      );
+                    })}
+
+                    {/* Commands & Abilities block */}
+                    {totals.commands.length > 0 && (
+                      <div style={{
+                        flex: "1 1 160px", minWidth: 140, maxWidth: 260,
+                        background: "rgba(0,0,0,0.25)",
+                        border: "1px solid #1a4a6833",
+                        borderRadius: 6, overflow: "hidden",
+                      }}>
+                        <div style={{
+                          display: "flex", alignItems: "center", gap: 5,
+                          padding: "4px 8px",
+                          background: "rgba(30,80,120,0.15)",
+                          borderBottom: "1px solid #1a4a6833",
+                        }}>
+                          <div style={{ width: 3, height: 8, borderRadius: 1, background: "#4ab3e8", flexShrink: 0 }} />
+                          <span style={{
+                            fontSize: 8, letterSpacing: "0.2em", textTransform: "uppercase",
+                            color: "#4ab3e8", fontFamily: "'Rajdhani', sans-serif", fontWeight: 700,
+                          }}>
+                            Commands &amp; Abilities
+                          </span>
+                        </div>
+                        <div style={{ padding: "2px 0" }}>
+                          {totals.commands.map((cmd) => (
+                            <div key={cmd} style={{
+                              display: "flex", alignItems: "center", gap: 5,
+                              padding: "1px 8px", borderBottom: "1px solid #0a1820", fontSize: 11,
+                            }}>
+                              <span style={{ color: "#1e4a60", fontSize: 7, flexShrink: 0 }}>◆</span>
+                              <span style={{ color: "#4ab3e8", lineHeight: 1.4 }}>{formatCmdKey(cmd, stringTables)}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Commands only (no stats) */}
+                {activeGroups.length === 0 && activeCoreKeys.length === 0 && totals.commands.length > 0 && (
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+                    <div style={{
+                      flex: "1 1 160px", minWidth: 140,
+                      background: "rgba(0,0,0,0.25)", border: "1px solid #1a4a6833",
+                      borderRadius: 6, overflow: "hidden",
+                    }}>
+                      <div style={{
+                        display: "flex", alignItems: "center", gap: 5, padding: "4px 8px",
+                        background: "rgba(30,80,120,0.15)", borderBottom: "1px solid #1a4a6833",
+                      }}>
+                        <div style={{ width: 3, height: 8, borderRadius: 1, background: "#4ab3e8", flexShrink: 0 }} />
+                        <span style={{ fontSize: 8, letterSpacing: "0.2em", textTransform: "uppercase", color: "#4ab3e8", fontFamily: "'Rajdhani', sans-serif", fontWeight: 700 }}>
+                          Commands &amp; Abilities
+                        </span>
+                      </div>
+                      <div style={{ padding: "2px 0" }}>
+                        {totals.commands.map((cmd) => (
+                          <div key={cmd} style={{ display: "flex", alignItems: "center", gap: 5, padding: "1px 8px", borderBottom: "1px solid #0a1820", fontSize: 11 }}>
+                            <span style={{ color: "#1e4a60", fontSize: 7, flexShrink: 0 }}>◆</span>
+                            <span style={{ color: "#4ab3e8", lineHeight: 1.4 }}>{formatCmdKey(cmd, stringTables)}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>
             )}
 
-            <div style={{ marginBottom: 16 }}>
-              <div style={{
-                fontSize: 10,
-                letterSpacing: "0.25em",
-                textTransform: "uppercase",
-                color: "#4ab3e8",
-                fontFamily: "'Orbitron', sans-serif",
-                marginBottom: 8,
-                paddingBottom: 6,
-                borderBottom: "1px solid #1a3050",
-              }}>
-                Bonuses
-              </div>
-              {Object.keys(totals.mods).length === 0 ? (
-                <div style={{ color: "#2a5070", fontSize: 12, fontStyle: "italic" }}>No bonuses selected</div>
-              ) : (() => {
-                // ── Category definitions (matched against formatted display name) ──
-                const CATS = [
-                  { id: "damage",   label: "Damage",        color: "#c84040", test: (s: string) => /damage increase/i.test(s) },
-                  { id: "defense",  label: "Defense",       color: "#4a88c8", test: (s: string) => /defens|block chance|dodge|parry|evasion|mitigation|armor|resist|damage taken/i.test(s) },
-                  { id: "action",   label: "Action Cost",   color: "#c8a040", test: (s: string) => /action cost/i.test(s) },
-                  { id: "cooldown", label: "Cooldown",      color: "#8040c8", test: (s: string) => /cooldown/i.test(s) },
-                  { id: "dot",      label: "DoT Effects",   color: "#c06030", test: (s: string) => /\bdot\b/i.test(s) },
-                  { id: "healing",  label: "Healing",       color: "#40aa60", test: (s: string) => /heal/i.test(s) },
-                  { id: "speed",    label: "Speed",         color: "#40b8c8", test: (s: string) => /speed|movement/i.test(s) },
-                  { id: "other",    label: "Other",         color: "#607080", test: () => true },
-                ] as const;
-
-                // Bucket each stat into the first matching category
-                const grouped: Record<string, Array<[string, number]>> = {};
-                for (const cat of CATS) grouped[cat.id] = [];
-                for (const [key, value] of Object.entries(totals.mods)) {
-                  const display = formatStatKey(key, stringTables);
-                  const match = CATS.find((c) => c.test(display));
-                  grouped[(match ?? CATS[CATS.length - 1]).id].push([key, value]);
-                }
-                // Sort alphabetically within each group
-                for (const cat of CATS) {
-                  grouped[cat.id].sort(([a], [b]) =>
-                    formatStatKey(a, stringTables).localeCompare(formatStatKey(b, stringTables))
-                  );
-                }
-
-                const activeGroups = CATS.filter((c) => grouped[c.id].length > 0);
-
-                return (
-                  <div>
-                    {activeGroups.map((cat, gi) => (
-                      <div key={cat.id} style={{ marginBottom: gi < activeGroups.length - 1 ? 6 : 0 }}>
-                        {/* Category header */}
-                        <div style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 6,
-                          marginTop: gi > 0 ? 8 : 0,
-                          marginBottom: 2,
-                        }}>
-                          <div style={{
-                            width: 3, height: 10, borderRadius: 2,
-                            background: cat.color, flexShrink: 0,
-                            boxShadow: `0 0 4px ${cat.color}88`,
-                          }} />
-                          <span style={{
-                            fontSize: 9,
-                            letterSpacing: "0.2em",
-                            textTransform: "uppercase",
-                            color: cat.color,
-                            fontFamily: "'Rajdhani', sans-serif",
-                            fontWeight: 700,
-                            opacity: 0.85,
-                          }}>
-                            {cat.label}
-                          </span>
-                        </div>
-                        {/* Entries */}
-                        {grouped[cat.id].map(([key, value]) => {
-                          const displayName = formatStatKey(key, stringTables);
-                          // Strip trailing category keyword from display name for compactness
-                          // e.g. "Cripple Damage Increase" under Damage → "Cripple"
-                          // "Fencer Action Cost Reduction" under Action Cost → "Fencer"
-                          const SUFFIXES: Record<string, RegExp> = {
-                            damage:   / Damage Increase$/i,
-                            action:   / Action Cost Reduction$/i,
-                            cooldown: / Cooldown Reduction$/i,
-                            dot:      / (Damage Increase|Duration Increase)$/i,
-                            healing:  / (Potency|Hate Reduction|Reduction)$/i,
-                          };
-                          const suffix = SUFFIXES[cat.id];
-                          const shortName = suffix ? displayName.replace(suffix, "") : displayName;
-                          const wasShortened = shortName !== displayName;
-                          return (
-                            <div key={key} style={{
-                              display: "flex", justifyContent: "space-between", alignItems: "baseline",
-                              padding: "2px 0 2px 9px",
-                              borderBottom: "1px solid #0a1820",
-                              fontSize: 12,
-                            }}>
-                              <span style={{ color: "#7a9ab8", lineHeight: 1.3 }}>
-                                {shortName}
-                                {wasShortened && (
-                                  <span style={{ color: "#2a4a60", fontSize: 10, marginLeft: 3 }}>
-                                    {/* invisible — just note the suffix was stripped */}
-                                  </span>
-                                )}
-                              </span>
-                              <span style={{
-                                color: value > 0 ? "#66cc44" : "#ff6666",
-                                fontWeight: 700, marginLeft: 8, flexShrink: 0,
-                                fontFamily: "'Orbitron', sans-serif", fontSize: 11,
-                              }}>
-                                {value > 0 ? "+" : ""}{value}
-                              </span>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    ))}
-                  </div>
-                );
-              })()}
-            </div>
-
-            {/* ── Combat Stats from Core Attributes ─────────────────── */}
-            {(() => {
-              const coreKeys = Object.keys(STAT_MULTIPLIERS);
-              const active = coreKeys.filter(k => (totals.mods[k] ?? 0) !== 0);
-              if (active.length === 0) return null;
-              return (
-                <div style={{ marginBottom: 16 }}>
-                  <div style={{
-                    fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase",
-                    color: "#4ab3e8", fontFamily: "'Orbitron', sans-serif",
-                    marginBottom: 8, paddingBottom: 6, borderBottom: "1px solid #1a3050",
-                  }}>
-                    Combat Stats
-                  </div>
-                  {active.map((statKey, gi) => {
-                    const statVal = totals.mods[statKey] ?? 0;
-                    const accentColor = CORE_STAT_COLORS[statKey] ?? "#4ab3e8";
-                    return (
-                      <div key={statKey} style={{ marginBottom: gi < active.length - 1 ? 8 : 0 }}>
-                        {/* Stat label */}
-                        <div style={{
-                          display: "flex", alignItems: "center", gap: 6,
-                          marginBottom: 2,
-                        }}>
-                          <div style={{
-                            width: 3, height: 10, borderRadius: 2,
-                            background: accentColor, flexShrink: 0,
-                            boxShadow: `0 0 4px ${accentColor}88`,
-                          }} />
-                          <span style={{
-                            fontSize: 9, letterSpacing: "0.2em",
-                            textTransform: "uppercase",
-                            color: accentColor,
-                            fontFamily: "'Rajdhani', sans-serif",
-                            fontWeight: 700, opacity: 0.9,
-                          }}>
-                            {CORE_STAT_LABELS[statKey]}&nbsp;
-                            <span style={{ opacity: 0.6 }}>
-                              ({statVal > 0 ? "+" : ""}{statVal} pts)
-                            </span>
-                          </span>
-                        </div>
-                        {STAT_MULTIPLIERS[statKey].map(entry => {
-                          const derived = statVal * entry.mult;
-                          return (
-                            <div key={entry.label} style={{
-                              display: "flex", justifyContent: "space-between",
-                              alignItems: "baseline",
-                              padding: "2px 0 2px 9px",
-                              borderBottom: "1px solid #0a1820",
-                              fontSize: 12,
-                            }}>
-                              <span style={{ color: "#7a9ab8" }}>{entry.label}</span>
-                              <span style={{
-                                color: "#66cc44",
-                                fontWeight: 700, marginLeft: 8, flexShrink: 0,
-                                fontFamily: "'Orbitron', sans-serif", fontSize: 11,
-                              }}>
-                                {fmtDerived(derived, entry)}
-                              </span>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    );
-                  })}
-                </div>
-              );
-            })()}
-
-            <div style={{ marginBottom: 16 }}>
-              <div style={{
-                fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase",
-                color: "#4ab3e8", fontFamily: "'Orbitron', sans-serif",
-                marginBottom: 8, paddingBottom: 6, borderBottom: "1px solid #1a3050",
-              }}>
-                Commands &amp; Abilities
-              </div>
-              {totals.commands.length === 0 ? (
-                <div style={{ color: "#2a5070", fontSize: 12, fontStyle: "italic" }}>None unlocked</div>
-              ) : (
-                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                  {totals.commands.map((cmd) => (
-                    <li key={cmd} style={{
-                      padding: "3px 0", borderBottom: "1px solid #0f2030",
-                      color: "#4ab3e8", fontSize: 12,
-                      display: "flex", alignItems: "center", gap: 6,
-                    }}>
-                      <span style={{ color: "#1e4060", fontSize: 8 }}>◆</span>
-                      {formatCmdKey(cmd, stringTables)}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-
-            <div>
-              <div style={{
-                fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase",
-                color: "#4ab3e8", fontFamily: "'Orbitron', sans-serif",
-                marginBottom: 8, paddingBottom: 6, borderBottom: "1px solid #1a3050",
-              }}>
-                Selected Node
-              </div>
+            {/* Selected Node — hidden until complete */}
+            {false && <div style={{ padding: "10px 14px" }}>
               {!selectedNode ? (
                 <div style={{ color: "#2a5070", fontSize: 12, fontStyle: "italic" }}>Click a node to inspect</div>
               ) : (
@@ -2069,68 +2107,17 @@ function getNodeDisabledReason(node: VisibleNode): string {
                   <div style={{ fontWeight: 700, color: "#c8dff0", fontSize: 14, marginBottom: 6, fontFamily: "'Rajdhani', sans-serif" }}>
                     {formatNodeName(selectedNode.displayName)}
                   </div>
-                  <div style={{ color: "#4a7090", marginBottom: 2 }}>
-                    Tier {selectedNode.tier} · Grid {selectedNode.grid}
-                  </div>
+                  <div style={{ color: "#4a7090", marginBottom: 2 }}>Tier {selectedNode.tier} · Grid {selectedNode.grid}</div>
                   <div style={{ color: "#4a7090" }}>
-                    Rank{" "}
-                    <span style={{ color: "#66cc44", fontWeight: 700 }}>
-                      {selectedRanks[selectedNode.nodeId] ?? 0}
-                    </span>
-                    {" / "}{selectedNode.maxRank}
+                    Rank <span style={{ color: "#66cc44", fontWeight: 700 }}>{selectedRanks[selectedNode.nodeId] ?? 0}</span> / {selectedNode.maxRank}
                   </div>
                 </div>
               )}
-            </div>
+            </div>}
           </div>
-        ) : (
-          /* Collapsed strip */
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 8,
-              border: "1px solid #1a3050",
-              borderRadius: 12,
-              padding: "12px 6px",
-              background: "linear-gradient(160deg, #0c1520, #0d1825)",
-              width: 36,
-              justifySelf: "end",
-            }}
-          >
-            <button
-              onClick={() => setPanelOpen(true)}
-              title="Expand panel"
-              style={{
-                background: "transparent",
-                border: "1px solid #1e3048",
-                borderRadius: 6,
-                color: "#4a7090",
-                cursor: "pointer",
-                fontSize: 13,
-                lineHeight: 1,
-                padding: "3px 6px",
-              }}
-            >
-              ◀
-            </button>
-            <div
-              style={{
-                writingMode: "vertical-rl",
-                textOrientation: "mixed",
-                fontSize: 10,
-                color: totalPointsSpent >= MAX_EXPERTISE_POINTS ? "#ff6060" : "#66cc44",
-                fontWeight: 700,
-                marginTop: 4,
-                fontFamily: "'Orbitron', sans-serif",
-              }}
-            >
-              {totalPointsSpent}/{MAX_EXPERTISE_POINTS}
-            </div>
-          </div>
-        )}
-      </div>
+        );
+      })()}
+      {/* ── /Build Summary ────────────────────────────────────────────────── */}
       </>)} {/* end calculator view */}
     </div> {/* end page body */}
 
