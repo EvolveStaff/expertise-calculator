@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-04-02T05:37:52.419Z",
+    "generatedAt": "2026-05-13T03:09:08.830Z",
     "sourceFiles": [
       "expertise_trees.tab",
       "expertise.tab",
@@ -26461,7 +26461,7 @@
           "treeId": 16,
           "tier": 5,
           "grid": 5,
-          "displayName": "Shock Grenade",
+          "displayName": "Seismic Grenade",
           "maxRank": 1,
           "skillsRequired": [],
           "skillsRequiredCount": null,

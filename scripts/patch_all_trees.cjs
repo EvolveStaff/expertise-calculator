@@ -260,7 +260,7 @@ const EXPLICIT = {
   expertise_co_angled_shrapnel:            'Angled Shrapnel',
   expertise_co_fld_dm:                     'Mines',
   expertise_gr_anti_evade:                 'Powerful Offense',
-  expertise_of_shock:                      'Shock Grenade',
+  expertise_of_shock:                      'Seismic Grenade',
   expertise_of_del_ae_dm_dot:              'Core Bomb',
   expertise_gr_blast_resistance:           'Blast Resistance',
   expertise_of_artillery:                  'Artillery',
