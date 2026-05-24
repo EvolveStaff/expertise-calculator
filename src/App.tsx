@@ -921,7 +921,7 @@ function getNodeDisabledReason(node: VisibleNode): string {
       {/* Codex view — hidden until complete */}
       {false && viewMode === "codex" && data && (
         <WikiView
-          data={data}
+          data={data!}
           stringTables={stringTables}
           nodeIcons={nodeIcons}
           treeGroups={[...NORMAL_TREE_GROUPS, ...JEDI_TREE_GROUPS]}
@@ -2105,11 +2105,11 @@ function getNodeDisabledReason(node: VisibleNode): string {
               ) : (
                 <div style={{ fontSize: 12 }}>
                   <div style={{ fontWeight: 700, color: "#c8dff0", fontSize: 14, marginBottom: 6, fontFamily: "'Rajdhani', sans-serif" }}>
-                    {formatNodeName(selectedNode.displayName)}
+                    {formatNodeName(selectedNode!.displayName)}
                   </div>
-                  <div style={{ color: "#4a7090", marginBottom: 2 }}>Tier {selectedNode.tier} · Grid {selectedNode.grid}</div>
+                  <div style={{ color: "#4a7090", marginBottom: 2 }}>Tier {selectedNode!.tier} · Grid {selectedNode!.grid}</div>
                   <div style={{ color: "#4a7090" }}>
-                    Rank <span style={{ color: "#66cc44", fontWeight: 700 }}>{selectedRanks[selectedNode.nodeId] ?? 0}</span> / {selectedNode.maxRank}
+                    Rank <span style={{ color: "#66cc44", fontWeight: 700 }}>{selectedRanks[selectedNode!.nodeId] ?? 0}</span> / {selectedNode!.maxRank}
                   </div>
                 </div>
               )}
