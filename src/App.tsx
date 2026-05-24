@@ -299,12 +299,14 @@ export default function App() {
 
   // Persist active build
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(selectionsByTree));
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(selectionsByTree)); }
+    catch { /* quota exceeded — silently skip */ }
   }, [selectionsByTree]);
 
   // Persist saved templates
   useEffect(() => {
-    localStorage.setItem(TEMPLATES_KEY, JSON.stringify(templates));
+    try { localStorage.setItem(TEMPLATES_KEY, JSON.stringify(templates)); }
+    catch { /* quota exceeded — silently skip */ }
   }, [templates]);
 
   // Persist FRS rank
