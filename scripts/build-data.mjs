@@ -472,6 +472,8 @@ const SKILL_REQ_ADDITIONS = new Map([
   ["expertise_fs_general_premonition_1", ["expertise_fs_path_anticipate_aggression_4"]],
   // Rifleman T4/G6 (Ambush Efficiency): inject rank-1 Ambush requirement.
   ["expertise_bh_amb_act_1", ["expertise_marksman_ability_01"]],
+  // TKA T6/G1 (Cranial Smash): requires Teras Kasi Master.
+  ["expertise_tk_cranial_smash_1", ["expertise_teras_kasi_master"]],
 ]);
 
 const root = process.cwd();

@@ -5,6 +5,8 @@ import { computeAutoFill } from "./lib/autoFill";
 import type { AutoFillResult } from "./lib/autoFill";
 import HeroicJewelry from "./components/HeroicJewelry";
 import type { JewelryAbilityDesc } from "./components/HeroicJewelry";
+import RECalculator from "./components/RECalculator";
+import SEABuilder from "./components/SEABuilder";
 import WikiView from "./components/WikiView";
 import type { ExpertisePayload, StringTables, VisibleNode, TreeData } from "./lib/types";
 import { STAT_MULTIPLIERS, CORE_STAT_LABELS, CORE_STAT_COLORS, fmtDerived } from "./lib/statHelpers";
@@ -265,6 +267,31 @@ function decodeBuild(code: string, allTrees?: TreeData[]): BuildPayload | null {
   }
 }
 
+function REView() {
+  const [reTab, setReTab] = useState<"calc" | "builder">("builder");
+  return (
+    <div>
+      <div style={{ display: "flex", gap: 0, marginBottom: 16, borderBottom: "1px solid #1a3050" }}>
+        {([["builder", "Character Builder"], ["calc", "Modifier Reference"]] as const).map(([id, label]) => (
+          <button key={id} onClick={() => setReTab(id)} style={{
+            padding: "8px 22px", border: "none", cursor: "pointer",
+            borderBottom: reTab === id ? "2px solid #40c880" : "2px solid transparent",
+            background: reTab === id ? "rgba(64,200,128,0.07)" : "transparent",
+            color: reTab === id ? "#40e890" : "#4a7090",
+            fontWeight: reTab === id ? 700 : 400,
+            fontSize: 13, fontFamily: "'Rajdhani', sans-serif", letterSpacing: "0.05em",
+            marginBottom: -1,
+          }}>
+            {label}
+          </button>
+        ))}
+      </div>
+      {reTab === "calc" && <RECalculator />}
+      {reTab === "builder" && <SEABuilder />}
+    </div>
+  );
+}
+
 export default function App() {
   const [data, setData] = useState<ExpertisePayload | null>(null);
   const [stringTables, setStringTables] = useState<StringTables | null>(null);
@@ -282,7 +309,7 @@ export default function App() {
       return saved ? (JSON.parse(saved) as SelectionsByTree) : {};
     } catch { return {}; }
   });
-  const [viewMode, setViewMode] = useState<"calculator" | "codex" | "heroic">("calculator");
+  const [viewMode, setViewMode] = useState<"calculator" | "codex" | "heroic" | "re">("calculator");
   const [characterType, setCharacterType] = useState<"normal" | "jedi">("normal");
   const [templates, setTemplates] = useState<Record<string, Template>>(() => {
     try {
@@ -879,6 +906,28 @@ function getNodeDisabledReason(node: VisibleNode): string {
           ◆ Heroic Sets
         </button>
 
+        {/* RE Calculator tab */}
+        <button
+          onClick={() => setViewMode(viewMode === "re" ? "calculator" : "re")}
+          style={{
+            padding: "10px 30px",
+            border: "none",
+            borderBottom: viewMode === "re" ? "3px solid #40c880" : "3px solid transparent",
+            marginBottom: -1,
+            background: viewMode === "re" ? "rgba(64,200,128,0.07)" : "transparent",
+            color: viewMode === "re" ? "#40e890" : "#5a7a98",
+            fontWeight: viewMode === "re" ? 700 : 500,
+            fontSize: 14,
+            cursor: "pointer",
+            fontFamily: "'Rajdhani', sans-serif",
+            letterSpacing: "0.04em",
+            transition: "color 0.15s, border-color 0.15s",
+            whiteSpace: "nowrap",
+          }}
+        >
+          ⚙ Exotic Attachments
+        </button>
+
         {/* Codex tab — hidden until complete */}
         {false && <button
           onClick={() => {
@@ -919,6 +968,9 @@ function getNodeDisabledReason(node: VisibleNode): string {
           onAbilityClick={(_key) => { /* codex hidden */ }}
         />
       )}
+
+      {/* RE / Exotic Attachments view */}
+      {viewMode === "re" && <REView />}
 
       {/* Codex view — hidden until complete */}
       {false && viewMode === "codex" && data && (

@@ -74,6 +74,7 @@ const EXPLICIT = {
   expertise_tk_annulling:                  'Annulling',
   expertise_tk_chr:                        'Critical Hit Reduction',
   expertise_tk_controlled_spin:            'Controlled Spin',
+  expertise_tk_cranial_smash:              'Cranial Smash',
   expertise_tkm_taunt:                     'Instigate',
   expertise_tkm_ae_taunt:                  'Area Instigate',
 
