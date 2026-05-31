@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-05-31T08:29:10.314Z",
+    "generatedAt": "2026-05-31T08:31:44.764Z",
     "sourceFiles": [
       "expertise_trees.tab",
       "expertise.tab",
@@ -6735,8 +6735,7 @@
               "xpCost": 5000,
               "skillAbility": [],
               "commands": [
-                "sm_narrow_escape_1",
-                "me_cranial_smash_1"
+                "sm_narrow_escape_1"
               ],
               "skillMods": [
                 {
