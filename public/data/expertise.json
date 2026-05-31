@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-05-31T08:27:11.376Z",
+    "generatedAt": "2026-05-31T08:29:10.314Z",
     "sourceFiles": [
       "expertise_trees.tab",
       "expertise.tab",
@@ -32561,55 +32561,6 @@
           ]
         },
         {
-          "nodeId": "expertise_tk_cranial_smash",
-          "treeId": 19,
-          "tier": 6,
-          "grid": 1,
-          "displayName": "Cranial Smash",
-          "maxRank": 1,
-          "skillsRequired": [
-            "expertise_teras_kasi_master"
-          ],
-          "skillsRequiredCount": null,
-          "preclusionSkills": [
-            "expertise_me_cranial_smash_1",
-            "expertise_fn_cranial_smash_1",
-            "expertise_sw_cranial_smash_1"
-          ],
-          "reqProf": "all",
-          "prereqLevel": null,
-          "ranks": [
-            {
-              "name": "expertise_tk_cranial_smash_1",
-              "nodeId": "expertise_tk_cranial_smash",
-              "displayName": "Cranial Smash",
-              "treeId": 19,
-              "tier": 6,
-              "grid": 1,
-              "rank": 1,
-              "reqProf": "all",
-              "prereqLevel": null,
-              "parent": "expertise",
-              "skillsRequired": [
-                "expertise_teras_kasi_master"
-              ],
-              "skillsRequiredCount": null,
-              "preclusionSkills": [
-                "expertise_me_cranial_smash_1",
-                "expertise_fn_cranial_smash_1",
-                "expertise_sw_cranial_smash_1"
-              ],
-              "xpType": "combat_general",
-              "xpCost": 10000,
-              "skillAbility": [],
-              "commands": [
-                "me_cranial_smash_1"
-              ],
-              "skillMods": []
-            }
-          ]
-        },
-        {
           "nodeId": "expertise_tk_controlled_spin",
           "treeId": 19,
           "tier": 6,
@@ -32729,6 +32680,55 @@
                   "raw": "expertise_damage_line_en_sweeping_pirouette=10"
                 }
               ]
+            }
+          ]
+        },
+        {
+          "nodeId": "expertise_tk_cranial_smash",
+          "treeId": 19,
+          "tier": 6,
+          "grid": 3,
+          "displayName": "Cranial Smash",
+          "maxRank": 1,
+          "skillsRequired": [
+            "expertise_teras_kasi_master"
+          ],
+          "skillsRequiredCount": null,
+          "preclusionSkills": [
+            "expertise_me_cranial_smash_1",
+            "expertise_fn_cranial_smash_1",
+            "expertise_sw_cranial_smash_1"
+          ],
+          "reqProf": "all",
+          "prereqLevel": null,
+          "ranks": [
+            {
+              "name": "expertise_tk_cranial_smash_1",
+              "nodeId": "expertise_tk_cranial_smash",
+              "displayName": "Cranial Smash",
+              "treeId": 19,
+              "tier": 6,
+              "grid": 3,
+              "rank": 1,
+              "reqProf": "all",
+              "prereqLevel": null,
+              "parent": "expertise",
+              "skillsRequired": [
+                "expertise_teras_kasi_master"
+              ],
+              "skillsRequiredCount": null,
+              "preclusionSkills": [
+                "expertise_me_cranial_smash_1",
+                "expertise_fn_cranial_smash_1",
+                "expertise_sw_cranial_smash_1"
+              ],
+              "xpType": "combat_general",
+              "xpCost": 10000,
+              "skillAbility": [],
+              "commands": [
+                "me_cranial_smash_1"
+              ],
+              "skillMods": []
             }
           ]
         },
